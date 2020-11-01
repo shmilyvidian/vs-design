@@ -1,8 +1,8 @@
-@import './mixins/mixins.scss';
-@import '../../../node_modules/element-ui/packages/theme-chalk/src/button.scss';
+@import "./mixins/mixins.scss";
+@import "../../../node_modules/element-ui/packages/theme-chalk/src/button.scss";
 
-@include b(test){
-    display: inline-block;
+@include b(test) {
+  display: inline-block;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
@@ -165,6 +165,6 @@
     padding: 12px;
   }
 }
-.infinite-button [class*=infinite-icon-]+span {
+.infinite-button [class*="infinite-icon-"] + span {
   margin-left: 5px;
 }

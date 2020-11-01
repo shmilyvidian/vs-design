@@ -8,16 +8,20 @@ import './style/index.scss'
 import demoBlock from './components/demo-block'
 import hljs from 'highlight.js'
 import '../packages/theme-chalk/src/index.scss'
-// import '../packages/theme-chalk/src/infinite-button.scss'
-// import '../packages/theme-chalk/src/infinite-form.scss'
+import Vant from 'vant'
+import 'vant/lib/index.css'
+
+// 使用vant-ui
+Vue.use(Vant)
 
 // 导入组件库
-import {
-  InfiniteButton
-} from '../packages'
-Vue.config.productionTip = false
-Vue.use(InfiniteButton)
+import { InfiniteButton } from '../packages'
+import { InfiniteLoading } from '../packages'
 
+Vue.config.productionTip = false
+
+Vue.use(InfiniteButton)
+  .use(InfiniteLoading)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)
