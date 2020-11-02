@@ -1,10 +1,12 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
 import InfiniteButton from './infinite-button'
+import InfiniteLoading from './infinite-loading'
 
 const version = '0.0.3'
 const components = [
   InfiniteButton,
+  InfiniteLoading,
 ]
 const install = Vue => {
   components.forEach(Component => {
@@ -20,7 +22,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
   install,
   version,
-  InfiniteButton
+  InfiniteButton,
+  InfiniteLoading
 }
 export default {
   install,

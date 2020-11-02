@@ -1,0 +1,9 @@
+@import "./mixins/mixins.scss";
+
+.infinite-loading {
+  background: #000;
+  color: #fff;
+}
+.infinite-loading [class*="infinite-icon-"] + span {
+  margin-left: 5px;
+}
