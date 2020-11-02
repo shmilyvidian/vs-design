@@ -15,13 +15,13 @@ import 'vant/lib/index.css'
 Vue.use(Vant)
 
 // 导入组件库
-import { InfiniteButton } from '../packages'
-import { InfiniteLoading } from '../packages'
-
+import {
+  InfiniteButton,
+  InfiniteLoading
+} from '../packages'
 Vue.config.productionTip = false
-
 Vue.use(InfiniteButton)
-  .use(InfiniteLoading)
+.use(InfiniteLoading)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)
