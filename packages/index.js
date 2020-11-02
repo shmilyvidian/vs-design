@@ -12,6 +12,7 @@ const install = Vue => {
   })
 
 };
+console.log('test');
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
