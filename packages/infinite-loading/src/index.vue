@@ -1,23 +1,37 @@
 <template>
-  <button
-    class="infinite-loading"
-    :class="[
-      `infinite-loading--${type}`,
-    ]"
-  >
-    <i :class="icon" v-if="icon"></i>
-    {{ loadingText }}
-    <!-- 如果没有传入插槽的时候才显示 -->
-    <span v-if="$slots.default"><slot></slot></span>
-  </button>
+  <div class="loading-container">
+    <div
+      class="infinite-loading"
+      :class="[
+        `infinite-loading--${type}`,
+      ]">
+
+    </div>
+    <van-loading :type="type" :color="color" :size="size" :textSize="textSize">{{loadingText}}</van-loading>
+  </div>
 </template>
 <script>
 export default {
   name: 'InfiniteLoading',
   props: {
+    // 类型，可选值为 spinner
     type: {
       type: String,
-      default: 'default'
+      default: 'circular'
+    },
+    color: {
+      type: String,
+      default: '#c9c9c9'
+    },
+    // 加载图标大小，默认单位为px
+    size: {
+      type: [Number, String],
+      default: '30px'
+    },
+    // 文字大小，默认单位为px
+    textSize: {
+      type: [Number, String],
+      default: '14px'
     },
     icon: {
       type: String,
