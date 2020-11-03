@@ -23,6 +23,7 @@
     "packages"
   ],
   "dependencies": {
+    "babel-plugin-import": "^1.13.1",
     "core-js": "^3.3.4",
     "element-ui": "2.4.9",
     "vant": "^2.10.12"

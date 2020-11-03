@@ -11,17 +11,19 @@ import '../packages/theme-chalk/src/index.scss'
 import Vant from 'vant'
 import 'vant/lib/index.css'
 
-// 使用vant-ui
-Vue.use(Vant)
-
 // 导入组件库
 import {
   InfiniteButton,
-  InfiniteLoading
+  InfiniteLoading,
+  InfiniteDatetimePicker
 } from '../packages'
+
+// 使用vant-ui
+Vue.use(Vant)
 Vue.config.productionTip = false
 Vue.use(InfiniteButton)
-.use(InfiniteLoading)
+  .use(InfiniteLoading)
+  .use(InfiniteDatetimePicker)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)

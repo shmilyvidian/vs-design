@@ -1,0 +1,106 @@
+@import "./mixins/mixins.scss";
+// @import "../../../node_modules/element-ui/packages/theme-chalk/src/button.scss";
+
+// @include b(test) {
+//   display: inline-block;
+//   line-height: 1;
+//   white-space: nowrap;
+//   cursor: pointer;
+// }
+.infinite-datetime-picker-template {
+  flex: none;
+
+  .infinite-datetime-picker-title {
+    position: relative;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+
+    span {
+      &.default {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 21px;
+      }
+
+      &.icon {
+        padding-right: 6px;
+      }
+    }
+
+    .icon {
+      &.default {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-left: 5px;
+        transform: translateY(calc(-50% - 1px));
+        // background: url(calendar.png) no-repeat center center;
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+  .infinite-datetime-picker-popuper {
+    .infinite-datetime-picker-center-highlight {
+      height: 36px;
+      transform: translateY(calc(50% + 7px));
+      background-color: #e1e1e1;
+      opacity: 0.1;
+    }
+
+    /deep/ .van-picker__toolbar {
+      height: 50px;
+      line-height: 50px;
+      background: #212228;
+
+      .van-picker__cancel {
+        padding: 0 14px;
+        font-size: 16px;
+        color: #fff;
+      }
+
+      .van-picker__confirm {
+        padding: 0 14px;
+        font-size: 16px;
+        color: #69a4ff;
+      }
+    }
+
+    /deep/ .van-picker__columns {
+      background: #2e3036;
+
+      .van-picker-column {
+        .van-picker-column__wrapper {
+          .van-picker-column__item {
+            color: #6a7088;
+
+            &.van-picker-column__item--selected {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      .van-picker__mask {
+        opacity: 0;
+      }
+
+      .van-hairline-unset--top-bottom {
+        &::after {
+          border-width: 0;
+        }
+      }
+    }
+  }
+}
+// .infinite-button [class*="infinite-icon-"] + span {
+//   margin-left: 5px;
+// }

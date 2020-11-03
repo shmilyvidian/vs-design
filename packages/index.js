@@ -2,11 +2,13 @@
 // This file is auto gererated by build/build-entry.js
 import InfiniteButton from './infinite-button'
 import InfiniteLoading from './infinite-loading'
+import InfiniteDatetimePicker from './infinite-datetime-picker'
 
 const version = '0.0.3'
 const components = [
   InfiniteButton,
   InfiniteLoading,
+  InfiniteDatetimePicker,
 ]
 const install = Vue => {
   components.forEach(Component => {
@@ -23,7 +25,8 @@ export {
   install,
   version,
   InfiniteButton,
-  InfiniteLoading
+  InfiniteLoading,
+  InfiniteDatetimePicker,
 }
 export default {
   install,
