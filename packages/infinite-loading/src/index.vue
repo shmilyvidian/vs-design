@@ -11,8 +11,14 @@
   </div>
 </template>
 <script>
+import VanLoading from 'vant/lib/loading'
+import 'vant/lib/loading/style'
+
 export default {
   name: 'InfiniteLoading',
+  components: {
+    VanLoading
+  },
   props: {
     // 类型，可选值为 spinner
     type: {
