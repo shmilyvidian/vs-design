@@ -1,11 +1,4 @@
 <template>
-  <div class="loading-container">
-    <div
-      class="infinite-loading"
-      :class="[
-        `infinite-loading--${type}`,
-      ]">
-    </div>
     <van-loading 
       :type="type"
       :color="color"
@@ -14,11 +7,9 @@
       @click="handleClick">
       {{loadingText}}
     </van-loading>
-  </div>
 </template>
 <script>
 import VanLoading from 'vant/lib/loading'
-import 'vant/lib/loading/style'
 
 export default {
   name: 'InfiniteLoading',
