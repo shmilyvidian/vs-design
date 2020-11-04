@@ -10,27 +10,23 @@
 ```html
 <el-row>
   <infinite-loading
-    :type="loadingType"
-    :color="loadingColor"
-    :size="loadingSize"
-    :textSize="loadingTextSize"
-    :loadingText="loadingText"
+    type="spinner"
+    color="orange"
+    size="36"
+    textSize="18"
+    loadingText="加载中。。。"
+    @handleClick="handleClick"
   ></infinite-loading>
 </el-row>
 <script>
   export default {
     data() {
       return {
-        loadingType: "spinner",
-        loadingColor: "lightblue",
-        loadingSize: "36",
-        loadingTextSize: "18",
-        loadingText: "加载中。。。123"
       }
     },
     methods: {
       handleClick(val) {
-        console.log(val, "clicked the button")
+        console.log("clicked parent loading", val);
       }
     }
   }

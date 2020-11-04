@@ -5,9 +5,15 @@
       :class="[
         `infinite-loading--${type}`,
       ]">
-
     </div>
-    <van-loading :type="type" :color="color" :size="size" :textSize="textSize">{{loadingText}}</van-loading>
+    <van-loading 
+      :type="type"
+      :color="color"
+      :size="size"
+      :textSize="textSize"
+      @click="handleClick">
+      {{loadingText}}
+    </van-loading>
   </div>
 </template>
 <script>
@@ -49,6 +55,10 @@ export default {
     }
   },
   methods: {
+    handleClick() {
+      console.log('child loading click');
+      this.$emit('handleClick');
+    }
   },
   mounted () {
     console.log('loading mounted', this.loadingText)

@@ -5,17 +5,15 @@
 ### 基础用法
 
 基础的按钮用法。
-:::demo 使用`loadingText`传入加载文案
+:::demo 使用`imageType`传图片类型，可选值为 error network search，支持传入图片 URL； 使用`imageSize`传图片大小，默认单位为 px； 使用`imageSize`传图片下方的描述文字
+
 
 ```html
-<el-row>
+<el-row>  
   <infinite-empty
-    type="spinner"
-    color="orange"
-    size="36"
-    textSize="18"
-    loadingText="加载中。。。"
-    @handleClick="handleClick"
+    imageType="network"
+    imageSize="100"
+    description="这是empty组件"
   ></infinite-empty>
 </el-row>
 <script>

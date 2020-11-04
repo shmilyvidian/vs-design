@@ -15,15 +15,18 @@ import 'vant/lib/index.css'
 import {
   InfiniteButton,
   InfiniteLoading,
-  InfiniteDatetimePicker
+  InfiniteDatetimePicker,
+  InfiniteEmpty,
 } from '../packages'
 
+console.log('InfiniteEmpty', InfiniteEmpty);
 // 使用vant-ui
 Vue.use(Vant)
 Vue.config.productionTip = false
 Vue.use(InfiniteButton)
   .use(InfiniteLoading)
   .use(InfiniteDatetimePicker)
+  .use(InfiniteEmpty)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)
