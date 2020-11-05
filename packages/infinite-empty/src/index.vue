@@ -4,7 +4,9 @@
       :image="imageType"
       :imageSize="imageSize"
       :description="description"
-    />
+    >
+    <slot></slot>
+    </van-empty>
   </div>
 </template>
 <script>

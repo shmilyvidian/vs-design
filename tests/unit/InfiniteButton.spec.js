@@ -10,3 +10,4 @@ describe('InfiniteButton.vue', () => {
     wrapper.destroy()
   })
 })
+
