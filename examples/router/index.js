@@ -4,6 +4,7 @@ import Button from '../docs/button.md'
 import Loading from '../docs/loading.md'
 import Empty from '../docs/empty.md'
 import DatetimePicker from '../docs/DatetimePicker.md'
+import InfinitePullRefresh from '../docs/InfinitePullRefresh.md'
 
 import VueRouter from 'vue-router'
 const routes = [
@@ -45,6 +46,14 @@ const routes = [
     path: '/guide/datetimepicker',
     name: 'DatetimePicker',
     component: DatetimePicker,
+    meta: {
+      type: 'component'
+    }
+  },
+  {
+    path: '/guide/InfinitePullRefresh',
+    name: 'InfinitePullRefresh',
+    component: InfinitePullRefresh,
     meta: {
       type: 'component'
     }

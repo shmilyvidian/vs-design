@@ -4,6 +4,7 @@ import InfiniteButton from './infinite-button'
 import InfiniteLoading from './infinite-loading'
 import InfiniteDatetimePicker from './infinite-datetime-picker'
 import InfiniteEmpty from './infinite-empty'
+import InfinitePullRefresh from './infinite-pull-refresh'
 
 const version = '0.0.3'
 const components = [
@@ -11,6 +12,7 @@ const components = [
   InfiniteLoading,
   InfiniteDatetimePicker,
   InfiniteEmpty,
+  InfinitePullRefresh
 ]
 const install = Vue => {
   components.forEach(Component => {
@@ -30,6 +32,7 @@ export {
   InfiniteLoading,
   InfiniteDatetimePicker,
   InfiniteEmpty,
+  InfinitePullRefresh
 }
 export default {
   install,

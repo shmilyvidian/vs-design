@@ -17,6 +17,7 @@ import {
   InfiniteLoading,
   InfiniteDatetimePicker,
   InfiniteEmpty,
+  InfinitePullRefresh
 } from '../packages'
 
 console.log('InfiniteEmpty', InfiniteEmpty);
@@ -27,6 +28,7 @@ Vue.use(InfiniteButton)
   .use(InfiniteLoading)
   .use(InfiniteDatetimePicker)
   .use(InfiniteEmpty)
+  .use(InfinitePullRefresh)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)
