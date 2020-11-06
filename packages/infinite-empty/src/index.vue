@@ -6,19 +6,19 @@
       :description="description"
     >
     <slot></slot>
-    <InfiniteHeaderNav @goBack="clickGoBack"/>
+    <!-- <InfiniteHeaderNav @goBack="clickGoBack"/> -->
     </van-empty>
   </div>
 </template>
 <script>
 import VanEmpty from 'vant/lib/empty'
-import InfiniteHeaderNav from '@/packages/infinite-header-nav/src/index.vue'
+import InfiniteHeaderNav from '../../infinite-header-nav/src/index.vue'
 
 export default {
   name: 'InfiniteEmpty',
   components: {
     VanEmpty,
-    InfiniteHeaderNav,
+    // InfiniteHeaderNav,
   },
   props: {
     // 图片类型，可选值为 error network search，支持传入图片 URL
