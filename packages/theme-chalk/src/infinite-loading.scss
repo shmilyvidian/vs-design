@@ -7,3 +7,10 @@
 .infinite-loading [class*="infinite-icon-"] + span {
   margin-left: 5px;
 }
+
+.van-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

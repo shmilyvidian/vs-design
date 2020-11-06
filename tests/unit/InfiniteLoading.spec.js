@@ -16,15 +16,15 @@ describe('InfiniteLoading.vue', () => {
   it('renders props.type to match class', () => {
     const typeArr = ['circular', 'spinner']
     typeArr.forEach(itemType => {
-      console.log('itemType', itemType);
+      // console.log('itemType', itemType);
       const wrapper = shallowMount(InfiniteLoading, {
         propsData: { 
           type: itemType,
         }
       })
-      console.log('mountmount', mount(InfiniteLoading).classes());
-      console.log('wrapper', wrapper.classes());
-      console.log('wrapper.attributes()', wrapper.attributes());
+      // console.log('mountmount', mount(InfiniteLoading).classes());
+      // console.log('wrapper', wrapper.classes());
+      // console.log('wrapper.attributes()', wrapper.attributes());
       expect(wrapper.attributes().type).toMatch(itemType)
 
       // const containType = mount(InfiniteLoading).classes().includes(`van-loading--${itemType}`)

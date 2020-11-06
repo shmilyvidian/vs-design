@@ -3,6 +3,7 @@ import Installation from '../docs/Installation.md'
 import Button from '../docs/button.md'
 import Loading from '../docs/loading.md'
 import Empty from '../docs/empty.md'
+import HeaderNav from '../docs/headerNav.md'
 import DatetimePicker from '../docs/DatetimePicker.md'
 import InfinitePullRefresh from '../docs/InfinitePullRefresh.md'
 
@@ -38,6 +39,14 @@ const routes = [
     path: '/guide/empty',
     name: 'Empty',
     component: Empty,
+    meta: {
+      type: 'component'
+    }
+  },
+  {
+    path: '/guide/headerNav',
+    name: 'HeaderNav',
+    component: HeaderNav,
     meta: {
       type: 'component'
     }
