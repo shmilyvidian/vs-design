@@ -25,6 +25,8 @@
           <el-menu-item index="/guide/empty">Empty</el-menu-item>
           <el-menu-item index="/guide/datetimepicker">DatetimePicker</el-menu-item>
           <el-menu-item index="/guide/InfinitePullRefresh">InfinitePullRefresh</el-menu-item>
+          <el-menu-item index="/guide/toast">InfiniteToast</el-menu-item>
+          <el-menu-item index="/guide/table">InfiniteTable</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>

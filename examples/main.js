@@ -17,10 +17,13 @@ import {
   InfiniteLoading,
   InfiniteDatetimePicker,
   InfiniteEmpty,
-  InfinitePullRefresh
+  InfinitePullRefresh,
+  InfiniteToast,
+  InfiniteTable
 } from '../packages'
 
-console.log('InfiniteEmpty', InfiniteEmpty);
+console.log('InfiniteEmpty', InfiniteEmpty)
+console.log('InfiniteToast', InfiniteToast)
 // 使用vant-ui
 Vue.use(Vant)
 Vue.config.productionTip = false
@@ -29,6 +32,8 @@ Vue.use(InfiniteButton)
   .use(InfiniteDatetimePicker)
   .use(InfiniteEmpty)
   .use(InfinitePullRefresh)
+  .use(InfiniteToast)
+  .use(InfiniteTable)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)
