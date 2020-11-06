@@ -1,8 +1,9 @@
 <template>
-  <header class="header-wrapper" :style="{insertStyle}">
-    <div class="header-left">
-      <van-icon name="arrow-left" :color="color" :size="size" />
-      <slot name="leftItem"/>
+  <header class="header-wrapper" :style="insertStyle">
+    <div class="header-left" @click="goBack">
+      <van-icon name="arrow-left" :color="color" :size="size">
+      </van-icon>
+        <slot name="leftItem"/>
     </div>
     <div class="header-title">
       <slot name="centerItem"/>
@@ -37,14 +38,14 @@ export default {
     }
   },
   methods: {
-    handleClick() {
-      console.log('child loading click');
-      this.$emit('handleClick');
+    goBack() {
+      console.log('child goBack');
+      this.$emit('goBack');
     }
   },
   mounted () {
     console.log('insertStyle');
-console.log(this.insertStyle);
+    console.log(this.insertStyle);
   }
 }
 </script>
