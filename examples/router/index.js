@@ -6,6 +6,7 @@ import Empty from '../docs/empty.md'
 import HeaderNav from '../docs/headerNav.md'
 import DatetimePicker from '../docs/DatetimePicker.md'
 import InfinitePullRefresh from '../docs/InfinitePullRefresh.md'
+import InfinitePopup from '../docs/InfinitePopup.md'
 
 import VueRouter from 'vue-router'
 const routes = [
@@ -63,6 +64,14 @@ const routes = [
     path: '/guide/InfinitePullRefresh',
     name: 'InfinitePullRefresh',
     component: InfinitePullRefresh,
+    meta: {
+      type: 'component'
+    }
+  },
+  {
+    path: '/guide/InfinitePopup',
+    name: 'InfinitePopup',
+    component: InfinitePopup,
     meta: {
       type: 'component'
     }

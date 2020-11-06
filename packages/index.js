@@ -5,6 +5,7 @@ import InfiniteLoading from './infinite-loading'
 import InfiniteDatetimePicker from './infinite-datetime-picker'
 import InfiniteEmpty from './infinite-empty'
 import InfinitePullRefresh from './infinite-pull-refresh'
+import InfinitePopup from './infinite-popup'
 import InfiniteHeaderNav from './infinite-header-nav'
 
 const version = '0.0.3'
@@ -15,6 +16,7 @@ const components = [
   InfiniteEmpty,
   InfinitePullRefresh,
   InfiniteHeaderNav,
+  InfinitePopup
 ]
 const install = Vue => {
   components.forEach(Component => {
@@ -35,6 +37,7 @@ export {
   InfiniteEmpty,
   InfinitePullRefresh,
   InfiniteHeaderNav,
+  InfinitePopup
 }
 export default {
   install,
