@@ -11,6 +11,13 @@
         <el-main>
           <router-view></router-view>
         </el-main>
+        <div class="fixed-right">
+          <iframe
+            style="height: 640px;"
+            src="http://www.runoob.com"
+            id="frame_1"
+          ></iframe>
+        </div>
       </el-container>
     </el-container>
   </div>
@@ -31,8 +38,15 @@ export default {
 </script>
 <style>
 /* 引入代码高亮样式 */
-@import '~highlight.js/styles/color-brewer.css';
-.el-main{
-  height:calc(100vh - 60px)
+@import "~highlight.js/styles/color-brewer.css";
+.el-main {
+  height: calc(100vh - 60px);
+  width: calc(100vh - 300px);
+}
+
+.fixed-right {
+  height: 600px;
+  margin: 20px;
+  overflow: hidden;
 }
 </style>

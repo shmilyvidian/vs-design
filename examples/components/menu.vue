@@ -28,7 +28,6 @@
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
-    </el-menu>
   </div>
 </template>
 
