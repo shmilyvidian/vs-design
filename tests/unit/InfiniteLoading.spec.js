@@ -32,5 +32,20 @@ describe('InfiniteLoading.vue', () => {
       wrapper.destroy()
     })
   })
+
+  it('renders props.type to match class', () => {
+      // console.log('itemType', itemType);
+      const wrapper = mount(InfiniteLoading, {
+        propsData: { 
+          loadingText: "hello world",
+        }
+      })
+      console.log('mountmount', wrapper.$el);
+      console.log(wrapper.$el);
+      expect(wrapper.$el.textContent).to.contain('hello world')
+
+      wrapper.destroy()
+  })
+
 })
 
