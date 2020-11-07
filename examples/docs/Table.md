@@ -1,6 +1,6 @@
-## toast 组件
+## table 组件
 
-空状态时的占位提示
+自适应的table
 
 ### 基础用法
 
@@ -8,13 +8,13 @@
 
 
 ```html
-<el-row>  
+<!-- <el-row>   -->
   <infinite-table
     :table-data="tableData"
   >
     
   </infinite-table>
-</el-row>
+<!-- </el-row> -->
 <script>
   export default {
     data() {
@@ -127,3 +127,15 @@
   }
 </script>
 ```
+
+### Columns 的 options
+
+| 参数   | 说明                        | 类型        | 默认值 |
+| ----   | -------------------- | ----------- | --------------------------- |
+| name   | 表格列title           | _string_    |                             |
+| fixed  | 该列是否为固定列       | _boolean_   | false                       |
+| isSort | 是否支持排序          | _boolean_    | 固定列为false，非固定为true  |
+| sort   | 列排序方式            | _string_     | 1正序 0倒序                 |
+| key    | 表格列key             | _string_    |                             |
+| unit   | 表格列单位             | _string_    |                             |
+| style  | 表格列补充样式         | _object_    |                             |
