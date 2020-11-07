@@ -1,0 +1,9 @@
+@import "./mixins/mixins.scss";
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: gray;
+  line-height: 30px;
+  height: 30px;
+}

@@ -5,7 +5,8 @@
       @click="openDatePopup"
       :style="{background: pickerColor, borderRadius: pickerRadius}">
       <span :class="span">{{ currentDate | filterCurrentDate(that) }}</span>
-      <i :class-="icon"></i>
+      <!-- <i :class-="icon"></i> -->
+      <van-icon :class="span" :name="icon" v-bind="iconStyle" />
     </div>
     <!-- end of 时间选择器显示title及icon -->
     <!-- popup弹窗 -->
@@ -31,6 +32,7 @@
       <!-- end of picker类型时间选择区 -->
       <!-- DatetimePicker类型时间选择区 -->
       <DatetimePicker
+        ref="datetimePicker"
         v-else
         :type="pickerType"
         v-bind="nextPropsObj"
@@ -56,13 +58,15 @@
 import Popup from 'vant/lib/popup'
 import Picker from 'vant/lib/picker'
 import DatetimePicker from 'vant/lib/datetime-picker'
+import VanIcon from 'vant/lib/icon'
 
 export default {
   name: 'InfiniteDatetimePicker',
   components: {
     Popup, 
     Picker, 
-    DatetimePicker
+    DatetimePicker,
+    VanIcon
   },
   filters: {
     // 获取及输出的时间都为yyyyMMdd格式,如：20200101，无有'-'或'/'，就算有也要在接收时处理掉，所有显示时间这里加上-
@@ -175,6 +179,13 @@ export default {
     pickerRadius: {
       type: String,
       default: '0'
+    },
+    // 右侧图标配置，size、color等
+    iconStyle: {
+      type: Object,
+      default: () => ({
+        size: '16px'
+      })
     }
   },
   data () {
@@ -219,15 +230,18 @@ export default {
     },
     // 右边的图标类名
     icon () {
-      const iconStr = 'icon micofont'
+      // const iconStr = 'icon micofont'
+      // const iconStr = ''
       const arr = ['just-show']
       if (arr.includes(this.type)) {
         return ''
       }
       if (this.useDefaultIcon) {
-        return `${iconStr} default`
+        // return `${iconStr} default`
+        return `tosend`
       }
-      return this.popupShow ? `${iconStr} icon-caret-up` : `${iconStr} icon-caret-down`
+      // return this.popupShow ? `${iconStr} icon-caret-up` : `${iconStr} icon-caret-down`
+      return this.popupShow ? `arrow-up` : `arrow-down`
     },
     // 外部传入的关于时间选择器的配置
     nextPropsObj () {
@@ -252,8 +266,13 @@ export default {
     // 外部传入的时间选择器的起始时间minDate
     minDate () {
       let { startTime } = this
+      const arr = ['week-end', 'week-segment']
+      if (arr.includes(this.type)) {
+        return ''
+      }
       if (!startTime) {
         console.log('err: 请带入startTime')
+        console.log('this.type = ', this.type)
       }
       if (this.timeSelectableInterval.length) {
         startTime = this.timeSelectableInterval[0].replace(/[^0-9]/ig, '').substr(-8)
@@ -263,12 +282,17 @@ export default {
     // 外部传入的时间选择器的结束时间maxDate
     maxDate () {
       let { endTime } = this
+      const arr = ['week-end', 'week-segment']
+      if (arr.includes(this.type)) {
+        return ''
+      }
       if (!endTime) {
         console.log('err: 请带入endTime')
       }
       if (this.timeSelectableInterval.length) {
         endTime = this.timeSelectableInterval[this.timeSelectableInterval.length - 1].replace(/[^0-9]/ig, '').substr(-8)
       }
+      // console.log('dasdasdas', this.setMyCurrentDate(endTime))
       return this.setMyCurrentDate(endTime)
     },
     // 时间的转换格式
@@ -318,6 +342,7 @@ export default {
           arr.push(`${Number(accordance) + index}${unit}`)
         }
       }
+      // console.log('arr === ', arr, this.endTime, this.startTime, accordance)
       return arr
     },
     // 默认的关于picker的选中索引，默认0， 有传入的v-model决定
@@ -377,7 +402,7 @@ export default {
       }
       const str = value.replace(/[^0-9]/ig, '')
       const strLen = str.length
-      console.log('value, str, strLen === ', value, str, strLen)
+      // console.log('value, str, strLen === ', value, str, strLen)
       // const filterStrLength = filterStr.length
       const startZeroLengthFour = str.substr(0, 4)
       const startFourLengthTwo = str.substr(4, 2)
@@ -400,7 +425,7 @@ export default {
           }
           return new Date(`${startZeroLengthFour}/${startFourLengthTwo}`)
         case 'month-day': // 月日--返回的格式是MMdd如0201格式，没有年，如有需求差异请自行解决该问题
-          if (strLen !== 6 && strLen !== 8) {
+          if (strLen !== 4 && strLen !== 8) {
             console.log('err: 请传入正确格式的月日（如0101）')
           }
           return new Date(`${endFourLengthTwo}/${endTwoLengthTwo}`)
@@ -599,7 +624,7 @@ export default {
     },
     // 对选项过滤，实现自定义时间间隔
     filter (type, options) {
-      const arr = options
+      let arr = options
       // 有可选时间区间的情况下需要就行列数据的重置
       if (Array.isArray(this.validDate) && this.validDate.length) {
         const myCurrentDateStr = this.format(this.myCurrentDate.getTime(), this.formatStr)

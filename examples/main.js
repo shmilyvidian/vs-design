@@ -19,11 +19,12 @@ import {
   InfiniteEmpty,
   InfinitePullRefresh,
   InfiniteToast,
+  InfiniteHeaderNav,
   InfiniteTable
 } from '../packages'
 
 console.log('InfiniteEmpty', InfiniteEmpty)
-console.log('InfiniteToast', InfiniteToast)
+console.log('main vue', window.Vue)
 // 使用vant-ui
 Vue.use(Vant)
 Vue.config.productionTip = false
@@ -34,6 +35,7 @@ Vue.use(InfiniteButton)
   .use(InfinitePullRefresh)
   .use(InfiniteToast)
   .use(InfiniteTable)
+  .use(InfiniteHeaderNav)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)

@@ -7,6 +7,7 @@ import InfiniteEmpty from './infinite-empty'
 import InfinitePullRefresh from './infinite-pull-refresh'
 import InfiniteToast from './infinite-toast'
 import InfiniteTable from './infinite-table'
+import InfiniteHeaderNav from './infinite-header-nav'
 
 const version = '0.0.3'
 const components = [
@@ -17,6 +18,7 @@ const components = [
   InfinitePullRefresh,
   InfiniteToast,
   InfiniteTable,
+  InfiniteHeaderNav,
 ]
 const install = Vue => {
   components.forEach(Component => {
@@ -24,7 +26,6 @@ const install = Vue => {
   })
 
 };
-console.log('test');
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
@@ -38,6 +39,7 @@ export {
   InfiniteEmpty,
   InfinitePullRefresh,
   InfiniteToast,
+  InfiniteHeaderNav,
   InfiniteTable
 }
 export default {

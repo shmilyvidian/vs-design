@@ -10,8 +10,12 @@
   </div>
 </template>
 <script>
+import VanEmpty from 'vant/lib/empty'
 export default {
   name: 'InfiniteEmpty',
+  components: {
+    VanEmpty
+  },
   props: {
     // 图片类型，可选值为 error network search，支持传入图片 URL
     imageType: {

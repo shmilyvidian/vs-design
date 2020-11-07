@@ -1,18 +1,34 @@
 ## toast 组件
 
-空状态时的占位提示
+在页面中间弹出黑色半透明提示，用于消息通知、加载提示、操作结果提示等场景。
 
 ### 基础用法
 
-:::demo
+:::demo 引入 Toast 组件后，会自动在 Vue 的 prototype 上挂载 $infiniteToast 方法，便于在组件内调用。
 
 
 ```html
-<el-row>  
-  <infinite-button @click="handleClick">
-    点击
-  </infinite-button>
+<el-row>
+    <infinite-button @click="infiniteToastText">文字提示</infinite-button>
+    <infinite-button type="primary" @click="infiniteToastLoading">加载提示</infinite-button>
+    <infinite-button type="success" @click="infiniteToastSuccess">成功提示</infinite-button>
+    <infinite-button type="info" @click="infiniteToastFail">失败提示</infinite-button>
 </el-row>
+<el-row>
+    <infinite-button type="warning" @click="infiniteToastIcon">自定义图标提示</infinite-button>
+    <infinite-button type="danger" @click="infiniteToastImg">自定义图片提示</infinite-button>
+</el-row>
+<el-row>
+    <infinite-button plain @click="infiniteToastPositionTop">自定义顶部提示</infinite-button>
+    <infinite-button type="primary" plain @click="infiniteToastPositionBottom">自定义底部提示</infinite-button>
+</el-row>
+<el-row>
+    <infinite-button type="success" plain @click="infiniteToastPromise">动态更新提示</infinite-button>
+</el-row>
+    <!-- <infinite-button type="info" plain>信息按钮</infinite-button> -->
+    <!-- <infinite-button type="warning" plain>警告按钮</infinite-button> -->
+    <!-- <infinite-button type="danger" plain>危险按钮</infinite-button> -->
+<!-- </el-row> -->
 <script>
   export default {
     data() {
@@ -20,12 +36,63 @@
       }
     },
     methods: {
-      handleClick() {
+      infiniteToastText() {
+        this.$infiniteToast('提示内容');
+      },
+      infiniteToastLoading() {
         this.$infiniteToast.loading({
           message: '加载中...',
           forbidClick: true,
         });
-        console.log(this)
+      },
+      infiniteToastSuccess() {
+        this.$infiniteToast.success('成功文案');
+      },
+      infiniteToastFail() {
+        this.$infiniteToast.fail('失败文案');
+      },
+      infiniteToastIcon() {
+        this.$infiniteToast({
+          message: '自定义图标',
+          icon: 'like-o',
+        });
+      },
+      infiniteToastImg() {
+        this.$infiniteToast({
+          message: '自定义图片',
+          icon: 'https://img.yzcdn.cn/vant/logo.png',
+        });
+      },
+      infiniteToastPositionTop() {
+        this.$infiniteToast({
+          message: '自定义顶部提示',
+          position: 'top',
+        });
+      },
+      infiniteToastPositionBottom() {
+        this.$infiniteToast({
+          message: '自定义底部提示',
+          position: 'bottom',
+        });
+      },
+      infiniteToastPromise() {
+        const toast = this.$infiniteToast.loading({
+          duration: 0, // 持续展示 toast
+          forbidClick: true,
+          message: '倒计时 3 秒',
+        });
+
+        let second = 3;
+        const timer = setInterval(() => {
+          second--;
+          if (second) {
+            toast.message = `倒计时 ${second} 秒`;
+          } else {
+            clearInterval(timer);
+            // 手动清除 Toast
+            this.$infiniteToast.clear();
+          }
+        }, 1000);
       }
     }
   }
@@ -33,156 +100,6 @@
 ```
 
 :::
-
-# Toast 轻提示
-
-### 介绍
-
-在页面中间弹出黑色半透明提示，用于消息通知、加载提示、操作结果提示等场景。
-
-### 引入
-
-```js
-import Vue from 'vue';
-import { Toast } from 'vant';
-
-Vue.use(Toast);
-```
-
-## 代码演示
-
-### 文字提示
-
-```js
-Toast('提示内容');
-```
-
-### 加载提示
-
-使用 `Toast.loading` 方法展示加载提示，通过 `forbidClick` 属性可以禁用背景点击。
-
-```js
-Toast.loading({
-  message: '加载中...',
-  forbidClick: true,
-});
-```
-
-### 成功/失败提示
-
-使用 `Toast.success` 方法展示成功提示，使用 `Toast.fail` 方法展示失败提示。
-
-```js
-Toast.success('成功文案');
-Toast.fail('失败文案');
-```
-
-### 自定义图标
-
-通过 `icon` 选项可以自定义图标，支持传入[图标名称](#/zh-CN/icon)或图片链接，通过`loadingType` 属性可以自定义加载图标类型。
-
-```js
-Toast({
-  message: '自定义图标',
-  icon: 'like-o',
-});
-
-Toast({
-  message: '自定义图片',
-  icon: 'https://img.yzcdn.cn/vant/logo.png',
-});
-
-// 自定义加载图标
-Toast.loading({
-  message: '加载中...',
-  forbidClick: true,
-  loadingType: 'spinner',
-});
-```
-
-### 自定义位置
-
-Toast 默认渲染在屏幕正中位置，通过 `position` 属性可以控制 Toast 展示的位置。
-
-```js
-Toast({
-  message: '顶部展示',
-  position: 'top',
-});
-
-Toast({
-  message: '底部展示',
-  position: 'bottom',
-});
-```
-
-### 动态更新提示
-
-执行 Toast 方法时会返回对应的 Toast 实例，通过修改实例上的 `message` 属性可以实现动态更新提示的效果。
-
-```js
-const toast = Toast.loading({
-  duration: 0, // 持续展示 toast
-  forbidClick: true,
-  message: '倒计时 3 秒',
-});
-
-let second = 3;
-const timer = setInterval(() => {
-  second--;
-  if (second) {
-    toast.message = `倒计时 ${second} 秒`;
-  } else {
-    clearInterval(timer);
-    // 手动清除 Toast
-    Toast.clear();
-  }
-}, 1000);
-```
-
-### 全局方法
-
-引入 Toast 组件后，会自动在 Vue 的 prototype 上挂载 `$toast` 方法，便于在组件内调用。
-
-```js
-export default {
-  mounted() {
-    this.$toast('提示文案');
-  },
-};
-```
-
-### 单例模式
-
-Toast 默认采用单例模式，即同一时间只会存在一个 Toast，如果需要在同一时间弹出多个 Toast，可以参考下面的示例：
-
-```js
-Toast.allowMultiple();
-
-const toast1 = Toast('第一个 Toast');
-const toast2 = Toast.success('第二个 Toast');
-
-toast1.clear();
-toast2.clear();
-```
-
-### 修改默认配置
-
-通过 `Toast.setDefaultOptions` 函数可以全局修改 Toast 的默认配置。
-
-```js
-// 将所有 Toast 的展示时长设置为 2000 毫秒
-Toast.setDefaultOptions({ duration: 2000 });
-
-// 将所有 loading Toast 设置为背景不可点击
-Toast.setDefaultOptions('loading', { forbidClick: true });
-
-// 重置所有 Toast 的默认配置
-Toast.resetDefaultOptions();
-
-// 重置 loading Toast 的默认配置
-Toast.resetDefaultOptions('loading');
-```
 
 ## API
 
