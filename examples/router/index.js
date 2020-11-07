@@ -8,6 +8,7 @@ import DatetimePicker from '../docs/DatetimePicker.md'
 import InfinitePullRefresh from '../docs/InfinitePullRefresh.md'
 import InfiniteToast from '../docs/Toast.md'
 import InfiniteTable from '../docs/Table.md'
+import InfinitePopup from '../docs/InfinitePopup.md'
 
 import VueRouter from 'vue-router'
 const routes = [
@@ -70,6 +71,14 @@ const routes = [
     }
   },
   {
+    path: '/guide/InfinitePopup',
+    name: 'InfinitePopup',
+    component: InfinitePopup,
+    meta: {
+      type: 'component'
+    }
+  },
+  {
     path: '/guide/toast',
     name: 'InfiniteToast',
     component: InfiniteToast,
@@ -85,6 +94,7 @@ const routes = [
       type: 'component'
     }
   }
+
 ]
 Vue.use(VueRouter)
 const router = new VueRouter({

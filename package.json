@@ -54,6 +54,7 @@
     "sass-loader": "^8.0.0",
     "shelljs": "^0.8.4",
     "signale": "^1.4.0",
+    "sinon": "^9.2.1",
     "transliteration": "^2.1.8",
     "uppercamelcase": "^3.0.0",
     "vue": "^2.6.11",

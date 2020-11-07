@@ -54,30 +54,30 @@ export default {
     successText: {
       type: String,
       default: '刷新成功提示文案',
-      required: ''
+      required: false
     },
     // 刷新成功提示展示时长(ms)
     successDuration: {
-      type: [Number | String],
-      default: '刷新成功提示展示时长(ms)',
-      required: 500
+      type: [Number, String],
+      default: 500,
+      required: false
     },
     // 动画时长
     animationDuration: {
-      type: [Number | String],
-      default: '动画时长',
-      required: 300
+      type: [Number, String],
+      default: 300,
+      required: false
     },
     // 顶部内容高度
     headHeight: {
-      type: [Number | String],
-      default: '顶部内容高度',
-      required: 50
+      type: [Number, String],
+      default: 50,
+      required: false
     },
     // 是否禁用下拉刷新
     disabled: {
       type: Boolean,
-      default: '是否禁用下拉刷新',
+      default: false,
       required: false
     }
   },

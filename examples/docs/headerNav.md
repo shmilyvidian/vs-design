@@ -29,18 +29,22 @@
 
 :::
 
-### 图片类型
+### 通过slot传入 左侧、中间、右侧的内容
 
-Empty 组件内置了多种占位图片类型，可以在不同业务场景下使用。
 
-:::demo 使用`imageType`传图片类型，可选值为 error network search，支持传入图片 URL； 使用`imageSize`传图片大小，默认单位为 px； 使用`imageSize`传图片下方的描述文字
-
+:::demo 使用slot="leftItem" slot="centerItem" slot="rightItem" 传入内容
 
 ```html
 <el-row>  
-  <infinite-header-nav>
-    <div slot="centerItem" :insertStyle="insertStyle">
-      中间文字
+  <infinite-header-nav @goBack="goBackClick">
+    <div slot="leftItem">
+      左文字
+    </div>
+    <div slot="centerItem">
+      {{headerTitle}}
+    </div>
+    <div slot="rightItem">
+      右文字
     </div>
   </infinite-header-nav>
 </el-row>
@@ -48,12 +52,13 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
   export default {
     data() {
       return {
-        insertStyle: { background: 'yellow', size:60 }
+        headerTitle: '中间文字'
       }
     },
     methods: {
-      handleClick(val) {
+      goBackClick(val) {
         console.log("clicked parent loading", val);
+        this.headerTitle = val ? val.name : '中间文字'
       }
     }
   }
@@ -63,32 +68,37 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 :::
 
 
-### 底部内容
+### 通过insertStyle对象传入需要的样式
 
-通过默认插槽可以在 Empty 组件的下方插入内容。
 
-:::demo 
-
+:::demo
 
 ```html
 <el-row>  
-  <infinite-empty
-    imageType="search"
-    imageSize="100"
-    description="这是empty组件3"
-  >
-   <button>点击刷新</button>
-  </infinite-empty>
+  <infinite-header-nav 
+    :insertStyle="insertStyle"
+    @goBack="goBackClick">
+    <div slot="leftItem">
+      左文字
+    </div>
+    <div slot="centerItem">
+      中间文字
+    </div>
+    <div slot="rightItem">
+      右文字
+    </div>
+  </infinite-header-nav>
 </el-row>
 <script>
   export default {
     data() {
       return {
+        insertStyle: { background: '#fff', color: 'lightblue', fontSize: '28px', paddingTop: '10px'}
       }
     },
     methods: {
-      handleClick(val) {
-        console.log("clicked parent loading", val);
+      goBackClick(val) {
+        console.log("parent goBackClick", val);
       }
     }
   }
