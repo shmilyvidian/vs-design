@@ -70,7 +70,7 @@ $bgColor: #27292f;
   display: inline-flex;
   word-break: break-all;
 }
-.infinite-card-table {
+.card-table {
   table,
   tr,
   th,
@@ -89,7 +89,7 @@ $bgColor: #27292f;
   * {
     box-sizing: initial;
   }
-  .infinite-table-box {
+  .table-box {
     color: #fff;
     font-size: 3.733vw;
     position: relative;
@@ -101,7 +101,7 @@ $bgColor: #27292f;
 
 
     // 右滑可滑动的提示箭头
-    .infinite-scroll-icon {
+    .scroll-icon {
       display: flex;
       position: absolute;
       right: .8vw;
@@ -114,12 +114,12 @@ $bgColor: #27292f;
     }
   }
 
-  .infinite-table-content {
+  .table-content {
     position: relative;
     transform: translateZ(1000px);
 
     // 隐藏滚动条
-    .infinite-scroll-div {
+    .scroll-div {
       width: 100%;
       overflow-x: auto;
       overflow-y: hidden;
@@ -134,15 +134,15 @@ $bgColor: #27292f;
     }
 
     // 表格样式
-    .infinite-table-div {
-      .infinite-table {
-        .infinite-p-tr {
+    .table-div {
+      .table {
+        .p-tr {
           @extend .gather-p-tr;
           .opacity {
             opacity: 0;
           }
         }
-        .infinite-thead {
+        .thead {
           color: $ftColor;
 
           // 表头表格对齐方式
@@ -162,21 +162,22 @@ $bgColor: #27292f;
             background: rgba(46, 48, 54, 1) !important;
           }
 
-          .infinite-p-head-tr {
+          .p-head-tr {
             @extend .gather-header-tr;
-            .infinite-p-head-th {
+            .p-head-th {
               display: flex;
               align-items: center;
+              justify-content: center;
               position: relative;
               box-sizing: initial;
               padding-bottom: 1.733vw!important;
 
-              .infinite-content {
+              .content {
                 display: flex;
                 justify-content: center;
 
                 // 设置配需按钮样式
-                .infinite-care-icon-box {
+                .care-icon-box {
                   width: min-content;
                   position: relative;
                   font-weight: 600;
@@ -185,37 +186,43 @@ $bgColor: #27292f;
                   letter-spacing: 0;
                   line-height: 4.8vw;
 
-                  .infinite-sort-div-ab {
+                  .sort-div-ab {
                     width: 2.133vw;
                     position: absolute;
                     top: 50%;
                     left: calc(100% + .533vw);
                     transform: translateY(calc(-50%));
 
-                    .infinite-sort-div-re {
+                    .sort-div-re {
                       position: relative;
                       height: 2.667vw;
                       width: 2.133vw;
 
-                      .infinite-sort-top {
+                      .sort-top {
                         @extend .sort-icon-style;
                         bottom: 1.5vw;
                         border-top-color: transparent;
                       }
 
-                      .infinite-sort-top.active {
+                      .sort-bottom {
+                        @extend .sort-icon-style;
+                        bottom: -1vw;
+                        border-bottom-color: transparent;
+                      }
+
+                      .sort-top.active {
                         border-bottom-color: $mainColor;
                       }
 
                       .sort-bottom.active {
-                        border-bottom-color: $mainColor;
+                        border-top-color: $mainColor;
                       }
                     }
                   }
                 }
               }
 
-              .infinite-unit {
+              .unit {
                 font-size: 2.4vw;
               }
             }
@@ -226,32 +233,32 @@ $bgColor: #27292f;
           }
         }
 
-        .infinite-tbody {
-          .infinite-p-td {
+        .tbody {
+          .p-td {
             z-index: 2;
             transform: translateZ(900px);
             @extend .td-p-b;
             @extend .text-wb-ws-bs;
 
-            .infinite-p-td-container {
+            .p-td-container {
               @extend .td-container;
             }
 
-            .infinite-p-td-text {
+            .p-td-text {
               @extend .line-clamp-2;
             }
 
             // 子表格样式
-            .infinite-nest-table {
+            .nest-table {
               overflow: hidden;
               position: relative;
               white-space: initial;
               
-              .infinite-container-c-more-btn {
+              .container-c-more-btn {
                 opacity: 0;
               }
 
-              .infinite-fixed-c-more-btn {
+              .fixed-c-more-btn {
                 @extend .flex-c-c;
 
                 color: $mainColor;
@@ -269,26 +276,26 @@ $bgColor: #27292f;
                 }
               }
 
-              .infinite-c-table {
-                .infinite-c-tr {
+              .c-table {
+                .c-tr {
                   display: flex;
                 }
-                .infinite-c-td-container{
+                .c-td-container{
                   @extend .td-container;
                 }
-                .infinite-c-td {
+                .c-td {
                   @extend .td-p-b;
                   z-index: 1;
                   transform: translateZ(800px);
                   @extend .text-wb-ws-bs;
-                  .infinite-c-td-text {
+                  .c-td-text {
                     @extend .line-clamp-2;
                   }
                 }
 
                 // 子节点点击后查看当前单元格全部文案
                 .unit-clicked {
-                  .infinite-c-td-text {
+                  .c-td-text {
                     display: block;
                   }
                 }
@@ -299,7 +306,7 @@ $bgColor: #27292f;
                   align-items: center;
                   justify-content: flex-end;
 
-                  .infinite-c-td-text {
+                  .c-td-text {
                     text-align: right;
                   }
                 }
@@ -308,7 +315,7 @@ $bgColor: #27292f;
                   align-items: center;
                   justify-content: center;
 
-                  .infinite-c-td-text {
+                  .c-td-text {
                     text-align:center;
                   }
                 }
@@ -317,7 +324,7 @@ $bgColor: #27292f;
                   align-items: center;
                   justify-content: left;
 
-                  .infinite-c-td-text {
+                  .c-td-text {
                     text-align: left;
                   }
                 }
@@ -328,14 +335,14 @@ $bgColor: #27292f;
           
           // 存在展开查看子节点时，默认展示全部
           .col-2-ischildrens {
-            .infinite-p-td-text {
+            .p-td-text {
               display: block;
             }
           }
 
           // 点击后查看当前单元格全部文案
           .unit-clicked {
-            .infinite-p-td-text {
+            .p-td-text {
               display: block;
             }
           }
@@ -343,32 +350,32 @@ $bgColor: #27292f;
           // 父节点表身表格列对齐
           .row-align-right-textalign {
             text-align: right;
-            .infinite-p-td-text {
+            .p-td-text {
               text-align: right;
             }
           }
           .row-align-center-textalign {
             text-align: center;
-            .infinite-p-td-text {
+            .p-td-text {
               text-align: center;
             }
           }
           .row-align-left-textalign {
             text-align: left;
-            .infinite-p-td-text {
+            .p-td-text {
               text-align: left;
             }
           }
           // 表格列对齐 end
 
           .tr-children {
-            .infinite-p-td {
+            .p-td {
               background: transparent;
               overflow: hidden;
               padding: 0 !important;
             }
 
-            > .infinite-p-td {
+            > .p-td {
               padding: 0;
             }
           }
@@ -382,7 +389,7 @@ $bgColor: #27292f;
       }
 
       // 设置存在子节点的展开箭头提示
-      .infinite-p-td {
+      .p-td {
         .icon-down {
           @extend .icon-position-border;
           margin-top: .534vw;
@@ -398,18 +405,22 @@ $bgColor: #27292f;
     }
 
     // 设置被点击穿透
-    .infinite-head-div {
-      .infinite-p-head-tr {
+    .head-div {
+      position: relative;
+
+      .p-head-tr {
         pointer-events: auto;
       }
     }
 
     // 设置子节点背景色
-    .infinite-containe-div {
-      .infinite-nest-table {
+    .containe-div {
+      position: relative;
+
+      .nest-table {
         background: $bgColor;
       }
-      .infinite-c-td {
+      .c-td {
         background: transparent;
       }
     }
@@ -417,7 +428,7 @@ $bgColor: #27292f;
 }
 
 // 设置固定列
-.infinite-fixed-div {
+.fixed-div {
   width: 100%;
   position: absolute;
   left: 0;
@@ -427,7 +438,7 @@ $bgColor: #27292f;
   overflow: hidden;
   pointer-events: none;
   // 设置点击穿透
-  .infinite-thead {
+  .thead {
     pointer-events:  none;
 
     * {
@@ -435,7 +446,7 @@ $bgColor: #27292f;
     }
   }
 
-  .infinite-tbody {
+  .tbody {
     pointer-events: none;
     
     * {
@@ -461,7 +472,7 @@ $bgColor: #27292f;
     }
   }
 
-  .infinite-c-td {
+  .c-td {
     opacity: 0;
   }
 }
@@ -477,12 +488,12 @@ $bgColor: #27292f;
   transform: rotate(135deg);
 }
 
-.infinite-risk-table-more.rotate45 {
+.risk-table-more.rotate45 {
   transform: rotate(45deg);
   margin: 0 0 0 1.333vw;
 }
 
-.infinite-more-box {
+.more-box {
   padding: 5.333vw 0 5.333vw 0;
   color: $mainColor;
   margin-top: 2.4vw;
@@ -490,10 +501,10 @@ $bgColor: #27292f;
   font-size: 3.733vw;
   line-height: 5.333vw;
 
-  .infinite-more-btn {
+  .more-btn {
     @extend .flex-c-c;
 
-    .infinite-rotate-45 {
+    .rotate-45 {
       transform: rotate(-45deg);
       margin-left: 2.133vw;
       margin-top: 1.067vw;
@@ -503,7 +514,7 @@ $bgColor: #27292f;
 
 // 查看更多
 // 没有查看更多时的底部高度
-.infinite-bottom-padding {
+.bottom-padding {
   padding-bottom: 3.6vw;
 }
 
@@ -523,13 +534,13 @@ $bgColor: #27292f;
   }
 }
 
-.infinite-p-td-text,.infinite-c-td-text {
+.p-td-text,.c-td-text {
   display: inline-block;
   text-align: center;
 }
 
-.infinite-card-table {
-  .infinite-c-table-conform {
+.card-table {
+  .c-table-conform {
     width: calc(100vw - 5.334vw);
     border-radius: 2.667vw;
     margin: 0 2.667vw;
@@ -537,7 +548,7 @@ $bgColor: #27292f;
     background: #2e3036;
   }
 
-  .infinite-c-ttable-container {
+  .c-ttable-container {
     height: calc(100vh - 17.067vw);
     box-sizing: border-box;
     background: #2e3036;

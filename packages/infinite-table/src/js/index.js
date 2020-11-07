@@ -160,9 +160,11 @@ export const cardTableWatch = {
                 item.isSort ? expandOrSortWidth : 0
                 expandOrSortWidthAdd += everyDxpandOrSortWidth
 
+                // console.log('index, widthCount, paddingCount, expandOrSortWidthAdd, ==, tableContentWidth == ', index, widthCount, paddingCount, expandOrSortWidthAdd, widthCount + paddingCount + expandOrSortWidthAdd, tableContentWidth)
                 if (widthCount + paddingCount + expandOrSortWidthAdd > tableContentWidth &&
                   !viewLastColIndex) {
                   viewLastColIndex = index
+                  // console.log('widthCount + paddingCount + expandOrSortWidthAdd, viewLastColIndex - index == ', widthCount + paddingCount + expandOrSortWidthAdd, viewLastColIndex)
                   viewLastWidth = widthCount - currentWidthPx
                   viewExpandOrSortWidthAdd = expandOrSortWidthAdd - everyDxpandOrSortWidth
                 }
@@ -193,32 +195,43 @@ export const cardTableWatch = {
           this.defaultColPaddingWidth = 0
           // 判断各种场景下的单元格样式
           this.nearViewTableColumns.forEach((item, index) => {
+            // console.log('viewLastColIndex, item == ', viewLastColIndex, item)
             const topNum = tableContentWidth - viewLastWidth - viewExpandOrSortWidthAdd - 2 * startOrEndPadding
             const bottomNum = 2 * (viewLastColIndex - 1)
             this.defaultColPaddingWidth = topNum / bottomNum
             if (!tdStyle[item.key])tdStyle[item.key] = {}
             if (!index) {
-              tdStyle[item.key].padding = `0${this.defaultColPaddingWidth}px 0 ${startOrEndPadding}px`
+              // console.log('1')
+              tdStyle[item.key].padding = `0 ${this.defaultColPaddingWidth}px 0 ${startOrEndPadding}px`
             } else if ((index === 1 && Object.keys(this.childrenKeys).length)) {
-              tdStyle[item.key].padding = `0${this.defaultColPaddingWidth + expandOrSortWidth}px 0 ${this.defaultColPaddingWidth}px`
+              // console.log('2')
+              tdStyle[item.key].padding = `0 ${this.defaultColPaddingWidth + expandOrSortWidth}px 0 ${this.defaultColPaddingWidth}px`
             } else if (item.isSort && index === viewLastColIndex - 1) {
-              tdStyle[item.key].padding = `0${startOrEndPadding + expandOrSortWidth}px 0 ${this.defaultColPaddingWidth}px`
+              // console.log('3')
+              tdStyle[item.key].padding = `0 ${startOrEndPadding + expandOrSortWidth}px 0 ${this.defaultColPaddingWidth}px`
             } else if (item.isSort && index === viewLastColIndex) {
+              // console.log('4')
               const lPadding = 2 * this.defaultColPaddingWidth - startOrEndPadding
-              tdStyle[item.key].padding = `0${this.defaultColPaddingWidth + expandOrSortWidth}px 0 ${lPadding > 2 ? lPadding : 2}px`
+              tdStyle[item.key].padding = `0 ${this.defaultColPaddingWidth + expandOrSortWidth}px 0 ${lPadding > 2 ? lPadding : 2}px`
             } else if (item.isSort && index === this.nearViewTableColumns.length - 1) {
-              tdStyle[item.key].padding = `0${expandOrSortWidth + startOrEndPadding}px 0 ${this.defaultColPaddingWidth}px`
+              // console.log('5')
+              tdStyle[item.key].padding = `0 ${expandOrSortWidth + startOrEndPadding}px 0 ${this.defaultColPaddingWidth}px`
             } else if (index === this.nearViewTableColumns.length - 1) {
-              tdStyle[item.key].padding = `0${startOrEndPadding}px 0 ${this.defaultColPaddingWidth}px`
+              // console.log('6')
+              tdStyle[item.key].padding = `0 ${startOrEndPadding}px 0 ${this.defaultColPaddingWidth}px`
             } else if (index === viewLastColIndex - 1) {
-              tdStyle[item.key].padding = `0${startOrEndPadding}px 0 ${this.defaultColPaddingWidth}px`
+              // console.log('7')
+              tdStyle[item.key].padding = `0 ${startOrEndPadding}px 0 ${this.defaultColPaddingWidth}px`
             } else if (index === viewLastColIndex) {
+              // console.log('8')
               const lPadding = 2 * this.defaultColPaddingWidth - startOrEndPadding
-              tdStyle[item.key].padding = `0${this.defaultColPaddingWidth}px 0 ${lPadding > 2 ? lPadding : 2}px`
+              tdStyle[item.key].padding = `0 ${this.defaultColPaddingWidth}px 0 ${lPadding > 2 ? lPadding : 2}px`
             } else if (item.isSort) {
-              tdStyle[item.key].padding = `0${this.defaultColPaddingWidth + expandOrSortWidth}px 0 ${this.defaultColPaddingWidth}px`
+              // console.log('9')
+              tdStyle[item.key].padding = `0 ${this.defaultColPaddingWidth + expandOrSortWidth}px 0 ${this.defaultColPaddingWidth}px`
             } else {
-              tdStyle[item.key].padding = `0${this.defaultColPaddingWidth}px 0 ${this.defaultColPaddingWidth}px`              
+              // console.log('10')
+              tdStyle[item.key].padding = `0 ${this.defaultColPaddingWidth}px 0 ${this.defaultColPaddingWidth}px`              
             }
           })
         }
@@ -237,6 +250,7 @@ export const cardTableWatch = {
         // 表头不变时列样式赋值
         if (!localStylesFlat) {
           this.localStyles = tdStyle
+          // console.log('tdStyle == ', tdStyle)
         }
         // 渲染数据
         this.viewTableData = JSON.parse(JSON.stringify(this.nearViewTableData))

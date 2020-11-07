@@ -1,28 +1,28 @@
 <template>
-  <div class="infinite-card-table">
-    <div class="infinite-c-table-conform">
-      <div class="infinite-c-table-container" ref="cTableContainer">
-        <div class="infinite-table-box">
+  <div class="card-table">
+    <div class="c-table-conform">
+      <div class="c-table-container" ref="cTableContainer">
+        <div class="table-box">
           <div 
-            class="infinite-scroll-icon right"
+            class="scroll-icon right"
             v-show="isScroll && scrollIcon"
             :style="{top:'calc('+(arrowsTop/2)+'px)'}"
           >
             <!-- <img :src="require('../svg/arrow-right.svg')" alt="" class="icon-png"> -->
           </div>
           <div 
-            class="infinite-table-content"
+            class="table-content"
             ref="tableContent"
           >
-            <div class="infinite-scroll-div" ref="scrollDiv">
-              <div class="infinite-table-div infinite-head-div">
+            <div class="scroll-div" ref="scrollDiv">
+              <div class="table-div head-div">
                 <table
-                  class="infinite-table"
+                  class="table"
                   ref="headerTable"
                 >
-                  <thead class="infinite-thead">
-                    <tr class="infinite-p-head-tr" ref="scrollTheadTr">
-                      <th class="infinite-p-head-th"
+                  <thead class="thead">
+                    <tr class="p-head-tr" ref="scrollTheadTr">
+                      <th class="p-head-th"
                         v-for="(item,index) in columns"
                         :key="index"
                         :style="[{minHeight:headerMinHeight+'px'},localStyles[item.key]]"
@@ -34,21 +34,21 @@
                         ]"
                         @click="_sortBy(item)"
                       >
-                        <div class="infinite-p-head-th-box">
-                          <div class="infinite-content">
-                            <div class="infinite-care-icon-box" :class="{'header-sort-box':item.isSort}">
+                        <div class="p-head-th-box">
+                          <div class="content">
+                            <div class="care-icon-box" :class="{'header-sort-box':item.isSort}">
                               {{item.name}}
-                              <div class="infinite-unit" v-show="item.unit">
+                              <div class="unit" v-show="item.unit">
                                 <div v-show="item.unit">{{item.unit}}</div>
                               </div>
-                              <div class="infinite-sort-div-ab"
+                              <div class="sort-div-ab"
                                 v-show="item.isSort"
                               >
-                                <div class="infinite-sort-div-re">
-                                  <div class="infinite-sort-icon infinite-sort-top"
+                                <div class="sort-div-re">
+                                  <div class="sort-icon sort-top"
                                     :class="{active:sortOrders[item.key] === -1}"
                                   ></div>
-                                  <div class="infinite-sort-icon infinite-sort-bottom"
+                                  <div class="sort-icon sort-bottom"
                                     :class="{active:sortOrders[item.key] === 1}"
                                   ></div>
                                 </div>
@@ -62,16 +62,16 @@
                 </table>
               </div>
 
-              <div class="infinite-table-div infinite-containe-div">
+              <div class="table-div containe-div">
                 <table
-                  class="infinite-table"
+                  class="table"
                   ref="bodyTable"
                 >
                   <tBody
-                    class="infinite-tbody"
+                    class="tbody"
                   >
                     <tr
-                      class="infinite-p-tr"
+                      class="p-tr"
                       v-for="(item, index) in viewTableData"
                       :key="index"
                       :ref="item.isChildrens?`trMove${item.key}`:''"
@@ -81,7 +81,7 @@
                       }"
                     >
                       <template>
-                        <td class="infinite-p-td"
+                        <td class="p-td"
                           v-for="(item2, index2) in columns"
                           :key="index2"
                           :class="[
@@ -92,12 +92,12 @@
                           :style="localStyles[item2.key]"
                           @click="ontableUnitClick(false, item, index, item2)"
                         >
-                          <div class="infinite-p-td-container"
+                          <div class="p-td-container"
                             :class="{opacity:item2.fixed,'c-td-padding':index2 === 1
                             && item.children && item.children.length}"
                             :style="[item2.style]"
                           >
-                            <span class="infinite-p-td-text"
+                            <span class="p-td-text"
                               :class="maxUnitLengthWidth<8?'line-clamp-3':''"
                             >{{item[item2.key]}}</span>
                           </div>
@@ -109,13 +109,13 @@
               </div>
             </div>
 
-            <div class="infinite-table-div infinite-fixed-div">
+            <div class="table-div fixed-div">
               <table
-                class="infinite-table infinite-fixed-table"
+                class="table fixed-table"
               >
-                <thead class="infinite-thead">
-                  <tr class="infinite-p-head-tr">
-                    <th class="infinite-p-head-th"
+                <thead class="thead">
+                  <tr class="p-head-tr">
+                    <th class="p-head-th"
                       v-for="(item,index) in columns"
                       :key="'item'+index"
                       :style="[{minHeight:headerMinHeight+'px'},localStyles[item.key]]"
@@ -124,28 +124,28 @@
                         'risk-hasShadow': index===leftFixedIndex && !scrollIcon && isScroll
                       }"
                     >
-                      <div class="infinite-p-head-th-box"
+                      <div class="p-head-th-box"
                         :class="{opacity:!item.fixed}"
                       >
-                        <div class="infinite-content"
+                        <div class="content"
                           :class="[
                             item.align?'row-align-'+item.align+'textalign':
                             (item.fixed?'row-align-center-textalign':'row-align-right-textalign')
                           ]"
                         >
-                          <div class="infinite-care-icon-box" :class="{'header-sort-box':item.isSort}">
+                          <div class="care-icon-box" :class="{'header-sort-box':item.isSort}">
                             {{item.name}}
-                            <div class="infinite-unit" v-show="item.unit">
+                            <div class="unit" v-show="item.unit">
                               <div v-show="item.unit">{{item.unit}}</div>
                             </div>
-                            <div class="infinite-sort-div-ab"
+                            <div class="sort-div-ab"
                               v-show="item.isSort"
                             >
-                              <div class="infinite-sort-div-re">
-                                <div class="infinite-sort-icon infinite-sort-top"
+                              <div class="sort-div-re">
+                                <div class="sort-icon sort-top"
                                   :class="{active:sortOrders[item.key] === -1}"
                                 ></div>
-                                <div class="infinite-sort-icon infinite-sort-bottom"
+                                <div class="sort-icon sort-bottom"
                                   :class="{active:sortOrders[item.key] === 1}"
                                 ></div>
                               </div>
@@ -156,8 +156,8 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody class="infinite-tbody infinite-fixed-tbody">
-                  <tr class="infinite-p-tr"
+                <tbody class="tbody fixed-tbody">
+                  <tr class="p-tr"
                     v-for="(item, index) in viewTableData"
                     :key="index"
                     :class="{
@@ -166,7 +166,7 @@
                     }"
                   >
                     <template>
-                      <td class="infinite-p-td"
+                      <td class="p-td"
                         v-for="(item2,index2) in columns"
                         :key="index2"
                         :class="{
@@ -178,12 +178,12 @@
                         :style="localStyles[item2.key]"
                         @click="ontableUnitClick(false,cItemR, index,cItemC)"
                       >
-                        <div class="infinite-p-td-container"
+                        <div class="p-td-container"
                           :class="{opacity:!item2.fixed,'c-td-padding': index2===1
                             && item.children && item.children.length}"
                           :style="[item2.style]"
                         >
-                          <span class="infinite-p-td-text">{{item[item2.key]}}</span>
+                          <span class="p-td-text">{{item[item2.key]}}</span>
                         </div>
                       </td>
                     </template>
@@ -221,7 +221,7 @@ export default {
       recordUnitClicks: {},
       headerMinHeight: '0',
       numberUUID: '', // 排名列ID
-      isDefaultNumer: true, 
+      isDefaultNumber: true, 
       arrowsRange: 10, // 滑动箭头误差值
       maxUnitLengthWidth: 8
     }
@@ -239,7 +239,7 @@ export default {
 
       const data2 = []
       data.forEach((item, index) => {
-        if (this.isDefaultNumer) {
+        if (this.isDefaultNumber) {
           // 设置序号
           item[this.columns[0].key] = index + 1
           data2.push(item)
@@ -282,7 +282,7 @@ export default {
       this.isScroll = data.isScroll
       this.recordUnitClicks = data.recordUnitClicks
       this.headerMinHeight = data.headerMinHeight
-      this.isDefaultNumer = data.isDefaultNumer
+      this.isDefaultNumber = data.isDefaultNumber
       this.numberUUID = data.numberUUID
       this.maxUnitLengthWidth = data.maxUnitLengthWidth
       this.$$nextTick(() => {

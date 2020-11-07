@@ -1,41 +1,39 @@
 <template>
-  <div class="infinite-table-div infinite-head-div">
+  <div class="table-div head-div">
     <table
-      class="infinite-table"
+      class="table"
       ref="headerTable"
     >
-      <thead class="infinite-thead">
-        <tr class="infinite-p-head-tr" ref="scrollTheadTr">
-          <th class="infinite-p-head-th"
+      <thead class="thead">
+        <tr class="p-head-tr" ref="scrollTheadTr">
+          <th class="p-head-th"
             v-for="(item,index) in viewTableColumns"
             :key="index"
             :style="[{minHeight:headerMinHeight+'px'},localStyles[item.key]]"
-            :class="[
-              item.isSort === sortKey?'active':'',
-              item.fixed?'opacity':'',
-              item.align?'row-align-'+item.align+'-textalign':
-              (item.fixed?'row-align-center-textalign':'row-align-right-textalign')
-            ]"
+            :class="{
+              active: item.isSort === sortKey,opacity:item.fixed,
+              'row-align-right-flex':!item.fixed
+            }"
             @click="sortBy(item)"
           >
-            <div class="infinite-p-head-th-box">
-              <div class="infinite-content" :name="item.name">
-                <div class="infinite-care-icon-box">
+            <div class="p-head-th-box">
+              <div class="content" :name="item.name">
+                <div class="care-icon-box">
                   {{item.name}}
-                  <div class="infinite-unit" v-show="item.unit">
+                  <div class="unit" v-show="item.unit">
                     <div v-show="item.unit">{{item.unit}}</div>
                   </div>
-                  <div class="infinite-sort-div-ab"
+                  <div class="sort-div-ab"
                     v-show="item.isSort"
                     :style="{
                       right:defaultColPaddingWidth + 'px'
                     }"
                   >
-                    <div class="infinite-sort-div-re">
-                      <div class="infinite-sort-icon infinite-sort-top"
+                    <div class="sort-div-re">
+                      <div class="sort-icon sort-top"
                         :class="{active:sortOrders[item.key] === -1}"
                       ></div>
-                      <div class="infinite-sort-icon infinite-sort-bottom"
+                      <div class="sort-icon sort-bottom"
                         :class="{active:sortOrders[item.key] === 1}"
                       ></div>
                     </div>

@@ -1,18 +1,20 @@
 <template>
-  <div class="infinite-card-table">
-    <div class="infinite-table-box">
+  <div class="card-table"
+    :style="{background: tableBgColor}"
+  >
+    <div class="table-box">
       <div 
-        class="infinite-scroll-icon"
+        class="scroll-icon"
         v-show="isScroll && scrollIcon"
         :style="{top:'calc('+(arrowsTop/2)+'px)'}"
       >
         <!-- <img :src="require('./svg/arrow-right.svg')" alt="" class="icon-png"> -->
       </div>
       <div 
-        class="infinite-table-content"
+        class="table-content"
         ref="tableContent"
       >
-        <div class="infinite-scroll-div" ref="scrollDiv">
+        <div class="scroll-div" ref="scrollDiv">
           <CardHeaderTable
             ref="headerTableRef"
             :view-table-columns="viewTableColumns"
@@ -24,7 +26,7 @@
             @sortBy="sortBy"
           >
             <!-- <div 
-              class="infinite-ty-tip"
+              class="ty-tip"
               v-show="isScroll && scrollIconTip"
               slot="tytip"
             ><img src="~@/assets/img/bank/Slide01.png" alt=""></div> -->
@@ -42,27 +44,47 @@
             @ontableUnitClick="ontableUnitClick"
           ></CardContainerTable>
         </div>
-       
+          <CardFixedTable
+            :view-table-columns="viewTableColumns"
+            :view-table-data="viewTableData"
+            :local-styles="localStyles"
+            :default-col-padding-width="defaultColPaddingWidth"
+            :record-unit-clicks="recordUnitClicks"
+            :children-keys="childrenKeys"
+            :default-children-num="defaultChildrenNum"
+            :c-more-height="cMoreHeight"
+            :sort-orders="sortOrders"
+            :sort-key="sortKey"
+            :left-fixed-index="leftFixedIndex"
+            :is-scroll="isScroll"
+            :scroll-icon="scrollIcon"
+            :client-width="clientWidth"
+            :header-min-height="arrowsTop"
+            :max-unit-length-width="maxUnitLengthWidth"
+            @sortBy="sortBy"
+            @ontableUnitClick="ontableUnitClick"
+            @openCMore="openCMore"
+          ></CardFixedTable>
       </div>
     </div>
 
-    <div class="infinite-more-box"
+    <div class="more-box"
       v-if="tableData.data.length > everyAddNum"
     >
-      <div class="infinite-more-btn"
+      <div class="more-btn"
         v-if="hashMore"
         @click="expandClick(true)"
       >
-        展开更多<span class="infinite-risk-table-more infinite-risk-outer-more"></span>
+        展开更多<span class="risk-table-more risk-outer-more"></span>
       </div>
-      <div class="infinite-more-btn"
+      <div class="more-btn"
         v-if="!hashMore"
         @click="expandClick(false)"
       >
-        收起<span class="infinite-risk-table-more infinite-risk-outer-more infinite-rotate-45"></span>
+        收起<span class="risk-table-more risk-outer-more rotate-45"></span>
       </div>
     </div>
-    <div class="infinite-bottom-padding" v-else></div>
+    <div class="bottom-padding" v-else></div>
   </div>
 </template>
 <script>
@@ -94,7 +116,7 @@ export default {
       default: () => {}
     },
     // 是否需要默认排序
-    isDefaultNumer: {
+    isDefaultNumber: {
       type: Boolean,
       default: true
     },
@@ -102,6 +124,11 @@ export default {
     numberTitle: {
       type: String,
       default: '排名'
+    },
+    // 表格背景色
+    tableBgColor: {
+      type: String,
+      default: '#2e3036'
     },
     // 单元格最大长度宽度
     maxUnitLengthWidth: {
@@ -254,7 +281,7 @@ export default {
       copyData.forEach((item, index) => {
         if (index < this.rowShowLength) {
           // 设置序号
-          if (this.isDefaultNumer) {
+          if (this.isDefaultNumber) {
             item[this.numberUUID] = index + 1
           }
           numberData.push(item)
@@ -284,7 +311,7 @@ export default {
       data.sortOrders = this.sortOrders
       data.sortKey = this.sortKey
       data.isScroll = this.isScroll
-      data.isDefaultNumer = this.isDefaultNumer
+      data.isDefaultNumber = this.isDefaultNumber
       data.numberUUID = this.numberUUID
       data.recordUnitClicks = this.recordUnitClicks
       data.maxUnitLengthWidth = this.maxUnitLengthWidth
