@@ -18,13 +18,15 @@ import {
   InfiniteDatetimePicker,
   InfiniteEmpty,
   InfinitePullRefresh,
+  InfiniteToast,
   InfiniteHeaderNav,
   InfinitePopup,
-  InfinitePicker
+  InfinitePicker,
+  InfiniteTable,
 } from '../packages'
 
-console.log('InfiniteEmpty', InfiniteEmpty);
-console.log('main vue', window.Vue);
+console.log('InfiniteEmpty', InfiniteEmpty)
+console.log('main vue', window.Vue)
 // 使用vant-ui
 Vue.use(Vant)
 Vue.config.productionTip = false
@@ -33,6 +35,8 @@ Vue.use(InfiniteButton)
   .use(InfiniteDatetimePicker)
   .use(InfiniteEmpty)
   .use(InfinitePullRefresh)
+  .use(InfiniteToast)
+  .use(InfiniteTable)
   .use(InfiniteHeaderNav)
   .use(InfinitePopup)
   .use(InfinitePicker)

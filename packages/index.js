@@ -5,6 +5,8 @@ import InfiniteLoading from './infinite-loading'
 import InfiniteDatetimePicker from './infinite-datetime-picker'
 import InfiniteEmpty from './infinite-empty'
 import InfinitePullRefresh from './infinite-pull-refresh'
+import InfiniteToast from './infinite-toast'
+import InfiniteTable from './infinite-table'
 import InfinitePopup from './infinite-popup'
 import InfinitePicker from './infinite-picker'
 import InfiniteHeaderNav from './infinite-header-nav'
@@ -16,6 +18,8 @@ const components = [
   InfiniteDatetimePicker,
   InfiniteEmpty,
   InfinitePullRefresh,
+  InfiniteToast,
+  InfiniteTable,
   InfiniteHeaderNav,
   InfinitePopup,
   InfinitePicker
@@ -38,9 +42,11 @@ export {
   InfiniteDatetimePicker,
   InfiniteEmpty,
   InfinitePullRefresh,
+  InfiniteToast,
   InfiniteHeaderNav,
   InfinitePopup,
-  InfinitePicker
+  InfinitePicker,
+  InfiniteTable,
 }
 export default {
   install,

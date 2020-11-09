@@ -32,8 +32,10 @@
       }
     }
 
-    .icon {
+    // /deep/ .icon {
+    /deep/ .van-icon {
       &.default {
+      // &.van-icon-tosend {
         position: absolute;
         top: 50%;
         right: 0;

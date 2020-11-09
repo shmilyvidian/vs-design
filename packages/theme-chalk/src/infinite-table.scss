@@ -1,0 +1,557 @@
+@import "./mixins/mixins.scss";
+
+$ftColor: #8799be;
+$mainColor: #6195ff;
+$bgColor: #27292f;
+
+.flex-c-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-wb-ws-bs {
+  word-break: break-all;
+  white-space: pre-wrap;
+  box-sizing: initial;
+}
+
+.td-p-b {
+  padding-top: 1.733vw !important;
+  padding-bottom: 1.733vw !important;
+  box-sizing: initial;
+  position: relative;
+}
+
+// 排序按钮
+.sort-icon-style {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: calc(100% - 2.133vw);
+  border: 1.067vw solid $ftColor;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+// 存在子节点的父节点开展箭头标识
+.icon-position-border {
+  width: 0;
+  height: 0;
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  right: 1.333vw;
+  border: 1.067vw solid #fff;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+// 超出两行省略
+.line-clamp-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-overflow: -o-ellipsis-lastline;
+  display: -webkit-box;
+  line-clamp: 3 !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical;
+}
+// 表头样式
+.gather-header-tr {
+  display: inline-flex;
+  align-items: center;
+}
+.gather-p-tr {
+  display: inline-flex;
+  align-items: center;
+}
+.td-container {
+  display: inline-flex;
+  word-break: break-all;
+}
+.card-table {
+  table,
+  tr,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
+    user-select: none;
+    text-align: center;
+  }
+  * {
+    box-sizing: initial;
+  }
+  .table-box {
+    color: #fff;
+    font-size: 3.733vw;
+    position: relative;
+    z-index: 1;
+    transform: translateZ(1100px);
+    margin-top: 4.267vw;
+    overflow: hidden;
+    box-sizing: border-box;
+
+
+    // 右滑可滑动的提示箭头
+    .scroll-icon {
+      display: flex;
+      position: absolute;
+      right: .8vw;
+      transform: translate3d(0,-50%,1000px);
+
+      .icon-png {
+        width: 2.133vw;
+        height: 2.4vw;
+      }
+    }
+  }
+
+  .table-content {
+    position: relative;
+    transform: translateZ(1000px);
+
+    // 隐藏滚动条
+    .scroll-div {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      &::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    // 表格样式
+    .table-div {
+      .table {
+        .p-tr {
+          @extend .gather-p-tr;
+          .opacity {
+            opacity: 0;
+          }
+        }
+        .thead {
+          color: $ftColor;
+
+          // 表头表格对齐方式
+          .row-align-right-textalign {
+            justify-content: flex-end;
+          }
+
+          .row-align-center-textalign {
+            justify-content: center;
+          }
+
+          .row-align-left-textalign {
+            justify-content: start;
+          }
+
+          .shelter {
+            background: rgba(46, 48, 54, 1) !important;
+          }
+
+          .p-head-tr {
+            @extend .gather-header-tr;
+            .p-head-th {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              box-sizing: initial;
+              padding-bottom: 1.733vw!important;
+
+              .content {
+                display: flex;
+                justify-content: center;
+
+                // 设置配需按钮样式
+                .care-icon-box {
+                  width: min-content;
+                  position: relative;
+                  font-weight: 600;
+                  word-break: keep-all;
+                  word-wrap: break-word;
+                  letter-spacing: 0;
+                  line-height: 4.8vw;
+
+                  .sort-div-ab {
+                    width: 2.133vw;
+                    position: absolute;
+                    top: 50%;
+                    left: calc(100% + .533vw);
+                    transform: translateY(calc(-50%));
+
+                    .sort-div-re {
+                      position: relative;
+                      height: 2.667vw;
+                      width: 2.133vw;
+
+                      .sort-top {
+                        @extend .sort-icon-style;
+                        bottom: 1.5vw;
+                        border-top-color: transparent;
+                      }
+
+                      .sort-bottom {
+                        @extend .sort-icon-style;
+                        bottom: -1vw;
+                        border-bottom-color: transparent;
+                      }
+
+                      .sort-top.active {
+                        border-bottom-color: $mainColor;
+                      }
+
+                      .sort-bottom.active {
+                        border-top-color: $mainColor;
+                      }
+                    }
+                  }
+                }
+              }
+
+              .unit {
+                font-size: 2.4vw;
+              }
+            }
+
+            .opacity {
+              opacity: 0;
+            }
+          }
+        }
+
+        .tbody {
+          .p-td {
+            z-index: 2;
+            transform: translateZ(900px);
+            @extend .td-p-b;
+            @extend .text-wb-ws-bs;
+
+            .p-td-container {
+              @extend .td-container;
+            }
+
+            .p-td-text {
+              @extend .line-clamp-2;
+            }
+
+            // 子表格样式
+            .nest-table {
+              overflow: hidden;
+              position: relative;
+              white-space: initial;
+              
+              .container-c-more-btn {
+                opacity: 0;
+              }
+
+              .fixed-c-more-btn {
+                @extend .flex-c-c;
+
+                color: $mainColor;
+                position: relative;
+                pointer-events: auto;
+
+                &::before {
+                  content: '';
+                  display: inline-block;
+                  width: 100%;
+                  border-top: 1px solid rgba(151, 151, 151, 0.1);
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                }
+              }
+
+              .c-table {
+                .c-tr {
+                  display: flex;
+                }
+                .c-td-container{
+                  @extend .td-container;
+                }
+                .c-td {
+                  @extend .td-p-b;
+                  z-index: 1;
+                  transform: translateZ(800px);
+                  @extend .text-wb-ws-bs;
+                  .c-td-text {
+                    @extend .line-clamp-2;
+                  }
+                }
+
+                // 子节点点击后查看当前单元格全部文案
+                .unit-clicked {
+                  .c-td-text {
+                    display: block;
+                  }
+                }
+
+                // 子节点表身设置对齐方式start
+                .row-align-right-textalign {
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-end;
+
+                  .c-td-text {
+                    text-align: right;
+                  }
+                }
+                .row-align-center-textalign {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+
+                  .c-td-text {
+                    text-align:center;
+                  }
+                }
+                .row-align-left-textalign {
+                  display: flex;
+                  align-items: center;
+                  justify-content: left;
+
+                  .c-td-text {
+                    text-align: left;
+                  }
+                }
+                // end
+              }
+            }
+          }
+          
+          // 存在展开查看子节点时，默认展示全部
+          .col-2-ischildrens {
+            .p-td-text {
+              display: block;
+            }
+          }
+
+          // 点击后查看当前单元格全部文案
+          .unit-clicked {
+            .p-td-text {
+              display: block;
+            }
+          }
+
+          // 父节点表身表格列对齐
+          .row-align-right-textalign {
+            text-align: right;
+            .p-td-text {
+              text-align: right;
+            }
+          }
+          .row-align-center-textalign {
+            text-align: center;
+            .p-td-text {
+              text-align: center;
+            }
+          }
+          .row-align-left-textalign {
+            text-align: left;
+            .p-td-text {
+              text-align: left;
+            }
+          }
+          // 表格列对齐 end
+
+          .tr-children {
+            .p-td {
+              background: transparent;
+              overflow: hidden;
+              padding: 0 !important;
+            }
+
+            > .p-td {
+              padding: 0;
+            }
+          }
+        }
+
+        // 子节点显隐
+        .c-children-hide {
+          position: fixed;
+          left: -99999px;
+        }
+      }
+
+      // 设置存在子节点的展开箭头提示
+      .p-td {
+        .icon-down {
+          @extend .icon-position-border;
+          margin-top: .534vw;
+          border-bottom-color: transparent;
+        }
+
+        .icon-up {
+          @extend .icon-position-border;
+          margin-top: -0.534vw;
+          border-top-color: transparent;
+        }
+      }
+    }
+
+    // 设置被点击穿透
+    .head-div {
+      position: relative;
+
+      .p-head-tr {
+        pointer-events: auto;
+      }
+    }
+
+    // 设置子节点背景色
+    .containe-div {
+      position: relative;
+
+      .nest-table {
+        background: $bgColor;
+      }
+      .c-td {
+        background: transparent;
+      }
+    }
+  }
+}
+
+// 设置固定列
+.fixed-div {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  transform: translateZ(1000px);
+  overflow: hidden;
+  pointer-events: none;
+  // 设置点击穿透
+  .thead {
+    pointer-events:  none;
+
+    * {
+      pointer-events: none;
+    }
+  }
+
+  .tbody {
+    pointer-events: none;
+    
+    * {
+      pointer-events: none;
+    }
+  }
+
+  // 设置背景颜色进行覆盖，设置translateZ做IOS兼容
+  .c-shelter {
+    background-color: #2e3036;
+    z-index: 3;
+    transform: translateZ(1000px);
+    pointer-events: auto;
+  }
+
+  // 设置子表格背景
+  .tr-children {
+    background: transparent;
+
+    .c-shelter {
+      background: $bgColor;
+      opacity: 1;
+    }
+  }
+
+  .c-td {
+    opacity: 0;
+  }
+}
+
+// 查看更多
+.risk-table-more {
+  display: inline-block;
+  width: 2.133vw;
+  height: 2.133vw;
+  border-top: 1px solid $mainColor;
+  border-right: 1px solid $mainColor;
+  margin: -1.067vw 0 0 2.133vw;
+  transform: rotate(135deg);
+}
+
+.risk-table-more.rotate45 {
+  transform: rotate(45deg);
+  margin: 0 0 0 1.333vw;
+}
+
+.more-box {
+  padding: 5.333vw 0 5.333vw 0;
+  color: $mainColor;
+  margin-top: 2.4vw;
+  border-top: 1px solid rgba(151, 151, 151, 0.1);
+  font-size: 3.733vw;
+  line-height: 5.333vw;
+
+  .more-btn {
+    @extend .flex-c-c;
+
+    .rotate-45 {
+      transform: rotate(-45deg);
+      margin-left: 2.133vw;
+      margin-top: 1.067vw;
+    }
+  }
+}
+
+// 查看更多
+// 没有查看更多时的底部高度
+.bottom-padding {
+  padding-bottom: 3.6vw;
+}
+
+// 滑动阴影
+.risk-hasShadow {
+  position: relative;
+  &::before{
+    content: '';
+    display: inline-block;
+    width: 1.333vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -1.333vw;
+    z-index: 2;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.0));
+  }
+}
+
+.p-td-text,.c-td-text {
+  display: inline-block;
+  text-align: center;
+}
+
+.card-table {
+  .c-table-conform {
+    width: calc(100vw - 5.334vw);
+    border-radius: 2.667vw;
+    margin: 0 2.667vw;
+    padding: 2.667vw 0 1.333vw;
+    background: #2e3036;
+  }
+
+  .c-ttable-container {
+    height: calc(100vh - 17.067vw);
+    box-sizing: border-box;
+    background: #2e3036;
+    overflow-y: auto;
+  }
+}
