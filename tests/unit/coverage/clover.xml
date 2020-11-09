@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1604914171027" clover="3.2.0">
-  <project timestamp="1604914171027" name="All files">
-    <metrics statements="9" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2" elements="13" coveredelements="6" complexity="0" loc="9" ncloc="9" packages="1" files="1" classes="1"/>
-    <file name="index.vue" path="/Users/frosv/frosv/student/vs-ui/packages/infinite-pull-refresh/src/index.vue">
-      <metrics statements="9" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
-      <line num="15" count="1" type="stmt"/>
-      <line num="16" count="1" type="stmt"/>
-      <line num="84" count="1" type="stmt"/>
-      <line num="92" count="1" type="stmt"/>
-      <line num="100" count="0" type="stmt"/>
-      <line num="101" count="0" type="stmt"/>
-      <line num="102" count="0" type="stmt"/>
-      <line num="103" count="0" type="stmt"/>
-      <line num="104" count="0" type="stmt"/>
+<coverage generated="1604649265270" clover="3.2.0">
+  <project timestamp="1604649265270" name="All files">
+    <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2" elements="8" coveredelements="5" complexity="0" loc="5" ncloc="5" packages="1" files="1" classes="1"/>
+    <file name="index.vue" path="/Users/pinganyinhang/Documents/codes/vs-ui/packages/infinite-header-nav/src/index.vue">
+      <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="42" count="0" type="stmt"/>
+      <line num="43" count="0" type="stmt"/>
+      <line num="47" count="3" type="stmt"/>
+      <line num="48" count="3" type="stmt"/>
     </file>
   </project>
 </coverage>

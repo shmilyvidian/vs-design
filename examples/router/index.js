@@ -10,6 +10,7 @@ import InfiniteToast from '../docs/Toast.md'
 import InfiniteTable from '../docs/Table.md'
 import InfinitePopup from '../docs/InfinitePopup.md'
 import InfinitePicker from '../docs/InfinitePicker.md'
+import mobileIndex from '../view/index.vue'
 
 import VueRouter from 'vue-router'
 const routes = [
@@ -102,6 +103,14 @@ const routes = [
     meta: {
       type: 'component'
     }
+  },
+  {
+    path: '/mobile/index',
+    name: 'InfinitePopup',
+    meta:{
+      mobile:true
+    },
+    component: mobileIndex
   }
 
 ]

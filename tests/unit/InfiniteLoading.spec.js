@@ -1,4 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils'
+import Vue from 'vue'
 import InfiniteLoading from '@/packages/infinite-loading/src/index.vue'
 describe('InfiniteLoading.vue', () => {
   const colorArr = ['orange', 'blue']
@@ -34,17 +35,13 @@ describe('InfiniteLoading.vue', () => {
   })
 
   it('renders props.type to match class', () => {
-      // console.log('itemType', itemType);
-      const wrapper = mount(InfiniteLoading, {
-        propsData: { 
-          loadingText: "hello world",
-        }
-      })
-      console.log('mountmount', wrapper.$el);
-      console.log(wrapper.$el);
-      // expect(wrapper.$el.textContent).to.contain('hello world')
-
-      wrapper.destroy()
+      // 组件实例
+      const Constructor = Vue.extend(InfiniteLoading);
+      // 挂载组件
+      const myComponent = new Constructor({ propsData: {
+        loadingText: "hello world",
+      }}).$mount();
+      expect(myComponent.$el.textContent).toMatch('hello world')
   })
 
 })

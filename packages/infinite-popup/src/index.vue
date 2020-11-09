@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Popup from 'vant/lib/Popup'
+import Popup from 'vant/lib/popup'
 
 export default {
   name: 'InfinitePopup',

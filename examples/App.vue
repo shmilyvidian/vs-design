@@ -1,20 +1,20 @@
 <template>
   <div style="height:100%">
     <el-container style="height:100%">
-      <el-header height="40">
+      <el-header v-if="$route.meta && !$route.meta.mobile" height="40">
         <header-model></header-model>
       </el-header>
       <el-container>
-        <el-aside width="200px">
+        <el-aside v-if="$route.meta && !$route.meta.mobile" width="200px">
           <menu-model></menu-model>
         </el-aside>
-        <el-main>
+        <el-main >
           <router-view></router-view>
         </el-main>
-        <div class="fixed-right">
+        <div v-if="isChildIframe" class="fixed-right">
           <iframe
             style="height: 640px;"
-            src="http://www.runoob.com"
+            :src="iframeSrc"
             id="frame_1"
           ></iframe>
         </div>
@@ -31,9 +31,21 @@ export default {
     MenuModel
   },
   data () {
-    return {}
+    return {
+      isChildIframe:true
+    }
   },
-  methods: {}
+  methods: {},
+  computed:{
+    iframeSrc(){
+      return '/#/mobile/index'
+    }
+  },
+  mounted(){
+    console.log('isChildIframe');
+    this.isChildIframe = location.hash.includes('guide')
+    console.log(this.isChildIframe);
+  }
 }
 </script>
 <style>
