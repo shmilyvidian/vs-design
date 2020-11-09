@@ -19,8 +19,8 @@ import {
   InfiniteEmpty,
   InfinitePullRefresh,
   InfiniteHeaderNav,
-  InfinitePopup
-
+  InfinitePopup,
+  InfinitePicker
 } from '../packages'
 
 console.log('InfiniteEmpty', InfiniteEmpty);
@@ -35,6 +35,7 @@ Vue.use(InfiniteButton)
   .use(InfinitePullRefresh)
   .use(InfiniteHeaderNav)
   .use(InfinitePopup)
+  .use(InfinitePicker)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)

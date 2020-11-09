@@ -1,4 +1,4 @@
-## InfinitePopup 组件
+## InfinitePicker 组件
 
 弹窗
 
@@ -10,10 +10,8 @@
 ```html
   <el-row>
     <infinite-button @click="onClick">默认按钮</infinite-button>
-    <infinite-popup
-      v-model='show'
-      @onClickOverlay="onClickOverlay"
-    ></infinite-popup>
+    <infinite-picker
+    ></infinite-picker>
   </el-row>
 
   <script>
