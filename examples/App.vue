@@ -42,9 +42,7 @@ export default {
     }
   },
   mounted(){
-    console.log('isChildIframe');
     this.isChildIframe = location.hash.includes('guide')
-    console.log(this.isChildIframe);
   }
 }
 </script>
