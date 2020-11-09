@@ -83,6 +83,11 @@ const routes = [
     path: '/guide/InfinitePicker',
     name: 'InfinitePicker',
     component: InfinitePicker,
+    meta: {
+      type: 'component'
+    }
+  },
+  {
     path: '/guide/toast',
     name: 'InfiniteToast',
     component: InfiniteToast,

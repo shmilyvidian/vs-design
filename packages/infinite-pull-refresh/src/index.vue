@@ -1,20 +1,19 @@
 <template>
   <div class="infinite-pull-refresh">
-    <van-pull-refresh
+    <PullRefresh
       style="min-height: 100px;"
       v-model="isVanLoading"
       :pulling-text='pullingText'
       @refresh="onRefresh"
     >
       <p>刷新次数: {{ count }}</p>
-    </van-pull-refresh>
+    </PullRefresh>
   </div>
 </template>
 
 <script>
-import { PullRefresh } from 'vant';
-import { Toast } from 'vant';
-import 'vant/lib/pull-refresh/style'
+import PullRefresh from 'vant/lib/pull-refresh'
+import Toast from 'vant/lib/toast';
 
 export default {
   name: 'InfinitePullRefresh',

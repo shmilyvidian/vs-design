@@ -1,13 +1,12 @@
 <template>
   <div class="infinite-popup">
-    <van-popup v-model="isShow"
-    @click-overlay="onClickOverlay">内容</van-popup>
+    <Popup v-model="isShow"
+    @click-overlay="onClickOverlay">内容</Popup>
   </div>
 </template>
 
 <script>
-import { Popup } from 'vant';
-import 'vant/lib/popup/style'
+import Popup from 'vant/lib/Popup'
 
 export default {
   name: 'InfinitePopup',

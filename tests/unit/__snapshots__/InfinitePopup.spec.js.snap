@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render svg when image is network 1`] = `
+<div class="infinite-popup">
+  <popup-stub overlay="true" closeonclickoverlay="true" lockscroll="true" lazyrender="true" closeicon="cross" closeiconposition="top-right" position="center">内容</popup-stub>
+</div>
+`;
