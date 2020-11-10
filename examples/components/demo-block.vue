@@ -1,7 +1,7 @@
 <template>
   <div
     class="demo-block"
-    :class="[blockClass, { 'hover': hovering }]"
+    :class="[blockClass, { hover: hovering }]"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false"
   >
@@ -23,27 +23,16 @@
       @click="isExpanded = !isExpanded"
     >
       <transition name="arrow-slide">
-        <i :class="[iconClass, { 'hovering': hovering }]"></i>
+        <i :class="[iconClass, { hovering: hovering }]"></i>
       </transition>
       <transition name="text-slide">
         <span v-show="hovering">{{ controlText }}</span>
       </transition>
-      <el-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
-        <transition name="text-slide">
-          <el-button
-            v-show="hovering || isExpanded"
-            size="small"
-            type="text"
-            class="control-button"
-          >{{ langConfig['button-text'] }}</el-button>
-        </transition>
-      </el-tooltip>
-    </div>
+      </div>
   </div>
 </template>
 
 <style lang="scss">
-
 .demo-block {
   border: solid 1px #ebebeb;
   border-radius: 3px;
@@ -180,7 +169,7 @@
     }
   }
 
-  .line{
+  .line {
     height: 1px;
     background-color: #e0e6ed;
     margin: 35px -24px;

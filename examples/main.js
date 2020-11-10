@@ -10,6 +10,7 @@ import hljs from 'highlight.js'
 import '../packages/theme-chalk/src/index.scss'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+import '../packages/infinite-touch-emulator'
 
 // 导入组件库
 import {
@@ -22,7 +23,7 @@ import {
   InfiniteHeaderNav,
   InfinitePopup,
   InfinitePicker,
-  InfiniteTable,
+  InfiniteTable
 } from '../packages'
 
 // 使用vant-ui
