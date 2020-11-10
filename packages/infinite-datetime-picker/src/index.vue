@@ -390,6 +390,7 @@ export default {
     currentDate: {
       handler (val) {
         this.myCurrentDate = this.setMyCurrentDate(val)
+        console.log('this.myCurrentDate', this.myCurrentDate)
       },
       immediate: true
     }
@@ -555,7 +556,7 @@ export default {
       Object.keys(o)
         .forEach(k => {
           if (new RegExp(`(${k})`).test(newFormat)) {
-            console.log('(${o[k]}).length == ', `${o[k]}`, (`${o[k]}`).length)
+            // console.log('(${o[k]}).length == ', `${o[k]}`, (`${o[k]}`).length)
             newFormat = newFormat.replace(
               RegExp.$1,
               (RegExp.$1.length === 1)

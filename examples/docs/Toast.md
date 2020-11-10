@@ -25,10 +25,6 @@
 <el-row>
     <infinite-button type="success" plain @click="infiniteToastPromise">动态更新提示</infinite-button>
 </el-row>
-    <!-- <infinite-button type="info" plain>信息按钮</infinite-button> -->
-    <!-- <infinite-button type="warning" plain>警告按钮</infinite-button> -->
-    <!-- <infinite-button type="danger" plain>危险按钮</infinite-button> -->
-<!-- </el-row> -->
 <script>
   export default {
     data() {

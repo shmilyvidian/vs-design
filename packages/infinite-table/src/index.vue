@@ -179,7 +179,7 @@ export default {
       // 表格是否结束滑动标识
       let isTableMove = false
       // 表格最大滑动距离
-      console.log('this.$refs.tableContent == ', this.$refs, this.$refs.tableContent)
+      // console.log('this.$refs.tableContent == ', this.$refs, this.$refs.tableContent)
       this.clientWidth = Number(this.$refs.tableContent.clientWidth)
       this.$refs.scrollDiv.onscroll = (e) => {
         const { scrollLeft } = e.target

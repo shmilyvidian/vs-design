@@ -29,9 +29,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">12.9% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>8/62</span>
             </div>
         
             
@@ -207,7 +207,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -276,10 +285,25 @@
     &lt;div class="header-title"&gt;
       &lt;slot name="centerItem"/&gt;
     &lt;/div&gt;
-    &lt;div class="header-right"&gt;
-      &lt;slot name="rightItem"/&gt;
+&nbsp;
+    &lt;div class="more-box"
+      v-if="tableData.data.length &gt; everyAddNum"
+    &gt;
+      &lt;div class="more-btn"
+        v-if="hashMore"
+        @click="expandClick(true)"
+      &gt;
+        展开更多&lt;span class="risk-table-more risk-outer-more"&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="more-btn"
+        v-if="!hashMore"
+        @click="expandClick(false)"
+      &gt;
+        收起&lt;span class="risk-table-more risk-outer-more rotate-45"&gt;&lt;/span&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/header&gt;
+    &lt;div class="bottom-padding" v-else&gt;&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
@@ -357,10 +381,17 @@ export default {
 <span class="cstat-no" title="statement not covered" >      this.$emit('goBack');</span>
     }
   },
+  computed: {
+    ...cardTableComputed
+  },
+  watch: {
+    ...cardTableWatch
+  },
   mounted () {
     console.log('insertStyle');
     console.log(this.insertStyle);
   }
+&nbsp;
 }
 &lt;/script&gt;</pre></td></tr></table></pre>
 
