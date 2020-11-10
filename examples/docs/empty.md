@@ -77,7 +77,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
     imageSize="100"
     description="这是empty组件3"
   >
-   <button>点击刷新</button>
+   <p>自定义内容</p>
   </infinite-empty>
 </el-row>
 <script>
@@ -96,3 +96,15 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 ```
 
 :::
+
+
+## API
+
+### Props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| imageType | 图片类型，可选值为 error network search，支持传入图片 URL | string | default |
+| imageSize | 图片大小，默认单位为 px | string/number | - |
+| description | 图片下方的描述文字 | string | - |
+| insertStyle | 动态传入容器样式 | object | - |

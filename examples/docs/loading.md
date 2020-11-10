@@ -123,3 +123,14 @@
 ```
 
 :::
+
+## API
+
+### Props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| type | loading类型，可选值为 spinner/circular | string | circular |
+| color | loading图标颜色 | string | #c9c9c9 |
+| textSize | 文字大小，默认单位为px | string/number | 14px |
+| loadingText | 加载文案 | string | 加载中... |

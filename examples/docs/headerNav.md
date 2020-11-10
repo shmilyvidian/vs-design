@@ -36,15 +36,15 @@
 
 ```html
 <el-row>  
-  <infinite-header-nav @goBack="goBackClick">
+  <infinite-header-nav class="header-nav" @goBack="goBackClick">
     <div slot="leftItem">
-      左文字
+      返回
     </div>
     <div slot="centerItem">
       {{headerTitle}}
     </div>
     <div slot="rightItem">
-      右文字
+      提交
     </div>
   </infinite-header-nav>
 </el-row>
@@ -106,3 +106,14 @@
 ```
 
 :::
+
+
+## API
+
+### Props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| size | icon大小，默认单位为 px | string/number | 18 |
+| color | 定制icon颜色 | string | orange |
+| insertStyle | 动态传入容器样式 | object | - |

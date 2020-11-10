@@ -34,7 +34,11 @@ export default {
     },
     insertStyle: {
       type: Object,
-      default: () => {}
+      default: () => {
+        return {
+          color: '#fff'
+        }
+      }
     }
   },
   methods: {
