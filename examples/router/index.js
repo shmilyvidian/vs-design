@@ -1,19 +1,21 @@
 import Vue from 'vue'
 import Installation from '../docs/Installation.md'
 import Button from '../docs/button.md'
-import Loading from '../docs/loading.md'
-import Empty from '../docs/empty.md'
-import HeaderNav from '../docs/headerNav.md'
+import InfiniteLoading from '../docs/loading.md'
+import InfiniteEmpty from '../docs/empty.md'
+import InfiniteHeaderNav from '../docs/headerNav.md'
 import DatetimePicker from '../docs/DatetimePicker.md'
 import InfinitePullRefresh from '../docs/InfinitePullRefresh.md'
 import InfiniteToast from '../docs/Toast.md'
 import InfiniteTable from '../docs/Table.md'
 import InfinitePopup from '../docs/InfinitePopup.md'
 import InfinitePicker from '../docs/InfinitePicker.md'
-import mobileIndex from '../view/index.vue'
+import mobileIndex from '../mobileFrameView/DatetimePicker.vue'
+
+import route from './mobileFrameRoute'
 
 import VueRouter from 'vue-router'
-const routes = [
+let routes = [
   {
     path: '/',
     component: Installation,
@@ -33,25 +35,25 @@ const routes = [
     }
   },
   {
-    path: '/guide/loading',
-    name: 'Loading',
-    component: Loading,
+    path: '/guide/InfiniteLoading',
+    name: 'InfiniteLoading',
+    component: InfiniteLoading,
     meta: {
       type: 'component'
     }
   },
   {
-    path: '/guide/empty',
-    name: 'Empty',
-    component: Empty,
+    path: '/guide/InfiniteEmpty',
+    name: 'InfiniteEmpty',
+    component: InfiniteEmpty,
     meta: {
       type: 'component'
     }
   },
   {
-    path: '/guide/headerNav',
-    name: 'HeaderNav',
-    component: HeaderNav,
+    path: '/guide/InfiniteHeaderNav',
+    name: 'InfiniteHeaderNav',
+    component: InfiniteHeaderNav,
     meta: {
       type: 'component'
     }
@@ -112,8 +114,8 @@ const routes = [
     },
     component: mobileIndex
   }
-
 ]
+routes = routes.concat(route)
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes
