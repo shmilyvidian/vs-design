@@ -294,6 +294,8 @@ export default {
 
   mounted () {
     this.$nextTick(() => {
+      console.log('this.$el===', this.$el);
+
       let highlight = this.$el.getElementsByClassName('highlight')[0]
       if (this.$el.getElementsByClassName('description').length === 0) {
         highlight.style.width = '100%'

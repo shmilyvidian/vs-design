@@ -8,7 +8,12 @@
         <el-aside v-if="isChildIframe" width="200px">
           <menu-model></menu-model>
         </el-aside>
-        <el-main>
+        <el-main :style="{ padding: isChildIframe ? '20px' : 0 }">
+          <infinite-header-nav v-if="!$route.path.includes('guide')" class="header-nav">
+            <div slot="centerItem">
+              {{ iframeTitle}}
+            </div>
+          </infinite-header-nav>
           <router-view></router-view>
         </el-main>
         <div v-if="isChildIframe" class="fixed-right">
@@ -30,20 +35,23 @@ export default {
   data () {
     return {
       isChildIframe: true,
-      iframeSrc: '/#/mobile/index'
-    }
+      iframeSrc: '',
+      routeArr: this.$route.path.split('/'),
+    };
   },
   watch: {
-    $route (to, from) {
-      console.log('route change', to, from)
-      console.log('parent window', window)
-      if (location.hash.includes('guide')) {
-        this.iframeSrc = `/#/guide/${to.name.toLowerCase()}`
+    $route(to, from) {
+      if (location.hash.includes("guide")) {
+        this.iframeSrc = `/#/mobile/${to.name}`;
       }
     }
   },
   methods: {},
   computed: {
+    iframeTitle() {
+      const routeArr = this.$route.path.split('/');
+      return routeArr[routeArr.length - 1];
+    },
     simulatorStyle () {
       const height = Math.min(640, window.innerHeight - 90)
       return {
@@ -51,10 +59,14 @@ export default {
       }
     }
   },
-  mounted () {
-    this.isChildIframe = location.hash.includes('guide')
-  }
-}
+  mounted() {
+    const route = this.$route;
+    this.isChildIframe = route.path.includes("guide");
+    if(this.isChildIframe) {
+      this.iframeSrc = `/#/mobile/${route.name}`;
+    }
+  },
+};
 </script>
 <style>
 /* 引入代码高亮样式 */
@@ -65,8 +77,17 @@ export default {
 }
 
 .fixed-right {
-  min-height: 600px;
+  align-self: flex-start;
+  height: 600px;
   margin: 20px;
   overflow: hidden;
+  top: 90px;
+  right: 30px;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #fafafa;
+  border-radius: 12px;
+  box-shadow: #bdc0c5 0 4px 12px;
 }
 </style>

@@ -21,9 +21,9 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="/guide/button">Button</el-menu-item>
-          <el-menu-item index="/guide/loading">Loading</el-menu-item>
-          <el-menu-item index="/guide/empty">Empty</el-menu-item>
-          <el-menu-item index="/guide/headerNav">HeaderNav</el-menu-item>
+          <el-menu-item index="/guide/InfiniteLoading">Loading</el-menu-item>
+          <el-menu-item index="/guide/InfiniteEmpty">Empty</el-menu-item>
+          <el-menu-item index="/guide/InfiniteHeaderNav">HeaderNav</el-menu-item>
           <el-menu-item index="/guide/datetimepicker">DatetimePicker</el-menu-item>
           <el-menu-item index="/guide/InfinitePullRefresh">下拉刷新 PullRefresh</el-menu-item>
           <el-menu-item index="/guide/InfinitePopup">弹出层 Popup</el-menu-item>
