@@ -89,7 +89,7 @@ const routes = [
     }
   },
   {
-    path: '/guide/toast',
+    path: '/guide/InfiniteToast',
     name: 'InfiniteToast',
     component: InfiniteToast,
     meta: {
@@ -97,7 +97,7 @@ const routes = [
     }
   },
   {
-    path: '/guide/table',
+    path: '/guide/InfiniteTable',
     name: 'InfiniteTable',
     component: InfiniteTable,
     meta: {

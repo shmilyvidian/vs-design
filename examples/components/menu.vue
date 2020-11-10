@@ -28,8 +28,8 @@
           <el-menu-item index="/guide/InfinitePullRefresh">下拉刷新 PullRefresh</el-menu-item>
           <el-menu-item index="/guide/InfinitePopup">弹出层 Popup</el-menu-item>
           <el-menu-item index="/guide/InfinitePicker">选择器 Picker</el-menu-item>
-          <el-menu-item index="/guide/toast">Toast</el-menu-item>
-          <el-menu-item index="/guide/table">Table</el-menu-item>
+          <el-menu-item index="/guide/InfiniteToast">Toast</el-menu-item>
+          <el-menu-item index="/guide/InfiniteTable">Table</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>

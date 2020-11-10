@@ -4,5 +4,4 @@ import InfiniteLoading from './src/index'
 InfiniteLoading.install = function (Vue) {
   Vue.component(InfiniteLoading.name, InfiniteLoading)
 }
-console.log('InfiniteLoading index.js == ', InfiniteLoading)
 export default InfiniteLoading

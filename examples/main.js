@@ -25,8 +25,6 @@ import {
   InfiniteTable,
 } from '../packages'
 
-console.log('InfiniteEmpty', InfiniteEmpty)
-console.log('main vue', window.Vue)
 // 使用vant-ui
 Vue.use(Vant)
 Vue.config.productionTip = false

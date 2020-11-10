@@ -1,50 +1,54 @@
 <template>
   <div style="height:100%">
     <el-container style="height:100%">
-      <el-header v-if="$route.meta && !$route.meta.mobile" height="40">
+      <el-header v-if="isChildIframe" height="40">
         <header-model></header-model>
       </el-header>
       <el-container>
-        <el-aside v-if="$route.meta && !$route.meta.mobile" width="200px">
+        <el-aside v-if="isChildIframe" width="200px">
           <menu-model></menu-model>
         </el-aside>
-        <el-main >
+        <el-main>
           <router-view></router-view>
         </el-main>
         <div v-if="isChildIframe" class="fixed-right">
-          <iframe
-            style="height: 640px;"
-            :src="iframeSrc"
-            id="frame_1"
-          ></iframe>
+          <iframe style="height: 640px;" :src="iframeSrc" name="mobileFrame" id="frame_1"></iframe>
         </div>
       </el-container>
     </el-container>
   </div>
 </template>
 <script>
-import HeaderModel from './components/header'
-import MenuModel from './components/menu'
+import HeaderModel from "./components/header";
+import MenuModel from "./components/menu";
+
 export default {
   components: {
     HeaderModel,
-    MenuModel
+    MenuModel,
   },
-  data () {
+  data() {
     return {
-      isChildIframe:true
-    }
+      isChildIframe: true,
+      iframeSrc: "/#/mobile/index",
+    };
+  },
+  watch: {
+    $route(to, from) {
+      console.log("route change", to, from);
+      console.log("parent window", window);
+      if (location.hash.includes("guide")) {
+        this.iframeSrc = `/#/guide/${to.name.toLowerCase()}`;
+      }
+    },
   },
   methods: {},
-  computed:{
-    iframeSrc(){
-      return '/#/mobile/index'
-    }
+  computed: {
   },
-  mounted(){
-    this.isChildIframe = location.hash.includes('guide')
-  }
-}
+  mounted() {
+    this.isChildIframe = location.hash.includes("guide");
+  },
+};
 </script>
 <style>
 /* 引入代码高亮样式 */
