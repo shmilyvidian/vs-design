@@ -52,10 +52,17 @@
 
   .infinite-datetime-picker-popuper {
     .infinite-datetime-picker-center-highlight {
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
       height: 36px;
-      transform: translateY(calc(50% + 7px));
+      transform: translateY(calc(7px));
+      // transform: translateY(calc(50%));
       background-color: #e1e1e1;
       opacity: 0.1;
+      pointer-events: none;
     }
 
     /deep/ .van-picker__toolbar {
