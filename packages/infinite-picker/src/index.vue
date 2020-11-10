@@ -1,6 +1,6 @@
 <template>
   <div class="infinite-picker">
-    <van-picker
+    <Picker
       title="标题"
       show-toolbar
       :columns="columns"
@@ -12,9 +12,8 @@
 </template>
 
 <script>
-import { Picker } from 'vant';
-import { Toast } from 'vant';
-import 'vant/lib/picker/style'
+import Toast from 'vant/lib/toast';
+import Picker from 'vant/lib/picker'
 
 export default {
   name: 'InfinitePicker',
