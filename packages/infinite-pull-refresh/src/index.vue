@@ -3,7 +3,14 @@
     <PullRefresh
       style="min-height: 100px;"
       v-model="isVanLoading"
-      :pulling-text='pullingText'
+      :pullingText='pullingText'
+      :loosingText='loosingText'
+      :loadingText='loadingText'
+      :successText='successText'
+      :headHeight='headHeight'
+      :successDuration='successDuration'
+      :animationDuration='animationDuration'
+      :disabled='disabled'
       @refresh="onRefresh"
     >
       <p>刷新次数: {{ count }}</p>
