@@ -52,7 +52,7 @@ export default {
     },
     // 动画时长，单位为毫秒
     duration: {
-      type: [number, object],
+      type: [Number, Object],
       default: 300,
       required: false
     },
