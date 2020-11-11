@@ -41,6 +41,7 @@ export default {
   },
   watch: {
     $route (to, from) {
+      console.log('watch to, from', to, from);
       if (location.hash.includes('guide')) {
         this.iframeSrc = `/#/mobile/${to.name}`
       }
@@ -74,7 +75,6 @@ export default {
       for (var v = 0; v < Agents.length; v++) {  
         if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break }  
       }  
-      console.log('isPC == ', flag)
       return flag
     }
   },

@@ -185,8 +185,6 @@ function getActiveTouches(mouseEv) {
  * TouchEmulator initializer
  */
 function TouchEmulator() {
-  console.log('TouchEmulator');
-
   window.addEventListener('mousedown', onMouse('touchstart'), true);
   window.addEventListener('mousemove', onMouse('touchmove'), true);
   window.addEventListener('mouseup', onMouse('touchend'), true);

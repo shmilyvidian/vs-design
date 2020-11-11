@@ -26,8 +26,8 @@ let routes = [
     component: Installation
   },
   {
-    path: '/guide/button',
-    name: 'Button',
+    path: '/guide/InfiniteButton',
+    name: 'InfiniteButton',
     component: Button,
     meta: {
       type: 'component'

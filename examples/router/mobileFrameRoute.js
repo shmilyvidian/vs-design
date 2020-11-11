@@ -1,76 +1,87 @@
-import DatetimePicker from '../mobile-frame-view/DatetimePicker.vue'
-import InfiniteLoading from '../mobile-frame-view/InfiniteLoading.vue'
-import InfiniteHeaderNav from '../mobile-frame-view/InfiniteHeaderNav.vue'
-import InfiniteEmpty from '../mobile-frame-view/InfiniteEmpty.vue'
-import InfiniteTable from '../mobile-frame-view/InfiniteTable.vue'
-import InfiniteToast from '../mobile-frame-view/InfiniteToast.vue'
-import InfinitePicker from '../mobile-frame-view/InfinitePicker.vue'
-import InfinitePopup from '../mobile-frame-view/InfinitePopup.vue'
+// 手机模拟器内 组件路由
+import MobileDatetimePicker from '../mobile-frame-view/DatetimePicker.vue'
+import MobileLoading from '../mobile-frame-view/InfiniteLoading.vue'
+import MobileHeaderNav from '../mobile-frame-view/InfiniteHeaderNav.vue'
+import MobileEmpty from '../mobile-frame-view/InfiniteEmpty.vue'
+import MobileTable from '../mobile-frame-view/InfiniteTable.vue'
+import MobileToast from '../mobile-frame-view/InfiniteToast.vue'
+import MobilePicker from '../mobile-frame-view/InfinitePicker.vue'
+import MobilePopup from '../mobile-frame-view/InfinitePopup.vue'
+import MobileButton from '../mobile-frame-view/InfiniteButton.vue'
 
+console.log('MobileButton imp', MobileButton);
 const routes = [
   {
     path: '/mobile/DatetimePicker',
-    name: 'DatetimePicker',
+    name: 'MobileDatetimePicker',
     meta: {
       mobile: true
     },
-    component: DatetimePicker
+    component: MobileDatetimePicker
   },
   {
     path: '/mobile/InfiniteLoading',
-    name: 'InfiniteLoading',
+    name: 'MobileLoading',
     meta: {
       mobile: true
     },
-    component: InfiniteLoading
+    component: MobileLoading
   },
   {
     path: '/mobile/InfiniteHeaderNav',
-    name: 'InfiniteHeaderNav',
+    name: 'MobileHeaderNav',
     meta: {
       mobile: true
     },
-    component: InfiniteHeaderNav
+    component: MobileHeaderNav
   },
   {
     path: '/mobile/InfiniteEmpty',
-    name: 'InfiniteEmpty',
+    name: 'MobileEmpty',
     meta: {
       mobile: true
     },
-    component: InfiniteEmpty
+    component: MobileEmpty
   },
   {
     path: '/mobile/InfiniteTable',
-    name: 'InfiniteTable',
+    name: 'MobileTable',
     meta: {
       mobile: true
     },
-    component: InfiniteTable
+    component: MobileTable
   },
   {
     path: '/mobile/InfiniteToast',
-    name: 'InfiniteToast',
+    name: 'MobileToast',
     meta: {
       mobile: true
     },
-    component: InfiniteToast
+    component: MobileToast
   },
   {
     path: '/mobile/InfinitePicker',
-    name: 'InfinitePicker',
+    name: 'MobilePicker',
     meta: {
       mobile: true
     },
-    component: InfinitePicker
+    component: MobilePicker
   },
   {
     path: '/mobile/InfinitePopup',
-    name: 'InfinitePopup',
+    name: 'MobilePopup',
     meta: {
       mobile: true
     },
-    component: InfinitePopup
+    component: MobilePopup
+  },
+  {
+    path: '/mobile/InfiniteButton',
+    name: 'MobileButton',
+    meta: {
+      mobile: true
+    },
+    component: MobileButton
   }
 ]
 export default routes

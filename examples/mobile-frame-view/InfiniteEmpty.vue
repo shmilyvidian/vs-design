@@ -1,12 +1,11 @@
 <template>
   <div>
-    <h3 class="infinite-mobile-h3">基础用法</h3>
-    <el-row>
-      <infinite-empty>
-      </infinite-empty>
+    <el-row class="infinite-doc-demo-block-row">
+      <h2 class="infinite-doc-demo-block-title">基础用法</h2>
+      <infinite-empty> </infinite-empty>
     </el-row>
-    <h3 class="infinite-mobile-h3">图片类型</h3>
-    <el-row>
+    <el-row class="infinite-doc-demo-block-row">
+      <h2 class="infinite-doc-demo-block-title">图片类型</h2>
       <infinite-empty
         imageType="network"
         imageSize="100"
@@ -15,11 +14,7 @@
       </infinite-empty>
     </el-row>
     <el-row>
-      <infinite-empty
-        imageType="error"
-        imageSize="100"
-        description="error类型"
-      >
+      <infinite-empty imageType="error" imageSize="100" description="error类型">
       </infinite-empty>
     </el-row>
     <el-row>
@@ -38,8 +33,9 @@
       >
       </infinite-empty>
     </el-row>
-    <h3 class="infinite-mobile-h3">自定义底部文案</h3>
-    <el-row>
+    <el-row class="infinite-doc-demo-block-row">
+      <h2 class="infinite-doc-demo-block-title">自定义底部文案</h2>
+
       <infinite-empty
         imageType="search"
         imageSize="100"
@@ -47,17 +43,15 @@
       >
       </infinite-empty>
     </el-row>
-     <el-row>
+    <el-row>
       <infinite-empty
         imageType="search"
         imageSize="100"
         description="通过插槽传入内容"
       >
-      <infinite-loading>
-      </infinite-loading>
+        <infinite-loading> </infinite-loading>
       </infinite-empty>
     </el-row>
-
   </div>
 </template>
 <script>

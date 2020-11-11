@@ -20,7 +20,7 @@
           <span>通用模块</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/guide/button">Button</el-menu-item>
+          <el-menu-item index="/guide/InfiniteButton">Button</el-menu-item>
           <el-menu-item index="/guide/InfiniteLoading">Loading</el-menu-item>
           <el-menu-item index="/guide/InfiniteEmpty">Empty</el-menu-item>
           <el-menu-item index="/guide/InfiniteHeaderNav">HeaderNav</el-menu-item>

@@ -1,7 +1,9 @@
 <template>
   <div class="container">
-    <h3 class="infinite-mobile-h3">基础用法</h3>
-    <el-row>
+    <el-row class="infinite-doc-demo-block-row">
+      <h2 class="infinite-doc-demo-block-title">基础用法</h2>
+      <div class="infinite-doc-demo-block-table ">
+      </div>
       <van-cell is-link title="生成普通loading" @click="showLoading('base')" />
       <van-cell is-link title="生成spinncer类型loading" @click="showLoading('spinner')" />
       <van-cell is-link title="自定义loading颜色" @click="showLoading('color')" />
