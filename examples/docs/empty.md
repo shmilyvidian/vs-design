@@ -41,7 +41,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
   <infinite-empty
     imageType="network"
     imageSize="100"
-    description="这是empty组件2"
+    description="network图片类型"
   >
   </infinite-empty>
 </el-row>
@@ -75,7 +75,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
   <infinite-empty
     imageType="search"
     imageSize="100"
-    description="这是empty组件3"
+    description="通过description自定义文案"
   >
    <p>自定义内容</p>
   </infinite-empty>

@@ -4,6 +4,8 @@ import InfiniteHeaderNav from '../mobile-frame-view/InfiniteHeaderNav.vue'
 import InfiniteEmpty from '../mobile-frame-view/InfiniteEmpty.vue'
 import InfiniteTable from '../mobile-frame-view/InfiniteTable.vue'
 import InfiniteToast from '../mobile-frame-view/InfiniteToast.vue'
+import InfinitePicker from '../mobile-frame-view/InfinitePicker.vue'
+import InfinitePopup from '../mobile-frame-view/InfinitePopup.vue'
 
 const routes = [
   {
@@ -53,6 +55,22 @@ const routes = [
       mobile: true
     },
     component: InfiniteToast
+  },
+  {
+    path: '/mobile/InfinitePicker',
+    name: 'InfinitePicker',
+    meta: {
+      mobile: true
+    },
+    component: InfinitePicker
+  },
+  {
+    path: '/mobile/InfinitePopup',
+    name: 'InfinitePopup',
+    meta: {
+      mobile: true
+    },
+    component: InfinitePopup
   }
 ]
 export default routes

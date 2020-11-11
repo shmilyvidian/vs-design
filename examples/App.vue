@@ -170,4 +170,16 @@ export default {
   }
 
 }
+
+.hljs {
+  border: solid 1px #ebebeb;
+  border-radius: 3px;
+  margin: 5px 0;
+}
+
+table {
+  td, th {
+    padding: 6px;
+  }
+}
 </style>

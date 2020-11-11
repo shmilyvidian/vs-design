@@ -1,6 +1,6 @@
 ## InfinitePicker 组件
 
-弹窗
+picker组件
 
 ### 基础用法
 
