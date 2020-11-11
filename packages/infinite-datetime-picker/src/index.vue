@@ -524,6 +524,7 @@ export default {
       // 使用emit形式修改外层的v-model的值，类似于change(value) => {currentDate = value}
       this.$emit('currentChange', currentDate)
       // confirm是确认按钮的回调，但请不要使用这个在业务层修改v-model，直接获取v-model的值更推荐
+      console.log('child value, index', value, index)
       this.$emit('confirm', currentDate, value, index)
     },
     // 判断是否是时间格式

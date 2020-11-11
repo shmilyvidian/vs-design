@@ -5,9 +5,9 @@
     @mouseenter="hovering = true"
     @mouseleave="hovering = false"
   >
-    <div class="source">
+    <!-- <div class="source">
       <slot name="source"></slot>
-    </div>
+    </div> -->
     <div class="meta" ref="meta">
       <div class="description" v-if="$slots.default">
         <slot></slot>
@@ -82,14 +82,31 @@
 
     code {
       color: #5e6d82;
-      background-color: #e6effb;
+      // background-color: #e6effb;
       margin: 0 4px;
       display: inline-block;
       padding: 1px 5px;
       font-size: 12px;
       border-radius: 3px;
-      height: 18px;
+      // height: 18px;
       line-height: 18px;
+
+      // &.language-html, &.language-js {
+      //   position: relative;
+      //   display: block;
+      //   padding: 16px;
+      //   overflow-x: auto;
+      //   color: #58727e;
+      //   font-weight: 400;
+      //   font-size: 14px;
+      //   font-family: 'Source Code Pro', 'Monaco', 'Inconsolata', monospace;
+      //   line-height: 26px;
+      //   white-space: pre-wrap;
+      //   word-wrap: break-word;
+      //   -webkit-font-smoothing: auto;
+      //   background-color: #fafafa;
+      //   border-radius: 16px;
+      // }
     }
   }
 
@@ -294,8 +311,6 @@ export default {
 
   mounted () {
     this.$nextTick(() => {
-      console.log('this.$el===', this.$el);
-
       let highlight = this.$el.getElementsByClassName('highlight')[0]
       if (this.$el.getElementsByClassName('description').length === 0) {
         highlight.style.width = '100%'

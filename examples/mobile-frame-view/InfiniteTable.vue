@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h3 class="infinite-mobile-h3">基础用法</h3>
-    <el-row>
-      <infinite-table :table-data="tableData"> </infinite-table>
+    <el-row class="infinite-doc-demo-block-row">
+      <h2 class="infinite-doc-demo-block-title">基础用法</h2>
+      <div class="infinite-doc-demo-block-table ">
+        <infinite-table :table-data="tableData"> </infinite-table>
+      </div>
     </el-row>
   </div>
 </template>
@@ -115,9 +117,3 @@ export default {
   }
 }
 </script>
-
-<style scopt>
-  .infinite-mobile-h3 {
-    margin: 4.267vw 0 0 12px;
-  }
-</style>

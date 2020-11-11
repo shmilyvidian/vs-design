@@ -1,101 +1,138 @@
 ## toast 组件
-
-在页面中间弹出黑色半透明提示，用于消息通知、加载提示、操作结果提示等场景。
+### 介绍
+`在页面中间弹出黑色半透明提示，用于消息通知、加载提示、操作结果提示等场景。`
 
 ### 基础用法
-
 :::demo 引入 Toast 组件后，会自动在 Vue 的 prototype 上挂载 $infiniteToast 方法，便于在组件内调用。
-
-
 ```html
-<el-row>
-    <infinite-button @click="infiniteToastText">文字提示</infinite-button>
-    <infinite-button type="primary" @click="infiniteToastLoading">加载提示</infinite-button>
-    <infinite-button type="success" @click="infiniteToastSuccess">成功提示</infinite-button>
-    <infinite-button type="info" @click="infiniteToastFail">失败提示</infinite-button>
-</el-row>
-<el-row>
-    <infinite-button type="warning" @click="infiniteToastIcon">自定义图标提示</infinite-button>
-    <infinite-button type="danger" @click="infiniteToastImg">自定义图片提示</infinite-button>
-</el-row>
-<el-row>
-    <infinite-button plain @click="infiniteToastPositionTop">自定义顶部提示</infinite-button>
-    <infinite-button type="primary" plain @click="infiniteToastPositionBottom">自定义底部提示</infinite-button>
-</el-row>
-<el-row>
-    <infinite-button type="success" plain @click="infiniteToastPromise">动态更新提示</infinite-button>
-</el-row>
-<script>
-  export default {
-    data() {
-      return {
-      }
-    },
-    methods: {
-      infiniteToastText() {
-        this.$infiniteToast('提示内容');
-      },
-      infiniteToastLoading() {
-        this.$infiniteToast.loading({
-          message: '加载中...',
-          forbidClick: true,
-        });
-      },
-      infiniteToastSuccess() {
-        this.$infiniteToast.success('成功文案');
-      },
-      infiniteToastFail() {
-        this.$infiniteToast.fail('失败文案');
-      },
-      infiniteToastIcon() {
-        this.$infiniteToast({
-          message: '自定义图标',
-          icon: 'like-o',
-        });
-      },
-      infiniteToastImg() {
-        this.$infiniteToast({
-          message: '自定义图片',
-          icon: 'https://img.yzcdn.cn/vant/logo.png',
-        });
-      },
-      infiniteToastPositionTop() {
-        this.$infiniteToast({
-          message: '自定义顶部提示',
-          position: 'top',
-        });
-      },
-      infiniteToastPositionBottom() {
-        this.$infiniteToast({
-          message: '自定义底部提示',
-          position: 'bottom',
-        });
-      },
-      infiniteToastPromise() {
-        const toast = this.$infiniteToast.loading({
-          duration: 0, // 持续展示 toast
-          forbidClick: true,
-          message: '倒计时 3 秒',
-        });
-
-        let second = 3;
-        const timer = setInterval(() => {
-          second--;
-          if (second) {
-            toast.message = `倒计时 ${second} 秒`;
-          } else {
-            clearInterval(timer);
-            // 手动清除 Toast
-            this.$infiniteToast.clear();
-          }
-        }, 1000);
+  <el-row>
+      <infinite-button @click="infiniteToastText">文字提示</infinite-button>
+      <infinite-button type="primary" @click="infiniteToastLoading">加载提示</infinite-button>
+      <infinite-button type="success" @click="infiniteToastSuccess">成功提示</infinite-button>
+      <infinite-button type="info" @click="infiniteToastFail">失败提示</infinite-button>
+  </el-row>
+  <script>
+    export default {
+      methods: {
+        infiniteToastText() {
+          this.$infiniteToast('提示内容');
+        },
+        infiniteToastLoading() {
+          this.$infiniteToast.loading({
+            message: '加载中...',
+            forbidClick: true,
+          });
+        },
+        infiniteToastSuccess() {
+          this.$infiniteToast.success('成功文案');
+        },
+        infiniteToastFail() {
+          this.$infiniteToast.fail('失败文案');
+        }
       }
     }
-  }
-</script>
+  </script>
 ```
-
 :::
+
+### 自定义图标
+:::demo 
+```html
+  <el-row>
+      <infinite-button type="warning" @click="infiniteToastIcon">自定义图标提示</infinite-button>
+      <infinite-button type="danger" @click="infiniteToastImg">自定义图片提示</infinite-button>
+      <infinite-button type="danger" @click="infiniteToastTypeIcon">自定义加载图标提示</infinite-button>
+  </el-row>
+  <script>
+    export default {
+      methods: {
+        infiniteToastIcon() {
+          this.$infiniteToast({
+            message: '自定义图标',
+            icon: 'like-o',
+          });
+        },
+        infiniteToastImg() {
+          this.$infiniteToast({
+            message: '自定义图片',
+            icon: 'https://img.yzcdn.cn/vant/logo.png',
+          });
+        },
+        infiniteToastTypeIcon () {
+          this.$infiniteToast.loading({
+            message: '加载中...',
+            forbidClick: true,
+            loadingType: 'spinner'
+          })
+        }
+      }
+    }
+  </script>
+```
+:::
+
+### 自定义位置
+:::demo 
+```html
+  <el-row>
+      <infinite-button plain @click="infiniteToastPositionTop">自定义顶部提示</infinite-button>
+      <infinite-button type="primary" plain @click="infiniteToastPositionBottom">自定义底部提示</infinite-button>
+  </el-row>
+  <script>
+    export default {
+      methods: {
+        infiniteToastPositionTop() {
+          this.$infiniteToast({
+            message: '自定义顶部提示',
+            position: 'top',
+          });
+        },
+        infiniteToastPositionBottom() {
+          this.$infiniteToast({
+            message: '自定义底部提示',
+            position: 'bottom',
+          });
+        }
+      }
+    }
+  </script>
+```
+:::
+
+### 动态更新提示
+:::demo 
+```html
+  <el-row>
+      <infinite-button type="success" plain @click="infiniteToastPromise">动态更新提示</infinite-button>
+  </el-row>
+  <script>
+    export default {
+      methods: {
+        infiniteToastPromise() {
+          const toast = this.$infiniteToast.loading({
+            duration: 0, // 持续展示 toast
+            forbidClick: true,
+            message: '倒计时 3 秒',
+          });
+
+          let second = 3;
+          const timer = setInterval(() => {
+            second--;
+            if (second) {
+              toast.message = `倒计时 ${second} 秒`;
+            } else {
+              clearInterval(timer);
+              // 手动清除 Toast
+              this.$infiniteToast.clear();
+            }
+          }, 1000);
+        }
+      }
+    }
+  </script>
+```
+:::
+
 
 ## API
 

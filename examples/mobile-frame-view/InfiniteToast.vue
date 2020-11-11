@@ -1,26 +1,15 @@
 <template>
   <div>
-    <h3 class="infinite-mobile-h3">基础用法</h3>
-    <el-row>
-      <van-cell is-link title="文字提示" @click="infiniteToastText" />
-      <van-cell is-link title="加载提示" @click="infiniteToastLoading" />
-      <van-cell is-link title="成功提示" @click="infiniteToastSuccess" />
-      <van-cell is-link title="失败提示" @click="infiniteToastFail" />
-    </el-row>
-    <h3 class="infinite-mobile-h3">自定义图标</h3>
-    <el-row>
-      <van-cell is-link title="自定义图标提示" @click="infiniteToastIcon" />
-      <van-cell is-link title="自定义图片提示" @click="infiniteToastImg" />
-      <van-cell is-link title="自定义加载图标提示" @click="infiniteToastTypeIcon" />
-    </el-row>
-    <h3 class="infinite-mobile-h3">自定义位置</h3>
-    <el-row>
-      <van-cell is-link title="自定义顶部提示" @click="infiniteToastPositionTop" />
-      <van-cell is-link title="自定义底部提示" @click="infiniteToastPositionBottom" />
-    </el-row>
-    <h3 class="infinite-mobile-h3">动态更新提示</h3>
-    <el-row>
-      <van-cell is-link title="动态更新提示" @click="infiniteToastPromise" />
+    <el-row class="infinite-doc-demo-block-row" v-for="(item, index) of toastArr" :key="index">
+      <h2 class="infinite-doc-demo-block-title">{{ item.title }}</h2>
+      <div class="infinite-doc-demo-block-toast ">
+        <van-cell 
+          is-link 
+          v-for="(cellItem, cellIndex) of item.cellArr" 
+          :title="cellItem.title"  
+          :key="cellIndex" 
+          @click="fnClassification(arguments, cellItem.clickMethod)" />
+      </div>
     </el-row>
   </div>
 </template>
@@ -28,9 +17,77 @@
 export default {
   data () {
     return {
+      toastArr: [
+        {
+          title: '基础用法',
+          cellArr: [
+            {
+              title: '文字提示',
+              clickMethod: 'infiniteToastText'
+            },
+            {
+              title: '加载提示',
+              clickMethod: 'infiniteToastLoading'
+            },
+            {
+              title: '成功提示',
+              clickMethod: 'infiniteToastSuccess'
+            },
+            {
+              title: '失败提示',
+              clickMethod: 'infiniteToastFail'
+            }
+          ]
+        },
+        {
+          title: '自定义图标',
+          cellArr: [
+            {
+              title: '自定义图标提示',
+              clickMethod: 'infiniteToastIcon'
+            },
+            {
+              title: '自定义图片提示',
+              clickMethod: 'infiniteToastImg'
+            },
+            {
+              title: '自定义加载图标提示',
+              clickMethod: 'infiniteToastTypeIcon'
+            }
+          ]
+        },
+        {
+          title: '自定义位置',
+          cellArr: [
+            {
+              title: '自定义顶部提示',
+              clickMethod: 'infiniteToastPositionTop'
+            },
+            {
+              title: '自定义底部提示',
+              clickMethod: 'infiniteToastPositionBottom'
+            }
+          ]
+        },
+        {
+          title: '动态更新提示',
+          cellArr: [
+            {
+              title: '动态更新提示',
+              clickMethod: 'infiniteToastPromise'
+            }
+          ]
+        }
+      ]
     }
   },
   methods: {
+    fnClassification (argumentsArr = [], method) {
+      if (!this[method]) {
+        return
+      }
+      this[method](...argumentsArr)
+    },
     infiniteToastText () {
       this.$infiniteToast('提示内容')
     },
@@ -99,9 +156,3 @@ export default {
   }
 }
 </script>
-
-<style scopt>
-  .infinite-mobile-h3 {
-    margin: 4.267vw 0 0 12px;
-  }
-</style>

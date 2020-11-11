@@ -90,6 +90,10 @@ export default {
 <style lang="scss" >
 /* 引入代码高亮样式 */
 @import "~highlight.js/styles/color-brewer.css";
+.el-aside {
+  height: calc(100vh - 60px);
+}
+
 .el-main {
   &.el-main-left {
     height: calc(100vh - 60px);
@@ -100,6 +104,44 @@ export default {
 
   &.el-main-right {
     padding: 0;
+  }
+
+  .content {
+    table {
+      width: 100%;
+      margin-top: 12px;
+      color: #34495e;
+      font-size: 14px;
+      line-height: 1.5;
+      border-collapse: collapse;
+
+      th {
+        padding: 8px 10px;
+        font-weight: 600;
+        text-align: left;
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+
+      td {
+        padding: 8px;
+        border-top: 1px solid #f1f4f8;
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+
+      em {
+        color: #4fc08d;
+        font-size: 14px;
+        font-family: 'Source Code Pro', 'Monaco', 'Inconsolata', monospace;
+        font-style: normal;
+        -webkit-font-smoothing: auto;
+      }
+    }
   }
 }
 
