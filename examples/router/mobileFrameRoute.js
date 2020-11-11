@@ -9,7 +9,6 @@ import MobilePicker from '../mobile-frame-view/InfinitePicker.vue'
 import MobilePopup from '../mobile-frame-view/InfinitePopup.vue'
 import MobileButton from '../mobile-frame-view/InfiniteButton.vue'
 
-console.log('MobileButton imp', MobileButton);
 const routes = [
   {
     path: '/mobile/DatetimePicker',

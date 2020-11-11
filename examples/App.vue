@@ -41,7 +41,6 @@ export default {
   },
   watch: {
     $route (to, from) {
-      console.log('watch to, from', to, from);
       if (location.hash.includes('guide')) {
         this.iframeSrc = `/#/mobile/${to.name}`
       }
