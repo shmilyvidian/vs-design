@@ -73,7 +73,7 @@ export default {
           }
         },
         {
-          title: '年类型',
+          title: '月类型',
           currentDate: '06',
           confirmMethod: 'confirm',
           itemProp: {

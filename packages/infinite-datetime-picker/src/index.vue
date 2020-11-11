@@ -272,7 +272,6 @@ export default {
       }
       if (!startTime) {
         console.log('err: 请带入startTime')
-        console.log('this.type = ', this.type)
       }
       if (this.timeSelectableInterval.length) {
         startTime = this.timeSelectableInterval[0].replace(/[^0-9]/ig, '').substr(-8)
@@ -390,7 +389,6 @@ export default {
     currentDate: {
       handler (val) {
         this.myCurrentDate = this.setMyCurrentDate(val)
-        console.log('this.myCurrentDate', this.myCurrentDate)
       },
       immediate: true
     }
@@ -491,7 +489,6 @@ export default {
     },
     // 确认按钮事件
     pickerConfirm (value, index) {
-      console.log('value, index == ', value, index)
       const { picker } = this.$refs // datePicker时为undefined
       let currentDate = ''
       switch (this.type) {
@@ -524,7 +521,6 @@ export default {
       // 使用emit形式修改外层的v-model的值，类似于change(value) => {currentDate = value}
       this.$emit('currentChange', currentDate)
       // confirm是确认按钮的回调，但请不要使用这个在业务层修改v-model，直接获取v-model的值更推荐
-      console.log('child value, index', value, index)
       this.$emit('confirm', currentDate, value, index)
     },
     // 判断是否是时间格式
