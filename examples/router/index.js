@@ -10,7 +10,6 @@ import InfiniteToast from '../docs/Toast.md'
 import InfiniteTable from '../docs/Table.md'
 import InfinitePopup from '../docs/InfinitePopup.md'
 import InfinitePicker from '../docs/InfinitePicker.md'
-import mobileIndex from '../mobileFrameView/DatetimePicker.vue'
 
 import route from './mobileFrameRoute'
 
@@ -106,14 +105,6 @@ let routes = [
       type: 'component'
     }
   },
-  {
-    path: '/mobile/index',
-    name: 'InfinitePopup',
-    meta:{
-      mobile:true
-    },
-    component: mobileIndex
-  }
 ]
 routes = routes.concat(route)
 Vue.use(VueRouter)

@@ -1,9 +1,9 @@
-import DatetimePicker from '../mobileFrameView/DatetimePicker.vue'
-import InfiniteLoading from '../mobileFrameView/InfiniteLoading.vue'
-import InfiniteHeaderNav from '../mobileFrameView/InfiniteHeaderNav.vue'
-import InfiniteEmpty from '../mobileFrameView/InfiniteEmpty.vue'
-import InfiniteTable from '../mobileFrameView/InfiniteTable.vue'
-import InfiniteToast from '../mobileFrameView/InfiniteToast.vue'
+import DatetimePicker from '../mobile-frame-view/DatetimePicker.vue'
+import InfiniteLoading from '../mobile-frame-view/InfiniteLoading.vue'
+import InfiniteHeaderNav from '../mobile-frame-view/InfiniteHeaderNav.vue'
+import InfiniteEmpty from '../mobile-frame-view/InfiniteEmpty.vue'
+import InfiniteTable from '../mobile-frame-view/InfiniteTable.vue'
+import InfiniteToast from '../mobile-frame-view/InfiniteToast.vue'
 
 const routes = [
   {

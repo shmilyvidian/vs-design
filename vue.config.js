@@ -27,11 +27,19 @@ module.exports = {
 
     resolve: {
       alias: {
-        '@': resolve('examples')
+        // '@': resolve('examples'),
+        // 'packages': resolve('packages'),
+        // 'utils': resolve('utils')
       }
     }
   },
+
   chainWebpack: config => {
+    config.resolve.alias
+    .set('@', resolve('examples'))
+    .set('packages', resolve('packages'))
+    .set('utils', path.resolve(__dirname, './utils'))
+
     config.module
       .rule('js')
       .include.add(path.resolve(__dirname, 'packages')).end()

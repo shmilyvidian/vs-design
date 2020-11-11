@@ -58,6 +58,7 @@ if (!document.createTouchList) {
  * @returns {Object} touchPoint
  */
 
+// eventTarget, 1, mouseEv, 0, 0
 var Touch = function Touch(target, identifier, pos, deltaX, deltaY) {
   deltaX = deltaX || 0;
   deltaY = deltaY || 0;
@@ -79,7 +80,6 @@ var Touch = function Touch(target, identifier, pos, deltaX, deltaY) {
  */
 function TouchList() {
   var touchList = [];
-
   touchList['item'] = function(index) {
     return this[index] || null;
   };
@@ -102,7 +102,7 @@ var initiated = false;
 function onMouse(touchType) {
   return function(ev) {
     // prevent mouse events
-
+    
     if (ev.type === 'mousedown') {
       initiated = true;
     }
@@ -110,10 +110,10 @@ function onMouse(touchType) {
     if (ev.type === 'mouseup') {
       initiated = false;
     }
-
     if (ev.type === 'mousemove' && !initiated) {
       return;
     }
+
 
     // The EventTarget on which the touch point started when it was first placed on the surface,
     // even if the touch point has since moved outside the interactive area of that element.
@@ -143,7 +143,6 @@ function onMouse(touchType) {
 function triggerTouch(eventName, mouseEv) {
   var touchEvent = document.createEvent('Event');
   touchEvent.initEvent(eventName, true, true);
-
   touchEvent.altKey = mouseEv.altKey;
   touchEvent.ctrlKey = mouseEv.ctrlKey;
   touchEvent.metaKey = mouseEv.metaKey;
@@ -152,7 +151,6 @@ function triggerTouch(eventName, mouseEv) {
   touchEvent.touches = getActiveTouches(mouseEv);
   touchEvent.targetTouches = getActiveTouches(mouseEv);
   touchEvent.changedTouches = createTouchList(mouseEv);
-
   eventTarget.dispatchEvent(touchEvent);
 }
 
@@ -163,7 +161,10 @@ function triggerTouch(eventName, mouseEv) {
  */
 function createTouchList(mouseEv) {
   var touchList = TouchList();
-  touchList.push(new Touch(eventTarget, 1, mouseEv, 0, 0));
+  touchList.push(new Touch(eventTarget, 100, mouseEv, 20, 20));
+  if (mouseEv.type === 'mousemove') {
+    // debugger;
+  }
   return touchList;
 }
 
@@ -184,6 +185,8 @@ function getActiveTouches(mouseEv) {
  * TouchEmulator initializer
  */
 function TouchEmulator() {
+  console.log('TouchEmulator');
+
   window.addEventListener('mousedown', onMouse('touchstart'), true);
   window.addEventListener('mousemove', onMouse('touchmove'), true);
   window.addEventListener('mouseup', onMouse('touchend'), true);

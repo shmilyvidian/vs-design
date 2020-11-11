@@ -78,9 +78,9 @@ export default {
       return flag
     }
   },
-  mounted () {
-    const route = this.$route
-    this.isChildIframe = route.path.includes('guide')
+  mounted() {
+    const route = this.$route;
+    this.isChildIframe = route.path.includes("guide") || route.path === '/'
     if (this.isChildIframe) {
       this.iframeSrc = `/#/mobile/${route.name}`
     }
