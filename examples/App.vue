@@ -5,7 +5,7 @@
         <header-model></header-model>
       </el-header>
       <el-container>
-        <el-aside v-if="isChildIframe" width="200px">
+        <el-aside v-if="isChildIframe" width="250px">
           <menu-model></menu-model>
         </el-aside>
         <el-main :class="isChildIframe ? 'el-main-left' : 'el-main-right'">
