@@ -74,3 +74,4 @@ picker 组件
 | showToolbar | 是否显示顶部栏                 | Boolean | false  |
 | title       | 顶部栏标题                     | String  | 标题   |
 | loading     | 是否显示加载状态               | Boolean | false  |
+| defaultIndex | 单列选择器的默认选中项索引 多列选择器请参考下方的 Columns 配置 | Number | 0
