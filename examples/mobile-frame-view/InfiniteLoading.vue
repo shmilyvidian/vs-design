@@ -23,6 +23,12 @@
 export default {
   methods: {
     showLoading(type) {
+      const typeArr = ['base', 'spinner', 'color', 'size', 'text']
+      typeArr.map(item => {
+        if(item !== type) {
+          this[`${item}Loading`] = false
+        }
+      })
       this.showLoadingWrapper = true
       this[`${type}Loading`] = true
       setTimeout(() => {
