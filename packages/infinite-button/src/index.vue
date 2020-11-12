@@ -1,22 +1,25 @@
 <template>
-  <button
-    class="infinite-button"
+  <van-button
+    :type="type"
     :disabled="disabled"
-    @click="handleClick"
+    :plain="plain"
+    :square="square"
+    :round="round"
+    :icon="icon"
+    :size="size"
     :class="[
+      'infinite-button',
       `infinite-button--${type}`,
       {
         'is-plain': plain,
         'is-round': round,
-        'is-circle': circle,
         'is-disabled': disabled,
       },
-    ]"
-  >
-    <i :class="icon" v-if="icon"></i>
+    ]">
     <!-- 如果没有传入插槽的时候才显示 -->
     <span v-if="$slots.default"><slot></slot></span>
-  </button>
+  </van-button>
+
 </template>
 <script>
 export default {
@@ -27,23 +30,29 @@ export default {
       default: 'default'
     },
     plain: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     round: {
       type: Boolean,
       default: false
     },
-    circle: {
+    square: {
       type: Boolean,
       default: false
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     icon: {
       type: String,
       default: ''
-    }
+    },
+    size: {
+      type: String,
+      default: ''
+    },
   },
   methods: {
     handleClick (e) {
