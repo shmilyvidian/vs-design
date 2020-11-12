@@ -1,73 +1,63 @@
 ## InfinitePopup 组件
-
-弹窗
+### 介绍
+`弹出层容器，用于展示弹窗、信息提示等内容，支持多个弹出层叠加展示。`
 
 ### 基础用法
-
-:::demo
-
+:::demo 基础的按钮用法。
 ```html
-<el-row>
-  <infinite-button @click="onClick">默认按钮</infinite-button>
-  <infinite-popup
-    v-model="show"
-    @onClickOverlay="onClickOverlay"
-  ></infinite-popup>
-</el-row>
+  <el-row>
+    <infinite-button @click="onClick">默认按钮</infinite-button>
+    <infinite-popup
+      v-model='show'
+      @onClickOverlay="onClickOverlay"
+    ></infinite-popup>
+  </el-row>
 
-<script>
-  export default {
-    data() {
-      return {
-        show: false,
-      };
-    },
-    methods: {
-      onClick() {
-        this.show = true;
+  <script>
+    export default {
+      data() {
+        return {
+          show: false,
+        }
       },
-      onClickOverlay() {
-        this.show = false;
-      },
-    },
-  };
-</script>
+      methods: {
+        onClick() {
+          this.show = true
+        },
+        onClickOverlay(){
+          this.show = false
+        }
+      }
+    }
+  </script>
 ```
-
 :::
 
-### 基础用法
-
-:::demo
-
+### 弹出位置
+:::demo 通过 position 属性设置弹出位置，默认居中弹出，可以设置为 top、bottom、left、right。
 ```html
-<el-row>
-  <infinite-button @click="onClick">默认按钮</infinite-button>
-  <infinite-popup
-    v-model="show"
-    @onClickOverlay="onClickOverlay"
-  ></infinite-popup>
-</el-row>
+  <el-row>
+    <infinite-button @click="onClick">默认按钮</infinite-button>
+    <infinite-popup
+      v-model='show'
+      position="top"
+      @onClickOverlay="onClickOverlay"
+    ></infinite-popup>
+  </el-row>
 
-<script>
-  export default {
-    data() {
-      return {
-        show: false,
-      };
-    },
-    methods: {
-      onClick() {
-        this.show = true;
+  <script>
+    export default {
+      data() {
+        return {
+          show: false,
+        }
       },
       onClickOverlay() {
         this.show = false;
       },
-    },
-  };
-</script>
+    };
+  </script>
 ```
-
 :::
 
 ## API

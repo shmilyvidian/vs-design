@@ -5,11 +5,13 @@
       :zIndex="zIndex"
       :overlay="overlay"
       :position="position"
-      :duration="duration"
+      :style="stylex"
       :round="round"
       :closeOnClickOverlay="closeOnClickOverlay"
       @click-overlay="onClickOverlay"
     >内容</Popup>
+    <!-- 加了有问题，暂定 -->
+      <!-- :duration="duration" -->
   </div>
 </template>
 
@@ -49,6 +51,11 @@ export default {
       type: String,
       default: 'center',
       required: false
+    },
+    // 弹出内容高度
+    stylex: {
+      type: Object,
+      default: () => {}
     },
     // 动画时长，单位为毫秒
     duration: {
