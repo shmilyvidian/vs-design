@@ -8,6 +8,7 @@ import MobileToast from '../mobile-frame-view/InfiniteToast.vue'
 import MobilePicker from '../mobile-frame-view/InfinitePicker.vue'
 import MobilePopup from '../mobile-frame-view/InfinitePopup.vue'
 import MobileButton from '../mobile-frame-view/InfiniteButton.vue'
+import MobilePullRefresh from '../mobile-frame-view/'
 
 const routes = [
   {
@@ -81,6 +82,14 @@ const routes = [
       mobile: true
     },
     component: MobileButton
+  },
+  {
+    path: '/mobile/InfinitePullRefresh',
+    name: 'MobilePullRefresh',
+    meta: {
+      mobile: true
+    },
+    component: MobilePullRefresh
   }
 ]
 export default routes
