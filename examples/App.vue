@@ -9,7 +9,7 @@
           <menu-model></menu-model>
         </el-aside>
         <el-main :class="isChildIframe ? 'el-main-left' : 'el-main-right'">
-          <infinite-header-nav v-if="!$route.path.includes('guide')" class="header-nav">
+          <infinite-header-nav v-if="!$route.path.includes('guide')" class="header-nav" :insertStyle="insertStyle">
             <div slot="centerItem">
               {{ iframeTitle}}
             </div>
@@ -24,6 +24,7 @@
   </div>
 </template>
 <script>
+    // "build:lib": "node build/build-lib.js && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && cp-cli lib/theme-chalk/lib/index.css lib/infinite-ui.css",
 import HeaderModel from './components/header'
 import MenuModel from './components/menu'
 
@@ -36,7 +37,10 @@ export default {
     return {
       isChildIframe: true,
       iframeSrc: '',
-      routeArr: this.$route.path.split('/')
+      routeArr: this.$route.path.split('/'),
+      insertStyle: {
+        position: 'fixed', top: 0, zIndex: 999
+      }
     }
   },
   watch: {
@@ -103,6 +107,7 @@ export default {
 
   &.el-main-right {
     padding: 0;
+    padding-top: 30px;
   }
 
   .content {
