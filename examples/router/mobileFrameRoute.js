@@ -8,7 +8,7 @@ import MobileToast from '../mobile-frame-view/InfiniteToast.vue'
 import MobilePicker from '../mobile-frame-view/InfinitePicker.vue'
 import MobilePopup from '../mobile-frame-view/InfinitePopup.vue'
 import MobileButton from '../mobile-frame-view/InfiniteButton.vue'
-import MobilePullRefresh from '../mobile-frame-view/'
+import MobilePullRefresh from '../mobile-frame-view/InfinitePullRefresh.vue'
 
 const routes = [
   {
