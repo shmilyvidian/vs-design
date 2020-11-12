@@ -1,6 +1,6 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
-import InfiniteButton from './infinite-button'
+    import InfiniteButton from './infinite-button'
 import InfiniteLoading from './infinite-loading'
 import InfiniteDatetimePicker from './infinite-datetime-picker'
 import InfiniteEmpty from './infinite-empty'
@@ -53,3 +53,4 @@ export default {
   version
 }
 
+  

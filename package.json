@@ -24,7 +24,11 @@
   ],
   "dependencies": {
     "babel-plugin-import": "^1.13.1",
+<<<<<<< Updated upstream
     "core-js": "^3.7.0",
+=======
+    "core-js": "^3.3.4",
+>>>>>>> Stashed changes
     "element-ui": "2.4.9",
     "vant": "^2.10.13"
   },
