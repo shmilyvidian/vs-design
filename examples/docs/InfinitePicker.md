@@ -70,8 +70,8 @@ picker 组件
 
 | 参数        | 说明                           | 类型    | 默认值 |
 | ----------- | ------------------------------ | ------- | ------ |
-| columns     | 对象数组，配置每一列显示的数据 | Array   | []     |
-| showToolbar | 是否显示顶部栏                 | Boolean | false  |
-| title       | 顶部栏标题                     | String  | 标题   |
-| loading     | 是否显示加载状态               | Boolean | false  |
-| defaultIndex | 单列选择器的默认选中项索引 多列选择器请参考下方的 Columns 配置 | Number | 0
+| columns     | 对象数组，配置每一列显示的数据 | _Array_   | []     |
+| showToolbar | 是否显示顶部栏                 | _Boolean_ | `false`  |
+| title       | 顶部栏标题                     | _String_  | 标题   |
+| loading     | 是否显示加载状态               | _Boolean_ | `false`  |
+| defaultIndex | 单列选择器的默认选中项索引 多列选择器请参考下方的 Columns 配置 | _Number_ | `0`

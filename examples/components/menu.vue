@@ -12,7 +12,7 @@
           <span>开发指南</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/guide/installation">安装</el-menu-item>
+          <el-menu-item index="/guide/installation">安装 Install</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="2">

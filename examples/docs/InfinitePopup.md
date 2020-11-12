@@ -66,10 +66,10 @@
 
 | 参数                | 说明                                     | 类型             | 默认值   |
 | ------------------- | ---------------------------------------- | ---------------- | -------- |
-| show                | 是否处于加载中状态                       | Boolean          | false    |
-| zIndex              | z-index 层级                             | Number           | 100      |
-| overlay             | 是否显示遮罩层                           | Boolean          | true     |
-| position            | 弹出位置，可选值为 top bottom right left | String           | 'center' |
-| duration            | 动画时长，单位为毫秒                     | [Number, Object] | 300      |
-| round               | 是否显示圆角                             | Boolean          | false    |
-| closeOnClickOverlay | 是否在点击遮罩层后关闭                   | Boolean          | true     |
+| show                | 是否处于加载中状态                       | _Boolean_          | false    |
+| zIndex              | z-index 层级                             | _Number_           | 100      |
+| overlay             | 是否显示遮罩层                           | _Boolean_          | true     |
+| position            | 弹出位置，可选值为 top bottom right left | _String_           | 'center' |
+| duration            | 动画时长，单位为毫秒                     | _[Number, Object]_ | 300      |
+| round               | 是否显示圆角                             | _Boolean_          | false    |
+| closeOnClickOverlay | 是否在点击遮罩层后关闭                   | _Boolean_          | true     |

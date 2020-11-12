@@ -114,6 +114,6 @@
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| size | icon大小，默认单位为 px | string/number | 18 |
-| color | 定制icon颜色 | string | orange |
-| insertStyle | 动态传入容器样式 | object | - |
+| size | icon大小，默认单位为 px | _string/number_ | 18 |
+| color | 定制icon颜色 | _string_ | orange |
+| insertStyle | 动态传入容器样式 | _object_ | - |
