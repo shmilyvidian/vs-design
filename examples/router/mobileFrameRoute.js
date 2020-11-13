@@ -6,7 +6,7 @@ import MobileTable from '../mobile-frame-view/InfiniteTable.vue'
 
 const routes = [
   {
-    path: '/mobile/DatetimePicker',
+    path: '/mobile/InfiniteDatetimePicker',
     name: 'MobileDatetimePicker',
     meta: {
       mobile: true

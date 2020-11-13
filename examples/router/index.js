@@ -36,8 +36,8 @@ let routes = [
     }
   },
   {
-    path: '/guide/datetimepicker',
-    name: 'DatetimePicker',
+    path: '/guide/DatetimePicker',
+    name: 'InfiniteDatetimePicker',
     component: DatetimePicker,
     meta: {
       type: 'component'
@@ -50,7 +50,7 @@ let routes = [
     meta: {
       type: 'component'
     }
-  },
+  }
 ]
 routes = routes.concat(route)
 

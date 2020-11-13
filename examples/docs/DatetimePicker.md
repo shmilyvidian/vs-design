@@ -7,7 +7,6 @@
 ```html
     <infinite-datetime-picker
         v-model="currentDate"
-        type="year-month"
         :start-time="dataStartTime"
         :end-time="dataEndTime"
     />
@@ -18,6 +17,54 @@
                     currentDate: '20200605',
                     dataStartTime: '20190123',
                     dataEndTime: '20201103',
+                };
+            },
+        };
+    </script>
+```
+:::
+
+### 取消时保留选中值
+:::demo  默认为date类型，获得日期格式为yyyyMMdd。
+```html
+    <infinite-datetime-picker
+        v-model="currentDate"
+        :start-time="dataStartTime"
+        :end-time="dataEndTime"
+        :is-it-save-selected="isItSaveSelected"
+    />
+    <script>
+        export default {
+            data() {
+                return {
+                    currentDate: '20200605',
+                    dataStartTime: '20190123',
+                    dataEndTime: '20201103',
+                    isItSaveSelected: true
+                };
+            },
+        };
+    </script>
+```
+:::
+
+### 图标类型
+:::demo  默认为date类型，获得日期格式为yyyyMMdd，图标为三角箭头。
+```html
+    <infinite-datetime-picker
+        v-model="currentDate"
+        :start-time="dataStartTime"
+        :end-time="dataEndTime"
+        :useDefaultIcon: "useDefaultIcon",
+    />
+    <script>
+        export default {
+            data() {
+                return {
+                    currentDate: '20200605',
+                    dataStartTime: '20190123',
+                    dataEndTime: '20201103',
+                    useDefaultIcon: false
                 };
             },
         };
@@ -219,21 +266,30 @@
 :::
 
 ## API
+| 参数            | 说明                           | 类型        | 默认值 |
+| --------------- | ------------------------------ | ---------- | ------ |
+| slot            |   在子节点中自定义右侧图标内容   |            |        |
+| v-model         |   组件选中时间                  |            |        |
 
 ### Props
 
-| 参数            | 说明                        | 类型        | 默认值 |
-| --------------- | -------------------------- | ---------- | ------ |
-| type            |      date、year-month、month-day、<br>year、month、quarterly、<br>week-end、week-segment、just-show         | _string_   | date |
-| picker-radius   |      日期选择器四周圆角      | _string_   | 0      |
+| 参数               | 说明                             | 类型        | 默认值 |
+| ------------------ | ------------------------------- | ---------- | ------ |
+| type               |      date、year-month、month-day、<br>year、month、quarterly、<br>week-end、week-segment、just-show         | _string_   | date |
+| pickerRadius       |  日期选择器四周圆角                      | _string_   | 0           |
+| pickerColor        |  日期选择器四周圆角                      | _string_   | 0           |
+| isItSaveSelected   |  是否在取消或点击蒙层时保留选中值         | _boolean_   | false      |
+| useDefaultIcon     |  是否使用默认日期图标                    | _boolean_   | true       |
+| sundayArray        |  周期-不连续类型week-end类型可选时间区间  | _array_     | []         |
+| validDate          |  周期-连续类型week-segment可选时间区间   | _array_     | []         |
 
 ###
 当时间选择器类型为 `date`、`year-month`、`month-day`、`year`、`month`、`quarterly` 时，支持以下 props:
 
 | 参数       | 说明                       | 类型        | 默认值 |
 | ---------- | -------------------------- | ---------- | ------ |
-| start-time |      可选的最小日期         | _string_   | 当前日期 |
-| end-time   |      可选的最大日期         | _string_   | 当前日期 |
+| startTime  |      可选的最小日期         | _string_   | 当前日期 |
+| endTime    |      可选的最大日期         | _string_   | 当前日期 |
 
 ### Events
 

@@ -5,8 +5,9 @@
       @click="openDatePopup"
       :style="{background: pickerColor, borderRadius: pickerRadius}">
       <span :class="span">{{ currentDate | filterCurrentDate(that) }}</span>
-      <!-- <i :class-="icon"></i> -->
-      <van-icon :class="span" :name="icon" v-bind="iconStyle" />
+      <i :class="iconClass" v-if="useDefaultIcon && !hasIconSlot"></i>
+      <van-icon :class="span" :name="icon" v-bind="iconStyle" v-if="!useDefaultIcon && !hasIconSlot" />
+      <slot name="icon" ></slot>
     </div>
     <!-- end of 时间选择器显示title及icon -->
     <!-- popup弹窗 -->
@@ -160,12 +161,12 @@ export default {
       type: Boolean,
       default: true
     },
-    // 可选时间区间
+    // 周期-连续类型week-segment可选时间区间
     validDate: {
       type: Array,
       default: () => ([])
     },
-    // 周选择器中week-end类型可选时间区间
+    // 周期-不连续类型week-end类型可选时间区间
     sundayArray: {
       type: Array,
       default: () => ([])
@@ -184,8 +185,13 @@ export default {
     iconStyle: {
       type: Object,
       default: () => ({
-        size: '16px'
+        size: '12px'
       })
+    },
+    // 是否在取消或点击蒙层时保留选中值
+    isItSaveSelected: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -218,7 +224,41 @@ export default {
     },
     // 左边的span类名
     span () {
-      const iconStr = ''
+      let iconStr = ''
+      const arr = ['just-show']
+      if (this.hasIconSlot) {
+        return ``
+      }
+      if (arr.includes(this.type)) {
+        return `${iconStr}`
+      }
+      if (this.useDefaultIcon) {
+        return `${iconStr} default`
+      }
+      iconStr = this.popupShow ? `icon-caret-up` : `icon-caret-down`
+      return `${iconStr} iconDefault`
+    },
+    // 右边的图标name
+    icon () {
+      // const iconStr = 'icon micofont'
+      // const iconStr = ''
+      console.log('icon == ', this.type, this.useDefaultIcon)
+      const arr = ['just-show']
+      if (arr.includes(this.type)) {
+        return ''
+      }
+      // if (this.useDefaultIcon) {
+      // return `${iconStr} default`
+      // return `tosend`
+      return `play`
+      // }
+      // return ''
+      // return this.popupShow ? `${iconStr} icon-caret-up` : `${iconStr} icon-caret-down`
+      // return this.popupShow ? `arrow-up` : `arrow-down`
+    },
+    // 右边的图标-图片类名
+    iconClass () {
+      const iconStr = 'icon-calendar'
       const arr = ['just-show']
       if (arr.includes(this.type)) {
         return `${iconStr}`
@@ -228,20 +268,17 @@ export default {
       }
       return `${iconStr} icon`
     },
-    // 右边的图标类名
-    icon () {
-      // const iconStr = 'icon micofont'
-      // const iconStr = ''
-      const arr = ['just-show']
-      if (arr.includes(this.type)) {
-        return ''
-      }
-      if (this.useDefaultIcon) {
-        // return `${iconStr} default`
-        return `tosend`
-      }
-      // return this.popupShow ? `${iconStr} icon-caret-up` : `${iconStr} icon-caret-down`
-      return this.popupShow ? `arrow-up` : `arrow-down`
+    // 右边的图标-类名
+    // vanIconClass () {
+    //   const iconStr = 'icon-calendar'
+    //   const arr = ['just-show']
+    //   if (arr.includes(this.type)) {
+    //     return ''
+    //   }
+    //   return `${iconStr} default`
+    // },
+    hasIconSlot () {
+      return !!(this.$slots && this.$slots.icon)
     },
     // 外部传入的关于时间选择器的配置
     nextPropsObj () {
@@ -470,6 +507,9 @@ export default {
     },
     closePopup (value, index) {
       this.popupShow = false
+      if (this.isItSaveSelected) {
+        return
+      }
       const { picker } = this.$refs // datePicker时为undefined
       if (picker) { // 除确定外关闭弹窗时重置选中项(picker-model)
         picker.setIndexes([this.pickerDefaultIndex])
