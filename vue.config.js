@@ -36,9 +36,9 @@ module.exports = {
 
   chainWebpack: config => {
     config.resolve.alias
-    .set('@', resolve('examples'))
-    .set('packages', resolve('packages'))
-    .set('utils', path.resolve(__dirname, './utils'))
+      .set('@', resolve('examples'))
+      .set('packages', resolve('packages'))
+      .set('utils', path.resolve(__dirname, './utils'))
 
     config.module
       .rule('js')

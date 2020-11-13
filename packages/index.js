@@ -1,28 +1,29 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
-    import InfiniteButton from './infinite-button'
-import InfiniteLoading from './infinite-loading'
+import InfiniteButton from './infinite-button'
 import InfiniteDatetimePicker from './infinite-datetime-picker'
 import InfiniteEmpty from './infinite-empty'
-import InfinitePullRefresh from './infinite-pull-refresh'
-import InfiniteToast from './infinite-toast'
-import InfiniteTable from './infinite-table'
-import InfinitePopup from './infinite-popup'
-import InfinitePicker from './infinite-picker'
 import InfiniteHeaderNav from './infinite-header-nav'
-
-const version = '0.0.3'
+import InfiniteLoading from './infinite-loading'
+import InfinitePicker from './infinite-picker'
+import InfinitePopup from './infinite-popup'
+import InfinitePullRefresh from './infinite-pull-refresh'
+import InfiniteTable from './infinite-table'
+import InfiniteToast from './infinite-toast'
+import InfiniteTouchEmulator from './infinite-touch-emulator'
+const version = '0.0.1'
 const components = [
   InfiniteButton,
-  InfiniteLoading,
   InfiniteDatetimePicker,
   InfiniteEmpty,
-  InfinitePullRefresh,
-  InfiniteToast,
-  InfiniteTable,
   InfiniteHeaderNav,
+  InfiniteLoading,
+  InfinitePicker,
   InfinitePopup,
-  InfinitePicker
+  InfinitePullRefresh,
+  InfiniteTable,
+  InfiniteToast,
+  InfiniteTouchEmulator
 ]
 const install = Vue => {
   components.forEach(Component => {
@@ -38,19 +39,18 @@ export {
   install,
   version,
   InfiniteButton,
-  InfiniteLoading,
   InfiniteDatetimePicker,
   InfiniteEmpty,
-  InfinitePullRefresh,
-  InfiniteToast,
   InfiniteHeaderNav,
-  InfinitePopup,
+  InfiniteLoading,
   InfinitePicker,
+  InfinitePopup,
+  InfinitePullRefresh,
   InfiniteTable,
+  InfiniteToast,
+  InfiniteTouchEmulator
 }
 export default {
   install,
   version
 }
-
-  
