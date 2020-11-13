@@ -9,7 +9,7 @@
           <menu-model></menu-model>
         </el-aside>
         <el-main :class="isChildIframe ? 'el-main-left' : 'el-main-right'">
-          <infinite-header-nav v-if="!$route.path.includes('guide')" class="header-nav" :insertStyle="insertStyle">
+          <infinite-header-nav v-if="!isChildIframe" class="header-nav" :insertStyle="insertStyle">
             <div slot="centerItem">
               {{ iframeTitle}}
             </div>

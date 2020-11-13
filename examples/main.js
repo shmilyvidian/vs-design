@@ -14,31 +14,19 @@ import 'packages/infinite-touch-emulator'
 
 // 导入组件库
 import {
-  InfiniteButton,
-  InfiniteLoading,
   InfiniteDatetimePicker,
   InfiniteEmpty,
-  InfinitePullRefresh,
-  InfiniteToast,
   InfiniteHeaderNav,
-  InfinitePopup,
-  InfinitePicker,
   InfiniteTable
 } from '../packages'
 
 // 使用vant-ui
 Vue.use(Vant)
 Vue.config.productionTip = false
-Vue.use(InfiniteButton)
-  .use(InfiniteLoading)
-  .use(InfiniteDatetimePicker)
+Vue.use(InfiniteDatetimePicker)
   .use(InfiniteEmpty)
-  .use(InfinitePullRefresh)
-  .use(InfiniteToast)
   .use(InfiniteTable)
   .use(InfiniteHeaderNav)
-  .use(InfinitePopup)
-  .use(InfinitePicker)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)
