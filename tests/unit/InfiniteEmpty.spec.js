@@ -16,13 +16,11 @@ describe('InfiniteEmpty.vue', () => {
       // console.log('itemType', itemType);
       const wrapper = shallowMount(InfiniteEmpty, {
         propsData: { 
-          type: itemType,
+          type: itemType
         }
       })
       expect(wrapper.attributes().type).toMatch(itemType)
       wrapper.destroy()
     })
   })
-
 })
-

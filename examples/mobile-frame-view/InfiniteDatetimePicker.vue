@@ -40,6 +40,27 @@ export default {
           }
         },
         {
+          title: '取消时保留选中值',
+          currentDate: '20200605',
+          confirmMethod: 'confirm',
+          itemProp: {
+            pickerRadius: '5px',
+            startTime: '20190123',
+            endTime: '20201103',
+            isItSaveSelected: true
+          }
+        },
+        {
+          title: '图标类型',
+          currentDate: '20200605',
+          itemProp: {
+            pickerRadius: '5px',
+            useDefaultIcon: false,
+            startTime: '20190123',
+            endTime: '20201103'
+          }
+        },
+        {
           title: '年月类型',
           currentDate: '202006',
           confirmMethod: 'confirm',
@@ -112,6 +133,16 @@ export default {
             pickerRadius: '5px',
             type: 'week-segment',
             validDate: ['2020.08.17-2020.08.23', '2020.06.01-2020.06.07', '2020.05.25-2020.05.31', '2020.05.18-2020.05.24', '2020.05.11-2020.05.17']
+          }
+        },
+        {
+          title: '仅展示类型',
+          currentDate: '20200605',
+          itemProp: {
+            pickerRadius: '5px',
+            type: 'just-show',
+            startTime: '20190123',
+            endTime: '20201103'
           }
         }
       ]

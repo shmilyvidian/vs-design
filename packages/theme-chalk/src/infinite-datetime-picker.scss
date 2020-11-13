@@ -25,27 +25,72 @@
         align-items: center;
         justify-content: center;
         padding-right: 21px;
+        margin-right: 10px;
       }
 
-      &.icon {
-        padding-right: 6px;
+      &.iconDefault {
+        padding-right: 13px;
+        margin-right: 10px;
       }
+    }
+
+    i {
+      &.icon-calendar {
+        margin-right: 10px;
+
+        &.default {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          margin-left: 5px;
+          background: url('~packages/infinite-datetime-picker/src/img/calendar.png') no-repeat center center;
+          background-size: 100% 100%;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(calc(-50% - 1px));
+        }
+      }
+
+      // &.iconDefault {
+      //   transform: rotate(90deg);
+      // }
     }
 
     // /deep/ .icon {
     /deep/ .van-icon {
-      &.default {
+      &.iconDefault {
+      // &.default {
       // &.van-icon-tosend {
         position: absolute;
         top: 50%;
-        right: 2px;
+        right: 8px;
         display: inline-block;
-        width: 16px;
-        height: 16px;
-        margin-left: 5px;
-        transform: translateY(calc(-50% - 1px));
+        // width: 16px;
+        // height: 16px;
+        // margin-left: 5px;
+        transform: translateY(calc(-50% - 1px)) scale(.8, .6);
+        // transform: scale(0.8);
         // background: url(calendar.png) no-repeat center center;
         background-size: 100% 100%;
+      }
+
+      &.icon-caret-up {
+        &::before {
+          transform-origin:center center;
+          transform: translateY(1px) rotate(-90deg);
+        }
+        // margin-top: 5px;
+        
+      }
+
+      &.icon-caret-down {
+        &::before {
+          transform-origin:center center;
+          transform: translateY(-1px) rotate(90deg);
+        }
+        // margin-bottom: 5px;
+        // transform: rotate(90deg);
       }
     }
   }

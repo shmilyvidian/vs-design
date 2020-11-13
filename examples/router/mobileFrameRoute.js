@@ -1,5 +1,5 @@
 // 手机模拟器内 组件路由
-import MobileDatetimePicker from '../mobile-frame-view/DatetimePicker.vue'
+import MobileDatetimePicker from '../mobile-frame-view/InfiniteDatetimePicker.vue'
 import MobileLoading from '../mobile-frame-view/InfiniteLoading.vue'
 import MobileHeaderNav from '../mobile-frame-view/InfiniteHeaderNav.vue'
 import MobileEmpty from '../mobile-frame-view/InfiniteEmpty.vue'
@@ -12,7 +12,7 @@ import MobilePullRefresh from '../mobile-frame-view/InfinitePullRefresh.vue'
 
 const routes = [
   {
-    path: '/mobile/DatetimePicker',
+    path: '/mobile/InfiniteDatetimePicker',
     name: 'MobileDatetimePicker',
     meta: {
       mobile: true

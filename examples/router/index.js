@@ -4,7 +4,7 @@ import Button from '../docs/button.md'
 import InfiniteLoading from '../docs/loading.md'
 import InfiniteEmpty from '../docs/empty.md'
 import InfiniteHeaderNav from '../docs/headerNav.md'
-import DatetimePicker from '../docs/DatetimePicker.md'
+import InfiniteDatetimePicker from '../docs/InfiniteDatetimePicker.md'
 import InfinitePullRefresh from '../docs/InfinitePullRefresh.md'
 import InfiniteToast from '../docs/Toast.md'
 import InfiniteTable from '../docs/Table.md'
@@ -58,9 +58,9 @@ let routes = [
     }
   },
   {
-    path: '/guide/datetimepicker',
-    name: 'DatetimePicker',
-    component: DatetimePicker,
+    path: '/guide/InfiniteDatetimepicker',
+    name: 'InfiniteDatetimePicker',
+    component: InfiniteDatetimePicker,
     meta: {
       type: 'component'
     }
@@ -104,7 +104,7 @@ let routes = [
     meta: {
       type: 'component'
     }
-  },
+  }
 ]
 routes = routes.concat(route)
 Vue.use(VueRouter)
