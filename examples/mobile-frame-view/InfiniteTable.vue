@@ -3,7 +3,8 @@
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">基础用法</h2>
       <div class="infinite-doc-demo-block-table ">
-        <infinite-table :table-data="tableData"> </infinite-table>
+        <!-- <infinite-table :table-data="tableData"> </infinite-table> -->
+        <infinite-table :rank-data-obj="rankDataObj"> </infinite-table>
       </div>
     </el-row>
   </div>
@@ -110,6 +111,62 @@ export default {
             sort: '0',
             style: {},
             unit: '亿'
+          }
+        ]
+      },
+      rankDataObj: {
+        headers: ['产品名称', '当年收入(亿)', '当月收入(亿)', '当日收入(亿)'],
+        rows: [
+          {
+            rowValue: ['卓越系列', '0.11', '0.07', '0.11'],
+            rows: [
+              {
+                rowValue: ['卓越一年1号', '0.03', '0.01', '0.03'],
+                rows: []
+              },
+              {
+                rowValue: ['卓越一年3号', '0.01', '0.00', '0.01'],
+                rows: []
+              },
+              {
+                rowValue: ['卓越一年2号', '0.01', '0.01', '0.01'],
+                rows: []
+              }
+            ]
+          },
+          {
+            rowValue: ['现金类', '4.62', '1.93', '4.62'],
+            rows: [
+              {
+                rowValue: ['天天成长C', '1.69', '0.66', '1.69'],
+                rows: []
+              },
+              {
+                rowValue: ['天天成长A', '1.45', '0.59', '1.45'],
+                rows: []
+              },
+              {
+                rowValue: ['天天成长B', '0.85', '0.33', '0.85'],
+                rows: []
+              }
+            ]
+          },
+          {
+            rowValue: ['启航系列', '0.66', '0.33', '0.66'],
+            rows: [
+              {
+                rowValue: ['启航半年1号', '0.11', '0.05', '0.11'],
+                rows: []
+              },
+              {
+                rowValue: ['启航一年5号', '0.06', '0.02', '0.06'],
+                rows: []
+              },
+              {
+                rowValue: ['启航半年4号', '0.03', '0.02', '0.03'],
+                rows: []
+              }
+            ]
           }
         ]
       }
