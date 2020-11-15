@@ -24,6 +24,7 @@
           <el-menu-item index="/guide/InfiniteHeaderNav">头部导航 HeaderNav</el-menu-item>
           <el-menu-item index="/guide/datetimepicker">时间选择器 DatetimePicker</el-menu-item>
           <el-menu-item index="/guide/InfiniteTable">表格 Table</el-menu-item>
+          <el-menu-item index="/guide/infiniteInstitutionalFilter">机构筛选器 Institutional</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>

@@ -56,11 +56,11 @@
 <script>
 export default {
   methods: {},
-  data() {
+  data () {
     return {
-    };
+    }
   }
-};
+}
 </script>
 
 <style></style>

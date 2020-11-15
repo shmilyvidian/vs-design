@@ -3,39 +3,47 @@ import MobileDatetimePicker from '../mobile-frame-view/DatetimePicker.vue'
 import MobileHeaderNav from '../mobile-frame-view/InfiniteHeaderNav.vue'
 import MobileEmpty from '../mobile-frame-view/InfiniteEmpty.vue'
 import MobileTable from '../mobile-frame-view/InfiniteTable.vue'
+import infiniteInstitutionalFilter from '../mobile-frame-view/infiniteInstitutionalFilter.vue'
 
-const routes = [
-  {
-    path: '/mobile/InfiniteDatetimePicker',
-    name: 'MobileDatetimePicker',
-    meta: {
-      mobile: true
-    },
-    component: MobileDatetimePicker
+const routes = [{
+  path: '/mobile/InfiniteDatetimePicker',
+  name: 'MobileDatetimePicker',
+  meta: {
+    mobile: true
   },
-  {
-    path: '/mobile/InfiniteHeaderNav',
-    name: 'MobileHeaderNav',
-    meta: {
-      mobile: true
-    },
-    component: MobileHeaderNav
+  component: MobileDatetimePicker
+},
+{
+  path: '/mobile/InfiniteHeaderNav',
+  name: 'MobileHeaderNav',
+  meta: {
+    mobile: true
   },
-  {
-    path: '/mobile/InfiniteEmpty',
-    name: 'MobileEmpty',
-    meta: {
-      mobile: true
-    },
-    component: MobileEmpty
+  component: MobileHeaderNav
+},
+{
+  path: '/mobile/InfiniteEmpty',
+  name: 'MobileEmpty',
+  meta: {
+    mobile: true
   },
-  {
-    path: '/mobile/InfiniteTable',
-    name: 'MobileTable',
-    meta: {
-      mobile: true
-    },
-    component: MobileTable
+  component: MobileEmpty
+},
+{
+  path: '/mobile/InfiniteTable',
+  name: 'MobileTable',
+  meta: {
+    mobile: true
   },
+  component: MobileTable
+},
+{
+  path: '/mobile/infiniteInstitutionalFilter',
+  name: 'MobileTable',
+  meta: {
+    mobile: true
+  },
+  component: infiniteInstitutionalFilter
+}
 ]
 export default routes

@@ -4,6 +4,7 @@ import InfiniteEmpty from '../docs/empty.md'
 import InfiniteHeaderNav from '../docs/headerNav.md'
 import DatetimePicker from '../docs/DatetimePicker.md'
 import InfiniteTable from '../docs/Table.md'
+import InfiniteInstitutionalFilter from '../docs/InfiniteInstitutionalFilter.md'
 
 import route from './mobileFrameRoute'
 
@@ -50,15 +51,23 @@ let routes = [
     meta: {
       type: 'component'
     }
+  },
+  {
+    path: '/guide/InfiniteInstitutionalFilter',
+    name: 'InfiniteInstitutionalFilter',
+    component: InfiniteInstitutionalFilter,
+    meta: {
+      type: 'component'
+    }
   }
 ]
 routes = routes.concat(route)
 
-//获取原型对象上的push函数
+// 获取原型对象上的push函数
 const originalPush = VueRouter.prototype.push
-//修改原型对象中的push方法, 捕获重复点击路由时的报错
-VueRouter.prototype.push = function push(location) {
-   return originalPush.call(this, location).catch(err => err)
+// 修改原型对象中的push方法, 捕获重复点击路由时的报错
+VueRouter.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
 }
 
 Vue.use(VueRouter)

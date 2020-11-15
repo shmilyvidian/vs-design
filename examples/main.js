@@ -17,7 +17,8 @@ import {
   InfiniteDatetimePicker,
   InfiniteEmpty,
   InfiniteHeaderNav,
-  InfiniteTable
+  InfiniteTable,
+  infiniteInstitutionalFilter
 } from '../packages'
 
 // 使用vant-ui
@@ -27,6 +28,7 @@ Vue.use(InfiniteDatetimePicker)
   .use(InfiniteEmpty)
   .use(InfiniteTable)
   .use(InfiniteHeaderNav)
+  .use(infiniteInstitutionalFilter)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)
