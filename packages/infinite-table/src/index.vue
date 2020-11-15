@@ -6,6 +6,12 @@
       </div>
       <CardTable
          :table-data="tableData"
+         :is-default-number="isDefaultNumber"
+         @ontableUnitClick="tableEvent(arguments, 'ontableUnitClick')"
+         @onTableUnfoldMore="tableEvent(arguments, 'onTableUnfoldMore')"
+         @onTableFold="tableEvent(arguments, 'onTableFold')"
+         @onTableColSort="tableEvent(arguments, 'onTableColSort')"
+         @onTableOpenChildMore="tableEvent(arguments, 'onTableOpenChildMore')"
       >
 
       </CardTable>
@@ -42,7 +48,7 @@ export default {
       type: Object,
       default: () => {}
     },
-    // 是否需要默认排序
+    // 是否需要排名列
     isDefaultNumber: {
       type: Boolean,
       default: true
@@ -75,7 +81,13 @@ export default {
   computed: {
     tableHead () {
       console.log('computed - tableHead == ', this.rankDataObj)
-      return this.rankDataObj && this.rankDataObj.headers ? this.rankDataObj.headers : []
+      if (this.rankDataObj && this.rankDataObj.headers) {
+        return this.rankDataObj.headers
+      } else if (this.rankDataObj && this.rankDataObj.columns) {
+        return this.rankDataObj.columns
+      } else {
+        return []
+      }
     },
     tableBody () {
       return this.rankDataObj && this.rankDataObj.rows ? this.rankDataObj.rows : []
@@ -97,6 +109,7 @@ export default {
           }
         })
       }
+      // console.log('isNumbers - res === ', res)
       return res
     }
   },
@@ -106,7 +119,7 @@ export default {
       handler (val) {
         this.$nextTick(() => {
           this.tableData = this.tableDataInit(this.tableHead, this.tableBody, this.factoryData)
-          console.log('watch - this.tableData == ', this.tableData, this.tableHead, this.tableBody)
+          // console.log('watch - this.tableData == ', this.tableData, this.tableHead, this.tableBody)
         })
       },
       immediate: true
@@ -151,26 +164,55 @@ export default {
     tableDataInit (columns, rows, cb) {
       // 表头数据处理 - start
       const nameColumns = [...columns]
+      let sortInd = '0'
       const reColumns = nameColumns.map((colItem, colIndex) => {
         const isFixeds = [0].includes(colIndex)
-        let isSort = !isFixeds
-        const { name, unit } = this.reNameFun(colItem, colIndex)
-        const style = {}
+        // let isSort = !isFixeds
+        let isSort = false
+        const colItemName = typeof (colItem) === 'string' ? colItem : (colItem.name || '')
+        const colItemObj = Object.prototype.toString.call(colItem) === '[object Object]' ? colItem : {}
+        // const { name, unit } = this.reNameFun(colItem, colIndex)
+        const { name, unit } = this.reNameFun(colItemName, colIndex)
+        const style = colItemObj.style || {}
+        // 是否执行排序由columns第一个为'1'的sort决定，其他皆处理为'0'
+        if (sortInd === '0' && colItemObj.sort === '1') {
+          sortInd = '1'
+        } else {
+          sortInd = '0'
+        }
         // if(columns.color){
         //   style.color = 
         // }
         // if(hasNonSorted){
         //   isSort = 0
         // }
-        const sortIndex = this.tableOption
+        // 列是否可排序，headers中由其是否是数字决定，columns中由其是否是数字和isSort两者共同决定
+        if ((colItemObj.hasOwnProperty('isSort') && colItemObj.isSort === true && this.isNumbers[colIndex]) || 
+          (!colItemObj.hasOwnProperty('isSort') && this.isNumbers[colIndex])
+        ) {
+          isSort = true
+        }
+        // if(colItemObj.hasOwnProperty('isSort')){
+        //   if(this.isNumbers[colIndex] && colItemObj.isSort === true){
+        //     isSort = true
+        //   }
+        // }else{
+        //   if(this.isNumbers[colIndex]){
+        //     isSort = true
+        //   }
+        // }
+        // const sortIndex = this.tableOption
+        // console.log('isNumbers == ', this.isNumbers)
+        // console.log('sort == ', isSort ? (colItemObj.sort || '1') : '0')
+        // console.log('sort == ', colItemObj.sort || '1')
         const colObj = {
-          name, 
-          fixed: isFixeds, // 是否固定列
-          isSort, // 0支持排序
-          sort: colIndex === sortIndex ? '1' : '0', // 排序方式
+          name: name || colItemObj.name || '', // 表头名称，headers中由其元素决定，columns中由name属性决定
+          fixed: isFixeds || colItemObj.fixed || false, // 列是否固定，其中第一列必然固定
+          isSort, // 列是否可排序，其中非数字必然不可排序
+          sort: sortInd, // 列是否有执行排序，1已排序 0未排序 -- isSort ? (colItemObj.sort || '0') : '0'
           key: this.uuid(),
-          unit,
-          style
+          unit: unit || colItemObj.unit || '', // 表头单位，headers中由括号内决定，columns中由unit属性决定
+          style // 表身样式，只由columns中style决定
         }
 
         const brFunc = (col, nameIncludesArray, splitArray) => {
@@ -183,7 +225,9 @@ export default {
             }
           })
         }
-        // brFunc(colObj, [], [])
+        const a = Array.isArray(colItemObj.nameIncludesArray) ? colItemObj.nameIncludesArray : []
+        const b = Array.isArray(colItemObj.splitArray) ? colItemObj.splitArray : []
+        brFunc(colObj, a, b)
         return colObj
       })
       // 表头数据处理 end
@@ -234,6 +278,39 @@ export default {
       }
       console.log('localTableData == ', localTableData, reColumns, reRows)
       return JSON.parse(JSON.stringify(localTableData))
+    },
+    // table接收事件
+    tableEvent (argumentsArr = [], tableEventType) {
+      switch (tableEventType) {
+        // case 'ontableUnitClick':
+        //   // console.log('ontableUnitClick - argumentsArr = ', argumentsArr)
+        //   this.$emit('ontableUnitClick', ...argumentsArr)
+        //   break
+        // case 'onTableUnfoldMore':
+        //   // console.log('ontableUnitClick - argumentsArr = ', argumentsArr)
+        //   this.$emit('onTableUnfoldMore', ...argumentsArr)
+        //   break
+        // case 'onTableFold':
+        //   // console.log('ontableUnitClick - argumentsArr = ', argumentsArr)
+        //   this.$emit('onTableFold', ...argumentsArr)
+        //   break
+        // case 'onTableColSort':
+        //   // console.log('ontableUnitClick - argumentsArr = ', argumentsArr)
+        //   this.$emit('onTableColSort', ...argumentsArr)
+        //   break
+        // case 'onTableOpenChildMore':
+        //   // console.log('ontableUnitClick - argumentsArr = ', argumentsArr)
+        //   this.$emit('onTableOpenChildMore', ...argumentsArr)
+        //   break
+        case 'null':
+          // console.log('ontableUnitClick - argumentsArr = ', argumentsArr)
+          // this.$emit('onTableOpenChildMore', ...argumentsArr)
+          break
+      
+        default:
+          this.$emit(tableEventType, ...argumentsArr)
+          break
+      }
     }
   }
 

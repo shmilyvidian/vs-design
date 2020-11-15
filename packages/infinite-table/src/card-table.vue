@@ -334,7 +334,7 @@ export default {
     // 点击展开/收起
     expandClick (status) { // status状态，true展开更多，false收起
       // 当前展开条数是否上限
-      console.log('this.tableData == ? === ', this.tableData, this.tableData.data)
+      // console.log('this.tableData == ? === ', this.tableData, this.tableData.data)
       const compareStatus = this.tableData.data.length > (this.currentNum + 1) * this.everyAddNum
       if (status) {
         if (compareStatus) {
@@ -384,13 +384,14 @@ export default {
     },
 
     // 点击单元格，这里做了展开/收起子表格操作
-    ontableUnitClick (hashChildren, row, rowIndex, col) {
+    ontableUnitClick (hashChildren, row, rowIndex, col, colIndex) {
       if (!col.closeClickRead) {
         this.$set(this.recordUnitClicks, `${row.key}*${col.key}`, true)
       }
       // 设置查看子节点方法
       const name = row[col.key]
-      this.$emit('obtableUnitClick', { name, status: !!this.childrenKeys[row.key], row, col })
+      // 此处发生修改，此方法关联处也发生修改
+      this.$emit('ontableUnitClick', { name, status: !!this.childrenKeys[row.key], row, col, colIndex })
       // 不存在子节点时
       if (!hashChildren) return
       // 设置当前子节点状态
