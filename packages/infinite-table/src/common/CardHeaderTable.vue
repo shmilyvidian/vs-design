@@ -21,7 +21,7 @@
                 <div class="care-icon-box">
                   {{item.name}}
                   <div class="unit" v-show="item.unit">
-                    <div v-show="item.unit">{{item.unit}}</div>
+                    <div v-show="item.unit">({{item.unit}})</div>
                   </div>
                   <div class="sort-div-ab"
                     v-show="item.isSort"

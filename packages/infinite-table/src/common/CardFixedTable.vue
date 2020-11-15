@@ -75,7 +75,7 @@
                           'unit-clicked':recordUnitClicks[`${cItemR.key}*${cItemC.key}`]
                         }"
                         :style="localStyles[cItemC.key]"
-                        @click="ontableUnitClick(false,cItemR, index,cItemC)"
+                        @click="ontableUnitClick(false,cItemR, index,cItemC,cIndex)"
                       >
                         <div class="c-td-container"
                           :style="[cItemC.style]"
@@ -91,7 +91,7 @@
                 <div class="fixed-c-more-btn"
                   v-if="item.children.length > defaultChildrenNum"
                   :style="{height:cMoreHeight+'px',width:clientWidth+'px'}"
-                  @click="openCMore(item,children)"
+                  @click="openCMore(item.children)"
                 >
                   查看更多<span class="risk-table-more rotate45"></span>
                 </div>
@@ -112,7 +112,7 @@
               :style="localStyles[item2.key]"
               @click="ontableUnitClick(item.children && 
                 item.children.length &&
-              index2 === 1, item, index,item2)"
+              index2 === 1, item, index,item2,index2)"
             >
               <div class="p-td-container"
                 :class="{opacity:!item2.fixed}"
@@ -245,8 +245,8 @@ export default {
   },
   methods: {
     // 单元格点击
-    ontableUnitClick (hashChildren, row, rowIndex, col) {
-      this.$emit('ontableUnitClick', hashChildren, row, rowIndex, col)
+    ontableUnitClick (hashChildren, row, rowIndex, col, colIndex) {
+      this.$emit('ontableUnitClick', hashChildren, row, rowIndex, col, colIndex)
     },
     sortBy (item) {
       this.$emit('sortBy', item)

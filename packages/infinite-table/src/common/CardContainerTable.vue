@@ -36,7 +36,7 @@
                           (cItemC.fixed?'row-align-center-textalign':'row-align-right-textalign')
                         ]"
                         :style="localStyles[cItemC.key]"
-                        @click="ontableUnitClick(false,cItemR, index,cItemC)"
+                        @click="ontableUnitClick(false,cItemR, index,cItemC,cIndex)"
                       >
                         <div class="c-td-container"
                           :style="[cItemC.style]"
@@ -71,7 +71,7 @@
               :style="localStyles[item2.key]"
               @click="ontableUnitClick(item.children && 
                 item.children.length && 
-              index===1, item, index, item2)"
+              index===1, item, index, item2, index2)"
             >
               <div class="p-td-container"
                 :class="{opacity:item2.fixed}"
@@ -174,8 +174,8 @@ export default {
   },
   methods: {
     // 单元格点击
-    ontableUnitClick (hashChildren, row, rowIndex, col) {
-      this.$emit('ontableUnitClick', hashChildren, row, rowIndex, col)
+    ontableUnitClick (hashChildren, row, rowIndex, col, colIndex) {
+      // this.$emit('ontableUnitClick', hashChildren, row, rowIndex, col, colIndex)
     }
   }
 }
