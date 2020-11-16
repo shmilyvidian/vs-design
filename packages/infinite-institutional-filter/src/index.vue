@@ -101,7 +101,7 @@ export default {
     onSelectItem (item) {
       console.log(item)
       // 将点击参数放入对应位置
-      this.selectedList[this.selectedIndex] = item
+      this.$set(this.selectedList,this.selectedIndex,item)
 
       // 存在子集移动下标
       if (item.children && item.children.length) {
