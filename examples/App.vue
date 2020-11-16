@@ -16,7 +16,7 @@
           </infinite-header-nav>
           <router-view></router-view>
         </el-main>
-        <div v-if="isChildIframe" :class="{'fixed-right': true, 'isMobile': !isPC}">
+        <div v-if="isChildIframe" :class="{'fixed-right': true, 'is-mobile': !isPC}">
           <iframe :style="simulatorStyle" :src="iframeSrc" name="mobileFrame" id="frame_1"></iframe>
         </div>
       </el-container>
@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-    // "build:lib": "node build/build-lib.js && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && cp-cli lib/theme-chalk/lib/index.css lib/infinite-ui.css",
+// "build:lib": "node build/build-lib.js && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && cp-cli lib/theme-chalk/lib/index.css lib/infinite-ui.css",
 import HeaderModel from './components/header'
 import MenuModel from './components/menu'
 
@@ -81,11 +81,18 @@ export default {
       return flag
     }
   },
-  mounted() {
-    const route = this.$route;
-    this.isChildIframe = route.path.includes("guide") || route.path === '/'
+  mounted () {
+    const route = this.$route
+    this.isChildIframe = route.path.includes('guide') || route.path === '/'
     if (this.isChildIframe) {
       this.iframeSrc = `/#/mobile/${route.name}`
+    } else {
+      if (this.isPC) {
+        document.documentElement.className = 'is-right-mobile'
+      } else {
+        // 设置iframe跟节点class
+        document.documentElement.className = 'is-mobile'
+      }
     }
   }
 }
@@ -163,8 +170,8 @@ export default {
   background: #fafafa;
   border-radius: 12px;
   box-shadow: #bdc0c5 0 4px 12px;
-  
-  &.isMobile {
+
+  &.is-mobile {
     position: fixed;
     top: 0;
     left: 0;
@@ -172,7 +179,6 @@ export default {
     margin: 0;
     border-radius: 0;
   }
-
 }
 
 .hljs {

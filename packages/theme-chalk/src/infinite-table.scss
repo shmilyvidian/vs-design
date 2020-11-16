@@ -4,6 +4,18 @@ $ftColor: #8799be;
 $mainColor: #6195ff;
 $bgColor: #27292f;
 
+html.is-mobile {
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+html.is-right-mobile {
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
 .flex-c-c {
   display: flex;
   justify-content: center;
@@ -193,30 +205,43 @@ $bgColor: #27292f;
                     left: calc(100% + .533vw);
                     transform: translateY(calc(-50%));
 
+                    background: url('~images/table-sort-default.png') no-repeat center center;
+                    background-size: 100% 100%;
+
                     .sort-div-re {
                       position: relative;
                       height: 2.667vw;
                       width: 2.133vw;
 
                       .sort-top {
-                        @extend .sort-icon-style;
+                        // @extend .sort-icon-style;
                         bottom: 1.5vw;
                         border-top-color: transparent;
                       }
 
                       .sort-bottom {
-                        @extend .sort-icon-style;
+                        // @extend .sort-icon-style;
                         bottom: -1vw;
                         border-bottom-color: transparent;
                       }
 
                       .sort-top.active {
-                        border-bottom-color: $mainColor;
+                        // border-bottom-color: $mainColor;
                       }
 
                       .sort-bottom.active {
-                        border-top-color: $mainColor;
+                        // border-top-color: $mainColor;
                       }
+                    }
+
+                    &.sort-div-ab-top {
+                      background: url('~images/table-sort-top.png') no-repeat center center;
+                      background-size: 100% 100%;
+                    }
+
+                    &.sort-div-ab-bottom {
+                      background: url('~images/table-sort-bottom.png') no-repeat center center;
+                      background-size: 100% 100%;
                     }
                   }
                 }
@@ -391,15 +416,33 @@ $bgColor: #27292f;
       // 设置存在子节点的展开箭头提示
       .p-td {
         .icon-down {
-          @extend .icon-position-border;
+          // @extend .icon-position-border;
           margin-top: .534vw;
-          border-bottom-color: transparent;
+          // border-bottom-color: transparent;
+          
+          position: absolute;
+          top: 50%;
+          right: 1.333vw;
+          width: 2.134vw;
+          height: 2.134vw;
+          transform: translateY(-50%);
+          background: url('~images/table-down-expand.png') no-repeat center top;
+          background-size: 100% 50%;
         }
 
         .icon-up {
-          @extend .icon-position-border;
+          // @extend .icon-position-border;
           margin-top: -0.534vw;
-          border-top-color: transparent;
+          // border-top-color: transparent;
+
+          position: absolute;
+          top: 50%;
+          right: 1.333vw;
+          width: 2.134vw;
+          height: 2.134vw;
+          transform: translateY(-50%) rotate(180deg);
+          background: url('~images/table-down-expand.png') no-repeat center top;
+          background-size: 100% 50%;
         }
       }
     }
@@ -480,12 +523,18 @@ $bgColor: #27292f;
 // 查看更多
 .risk-table-more {
   display: inline-block;
-  width: 2.133vw;
-  height: 2.133vw;
-  border-top: 1px solid $mainColor;
-  border-right: 1px solid $mainColor;
+  // width: 2.133vw;
+  // height: 2.133vw;
+  // border-top: 1px solid $mainColor;
+  // border-right: 1px solid $mainColor;
   margin: -1.067vw 0 0 2.133vw;
-  transform: rotate(135deg);
+  // transform: rotate(135deg);
+
+  width: 4.792vw;
+  height: 4.792vw;
+  transform: translateY(10%);
+  background: url('~images/table-expand-more.png') no-repeat center center;
+  background-size: 100% 100%;
 }
 
 .risk-table-more.rotate45 {
@@ -505,9 +554,11 @@ $bgColor: #27292f;
     @extend .flex-c-c;
 
     .rotate-45 {
-      transform: rotate(-45deg);
+      // transform: rotate(-45deg);
       margin-left: 2.133vw;
       margin-top: 1.067vw;
+      
+      transform: translateY(-10%) rotate(180deg);
     }
   }
 }

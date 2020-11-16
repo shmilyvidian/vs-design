@@ -24,6 +24,10 @@
                     <div v-show="item.unit">({{item.unit}})</div>
                   </div>
                   <div class="sort-div-ab"
+                    :class="{
+                      'sort-div-ab-top': sortOrders[item.key] === -1,
+                      'sort-div-ab-bottom': sortOrders[item.key] === 1
+                    }"
                     v-show="item.isSort"
                     :style="{
                       right:defaultColPaddingWidth + 'px'

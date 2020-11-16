@@ -38,6 +38,7 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('examples'))
       .set('packages', resolve('packages'))
+      .set('images', resolve('packages/images'))
       .set('utils', path.resolve(__dirname, './utils'))
 
     config.module
