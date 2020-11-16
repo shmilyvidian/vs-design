@@ -9,7 +9,7 @@ const tasks = [
   'bootstrap',
   'lint',
   'clean',
-  'build:entry',
+  // 'build:entry', 已在index.js根据文件夹动态生成
   'lib',
   'build:style'
 ]

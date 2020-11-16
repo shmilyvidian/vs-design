@@ -13,22 +13,20 @@ import 'vant/lib/index.css'
 import 'packages/infinite-touch-emulator'
 
 // 导入组件库
-import {
-  InfiniteDatetimePicker,
-  InfiniteEmpty,
-  InfiniteHeaderNav,
-  InfiniteTable,
-  infiniteInstitutionalFilter
-} from '../packages'
+import packages from '../packages'
+
+for (const key in packages) {
+  if (packages.hasOwnProperty(key)) {
+    const element = packages[key]
+    if (key.toLocaleLowerCase().includes('infinite')) {
+      Vue.use(element)
+    };
+  }
+}
 
 // 使用vant-ui
 Vue.use(Vant)
 Vue.config.productionTip = false
-Vue.use(InfiniteDatetimePicker)
-  .use(InfiniteEmpty)
-  .use(InfiniteTable)
-  .use(InfiniteHeaderNav)
-  .use(infiniteInstitutionalFilter)
 
 Vue.use(ElementUI)
 Vue.component('demo-block', demoBlock)
