@@ -2,16 +2,18 @@
   <div
     class="infinite-institutional-filter"
     v-show="showModle"
+    :style="wrappperStyle"
   >
     <div class="institutional-filter-header">
       <!-- 筛选器头部 -->
       <div
         class="institutional-filter-header-item"
-        v-for="(item,index) in headerMap"
+        v-for="(item,index) in privateHeaderMap"
         :key="index"
         :class="{'active':selectedIndex === index}"
+        @click="changeHeader(item,index)"
       >
-        {{(selectedIndex >= index) ? item : ''}}
+        {{(selectedIndex >= index) ? item.name : ''}}
       </div>
       <!-- end of 筛选器头部 -->
     </div>
@@ -64,6 +66,12 @@ export default {
       type: Array,
       require: false,
       default: () => ['全行', '战区', '城市', '公司']
+    },
+    // 外框样式
+    wrappperStyle: {
+      type: Object,
+      required: false,
+      default: {}
     }
     // 当前选中层级 最高4层 待定
     // selectedIndex: {
@@ -76,12 +84,41 @@ export default {
     prop: 'showModle',
     event: 'changeShowModle'
   },
+  computed: {
+    privateWrappperStyle () {
+      return {
+        ...this.wrappperStyle
+      }
+    }
+  },
   watch: {
+    // 列表完整数据
     columns: {
       handler (val, oldVal) {
         console.log(val)
         // 默认放入参数中
         this.contentList = val.children
+
+      },
+      immediate: true // true 深度监听
+    },
+    // 头部内容监听
+    headerMap: {
+      handler (val, oldVal) {
+        // 整理成内部使用数据结构
+        if (val && val.length) {
+          val.forEach((element, index) => {
+            // 将header构建成可观察对象
+            this.$set(this.privateHeaderMap, index, {
+              children: [],
+              name: element
+            })
+          });
+
+          // 将第一个获取的子集存在到相应位置
+          this.privateHeaderMap[this.selectedIndex].children = this.columns.children
+          console.log(this.privateHeaderMap)
+        }
       },
       immediate: true // true 深度监听
     }
@@ -90,24 +127,31 @@ export default {
     return {
       contentList: [], // 当前显示内容
       selectedList: [], // 已选内容
-      selectedIndex: 0
+      selectedIndex: 0, // 当前选中层级
+      privateHeaderMap: []
     }
   },
-  mounted () {
-    console.log(123)
-  },
   methods: {
-    // 点击选中参数
+    // 点击内容选中参数
     onSelectItem (item) {
       console.log(item)
       // 将点击参数放入对应位置
-      this.$set(this.selectedList,this.selectedIndex,item)
+      this.$set(this.selectedList, this.selectedIndex, item)
 
       // 存在子集移动下标
       if (item.children && item.children.length) {
+        // 将子集存入到header中 方便点击回写
+
+        // 将下标+1
         this.selectedIndex += 1
+        // 设置子集到内容区域中
         this.contentList = item.children
       }
+    },
+    // 点击头部选中参数
+    changeHeader (item, index) {
+      this.contentList = item.children
+      this.selectedIndex = index
     },
     // 确认按钮
     onConfirm () {

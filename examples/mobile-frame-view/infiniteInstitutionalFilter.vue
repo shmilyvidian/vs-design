@@ -8,6 +8,7 @@
       <infinite-institutional-filter
         :columns="columns"
         v-model="showModle"
+        :wrappperStyle="{color: '#fff'}"
         @onConfirm="onConfirm"
       ></infinite-institutional-filter>
     </el-row>
