@@ -9,7 +9,7 @@
         :style="{top:'calc('+(arrowsTop/2)+'px)'}"
       >
         <!-- <img :src="require('images/swipe-arrow-right.png')" alt="" class="icon-png"> -->
-        <img src="~images/swipe-arrow-right.png" alt="" class="icon-png">
+        <img src="../imgs/swipe-arrow-right.png" alt="" class="icon-png">
       </div>
       <div 
         class="table-content"
