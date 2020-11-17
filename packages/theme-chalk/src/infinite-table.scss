@@ -65,8 +65,8 @@ html.is-right-mobile {
   text-overflow: ellipsis;
   text-overflow: -o-ellipsis-lastline;
   display: -webkit-box;
-  line-clamp: 3 !important;
-  -webkit-line-clamp: 3 !important;
+  line-clamp: 2 !important;
+  -webkit-line-clamp: 2 !important;
   -webkit-box-orient: vertical;
 }
 // 表头样式
@@ -83,6 +83,8 @@ html.is-right-mobile {
   word-break: break-all;
 }
 .card-table {
+  padding-top: 4.267vw;
+
   table,
   tr,
   th,
@@ -107,7 +109,7 @@ html.is-right-mobile {
     position: relative;
     z-index: 1;
     transform: translateZ(1100px);
-    margin-top: 4.267vw;
+    // margin-top: 4.267vw;
     overflow: hidden;
     box-sizing: border-box;
 
@@ -205,7 +207,7 @@ html.is-right-mobile {
                     left: calc(100% + .533vw);
                     transform: translateY(calc(-50%));
 
-                    background: url('~images/table-sort-default.png') no-repeat center center;
+                    background: url('../../infinite-table/imgs/table-sort-default.png') no-repeat center center;
                     background-size: 100% 100%;
 
                     .sort-div-re {
@@ -235,12 +237,12 @@ html.is-right-mobile {
                     }
 
                     &.sort-div-ab-top {
-                      background: url('~images/table-sort-top.png') no-repeat center center;
+                      background: url('../../infinite-table/imgs/table-sort-top.png') no-repeat center center;
                       background-size: 100% 100%;
                     }
 
                     &.sort-div-ab-bottom {
-                      background: url('~images/table-sort-bottom.png') no-repeat center center;
+                      background: url('../../infinite-table/imgs/table-sort-bottom.png') no-repeat center center;
                       background-size: 100% 100%;
                     }
                   }
@@ -426,7 +428,7 @@ html.is-right-mobile {
           width: 2.134vw;
           height: 2.134vw;
           transform: translateY(-50%);
-          background: url('~images/table-down-expand.png') no-repeat center top;
+          background: url('../../infinite-table/imgs/table-down-expand.png') no-repeat center top;
           background-size: 100% 50%;
         }
 
@@ -441,7 +443,7 @@ html.is-right-mobile {
           width: 2.134vw;
           height: 2.134vw;
           transform: translateY(-50%) rotate(180deg);
-          background: url('~images/table-down-expand.png') no-repeat center top;
+          background: url('../../infinite-table/imgs/table-down-expand.png') no-repeat center top;
           background-size: 100% 50%;
         }
       }
@@ -533,13 +535,15 @@ html.is-right-mobile {
   width: 4.792vw;
   height: 4.792vw;
   transform: translateY(10%);
-  background: url('~images/table-expand-more.png') no-repeat center center;
+  background: url('../../infinite-table/imgs/table-expand-more.png') no-repeat center center;
   background-size: 100% 100%;
 }
 
 .risk-table-more.rotate45 {
-  transform: rotate(45deg);
-  margin: 0 0 0 1.333vw;
+  // transform: rotate(45deg);
+  // margin: 0 0 0 1.333vw;
+
+  margin-left: 1.333vw;
 }
 
 .more-box {
@@ -592,9 +596,9 @@ html.is-right-mobile {
 
 .card-table {
   .c-table-conform {
-    width: calc(100vw - 5.334vw);
-    border-radius: 2.667vw;
-    margin: 0 2.667vw;
+    // width: calc(100vw - 5.334vw);
+    // border-radius: 2.667vw;
+    // margin: 0 2.667vw;
     padding: 2.667vw 0 1.333vw;
     background: #2e3036;
   }

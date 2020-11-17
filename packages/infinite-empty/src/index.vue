@@ -9,13 +9,9 @@
   </div>
 </template>
 <script>
-import VanEmpty from 'vant/lib/empty'
 
 export default {
   name: 'InfiniteEmpty',
-  components: {
-    VanEmpty,
-  },
   data() {
     return {
       defaultImageTypes: ['noUpdate', 'noData', 'noMessage', 'noFinish', 'noTask', 'noNetwork'],
@@ -23,7 +19,7 @@ export default {
   },
   computed: {
     defaultUrl() {
-      return require(`./../../images/infinite-empty/${this.imageType}.png`)
+      return require(`../imgs/${this.imageType}.png`)
     }
   },
   props: {

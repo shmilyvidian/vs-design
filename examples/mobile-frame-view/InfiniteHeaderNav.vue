@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       headerTitle: '标题',
-      insertStyle: { background: '#fff', color: '#35b6e0', fontSize: '28px', paddingTop: '6px'}
+      insertStyle: { background: '#fff', color: '#35b6e0', fontSize: '18px', paddingTop: '6px'}
     };
   }
 };

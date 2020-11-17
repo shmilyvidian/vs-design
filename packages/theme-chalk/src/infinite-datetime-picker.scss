@@ -55,7 +55,7 @@
             width: 16px;
             height: 16px;
             margin-left: 5px;
-            background: url('~images/calendar.png') no-repeat center center;
+            background: url('../../infinite-datetime-picker/imgs/calendar.png') no-repeat center center;
             background-size: 100% 100%;
             position: absolute;
             right: 0;
@@ -68,7 +68,7 @@
             width: 7.5px; // 9.6
             height: 4px; // 7.2
             // margin-left: 5px;
-            background: url('~images/table-down-expand.png') no-repeat center center;
+            background: url('../../infinite-table/imgs/table-down-expand.png') no-repeat center center;
             background-size: 100% 100%;
             position: absolute;
             right: 0;
@@ -82,7 +82,7 @@
             width: 7.5px; // 9.6
             height: 4px; // 7.2
             // margin-right: 5px;
-            background: url('~images/table-down-expand.png') no-repeat center center;
+            background: url('../../infinite-table/imgs/table-down-expand.png') no-repeat center center;
             background-size: 100% 100%;
             position: absolute;
             right: 0;
@@ -182,8 +182,11 @@
         .van-picker-column__wrapper {
           .van-picker-column__item {
             color: #6a7088;
+            font-size: 15px;
+            // transition: font-size .1s;
 
             &.van-picker-column__item--selected {
+              font-size: 17px;
               color: #fff;
             }
           }
