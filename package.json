@@ -40,7 +40,7 @@
     "babel-plugin-import": "^1.13.1",
     "cp-cli": "^2.0.0",
     "cz-conventional-changelog": "^3.2.0",
-    "element-ui": "^2.4.9",
+    "element-ui": "^2.14.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^6.2.2",
     "highlight.js": "^9.3.0",

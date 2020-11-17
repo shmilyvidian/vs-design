@@ -25,7 +25,6 @@ textarea,
 menu {
 	margin: 0;
 	padding: 0;
-	font-size: 14px;
 }
 
 header,
@@ -179,11 +178,6 @@ textarea:focus {
 	box-shadow: 0 0 0 1000px white inset;
 }
 
-::-webkit-scrollbar {
-	width: 6px;
-	height: 6px;
-}
-
 ::-webkit-scrollbar-track {
 	background: none;
 }
@@ -204,4 +198,5 @@ body {
 	width: 100%;
 	overflow: auto;
 	margin: 0;
+	font-size: 14px;
 }
