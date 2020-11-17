@@ -59,15 +59,18 @@ $baseColor: #6195ff;
 
   &-content {
     height: 200px;
-    padding: 12px 16px 0;
+    padding: 12px 16px 0 12px;
     overflow-y: auto;
     overflow-x: hidden;
 
     &-item {
       color: #fff;
-      display: flex;
-      align-items: center;
       height: 45px;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 45px;
     }
 
     .active {
