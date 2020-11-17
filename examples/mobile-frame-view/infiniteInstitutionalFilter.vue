@@ -27,7 +27,35 @@ export default {
             children: [
               {
                 children: [
+                  {
+                    children: [
+                      {
+                        children: [
 
+                        ],
+                        name: '西乡街道西乡街道西乡街道西乡街道西乡街道西乡街道西乡街道西乡街道',
+                        order: 5,
+                        code: '222'
+                      }
+                    ],
+                    name: '宝安',
+                    order: 4,
+                    code: '11'
+                  }, {
+                    children: [
+                      {
+                        children: [
+
+                        ],
+                        name: '深南大道',
+                        order: 5,
+                        code: '3333'
+                      }
+                    ],
+                    name: '福田',
+                    order: 4,
+                    code: '008'
+                  }
                 ],
                 name: '深圳',
                 order: 3,
@@ -52,6 +80,22 @@ export default {
             name: '东部战区',
             order: 1,
             code: '002'
+          },
+          {
+            children: [
+
+            ],
+            name: '西部战区',
+            order: 1,
+            code: '888'
+          },
+          {
+            children: [
+
+            ],
+            name: '南部战区',
+            order: 1,
+            code: '099'
           }
         ],
         name: '全行',

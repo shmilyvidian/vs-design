@@ -23,7 +23,7 @@
             :class="{'active':selectedIndex === index}"
             @click="changeHeader(item,index)"
           >
-            {{(selectedIndex >= index) ? item.name : ''}}
+            {{(selectedIndex >= index) ? (item.selectedName.length ? item.selectedName:item.name) : ''}}
           </div>
           <!-- end of 筛选器头部 -->
         </div>
@@ -87,6 +87,12 @@ export default {
       type: Object,
       required: false,
       default: {}
+    },
+    // 是否将选中值显示在header
+    showNameToHeader: {
+      type: Boolean,
+      required: false,
+      default: true
     }
     // 当前选中层级 最高4层 待定
     // selectedIndex: {
@@ -126,6 +132,7 @@ export default {
             // 将header构建成可观察对象
             this.$set(this.privateHeaderMap, index, {
               children: [],
+              selectedName: '',
               name: element
             })
           });
@@ -153,10 +160,15 @@ export default {
       // 将点击参数放入对应位置
       this.$set(this.selectedList, this.selectedIndex, item)
 
+      // 设置选中值到header
+      if (this.showNameToHeader) {
+        this.privateHeaderMap[this.selectedIndex].selectedName = item.name
+      }
+
       // 存在子集移动下标
       if (item.children && item.children.length) {
         // 将子集存入到header中 方便点击回写
-
+        this.privateHeaderMap[this.selectedIndex].children = this.contentList
         // 将下标+1
         this.selectedIndex += 1
         // 设置子集到内容区域中
