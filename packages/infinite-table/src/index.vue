@@ -86,14 +86,15 @@
       </div>
     </div>
     <div class="bottom-padding" v-else></div>
-  <Popup
+    <Popup
       class="infinite-table-picker-popuper"
       position="bottom"
       ref="popup"
       v-model="popupShow"
+      v-bind="childComputed"
     >
-    <CardChildTable />
-  </Popup>
+      <CardChildTable />
+    </Popup>
 
   </div>
 </template>
@@ -148,6 +149,16 @@ export default {
     maxUnitLengthWidth: {
       type: Number,
       default: 6
+    },
+    // 查看子级的参数配置
+    childProp: {
+      type: Object,
+      default: () => {}
+    },
+    // 查看子级的style参数配置
+    childStyleProp: {
+      type: Object,
+      default: () => {}
     }
   },
   data () {
@@ -180,7 +191,17 @@ export default {
     }
   },
   computed: {
-    ...cardTableComputed
+    ...cardTableComputed,
+    childComputed () {
+      return {
+        round: false,
+        style: { 
+          maxHeight: '90%',
+          ...this.childStyleProp
+        },
+        ...this.childProp
+      }
+    }
   },
   watch: {
     ...cardTableWatch

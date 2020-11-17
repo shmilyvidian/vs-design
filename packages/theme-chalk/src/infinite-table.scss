@@ -65,8 +65,8 @@ html.is-right-mobile {
   text-overflow: ellipsis;
   text-overflow: -o-ellipsis-lastline;
   display: -webkit-box;
-  line-clamp: 3 !important;
-  -webkit-line-clamp: 3 !important;
+  line-clamp: 2 !important;
+  -webkit-line-clamp: 2 !important;
   -webkit-box-orient: vertical;
 }
 // 表头样式
@@ -83,6 +83,8 @@ html.is-right-mobile {
   word-break: break-all;
 }
 .card-table {
+  padding-top: 4.267vw;
+
   table,
   tr,
   th,
@@ -107,7 +109,7 @@ html.is-right-mobile {
     position: relative;
     z-index: 1;
     transform: translateZ(1100px);
-    margin-top: 4.267vw;
+    // margin-top: 4.267vw;
     overflow: hidden;
     box-sizing: border-box;
 
@@ -538,8 +540,10 @@ html.is-right-mobile {
 }
 
 .risk-table-more.rotate45 {
-  transform: rotate(45deg);
-  margin: 0 0 0 1.333vw;
+  // transform: rotate(45deg);
+  // margin: 0 0 0 1.333vw;
+
+  margin-left: 1.333vw;
 }
 
 .more-box {
@@ -592,9 +596,9 @@ html.is-right-mobile {
 
 .card-table {
   .c-table-conform {
-    width: calc(100vw - 5.334vw);
-    border-radius: 2.667vw;
-    margin: 0 2.667vw;
+    // width: calc(100vw - 5.334vw);
+    // border-radius: 2.667vw;
+    // margin: 0 2.667vw;
     padding: 2.667vw 0 1.333vw;
     background: #2e3036;
   }
