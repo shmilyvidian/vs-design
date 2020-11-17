@@ -4,10 +4,17 @@
     <div class="infinite-datetime-picker-title"
       @click="openDatePopup"
       :style="{background: pickerColor, borderRadius: pickerRadius}">
-      <span :class="span">{{ currentDate | filterCurrentDate(that) }}</span>
-      <i :class="iconClass" v-if="useDefaultIcon && !hasIconSlot"></i>
-      <van-icon :class="span" :name="icon" v-bind="iconStyle" v-if="!useDefaultIcon && !hasIconSlot" />
-      <slot name="icon" ></slot>
+      <div class="infinite-datetime-picker-title-left">
+        <span v-if="!hasDateTitleSlot">{{dateTitleLeft}}</span>
+        <slot name="dateTitle" ></slot>
+      </div>
+      <div class="infinite-datetime-picker-title-right">
+        <span :class="span">{{ currentDate | filterCurrentDate(that) }}</span>
+        <i :class="iconClass" v-if="!hasIconSlot"></i>
+        <!-- <i :class="iconClass" v-if="useDefaultIcon && !hasIconSlot"></i> -->
+        <!-- <van-icon :class="span" :name="icon" v-bind="iconStyle" v-if="!useDefaultIcon && !hasIconSlot" /> -->
+        <slot name="icon" ></slot>
+      </div>
     </div>
     <!-- end of 时间选择器显示title及icon -->
     <!-- popup弹窗 -->
@@ -25,6 +32,8 @@
         v-bind="nextPropsPickerObj"
         :default-index="pickerDefaultIndex"
         :columns="pickerColumns"
+        :cancel-button-text="cancelButtonText"
+        :confirm-button-text="confirmButtonText"
         @cancel="pickerCancel"
         @confirm="pickerConfirm"
         @change="pickerChange"
@@ -42,6 +51,8 @@
         :min-date="minDate"
         :max-date="maxDate"
         :filter="filter"
+        :cancel-button-text="cancelButtonText"
+        :confirm-button-text="confirmButtonText"
         @cancel="pickerCancel"
         @confirm="pickerConfirm"
         @change="pickerChange"
@@ -192,6 +203,16 @@ export default {
     isItSaveSelected: {
       type: Boolean,
       default: false
+    },
+    // 取消按钮文字
+    cancelButtonText: {
+      type: String,
+      default: '取消'
+    },
+    // 确认按钮文字
+    confirmButtonText: {
+      type: String,
+      default: '确认'
     }
   },
   data () {
@@ -266,7 +287,8 @@ export default {
       if (this.useDefaultIcon) {
         return `${iconStr} default`
       }
-      return `${iconStr} icon`
+      return this.popupShow ? `${iconStr} icon-down` : `${iconStr} icon-up`
+      // return `${iconStr} icon`
     },
     // 右边的图标-类名
     // vanIconClass () {
@@ -277,8 +299,13 @@ export default {
     //   }
     //   return `${iconStr} default`
     // },
+    // 有无icon的slot
     hasIconSlot () {
       return !!(this.$slots && this.$slots.icon)
+    },
+    // 有无日期title的slot
+    hasDateTitleSlot () {
+      return !!(this.$slots && this.$slots.dateTitle)
     },
     // 外部传入的关于时间选择器的配置
     nextPropsObj () {
@@ -420,6 +447,30 @@ export default {
         })
       }
       return index
+    },
+    dateTitleLeft () {
+      switch (this.type) {
+        case 'just-show':
+          return `日期`
+        case 'date': 
+          return `日期`
+        case 'year-month': 
+          return `日期`
+        case 'month-day':
+          return `日期`
+        case 'year':
+          return `日期`
+        case 'month':
+          return `日期`
+        case 'quarterly': 
+          return `日期`
+        case 'week-end':
+          return `日期`
+        case 'week-segment':
+          return `统计时间`
+        default:
+          return ''
+      }
     }
   },
   watch: {

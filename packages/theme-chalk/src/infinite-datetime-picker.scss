@@ -15,84 +15,127 @@
     height: 35px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.8);
-
-    span {
-      &.default {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-right: 21px;
-        margin-right: 10px;
-      }
-
-      &.iconDefault {
-        padding-right: 13px;
-        margin-right: 10px;
-      }
+    
+    .infinite-datetime-picker-title-left {
+      font-size: 14px;
+      font-weight: 400;
+      margin-left: 12px;
+      color: rgba(255, 255, 255, 0.8);
     }
 
-    i {
-      &.icon-calendar {
-        margin-right: 10px;
-
+    .infinite-datetime-picker-title-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      
+      span {
         &.default {
-          display: inline-block;
-          width: 16px;
-          height: 16px;
-          margin-left: 5px;
-          background: url('~packages/infinite-datetime-picker/src/img/calendar.png') no-repeat center center;
-          background-size: 100% 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-right: 36px;
+          // margin-right: 10px;
+        }
+  
+        &.iconDefault {
+          padding-right: 27.5px;
+          // margin-right: 10px;
+        }
+      }
+  
+      i {
+        &.icon-calendar {
+          margin-right: 12px;
+  
+          &.default {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+            background: url('~images/calendar.png') no-repeat center center;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(calc(-50% - 1px));
+          }
+          
+          &.icon-up {
+            display: inline-block;
+            width: 7.5px; // 9.6
+            height: 4px; // 7.2
+            // margin-left: 5px;
+            background: url('~images/table-down-expand.png') no-repeat center center;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            // transform: translateY(calc(-50% - 1px));
+          }
+  
+          &.icon-down {
+            display: inline-block;
+            width: 7.5px; // 9.6
+            height: 4px; // 7.2
+            // margin-right: 5px;
+            background: url('~images/table-down-expand.png') no-repeat center center;
+            background-size: 100% 100%;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);
+            // transform: translateY(calc(-50% - 1px));
+          }
+        }
+  
+        // &.iconDefault {
+        //   transform: rotate(90deg);
+        // }
+      }
+  
+      // /deep/ .icon {
+      /deep/ .van-icon {
+        &.iconDefault {
+        // &.default {
+        // &.van-icon-tosend {
           position: absolute;
-          right: 0;
           top: 50%;
-          transform: translateY(calc(-50% - 1px));
+          right: 8px;
+          display: inline-block;
+          // width: 16px;
+          // height: 16px;
+          // margin-left: 5px;
+          transform: translateY(calc(-50% - 1px)) scale(.8, .6);
+          // transform: scale(0.8);
+          // background: url(calendar.png) no-repeat center center;
+          background-size: 100% 100%;
+        }
+  
+        &.icon-caret-up {
+          &::before {
+            transform-origin:center center;
+            transform: translateY(1px) rotate(-90deg);
+          }
+          // margin-top: 5px;
+          
+        }
+  
+        &.icon-caret-down {
+          &::before {
+            transform-origin:center center;
+            transform: translateY(-1px) rotate(90deg);
+          }
+          // margin-bottom: 5px;
+          // transform: rotate(90deg);
         }
       }
-
-      // &.iconDefault {
-      //   transform: rotate(90deg);
-      // }
     }
 
-    // /deep/ .icon {
-    /deep/ .van-icon {
-      &.iconDefault {
-      // &.default {
-      // &.van-icon-tosend {
-        position: absolute;
-        top: 50%;
-        right: 8px;
-        display: inline-block;
-        // width: 16px;
-        // height: 16px;
-        // margin-left: 5px;
-        transform: translateY(calc(-50% - 1px)) scale(.8, .6);
-        // transform: scale(0.8);
-        // background: url(calendar.png) no-repeat center center;
-        background-size: 100% 100%;
-      }
-
-      &.icon-caret-up {
-        &::before {
-          transform-origin:center center;
-          transform: translateY(1px) rotate(-90deg);
-        }
-        // margin-top: 5px;
-        
-      }
-
-      &.icon-caret-down {
-        &::before {
-          transform-origin:center center;
-          transform: translateY(-1px) rotate(90deg);
-        }
-        // margin-bottom: 5px;
-        // transform: rotate(90deg);
-      }
-    }
+    
   }
 
   .infinite-datetime-picker-popuper {
@@ -110,21 +153,25 @@
       pointer-events: none;
     }
 
-    /deep/ .van-picker__toolbar {
-      height: 50px;
-      line-height: 50px;
+    /deep/ .van-datetime-picker {
       background: #212228;
-
-      .van-picker__cancel {
-        padding: 0 14px;
-        font-size: 16px;
-        color: #fff;
-      }
-
-      .van-picker__confirm {
-        padding: 0 14px;
-        font-size: 16px;
-        color: #69a4ff;
+      
+      .van-picker__toolbar {
+        height: 50px;
+        line-height: 50px;
+        background: #212228;
+  
+        .van-picker__cancel {
+          padding: 0 14px;
+          font-size: 16px;
+          color: #fff;
+        }
+  
+        .van-picker__confirm {
+          padding: 0 14px;
+          font-size: 16px;
+          color: #69a4ff;
+        }
       }
     }
 

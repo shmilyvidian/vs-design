@@ -282,6 +282,8 @@
 | useDefaultIcon     |  是否使用默认日期图标                    | _boolean_   | true       |
 | sundayArray        |  周期-不连续类型week-end类型可选时间区间  | _array_     | []         |
 | validDate          |  周期-连续类型week-segment可选时间区间   | _array_     | []         |
+| cancelButtonText   |  取消按钮文字                           | _string_    | 取消       |
+| confirmButtonText  |  确认按钮文字                           | _string_    | 确认       |
 
 ###
 当时间选择器类型为 `date`、`year-month`、`month-day`、`year`、`month`、`quarterly` 时，支持以下 props:

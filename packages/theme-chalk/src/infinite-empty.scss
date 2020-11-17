@@ -1,0 +1,14 @@
+@import "./mixins/mixins.scss";
+
+.empty-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .description {
+    opacity: 0.5;
+    font-size: 16px;
+    color: #000;
+  }
+}

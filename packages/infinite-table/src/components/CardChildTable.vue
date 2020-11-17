@@ -42,6 +42,10 @@
                                 <div v-show="item.unit">{{item.unit}}</div>
                               </div>
                               <div class="sort-div-ab"
+                                :class="{
+                                  'sort-div-ab-top': sortOrders[item.key] === -1,
+                                  'sort-div-ab-bottom': sortOrders[item.key] === 1
+                                }"
                                 v-show="item.isSort"
                               >
                                 <div class="sort-div-re">
@@ -139,6 +143,10 @@
                               <div v-show="item.unit">{{item.unit}}</div>
                             </div>
                             <div class="sort-div-ab"
+                              :class="{
+                                'sort-div-ab-top': sortOrders[item.key] === -1,
+                                'sort-div-ab-bottom': sortOrders[item.key] === 1
+                              }"
                               v-show="item.isSort"
                             >
                               <div class="sort-div-re">
@@ -198,11 +206,6 @@
   </div>
 </template>
 <script>
-
-import CardHeaderTable from './common/CardHeaderTable'
-import CardContainerTable from './common/CardContainerTable'
-import CardFixedTable from './common/CardFixedTable'
-import { cardTableWatch, cardTableComputed } from './js/index'
 
 export default {
   name: 'CardChildTable',

@@ -1,41 +1,60 @@
 <template>
-  <div class="empty-container">
-    <van-empty
-      :image="imageType"
-      :imageSize="imageSize"
-      :description="description"
+  <div class="empty-container" :style="insertStyle.container">
+    <img
+      :src="defaultImageTypes.includes(imageType) ? defaultUrl : imageType"
+      :style="{width: imageSize}"
     >
+    <div class="description" :style="insertStyle.description">{{ description }}</div>
     <slot></slot>
-    <!-- <InfiniteHeaderNav @goBack="clickGoBack"/> -->
-    </van-empty>
   </div>
 </template>
 <script>
 import VanEmpty from 'vant/lib/empty'
-import InfiniteHeaderNav from '../../infinite-header-nav/src/index.vue'
 
 export default {
   name: 'InfiniteEmpty',
   components: {
     VanEmpty,
-    // InfiniteHeaderNav,
+  },
+  data() {
+    return {
+      defaultImageTypes: ['noUpdate', 'noData', 'noMessage', 'noFinish', 'noTask', 'noNetwork'],
+    }
+  },
+  computed: {
+    defaultUrl() {
+      return require(`./../../images/infinite-empty/${this.imageType}.png`)
+    }
   },
   props: {
-    // 图片类型，可选值为 error network search，支持传入图片 URL
+    // 图片类型，可选值为 noData, noMessage, noFinish, noTask, noNetwork, noUpdate, 支持传入图片 URL
     imageType: {
       type: String,
-      default: 'default'
+      default: 'noData'
     },
     // 图片大小，默认单位为 px
     imageSize: {
       type: [Number, String],
-      default: ''
+      default: '130px'
     },
     // 图片下方的描述文字
     description: {
       type: String,
       default: ''
     },
+    // 可传入自定义样式
+    insertStyle: {
+      type: Object,
+      default: () => {
+        return {
+          container: {
+          },
+          description: {
+            color: '#000'
+          }
+        }
+      }
+    }
   },
   methods: {
     handleClick() {

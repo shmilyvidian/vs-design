@@ -8,11 +8,11 @@
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">size自定义icon大小</h2>
 
-      <infinite-header-nav size="30"></infinite-header-nav>
+      <infinite-header-nav size="30px"></infinite-header-nav>
     </el-row>
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">color自定义icon颜色</h2>
-      <infinite-header-nav color="#82bdfb"></infinite-header-nav>
+      <infinite-header-nav color="#fff"></infinite-header-nav>
     </el-row>
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">slot自定义内容</h2>
