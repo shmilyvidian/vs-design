@@ -29,6 +29,7 @@
 | 参数      | 说明     | 类型    | 默认值 |
 | --------- | -------- | ------- | ------ |
 | onConfirm | 确认回调 | _Array_ |        |
+| onClickOverlay | 遮罩层回调 | _Function_ |        |
 
 ### columns
 

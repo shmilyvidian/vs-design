@@ -67,6 +67,7 @@ export default {
       }
       return {
         display: 'block',
+        width: '375px',
         height: height + 'px',
         ...obj
       }
@@ -100,9 +101,9 @@ export default {
 .el-main {
   &.el-main-left {
     height: calc(100vh - 60px);
-    width: calc(100vh - 300px);
+    width: calc(100vh - 385px);
     padding: 20px;
-    margin-right: 370px;
+    margin-right: 430px;
   }
 
   &.el-main-right {

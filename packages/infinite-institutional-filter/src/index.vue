@@ -1,48 +1,63 @@
 <template>
-  <div
-    class="infinite-institutional-filter"
-    v-show="showModle"
-    :style="wrappperStyle"
-  >
-    <div class="institutional-filter-header">
-      <!-- 筛选器头部 -->
+  <transition name="fade">
+    <div
+      class="infinite-institutional-filter"
+      :style="wrappperStyle"
+      v-show="showModle"
+    >
+      <!-- 遮罩层 -->
       <div
-        class="institutional-filter-header-item"
-        v-for="(item,index) in privateHeaderMap"
-        :key="index"
-        :class="{'active':selectedIndex === index}"
-        @click="changeHeader(item,index)"
+        class="infinite-institutional-filter-overlay"
+        @click="onClickOverlay"
       >
-        {{(selectedIndex >= index) ? item.name : ''}}
       </div>
-      <!-- end of 筛选器头部 -->
-    </div>
-    <!-- 筛选器内容 -->
-    <div class="institutional-filter-content">
-      <div
-        class="institutional-filter-content-item"
-        v-for="(item,index) in contentList"
-        :key="index"
-        @click="onSelectItem(item)"
-        :class="{'active':(selectedList[selectedIndex] && selectedList[selectedIndex].code) === item.code}"
-      >
-        {{item.name}}
+      <!-- end of 遮罩层 -->
+      <!-- 筛选器主体 -->
+      <div class="infinite-institutional-filter-main">
+        <div class="institutional-filter-header">
+          <!-- 筛选器头部 -->
+          <div
+            class="institutional-filter-header-item"
+            v-for="(item,index) in privateHeaderMap"
+            :key="index"
+            :class="{'active':selectedIndex === index}"
+            @click="changeHeader(item,index)"
+          >
+            {{(selectedIndex >= index) ? item.name : ''}}
+          </div>
+          <!-- end of 筛选器头部 -->
+        </div>
+        <!-- 筛选器内容 -->
+        <div class="institutional-filter-content">
+          <div
+            class="institutional-filter-content-item"
+            v-for="(item,index) in contentList"
+            :key="index"
+            @click="onSelectItem(item)"
+            :class="{'active':(selectedList[selectedIndex] && selectedList[selectedIndex].code) === item.code}"
+          >
+            {{item.name}}
+          </div>
+        </div>
+        <!-- end of 筛选器内容 -->
+        <!-- 筛选器底部 -->
+        <div class="institutional-filter-footer">
+          <div
+            class="institutional-filter-footer-btn institutional-filter-footer-cancel"
+            @click="onCancel"
+          >取消</div>
+          <div
+            class="institutional-filter-footer-btn
+          institutional-filter-footer-confirm
+          "
+            @click="onConfirm"
+          >确认</div>
+        </div>
+        <!-- end of 筛选器底部 -->
       </div>
+      <!-- end of 筛选器主体 -->
     </div>
-    <!-- end of 筛选器内容 -->
-    <!-- 筛选器底部 -->
-    <div class="institutional-filter-footer">
-      <div
-        class="institutional-filter-footer-btn"
-        @click="onCancel"
-      >取消</div>
-      <div
-        class="institutional-filter-footer-btn"
-        @click="onConfirm"
-      >确认</div>
-    </div>
-    <!-- end of 筛选器底部 -->
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -156,11 +171,17 @@ export default {
     // 确认按钮
     onConfirm () {
       this.$emit('onConfirm', this.selectedList)
+      this.$emit('changeShowModle', false)
     },
     // 取消按钮
     onCancel () {
-      this.$emit('changeShowModle', false)
       this.$emit('onCancel')
+      this.$emit('changeShowModle', false)
+    },
+    // 点击蒙层隐藏
+    onClickOverlay () {
+      this.$emit('onClickOverlay')
+      this.$emit('changeShowModle', false)
     }
   }
 }

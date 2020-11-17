@@ -20,7 +20,7 @@ export default {
 
   data () {
     return {
-      showModle: false,
+      showModle: true,
       columns: {
         children: [
           {
