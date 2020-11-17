@@ -46,7 +46,6 @@ export default {
           container: {
           },
           description: {
-            color: '#000'
           }
         }
       }

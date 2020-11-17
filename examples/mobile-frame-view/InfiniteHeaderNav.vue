@@ -3,7 +3,7 @@
 
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">基础用法</h2>
-      <infinite-header-nav></infinite-header-nav>
+      <infinite-header-nav :useVant="useVant"></infinite-header-nav>
     </el-row>
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">size自定义icon大小</h2>
@@ -52,6 +52,7 @@ export default {
   methods: {},
   data() {
     return {
+      useVant: false,
       headerTitle: '标题',
       insertStyle: { background: '#fff', color: '#35b6e0', fontSize: '18px', paddingTop: '6px'}
     };
