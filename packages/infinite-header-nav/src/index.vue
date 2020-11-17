@@ -3,7 +3,7 @@
     <div class="header-left" @click="goBack">
       <van-icon v-if="useVant" name="arrow-left" :color="color" :size="size">
       </van-icon>
-      <img v-else class="arrow-icon" :style="{width: size}" src="~packages/images/common-icon/arrow.png" alt="">
+      <img v-else class="arrow-icon" :style="{width: size}" src="./../imgs/arrow.png" alt="">
       <slot name="leftItem"/>
     </div>
     <div class="header-title">
