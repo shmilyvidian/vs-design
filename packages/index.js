@@ -14,8 +14,12 @@ function getImportComponents () {
 
 const components = getImportComponents()
 const install = Vue => {
-  components.forEach(Component => {
-    Vue.use(Component)
+  components.forEach(item => {
+    if (item.install) {
+      Vue.use(item);
+    } else if (item.name) {
+      Vue.component(item.name, item);
+    }
   })
 };
 
