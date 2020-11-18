@@ -49,6 +49,15 @@
       </infinite-empty>
     </el-row>
     <el-row class="infinite-doc-demo-block-row">
+      <h2 class="infinite-doc-demo-block-title">自定义图片大小</h2>
+      <infinite-empty
+        imageType="noNetwork"
+        imageSize="60px"
+        description="小图片"
+      >
+      </infinite-empty>
+    </el-row>
+    <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">自定义底部文案</h2>
       <infinite-empty
         imageType="noNetwork"
