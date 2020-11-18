@@ -93,7 +93,7 @@
       v-model="popupShow"
       v-bind="childComputed"
     >
-      <CardChildTable />
+      <CardChildTable v-if="popupShow" />
     </Popup>
 
   </div>

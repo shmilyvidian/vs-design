@@ -1,5 +1,8 @@
 <template>
   <div>
+      <infinite-datetime-picker
+        v-model="currenttime"
+      />
     <el-row class="infinite-doc-demo-block-row" v-for="(item, index) of pickerArr" :key="index">
       <h2 class="infinite-doc-demo-block-title">{{ item.title }}</h2>
       <div class="infinite-doc-demo-block-picker">
@@ -28,6 +31,7 @@ export default {
   },
   data () {
     return {
+      currenttime: '20201010',
       pickerArr: [
         {
           title: '基础用法',
@@ -133,6 +137,16 @@ export default {
             pickerRadius: '5px',
             type: 'week-segment',
             validDate: ['2020.08.17-2020.08.23', '2020.06.01-2020.06.07', '2020.05.25-2020.05.31', '2020.05.18-2020.05.24', '2020.05.11-2020.05.17']
+          }
+        },
+        {
+          title: '周期-连续类型-跨年',
+          currentDate: '20200105',
+          confirmMethod: 'confirm',
+          itemProp: {
+            pickerRadius: '5px',
+            type: 'week-segment',
+            validDate: ['2019.12.30-2020.01.05', '2020.01.06-2020.01.12', '2020.01.13-2020.01.19', '2020.01.20-2020.01.26']
           }
         },
         {

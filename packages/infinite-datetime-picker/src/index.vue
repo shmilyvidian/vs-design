@@ -165,7 +165,7 @@ export default {
     // 结束时间，接收格式为20200101
     endTime: {
       type: String,
-      default: 'date'
+      default: ''
     },
     // 是否使用默认时间图标，像日历那样的，为false时显示箭头，打开上，关闭下
     useDefaultIcon: {
