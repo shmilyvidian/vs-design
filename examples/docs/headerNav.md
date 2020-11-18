@@ -68,6 +68,47 @@
 :::
 
 
+### showBackIcon
+
+
+:::demo 通过showBackIcon控制左侧的icon显示
+
+```html
+<el-row>  
+  <infinite-header-nav class="header-nav" @goBack="goBackClick" :showBackIcon="showBackIcon">
+    <div slot="leftItem">
+      返回
+    </div>
+    <div slot="centerItem">
+      {{headerTitle}}
+    </div>
+    <div slot="rightItem">
+      提交
+    </div>
+  </infinite-header-nav>
+</el-row>
+<script>
+  export default {
+    data() {
+      return {
+        headerTitle: '中间文字',
+        showBackIcon: false
+      }
+    },
+    methods: {
+      goBackClick(val) {
+        console.log("clicked parent loading", val);
+        this.headerTitle = val ? val.name : '中间文字'
+      }
+    }
+  }
+</script>
+```
+
+:::
+
+
+
 ### 通过insertStyle对象传入需要的样式
 
 
@@ -117,3 +158,4 @@
 | size | icon大小，默认单位为 px | _string/number_ | 18px |
 | color | 定制icon颜色 | _string_ | orange |
 | insertStyle | 动态传入容器样式 | _object_ | - |
+| showBackIcon | 是否展示返回ICON | _Boolean_ | true |
