@@ -8,7 +8,7 @@
             v-show="isScroll && scrollIcon"
             :style="{top:'calc('+(arrowsTop/2)+'px)'}"
           >
-          <img src="../../imgs/swipe-arrow-right.png" alt="" class="icon-png">
+          <img src="../../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="icon-png">
             <!-- <img :src="require('../svg/arrow-right.svg')" alt="" class="icon-png"> -->
           </div>
           <div 

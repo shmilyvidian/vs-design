@@ -24,7 +24,6 @@
   </div>
 </template>
 <script>
-// "build:lib": "node build/build-lib.js && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && cp-cli lib/theme-chalk/lib/index.css lib/infinite-ui.css",
 import HeaderModel from './components/header'
 import MenuModel from './components/menu'
 

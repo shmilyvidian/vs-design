@@ -33,15 +33,15 @@
 
 Empty 组件内置了多种占位图片类型，可以在不同业务场景下使用。
 
-:::demo 使用`imageType`传图片类型，可选值为 error network search，支持传入图片 URL； 使用`imageSize`传图片大小，默认单位为 px； 使用`imageSize`传图片下方的描述文字
+:::demo 使用`imageType`传图片类型，可选值为noUpdate, noData, noMessage, noFinish, noTask, noNetwork，支持传入图片 URL； 使用`imageSize`传图片大小，默认单位为 px； 使用`description`传图片下方的描述文字
 
 
 ```html
 <el-row>  
   <infinite-empty
-    imageType="network"
-    imageSize="100"
-    description="network图片类型"
+    imageType="noData"
+    imageSize="100px"
+    description="noData图片类型"
   >
   </infinite-empty>
 </el-row>
@@ -73,8 +73,8 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 ```html
 <el-row>  
   <infinite-empty
-    imageType="search"
-    imageSize="100"
+    imageType="noUpdate"
+    imageSize="100px"
     description="通过description自定义文案"
   >
    <p>自定义内容</p>
@@ -97,6 +97,40 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 
 :::
 
+
+### 自定义样式
+
+通过insertStyle添加自定义样式, container对象可修改容器样式, description对象可修改描述信息样式
+
+:::demo 
+
+
+```html
+<el-row>  
+  <infinite-empty
+    imageType="noUpdate"
+    imageSize="100px"
+    description="通过description自定义文案"
+  >
+   <p>自定义内容</p>
+  </infinite-empty>
+</el-row>
+<script>
+  export default {
+    data() {
+      return {
+      }
+    },
+    methods: {
+      handleClick(val) {
+        console.log("clicked parent loading", val);
+      }
+    }
+  }
+</script>
+```
+
+:::
 
 ## API
 

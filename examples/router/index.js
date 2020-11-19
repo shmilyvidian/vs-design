@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import Installation from '../docs/Installation.md'
-import InfiniteEmpty from '../docs/empty.md'
-import InfiniteHeaderNav from '../docs/headerNav.md'
-import DatetimePicker from '../docs/DatetimePicker.md'
-import InfiniteTable from '../docs/Table.md'
+import InfiniteInstallation from '../docs/InfiniteInstallation.md'
+import InfiniteEmpty from '../docs/InfiniteEmpty.md'
+import InfiniteHeaderNav from '../docs/InfiniteHeaderNav.md'
+import InfiniteDatetimePicker from '../docs/InfiniteDatetimePicker.md'
+import InfiniteTable from '../docs/InfiniteTable.md'
 import InfiniteInstitutionalFilter from '../docs/InfiniteInstitutionalFilter.md'
 
 import route from './mobileFrameRoute'
@@ -12,13 +12,13 @@ import VueRouter from 'vue-router'
 let routes = [
   {
     path: '/',
-    component: Installation,
+    component: InfiniteInstallation,
     name: 'default'
   },
   {
-    path: '/guide/installation',
+    path: '/guide/InfiniteInstallation',
     name: 'Installation',
-    component: Installation
+    component: InfiniteInstallation
   },
   {
     path: '/guide/InfiniteEmpty',
@@ -37,9 +37,9 @@ let routes = [
     }
   },
   {
-    path: '/guide/DatetimePicker',
+    path: '/guide/InfiniteDatetimePicker',
     name: 'InfiniteDatetimePicker',
-    component: DatetimePicker,
+    component: InfiniteDatetimePicker,
     meta: {
       type: 'component'
     }
