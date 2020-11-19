@@ -7,7 +7,9 @@
       <slot name="leftItem"/>
     </div>
     <div class="header-title" :class="{'right-padding': !hasRightSlot}">
-      <slot name="centerItem"/>
+      <div class="title-content">
+        <slot name="centerItem"/>
+      </div> 
     </div>
     <div class="header-right">
       <slot name="rightItem"/>

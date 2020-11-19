@@ -2,9 +2,6 @@ import { shallowMount, mount } from '@vue/test-utils'
 import InfiniteHeaderNav from '@/packages/infinite-header-nav/src/index.vue'
 import InfiniteEmpty from '@/packages/infinite-empty/src/index.vue'
 
-import sinon from 'sinon'
-
-console.log('InfiniteEmpty', InfiniteEmpty)
 const wrapper = mount(InfiniteHeaderNav)
 
 describe('Infinite header nav.vue', () => {

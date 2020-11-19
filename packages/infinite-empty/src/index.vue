@@ -45,7 +45,7 @@ export default {
     // 图片大小，默认单位为 px
     imageSize: {
       type: [Number, String],
-      default: '130px'
+      default: '138px'
     },
     // 图片下方的描述文字
     description: {

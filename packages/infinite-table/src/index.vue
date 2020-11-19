@@ -105,7 +105,6 @@ import CardContainerTable from './common/CardContainerTable'
 import CardFixedTable from './common/CardFixedTable'
 import CardChildTable from './components/CardChildTable'
 import { cardTableWatch, cardTableComputed } from './js/index'
-// import backgroundUrl from 'packages/infinite-empty/imgs/noNetwork.png'
 
 import Popup from 'vant/lib/popup'
 export default {
@@ -164,7 +163,6 @@ export default {
   },
   data () {
     return {
-      // backgroundUrl: backgroundUrl,
       popupShow: false, // 表格弹窗开关
       nearViewTableData: [], // 处理中的视图数据
       viewTableData: [], // 真实视图数据
