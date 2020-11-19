@@ -37,16 +37,20 @@
             <input
               type="text"
               class="institutional-filter-search-input"
+              @input="onInput"
+              v-model="inputValue"
             >
           </div>
         </div>
         <!-- end of 搜索框 -->
         <!-- 筛选器内容 -->
-        <div class="institutional-filter-content"
-        :class="{'pt0':showSearch}">
+        <div
+          class="institutional-filter-content"
+          :class="{'pt0':showSearch}"
+        >
           <div
             class="institutional-filter-content-item"
-            v-for="(item,index) in contentList"
+            v-for="(item,index) in showContentList"
             :key="index"
             @click="onSelectItem(item)"
             :class="{'active':(selectedList[selectedIndex] && selectedList[selectedIndex].code) === item.code}"
@@ -140,7 +144,8 @@ export default {
       handler (val, oldVal) {
         console.log(val)
         // 默认放入参数中
-        this.contentList = val.children
+        this.showContentList = val.children
+        this.originContentList = val.children
 
       },
       immediate: true // true 深度监听
@@ -169,10 +174,12 @@ export default {
   },
   data () {
     return {
-      contentList: [], // 当前显示内容
+      showContentList: [], // 当前显示内容
       selectedList: [], // 已选内容
       selectedIndex: 0, // 当前选中层级
-      privateHeaderMap: []
+      privateHeaderMap: [], // 重组头部
+      inputValue: '', // 搜索框参数
+      originContentList: [] // 搜索之前数据 
     }
   },
   methods: {
@@ -189,20 +196,40 @@ export default {
 
       // 存在子集移动下标
       if (item.children && item.children.length) {
+        this.inputValue = ''
         // 将子集存入到header中 方便点击回写
-        this.privateHeaderMap[this.selectedIndex].children = this.contentList
+        this.privateHeaderMap[this.selectedIndex].children = this.originContentList
         // 将下标+1
         this.selectedIndex += 1
         // 设置子集到内容区域中
-        this.contentList = item.children
+        this.showContentList = item.children
+        this.originContentList = item.children
       }
     },
     // 点击头部选中参数
     changeHeader (item, index) {
       if (item.children.length) {
-        this.contentList = item.children
+        this.inputValue = ''
+        this.showContentList = item.children
+        this.originContentList = item.children
         this.selectedIndex = index
       }
+    },
+    // 监听输入事件
+    onInput (event) {
+      const inputStr = event.target.value
+      console.log(this.showContentList)
+      // 存在值暴露事件，正则匹配
+      if (inputStr.length) {
+        const testExp = new RegExp(inputStr, 'g')
+        const searchResult = this.privateHeaderMap[this.selectedIndex].children.filter(item => {
+          return testExp.test(item.name)
+        })
+        this.showContentList = searchResult
+      } else {
+        this.showContentList = this.privateHeaderMap[this.selectedIndex].children
+      }
+      this.$emit('onInput', event.target)
     },
     // 确认按钮
     onConfirm () {
