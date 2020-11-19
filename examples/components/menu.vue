@@ -12,7 +12,7 @@
           <span>开发指南</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/guide/installation">安装 Install</el-menu-item>
+          <el-menu-item index="/guide/InfiniteInstallation">安装 Install</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="2">
@@ -22,9 +22,9 @@
         <el-menu-item-group>
           <el-menu-item index="/guide/InfiniteEmpty">空数据 Empty</el-menu-item>
           <el-menu-item index="/guide/InfiniteHeaderNav">头部导航 HeaderNav</el-menu-item>
-          <el-menu-item index="/guide/datetimepicker">时间选择器 DatetimePicker</el-menu-item>
+          <el-menu-item index="/guide/InfiniteDatetimePicker">时间选择器 DatetimePicker</el-menu-item>
           <el-menu-item index="/guide/InfiniteTable">表格 Table</el-menu-item>
-          <el-menu-item index="/guide/infiniteInstitutionalFilter">机构筛选器 Institutional</el-menu-item>
+          <el-menu-item index="/guide/InfiniteInstitutionalFilter">机构筛选器 Institutional</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
@@ -32,17 +32,18 @@
 </template>
 
 <script>
+const installationPath = '/guide/InfiniteInstallation'
 export default {
   data () {
     return {
-      defaultActive: '/guide/installation',
+      defaultActive: installationPath,
       mainMenuData: [
         {
           index: '1',
           label: '开发指南',
           children: [
             {
-              index: '/guide/installation',
+              index: installationPath,
               label: '安装'
             }
           ]
@@ -72,9 +73,8 @@ export default {
   watch: {
     '$route': {
       handler (val) {
-        console.log(val)
         const path = val.fullPath
-        this.defaultActive = path === '/' ? '/guide/installation' : path
+        this.defaultActive = path === '/' ? installationPath : path
       },
       immediate: true
     }

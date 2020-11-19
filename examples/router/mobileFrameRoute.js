@@ -1,5 +1,5 @@
 // 手机模拟器内 组件路由
-import MobileDatetimePicker from '../mobile-frame-view/DatetimePicker.vue'
+import MobileDatetimePicker from '../mobile-frame-view/InfiniteDatetimePicker.vue'
 import MobileHeaderNav from '../mobile-frame-view/InfiniteHeaderNav.vue'
 import MobileEmpty from '../mobile-frame-view/InfiniteEmpty.vue'
 import MobileTable from '../mobile-frame-view/InfiniteTable.vue'

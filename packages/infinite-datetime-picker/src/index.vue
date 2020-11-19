@@ -70,15 +70,18 @@
 import Popup from 'vant/lib/popup'
 import Picker from 'vant/lib/picker'
 import DatetimePicker from 'vant/lib/datetime-picker'
-import VanIcon from 'vant/lib/icon'
+// import VanIcon from 'vant/lib/icon'
+import 'vant/lib/popup/style'
+import 'vant/lib/picker/style'
+import 'vant/lib/datetime-picker/style'
 
 export default {
   name: 'InfiniteDatetimePicker',
   components: {
     Popup, 
     Picker, 
-    DatetimePicker,
-    VanIcon
+    DatetimePicker
+    // VanIcon
   },
   filters: {
     // 获取及输出的时间都为yyyyMMdd格式,如：20200101，无有'-'或'/'，就算有也要在接收时处理掉，所有显示时间这里加上-
@@ -287,7 +290,7 @@ export default {
       if (this.useDefaultIcon) {
         return `${iconStr} default`
       }
-      return this.popupShow ? `${iconStr} icon-down` : `${iconStr} icon-up`
+      return this.popupShow ? `${iconStr} infinite-table-icon-down` : `${iconStr} infinite-table-icon-up`
       // return `${iconStr} icon`
     },
     // 右边的图标-类名

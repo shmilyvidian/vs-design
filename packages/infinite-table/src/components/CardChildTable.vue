@@ -1,60 +1,60 @@
 <template>
-  <div class="card-table">
-    <div class="c-table-conform">
-      <div class="c-table-container" ref="cTableContainer">
-        <div class="table-box">
+  <div class="infinite-table">
+    <div class="infinite-c-table-conform">
+      <div class="infinite-c-table-container" ref="cTableContainer">
+        <div class="infinite-table-box">
           <div 
-            class="scroll-icon right"
+            class="infinite-table-scroll-icon right"
             v-show="isScroll && scrollIcon"
             :style="{top:'calc('+(arrowsTop/2)+'px)'}"
           >
-          <img src="../../imgs/swipe-arrow-right.png" alt="" class="icon-png">
-            <!-- <img :src="require('../svg/arrow-right.svg')" alt="" class="icon-png"> -->
+          <img src="../../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="infinite-table-icon-png">
+            <!-- <img :src="require('../svg/arrow-right.svg')" alt="" class="infinite-table-icon-png"> -->
           </div>
           <div 
-            class="table-content"
+            class="infinite-table-content"
             ref="tableContent"
           >
-            <div class="scroll-div" ref="scrollDiv">
-              <div class="table-div head-div">
+            <div class="infinite-scroll-div" ref="scrollDiv">
+              <div class="infinite-table-div head-div">
                 <table
-                  class="table"
+                  class="infinite-label-table"
                   ref="headerTable"
                 >
-                  <thead class="thead">
-                    <tr class="p-head-tr" ref="scrollTheadTr">
-                      <th class="p-head-th"
+                  <thead class="infinite-label-thead">
+                    <tr class="infinite-p-head-tr" ref="scrollTheadTr">
+                      <th class="infinite-p-head-th"
                         v-for="(item,index) in columns"
                         :key="index"
                         :style="[{minHeight:headerMinHeight+'px'},localStyles[item.key]]"
                         :class="[
-                          item.isSort === sortKey?'active':'',
-                          item.fixed?'opacity':'',
-                          item.align?'row-align-'+item.align+'-textalign':
-                          (item.fixed?'row-align-center-textalign':'row-align-right-textalign')
+                          item.isSort === sortKey?'infinite-table-active':'',
+                          item.fixed?'infinite-table-opacity':'',
+                          item.align?'infinite-row-align-'+item.align+'-textalign':
+                          (item.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
                         ]"
                         @click="_sortBy(item)"
                       >
-                        <div class="p-head-th-box">
-                          <div class="content">
-                            <div class="care-icon-box" :class="{'header-sort-box':item.isSort}">
+                        <div class="infinite-p-head-th-box">
+                          <div class="infinite-thead-content">
+                            <div class="infinite-thead-care-icon-box" :class="{'infinite-header-sort-box':item.isSort}">
                               {{item.name}}
-                              <div class="unit" v-show="item.unit">
+                              <div class="infinite-unit" v-show="item.unit">
                                 <div v-show="item.unit">{{item.unit}}</div>
                               </div>
-                              <div class="sort-div-ab"
+                              <div class="infinite-table-sort-div-ab"
                                 :class="{
-                                  'sort-div-ab-top': sortOrders[item.key] === -1,
-                                  'sort-div-ab-bottom': sortOrders[item.key] === 1
+                                  'infinite-table-sort-div-ab-top': sortOrders[item.key] === -1,
+                                  'infinite-table-sort-div-ab-bottom': sortOrders[item.key] === 1
                                 }"
                                 v-show="item.isSort"
                               >
-                                <div class="sort-div-re">
-                                  <div class="sort-icon sort-top"
-                                    :class="{active:sortOrders[item.key] === -1}"
+                                <div class="infinite-table-sort-div-re">
+                                  <div class="infinite-table-sort-icon infinite-table-sort-top"
+                                    :class="{'infinite-table-active':sortOrders[item.key] === -1}"
                                   ></div>
-                                  <div class="sort-icon sort-bottom"
-                                    :class="{active:sortOrders[item.key] === 1}"
+                                  <div class="infinite-table-sort-icon infinite-table-sort-bottom"
+                                    :class="{'infinite-table-active':sortOrders[item.key] === 1}"
                                   ></div>
                                 </div>
                               </div>
@@ -67,42 +67,42 @@
                 </table>
               </div>
 
-              <div class="table-div containe-div">
+              <div class="infinite-table-div infinite-table-containe-div">
                 <table
-                  class="table"
+                  class="infinite-label-table"
                   ref="bodyTable"
                 >
                   <tBody
-                    class="tbody"
+                    class="infinite-label-tbody"
                   >
                     <tr
-                      class="p-tr"
+                      class="infinite-p-tr"
                       v-for="(item, index) in viewTableData"
                       :key="index"
                       :ref="item.isChildrens?`trMove${item.key}`:''"
                       :class="{
-                        'tr-children': item.isChildrens,
-                        'c-children-hide': (item.isChildrens && !childrenKeys[item.key])
+                        'infinite-tr-children': item.isChildrens,
+                        'infinite-c-children-hide': (item.isChildrens && !childrenKeys[item.key])
                       }"
                     >
                       <template>
-                        <td class="p-td"
+                        <td class="infinite-p-td"
                           v-for="(item2, index2) in columns"
                           :key="index2"
                           :class="[
-                            recordUnitClicks[`${item.key}*${item2.key}`]?'unit-clicked':'',
-                            item2.align?'row-align-'+item2.align+'textalign':
-                            (item2.fixed?'row-align-center-textalign':'row-align-right-textalign')
+                            recordUnitClicks[`${item.key}*${item2.key}`]?'infinite-unit-clicked':'',
+                            item2.align?'infinite-row-align-'+item2.align+'textalign':
+                            (item2.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
                           ]"
                           :style="localStyles[item2.key]"
                           @click="ontableUnitClick( item, index,item2, index2)"
                         >
-                          <div class="p-td-container"
-                            :class="{opacity:item2.fixed,'c-td-padding':index2 === 1
+                          <div class="infinite-p-td-container"
+                            :class="{'infinite-table-opacity':item2.fixed,'infinite-table-c-td-padding':index2 === 1
                             && item.children && item.children.length}"
                             :style="[item2.style]"
                           >
-                            <span class="p-td-text"
+                            <span class="infinite-p-td-text"
                               :class="maxUnitLengthWidth<8?'line-clamp-3':''"
                             >{{item[item2.key]}}</span>
                           </div>
@@ -114,48 +114,48 @@
               </div>
             </div>
 
-            <div class="table-div fixed-div">
+            <div class="infinite-table-div infinite-table-fixed-div">
               <table
-                class="table fixed-table"
+                class="infinite-label-table infinite-fixed-table"
               >
-                <thead class="thead">
-                  <tr class="p-head-tr">
-                    <th class="p-head-th"
+                <thead class="infinite-label-thead">
+                  <tr class="infinite-p-head-tr">
+                    <th class="infinite-p-head-th"
                       v-for="(item,index) in columns"
                       :key="'item'+index"
                       :style="[{minHeight:headerMinHeight+'px'},localStyles[item.key]]"
                       :class="{
-                        active: item.isSort === sortKey, shelter: item.fixed,
-                        'risk-hasShadow': index===leftFixedIndex && !scrollIcon && isScroll
+                        'infinite-table-active': item.isSort === sortKey, 'infinite-th-shelter': item.fixed,
+                        'infinite-risk-hasShadow': index===leftFixedIndex && !scrollIcon && isScroll
                       }"
                     >
-                      <div class="p-head-th-box"
-                        :class="{opacity:!item.fixed}"
+                      <div class="infinite-p-head-th-box"
+                        :class="{'infinite-table-opacity':!item.fixed}"
                       >
-                        <div class="content"
+                        <div class="infinite-thead-content"
                           :class="[
-                            item.align?'row-align-'+item.align+'textalign':
-                            (item.fixed?'row-align-center-textalign':'row-align-right-textalign')
+                            item.align?'infinite-row-align-'+item.align+'textalign':
+                            (item.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
                           ]"
                         >
-                          <div class="care-icon-box" :class="{'header-sort-box':item.isSort}">
+                          <div class="infinite-thead-care-icon-box" :class="{'infinite-header-sort-box':item.isSort}">
                             {{item.name}}
-                            <div class="unit" v-show="item.unit">
+                            <div class="infinite-unit" v-show="item.unit">
                               <div v-show="item.unit">{{item.unit}}</div>
                             </div>
-                            <div class="sort-div-ab"
+                            <div class="infinite-table-sort-div-ab"
                               :class="{
-                                'sort-div-ab-top': sortOrders[item.key] === -1,
-                                'sort-div-ab-bottom': sortOrders[item.key] === 1
+                                'infinite-table-sort-div-ab-top': sortOrders[item.key] === -1,
+                                'infinite-table-sort-div-ab-bottom': sortOrders[item.key] === 1
                               }"
                               v-show="item.isSort"
                             >
-                              <div class="sort-div-re">
-                                <div class="sort-icon sort-top"
-                                  :class="{active:sortOrders[item.key] === -1}"
+                              <div class="infinite-table-sort-div-re">
+                                <div class="infinite-table-sort-icon infinite-table-sort-top"
+                                  :class="{'infinite-table-active':sortOrders[item.key] === -1}"
                                 ></div>
-                                <div class="sort-icon sort-bottom"
-                                  :class="{active:sortOrders[item.key] === 1}"
+                                <div class="infinite-table-sort-icon infinite-table-sort-bottom"
+                                  :class="{'infinite-table-active':sortOrders[item.key] === 1}"
                                 ></div>
                               </div>
                             </div>
@@ -165,34 +165,34 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody class="tbody fixed-tbody">
-                  <tr class="p-tr"
+                <tbody class="infinite-label-tbody infinite-fixed-tbody">
+                  <tr class="infinite-p-tr"
                     v-for="(item, index) in viewTableData"
                     :key="index"
                     :class="{
-                      'tr-children': item.isChildrens,
-                      'c-children-hide': (item.isChildrens && !childrenKeys[item.key])
+                      'infinite-tr-children': item.isChildrens,
+                      'infinite-c-children-hide': (item.isChildrens && !childrenKeys[item.key])
                     }"
                   >
                     <template>
-                      <td class="p-td"
+                      <td class="infinite-p-td"
                         v-for="(item2,index2) in columns"
                         :key="index2"
                         :class="{
-                          'p-td-move': !item2.fixed,
-                          'c-shelter': item2.fixed,
-                          'risk-hasShadow': index2===leftFixedIndex && !scrollIcon && isScroll,
-                          'unit-clicked':recordUnitClicks[`${item.key}*${item2.key}`]
+                          'infinite-p-td-move': !item2.fixed,
+                          'infinite-c-shelter': item2.fixed,
+                          'infinite-risk-hasShadow': index2===leftFixedIndex && !scrollIcon && isScroll,
+                          'infinite-unit-clicked':recordUnitClicks[`${item.key}*${item2.key}`]
                         }"
                         :style="localStyles[item2.key]"
                         @click="ontableUnitClick(item, index,item2,index2)"
                       >
-                        <div class="p-td-container"
-                          :class="{opacity:!item2.fixed,'c-td-padding': index2===1
+                        <div class="infinite-p-td-container"
+                          :class="{'infinite-table-opacity':!item2.fixed,'infinite-table-c-td-padding': index2===1
                             && item.children && item.children.length}"
                           :style="[item2.style]"
                         >
-                          <span class="p-td-text">{{item[item2.key]}}</span>
+                          <span class="infinite-p-td-text">{{item[item2.key]}}</span>
                         </div>
                       </td>
                     </template>
@@ -317,7 +317,7 @@ export default {
         // 提示右滑箭头定位
         let aTop = 0
         setTimeout(() => {
-          this.$refs.headerTable.querySelectorAll('.content').forEach((item) => {
+          this.$refs.headerTable.querySelectorAll('.infinite-thead-content').forEach((item) => {
             aTop = item.clientHeight > aTop ? item.clientHeight : aTop
           }) 
           this.arrowsTop = aTop

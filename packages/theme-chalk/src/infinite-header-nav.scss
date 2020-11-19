@@ -5,7 +5,7 @@
   justify-content: space-between;
   background-color: #212228;
   color: #fff;
-  padding: 5px;
+  padding: 5px 0;
   width: 100%;
   box-sizing: border-box;
 }
@@ -13,13 +13,22 @@
 .header-left {
   display: flex;
   min-width: 35px;
+  padding-left: 5px;
 }
 
-// .header-title {
-//   flex: 1;
-//   text-align: center;
-// };
+.header-title {
+  width: 100vw;
+  position: absolute;
+  display: flex;
 
+  .title-content {
+    margin: 0 auto;
+  }
+};
+
+.header-right {
+  padding-right: 5px;
+}
 .right-padding {
   margin-right: 35px;
 };

@@ -82,7 +82,7 @@ html.is-right-mobile {
   display: inline-flex;
   word-break: break-all;
 }
-.card-table {
+.infinite-table {
   padding-top: 4.267vw;
 
   table,
@@ -103,7 +103,7 @@ html.is-right-mobile {
   * {
     box-sizing: initial;
   }
-  .table-box {
+  .infinite-table-box {
     color: #fff;
     font-size: 3.733vw;
     position: relative;
@@ -115,25 +115,25 @@ html.is-right-mobile {
 
 
     // 右滑可滑动的提示箭头
-    .scroll-icon {
+    .infinite-table-scroll-icon {
       display: flex;
       position: absolute;
       right: .8vw;
       transform: translate3d(0,-50%,1000px);
 
-      .icon-png {
+      .infinite-table-icon-png {
         width: 2.133vw;
         height: 2.4vw;
       }
     }
   }
 
-  .table-content {
+  .infinite-table-content {
     position: relative;
     transform: translateZ(1000px);
 
     // 隐藏滚动条
-    .scroll-div {
+    .infinite-scroll-div {
       width: 100%;
       overflow-x: auto;
       overflow-y: hidden;
@@ -148,37 +148,37 @@ html.is-right-mobile {
     }
 
     // 表格样式
-    .table-div {
-      .table {
-        .p-tr {
+    .infinite-table-div {
+      .infinite-label-table {
+        .infinite-p-tr {
           @extend .gather-p-tr;
-          .opacity {
+          .infinite-table-opacity {
             opacity: 0;
           }
         }
-        .thead {
+        .infinite-label-thead {
           color: $ftColor;
 
           // 表头表格对齐方式
-          .row-align-right-textalign {
+          .infinite-row-align-right-textalign {
             justify-content: flex-end;
           }
 
-          .row-align-center-textalign {
+          .infinite-row-align-center-textalign {
             justify-content: center;
           }
 
-          .row-align-left-textalign {
+          .infinite-row-align-left-textalign {
             justify-content: start;
           }
 
-          .shelter {
+          .infinite-th-shelter {
             background: rgba(46, 48, 54, 1) !important;
           }
 
-          .p-head-tr {
+          .infinite-p-head-tr {
             @extend .gather-header-tr;
-            .p-head-th {
+            .infinite-p-head-th {
               display: flex;
               align-items: center;
               justify-content: center;
@@ -186,12 +186,12 @@ html.is-right-mobile {
               box-sizing: initial;
               padding-bottom: 1.733vw!important;
 
-              .content {
+              .infinite-thead-content {
                 display: flex;
                 justify-content: center;
 
                 // 设置配需按钮样式
-                .care-icon-box {
+                .infinite-thead-care-icon-box {
                   width: min-content;
                   position: relative;
                   font-weight: 600;
@@ -200,92 +200,92 @@ html.is-right-mobile {
                   letter-spacing: 0;
                   line-height: 4.8vw;
 
-                  .sort-div-ab {
+                  .infinite-table-sort-div-ab {
                     width: 2.133vw;
                     position: absolute;
                     top: 50%;
                     left: calc(100% + .533vw);
                     transform: translateY(calc(-50%));
 
-                    background: url('../../infinite-table/imgs/table-sort-default.png') no-repeat center center;
+                    background: url('./imgs/table-sort-default.png') no-repeat center center;
                     background-size: 100% 100%;
 
-                    .sort-div-re {
+                    .infinite-table-sort-div-re {
                       position: relative;
                       height: 2.667vw;
                       width: 2.133vw;
 
-                      .sort-top {
+                      .infinite-table-sort-top {
                         // @extend .sort-icon-style;
                         bottom: 1.5vw;
                         border-top-color: transparent;
                       }
 
-                      .sort-bottom {
+                      .infinite-table-sort-bottom {
                         // @extend .sort-icon-style;
                         bottom: -1vw;
                         border-bottom-color: transparent;
                       }
 
-                      .sort-top.active {
+                      .infinite-table-sort-top.infinite-table-active {
                         // border-bottom-color: $mainColor;
                       }
 
-                      .sort-bottom.active {
+                      .infinite-table-sort-bottom.infinite-table-active {
                         // border-top-color: $mainColor;
                       }
                     }
 
-                    &.sort-div-ab-top {
-                      background: url('../../infinite-table/imgs/table-sort-top.png') no-repeat center center;
+                    &.infinite-table-sort-div-ab-top {
+                      background: url('./imgs/table-sort-top.png') no-repeat center center;
                       background-size: 100% 100%;
                     }
 
-                    &.sort-div-ab-bottom {
-                      background: url('../../infinite-table/imgs/table-sort-bottom.png') no-repeat center center;
+                    &.infinite-table-sort-div-ab-bottom {
+                      background: url('./imgs/table-sort-bottom.png') no-repeat center center;
                       background-size: 100% 100%;
                     }
                   }
                 }
               }
 
-              .unit {
+              .infinite-unit {
                 // font-size: 2.4vw;
               }
             }
 
-            .opacity {
+            .infinite-table-opacity {
               opacity: 0;
             }
           }
         }
 
-        .tbody {
-          .p-td {
+        .infinite-label-tbody {
+          .infinite-p-td {
             z-index: 2;
             transform: translateZ(900px);
             @extend .td-p-b;
             @extend .text-wb-ws-bs;
 
-            .p-td-container {
+            .infinite-p-td-container {
               @extend .td-container;
             }
 
-            .p-td-text {
+            .infinite-p-td-text {
               @extend .line-clamp-2;
             }
 
             // 子表格样式
-            .nest-table {
+            .infinite-nest-table {
               overflow: hidden;
               position: relative;
               white-space: initial;
               
-              .container-c-more-btn {
+              .infinite-container-c-more-btn {
                 opacity: 0;
               }
 
-              .fixed-c-more-btn {
+              .infinite-table-fixed-c-more-btn {
                 @extend .flex-c-c;
 
                 color: $mainColor;
@@ -303,24 +303,24 @@ html.is-right-mobile {
                 }
               }
 
-              .c-table {
-                .c-tr {
+              .infinite-label-c-table {
+                .infinite-label-c-table-c-tr {
                   display: flex;
                 }
-                .c-td-container{
+                .infinite-c-td-container{
                   @extend .td-container;
                 }
-                .c-td {
+                .infinite-label-c-table-c-td {
                   @extend .td-p-b;
                   display: flex;
                   z-index: 1;
                   transform: translateZ(800px);
                   @extend .text-wb-ws-bs;
-                  .c-td-text {
+                  .infinite-c-td-text {
                     @extend .line-clamp-2;
                   }
                 }
-                .c-tr {
+                .infinite-label-c-table-c-tr {
                   &:first-child {
                     padding-top: 3.466vw !important;
                   }
@@ -330,38 +330,38 @@ html.is-right-mobile {
                 }
 
                 // 子节点点击后查看当前单元格全部文案
-                .unit-clicked {
-                  .c-td-text {
+                .infinite-unit-clicked {
+                  .infinite-c-td-text {
                     line-clamp: initial !important;
                     -webkit-line-clamp:initial !important;
                   }
                 }
 
                 // 子节点表身设置对齐方式start
-                .row-align-right-textalign {
+                .infinite-row-align-right-textalign {
                   display: flex;
                   align-items: center;
                   justify-content: flex-end;
 
-                  .c-td-text {
+                  .infinite-c-td-text {
                     text-align: right;
                   }
                 }
-                .row-align-center-textalign {
+                .infinite-row-align-center-textalign {
                   display: flex;
                   align-items: center;
                   justify-content: center;
 
-                  .c-td-text {
+                  .infinite-c-td-text {
                     text-align:center;
                   }
                 }
-                .row-align-left-textalign {
+                .infinite-row-align-left-textalign {
                   display: flex;
                   align-items: center;
                   justify-content: left;
 
-                  .c-td-text {
+                  .infinite-c-td-text {
                     text-align: left;
                   }
                 }
@@ -371,15 +371,15 @@ html.is-right-mobile {
           }
           
           // 存在展开查看子节点时，默认展示全部
-          .col-2-ischildrens {
-            .p-td-text {
+          .infinite-col-2-ischildrens {
+            .infinite-p-td-text {
               display: block;
             }
           }
 
           // 点击后查看当前单元格全部文案
-          .unit-clicked {
-            .p-td-text {
+          .infinite-unit-clicked {
+            .infinite-p-td-text {
               line-clamp: initial !important;
               -webkit-line-clamp:initial !important;
               // display: block;
@@ -387,49 +387,49 @@ html.is-right-mobile {
           }
 
           // 父节点表身表格列对齐
-          .row-align-right-textalign {
+          .infinite-row-align-right-textalign {
             text-align: right;
-            .p-td-text {
+            .infinite-p-td-text {
               text-align: right;
             }
           }
-          .row-align-center-textalign {
+          .infinite-row-align-center-textalign {
             text-align: center;
-            .p-td-text {
+            .infinite-p-td-text {
               text-align: center;
             }
           }
-          .row-align-left-textalign {
+          .infinite-row-align-left-textalign {
             text-align: left;
-            .p-td-text {
+            .infinite-p-td-text {
               text-align: left;
             }
           }
           // 表格列对齐 end
 
-          .tr-children {
-            .p-td {
+          .infinite-tr-children {
+            .infinite-p-td {
               background: transparent;
               overflow: hidden;
               padding: 0 !important;
             }
 
-            > .p-td {
+            > .infinite-p-td {
               padding: 0;
             }
           }
         }
 
         // 子节点显隐
-        .c-children-hide {
+        .infinite-c-children-hide {
           position: fixed;
           left: -99999px;
         }
       }
 
       // 设置存在子节点的展开箭头提示
-      .p-td {
-        .icon-down {
+      .infinite-p-td {
+        .infinite-table-icon-down {
           // @extend .icon-position-border;
           margin-top: .534vw;
           // border-bottom-color: transparent;
@@ -440,11 +440,11 @@ html.is-right-mobile {
           width: 2.134vw;
           height: 2.134vw;
           transform: translateY(-50%);
-          background: url('../../infinite-table/imgs/table-down-expand.png') no-repeat center top;
+          background: url('./imgs/table-down-expand.png') no-repeat center top;
           background-size: 100% 50%;
         }
 
-        .icon-up {
+        .infinite-table-icon-up {
           // @extend .icon-position-border;
           margin-top: -0.534vw;
           // border-top-color: transparent;
@@ -455,7 +455,7 @@ html.is-right-mobile {
           width: 2.134vw;
           height: 2.134vw;
           transform: translateY(-50%) rotate(180deg);
-          background: url('../../infinite-table/imgs/table-down-expand.png') no-repeat center top;
+          background: url('./imgs/table-down-expand.png') no-repeat center top;
           background-size: 100% 50%;
         }
       }
@@ -465,19 +465,19 @@ html.is-right-mobile {
     .head-div {
       position: relative;
 
-      .p-head-tr {
+      .infinite-p-head-tr {
         pointer-events: auto;
       }
     }
 
     // 设置子节点背景色
-    .containe-div {
+    .infinite-table-containe-div {
       position: relative;
 
-      .nest-table {
+      .infinite-nest-table {
         background: $bgColor;
       }
-      .c-td {
+      .infinite-label-c-table-c-td {
         background: transparent;
       }
     }
@@ -489,7 +489,7 @@ html.is-right-mobile {
 }
 
 // 设置固定列
-.fixed-div {
+.infinite-table-fixed-div {
   width: 100%;
   position: absolute;
   left: 0;
@@ -499,7 +499,7 @@ html.is-right-mobile {
   overflow: hidden;
   pointer-events: none;
   // 设置点击穿透
-  .thead {
+  .infinite-label-thead {
     pointer-events:  none;
 
     * {
@@ -507,7 +507,7 @@ html.is-right-mobile {
     }
   }
 
-  .tbody {
+  .infinite-label-tbody {
     pointer-events: none;
     
     * {
@@ -516,7 +516,7 @@ html.is-right-mobile {
   }
 
   // 设置背景颜色进行覆盖，设置translateZ做IOS兼容
-  .c-shelter {
+  .infinite-c-shelter {
     background-color: #2e3036;
     z-index: 3;
     transform: translateZ(1000px);
@@ -524,22 +524,22 @@ html.is-right-mobile {
   }
 
   // 设置子表格背景
-  .tr-children {
+  .infinite-tr-children {
     background: transparent;
 
-    .c-shelter {
+    .infinite-c-shelter {
       background: $bgColor;
       opacity: 1;
     }
   }
 
-  .c-td {
+  .infinite-label-c-table-c-td {
     opacity: 0;
   }
 }
 
 // 查看更多
-.risk-table-more {
+.infinite-risk-table-more {
   display: inline-block;
   // width: 2.133vw;
   // height: 2.133vw;
@@ -551,18 +551,18 @@ html.is-right-mobile {
   width: 4.792vw;
   height: 4.792vw;
   transform: translateY(10%);
-  background: url('../../infinite-table/imgs/table-expand-more.png') no-repeat center center;
+  background: url('./imgs/table-expand-more.png') no-repeat center center;
   background-size: 100% 100%;
 }
 
-.risk-table-more.rotate45 {
+.infinite-risk-table-more.rotate45 {
   // transform: rotate(45deg);
   // margin: 0 0 0 1.333vw;
 
   margin-left: 1.333vw;
 }
 
-.more-box {
+.infinite-table-more-box {
   padding: 5.333vw 0 5.333vw 0;
   color: $mainColor;
   margin-top: 2.4vw;
@@ -570,10 +570,10 @@ html.is-right-mobile {
   font-size: 3.733vw;
   line-height: 5.333vw;
 
-  .more-btn {
+  .infinite-table-more-btn {
     @extend .flex-c-c;
 
-    .rotate-45 {
+    .infinite-rotate-45 {
       // transform: rotate(-45deg);
       margin-left: 2.133vw;
       margin-top: 1.067vw;
@@ -585,12 +585,12 @@ html.is-right-mobile {
 
 // 查看更多
 // 没有查看更多时的底部高度
-.bottom-padding {
+.infinite-table-bottom-padding {
   padding-bottom: 3.6vw;
 }
 
 // 滑动阴影
-.risk-hasShadow {
+.infinite-risk-hasShadow {
   position: relative;
   &::before{
     content: '';
@@ -605,14 +605,14 @@ html.is-right-mobile {
   }
 }
 
-.p-td-text,.c-td-text {
+.infinite-p-td-text,.infinite-c-td-text {
   display: inline-block;
   text-align: center;
 }
 
 // 弹窗子表格
-.card-table {
-  .c-table-conform {
+.infinite-table {
+  .infinite-c-table-conform {
     // width: calc(100vw - 5.334vw);
     // border-radius: 2.667vw;
     // margin: 0 2.667vw;

@@ -50,7 +50,13 @@ const webpackConfig = {
         options: {
           esModule: false,
         }
-      }]
+      },
+      {
+        test: /\.css$/,
+        loader: ["style-loader", "css-loader"]
+      },
+    
+    ]
   },
   plugins: [
     new ProgressBarPlugin(),

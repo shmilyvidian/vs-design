@@ -1,8 +1,5 @@
 <template>
   <div>
-      <infinite-datetime-picker
-        v-model="currenttime"
-      />
     <el-row class="infinite-doc-demo-block-row" v-for="(item, index) of pickerArr" :key="index">
       <h2 class="infinite-doc-demo-block-title">{{ item.title }}</h2>
       <div class="infinite-doc-demo-block-picker">
@@ -31,7 +28,6 @@ export default {
   },
   data () {
     return {
-      currenttime: '20201010',
       pickerArr: [
         {
           title: '基础用法',

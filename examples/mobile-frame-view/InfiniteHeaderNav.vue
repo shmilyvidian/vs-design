@@ -45,13 +45,13 @@
       <infinite-header-nav
         :insertStyle="insertStyle">
         <div slot="leftItem">
-          左文字
+          返回
         </div>
         <div slot="centerItem">
-          中间文字
+          标题
         </div>
         <div slot="rightItem">
-          右文字
+          下载
         </div>
       </infinite-header-nav>
     </el-row>

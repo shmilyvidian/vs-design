@@ -9,13 +9,12 @@
   </div>
 </template>
 <script>
- import logo from './../imgs/noUpdate.png'
- import noUpdate from 'packages/infinite-empty/imgs/noUpdate.png'
- import noData from 'packages/infinite-empty/imgs/noData.png'
- import noMessage from 'packages/infinite-empty/imgs/noMessage.png'
- import noFinish from 'packages/infinite-empty/imgs/noFinish.png'
- import noTask from 'packages/infinite-empty/imgs/noTask.png'
- import noNetwork from 'packages/infinite-empty/imgs/noNetwork.png'
+ import noUpdate from 'packages/theme-chalk/src/imgs/noUpdate.png'
+ import noData from 'packages/theme-chalk/src/imgs/noData.png'
+ import noMessage from 'packages/theme-chalk/src/imgs/noMessage.png'
+ import noFinish from 'packages/theme-chalk/src/imgs/noFinish.png'
+ import noTask from 'packages/theme-chalk/src/imgs/noTask.png'
+ import noNetwork from 'packages/theme-chalk/src/imgs/noNetwork.png'
 
 export default {
   name: 'InfiniteEmpty',
@@ -46,7 +45,7 @@ export default {
     // 图片大小，默认单位为 px
     imageSize: {
       type: [Number, String],
-      default: '130px'
+      default: '138px'
     },
     // 图片下方的描述文字
     description: {

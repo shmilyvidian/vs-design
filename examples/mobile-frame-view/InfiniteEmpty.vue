@@ -10,7 +10,6 @@
         imageType="noNetwork"
         imageSize="120px"
         description="network类型"
-        :insertStyle="insertStyle"
       >
       </infinite-empty>
     </el-row>
@@ -64,6 +63,16 @@
         description="自定义内容"
       >
       <h3>this is Title</h3>
+      </infinite-empty>
+    </el-row>
+     <el-row class="infinite-doc-demo-block-row">
+      <h2 class="infinite-doc-demo-block-title">自定义样式</h2>
+      <infinite-empty
+        imageType="noNetwork"
+        imageSize="120px"
+        description="network类型"
+        :insertStyle="insertStyle"
+      >
       </infinite-empty>
     </el-row>
   </div>

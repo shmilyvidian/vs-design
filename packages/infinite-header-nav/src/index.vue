@@ -3,11 +3,13 @@
     <div class="header-left" @click="goBack" :class="{'no-visibility': !showBackIcon}">
       <van-icon v-if="useVant" name="arrow-left" :color="color" :size="size">
       </van-icon>
-      <img v-else class="arrow-icon" :style="{width: size}" :src="require('./../imgs/arrow.png')" alt="">
+      <img v-else class="arrow-icon" :style="{width: size}" :src="require('../../theme-chalk/src/imgs/arrow.png')" alt="">
       <slot name="leftItem"/>
     </div>
     <div class="header-title" :class="{'right-padding': !hasRightSlot}">
-      <slot name="centerItem"/>
+      <div class="title-content">
+        <slot name="centerItem"/>
+      </div> 
     </div>
     <div class="header-right">
       <slot name="rightItem"/>
@@ -71,7 +73,6 @@ export default {
     }
   },
   mounted () {
-    console.log('insertStyle')
     console.log(this.insertStyle)
   }
 }

@@ -1,47 +1,47 @@
 <template>
-  <div class="table-div containe-div">
+  <div class="infinite-table-div infinite-table-containe-div">
     <table
-      class="table"
+      class="infinite-label-table"
       ref="bodyTable"
     >
       <tBody
-        class="tbody"
+        class="infinite-label-tbody"
       >
         <tr
-          class="p-tr"
+          class="infinite-p-tr"
           v-for="(item, index) in viewTableData"
           :key="index"
           :ref="item.isChildrens?`trMove${item.key}`:''"
           :class="{
-            'tr-children': item.isChildrens,
-            'c-children-hide': (item.isChildrens && !childrenKeys[item.key])
+            'infinite-tr-children': item.isChildrens,
+            'infinite-c-children-hide': (item.isChildrens && !childrenKeys[item.key])
           }"
         >
           <template v-if="item.isChildrens">
-            <td class="p-td" :colspan="viewTableColumns.length">
-              <div class="nest-table" :ref="`rightMove${item.key}`">
-                <table class="c-table">
+            <td class="infinite-p-td" :colspan="viewTableColumns.length">
+              <div class="infinite-nest-table" :ref="`rightMove${item.key}`">
+                <table class="infinite-label-c-table">
                   <template v-for="(cItemR, cIndexR) in item.children">
-                    <tr class="c-tr"
+                    <tr class="infinite-label-c-table-c-tr"
                       v-if="cIndexR < defaultChildrenNum"
                       :key="`cItemR${cIndexR}`"
                     >
-                      <td class="c-td"
+                      <td class="infinite-label-c-table-c-td"
                         v-for="(cItemC,cIndex) in viewTableColumns"
                         :key="`cItemC${cIndex}`"
                         :class="[
-                          cItemC.fixed?'opacity':'',
-                          recordUnitClicks[`${cItemR.key}*${cItemC.key}`]?'unit-clicked':'',
-                          cItemC.align?'row-align-'+cItemC.align+'-textalign':
-                          (cItemC.fixed?'row-align-center-textalign':'row-align-right-textalign')
+                          cItemC.fixed?'infinite-table-opacity':'',
+                          recordUnitClicks[`${cItemR.key}*${cItemC.key}`]?'infinite-unit-clicked':'',
+                          cItemC.align?'infinite-row-align-'+cItemC.align+'-textalign':
+                          (cItemC.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
                         ]"
                         :style="localStyles[cItemC.key]"
                         @click="ontableUnitClick(false,cItemR, index,cItemC,cIndex)"
                       >
-                        <div class="c-td-container"
+                        <div class="infinite-c-td-container"
                           :style="[cItemC.style]"
                         >
-                          <span class="c-td-text" 
+                          <span class="infinite-c-td-text" 
                             :class="maxUnitLengthWidth<8?'line-clamp-3':''"
                           >{{cItemR[cItemC.key]}}</span>
                         </div>
@@ -49,7 +49,7 @@
                     </tr>
                   </template>
                 </table>
-                <div class="container-c-more-btn"
+                <div class="infinite-container-c-more-btn"
                   v-if="item.children.length > defaultChildrenNum"
                   :style="{height:cMoreHeight+'px'}"
                 >
@@ -59,28 +59,28 @@
             </td>
           </template>
           <template v-else>
-            <td class="p-td"
+            <td class="infinite-p-td"
               v-for="(item2, index2) in viewTableColumns"
               :key="index2"
               :class="[
-                index2 === 1 && Object.keys(childrenKeys.length?'col-2-ischildrens':''),
-                recordUnitClicks[`${item.key}*${item2.key}`]?'unit-clicked':'',
-                item2.align?'row-align-'+item2.align+'textalign':
-                (item2.fixed?'row-align-center-textalign':'row-align-right-textalign')
+                index2 === 1 && Object.keys(childrenKeys.length?'infinite-col-2-ischildrens':''),
+                recordUnitClicks[`${item.key}*${item2.key}`]?'infinite-unit-clicked':'',
+                item2.align?'infinite-row-align-'+item2.align+'textalign':
+                (item2.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
               ]"
               :style="localStyles[item2.key]"
               @click="ontableUnitClick(item.children && 
                 item.children.length && 
               index===1, item, index, item2, index2)"
             >
-              <div class="p-td-container"
-                :class="{opacity:item2.fixed}"
+              <div class="infinite-p-td-container"
+                :class="{'infinite-table-opacity':item2.fixed}"
                 :style="[item2.style]"
               >
-                <span class="p-td-text"
+                <span class="infinite-p-td-text"
                   :class="maxUnitLengthWidth<8?'line-clamp-3':''"
                 >{{item[item2.key]}}</span>
-                <div class="icon-up"
+                <div class="infinite-table-icon-up"
                   v-if="item.children &&
                   item.children.length &&
                   item2.fixed && index2===leftFixedIndex &&
@@ -89,7 +89,7 @@
                     right: defaultColPaddingWidth + 'px'
                   }"
                 ></div>
-                <div class="icon-down"
+                <div class="infinite-table-icon-down"
                   v-if="item.children &&
                   item.children.length &&
                   index2 === 1 &&
