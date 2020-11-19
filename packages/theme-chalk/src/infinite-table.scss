@@ -207,7 +207,7 @@ html.is-right-mobile {
                     left: calc(100% + .533vw);
                     transform: translateY(calc(-50%));
 
-                    background: url('../../infinite-table/imgs/table-sort-default.png') no-repeat center center;
+                    background: url('./imgs/table-sort-default.png') no-repeat center center;
                     background-size: 100% 100%;
 
                     .sort-div-re {
@@ -237,12 +237,12 @@ html.is-right-mobile {
                     }
 
                     &.sort-div-ab-top {
-                      background: url('../../infinite-table/imgs/table-sort-top.png') no-repeat center center;
+                      background: url('./imgs/table-sort-top.png') no-repeat center center;
                       background-size: 100% 100%;
                     }
 
                     &.sort-div-ab-bottom {
-                      background: url('../../infinite-table/imgs/table-sort-bottom.png') no-repeat center center;
+                      background: url('./imgs/table-sort-bottom.png') no-repeat center center;
                       background-size: 100% 100%;
                     }
                   }
@@ -440,7 +440,7 @@ html.is-right-mobile {
           width: 2.134vw;
           height: 2.134vw;
           transform: translateY(-50%);
-          background: url('../../infinite-table/imgs/table-down-expand.png') no-repeat center top;
+          background: url('./imgs/table-down-expand.png') no-repeat center top;
           background-size: 100% 50%;
         }
 
@@ -455,7 +455,7 @@ html.is-right-mobile {
           width: 2.134vw;
           height: 2.134vw;
           transform: translateY(-50%) rotate(180deg);
-          background: url('../../infinite-table/imgs/table-down-expand.png') no-repeat center top;
+          background: url('./imgs/table-down-expand.png') no-repeat center top;
           background-size: 100% 50%;
         }
       }
@@ -551,7 +551,7 @@ html.is-right-mobile {
   width: 4.792vw;
   height: 4.792vw;
   transform: translateY(10%);
-  background: url('../../infinite-table/imgs/table-expand-more.png') no-repeat center center;
+  background: url('./imgs/table-expand-more.png') no-repeat center center;
   background-size: 100% 100%;
 }
 

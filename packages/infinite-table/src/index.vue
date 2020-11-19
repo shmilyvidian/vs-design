@@ -76,7 +76,7 @@
         v-if="hashMore"
         @click="expandClick(true)"
       >
-        展开更多<span class="risk-table-more risk-outer-more" :style="{background: `url(${backgroundUrl})`}"></span>
+        展开更多<span class="risk-table-more risk-outer-more" ></span>
       </div>
       <div class="more-btn"
         v-if="!hashMore"
