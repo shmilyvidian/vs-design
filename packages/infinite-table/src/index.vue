@@ -4,18 +4,18 @@
   >
     <div class="infinite-table-box">
       <div 
-        class="scroll-icon"
+        class="infinite-table-scroll-icon"
         v-show="isScroll && scrollIcon"
         :style="{top:'calc('+(arrowsTop/2)+'px)'}"
       >
-        <!-- <img :src="require('images/swipe-arrow-right.png')" alt="" class="icon-png"> -->
-        <img src="../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="icon-png">
+        <!-- <img :src="require('images/swipe-arrow-right.png')" alt="" class="infinite-table-icon-png"> -->
+        <img src="../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="infinite-table-icon-png">
       </div>
       <div 
-        class="table-content"
+        class="infinite-table-content"
         ref="tableContent"
       >
-        <div class="scroll-div" ref="scrollDiv">
+        <div class="infinite-scroll-div" ref="scrollDiv">
           <CardHeaderTable
             ref="headerTableRef"
             :view-table-columns="viewTableColumns"
@@ -27,7 +27,7 @@
             @sortBy="sortBy"
           >
             <!-- <div 
-              class="ty-tip"
+              class="infinite-table-ty-tip"
               v-show="isScroll && scrollIconTip"
               slot="tytip"
             ><img src="~@/assets/img/bank/Slide01.png" alt=""></div> -->
@@ -69,23 +69,23 @@
       </div>
     </div>
 
-    <div class="more-box"
+    <div class="infinite-table-more-box"
       v-if="tableData.data.length > everyAddNum"
     >
-      <div class="more-btn"
+      <div class="infinite-table-more-btn"
         v-if="hashMore"
         @click="expandClick(true)"
       >
-        展开更多<span class="risk-table-more risk-outer-more" ></span>
+        展开更多<span class="infinite-risk-table-more infinite-risk-outer-more" ></span>
       </div>
-      <div class="more-btn"
+      <div class="infinite-table-more-btn"
         v-if="!hashMore"
         @click="expandClick(false)"
       >
-        收起<span class="risk-table-more risk-outer-more rotate-45"></span>
+        收起<span class="infinite-risk-table-more infinite-risk-outer-more infinite-rotate-45"></span>
       </div>
     </div>
-    <div class="bottom-padding" v-else></div>
+    <div class="infinite-table-bottom-padding" v-else></div>
     <Popup
       class="infinite-table-picker-popuper"
       position="bottom"
@@ -107,6 +107,8 @@ import CardChildTable from './components/CardChildTable'
 import { cardTableWatch, cardTableComputed } from './js/index'
 
 import Popup from 'vant/lib/popup'
+import 'vant/lib/popup/style'
+
 export default {
   name: 'InfiniteTable',
   components: {

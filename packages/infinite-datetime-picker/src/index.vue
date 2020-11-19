@@ -41,7 +41,7 @@
       </Picker>
       <!-- end of picker类型时间选择区 -->
       <!-- DatetimePicker类型时间选择区 -->
-      <InfiniteDatetimePicker
+      <DatetimePicker
         ref="datetimePicker"
         v-else
         :type="pickerType"
@@ -56,7 +56,7 @@
         @cancel="pickerCancel"
         @confirm="pickerConfirm"
         @change="pickerChange"
-      ></InfiniteDatetimePicker>
+      ></DatetimePicker>
       <!-- end of DatetimePicker类型时间选择区 -->
       <!-- 时间选中行 -->
       <p class="infinite-datetime-picker-center-highlight"></p>
@@ -69,15 +69,18 @@
 
 import Popup from 'vant/lib/popup'
 import Picker from 'vant/lib/picker'
-import InfiniteDatetimePicker from 'vant/lib/datetime-picker'
+import DatetimePicker from 'vant/lib/datetime-picker'
 // import VanIcon from 'vant/lib/icon'
+import 'vant/lib/popup/style'
+import 'vant/lib/picker/style'
+import 'vant/lib/datetime-picker/style'
 
 export default {
   name: 'InfiniteDatetimePicker',
   components: {
     Popup, 
     Picker, 
-    InfiniteDatetimePicker
+    DatetimePicker
     // VanIcon
   },
   filters: {
@@ -287,7 +290,7 @@ export default {
       if (this.useDefaultIcon) {
         return `${iconStr} default`
       }
-      return this.popupShow ? `${iconStr} icon-down` : `${iconStr} icon-up`
+      return this.popupShow ? `${iconStr} infinite-table-icon-down` : `${iconStr} infinite-table-icon-up`
       // return `${iconStr} icon`
     },
     // 右边的图标-类名
