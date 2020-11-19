@@ -27,8 +27,23 @@
           </div>
           <!-- end of 筛选器头部 -->
         </div>
+        <!-- 搜索框 -->
+        <div
+          class="institutional-filter-search"
+          v-if="showSearch"
+        >
+          <div class="institutional-filter-search-wrapper">
+            <div class="institutional-filter-search-icon"></div>
+            <input
+              type="text"
+              class="institutional-filter-search-input"
+            >
+          </div>
+        </div>
+        <!-- end of 搜索框 -->
         <!-- 筛选器内容 -->
-        <div class="institutional-filter-content">
+        <div class="institutional-filter-content"
+        :class="{'pt0':showSearch}">
           <div
             class="institutional-filter-content-item"
             v-for="(item,index) in contentList"
@@ -39,6 +54,7 @@
             {{item.name}}
           </div>
         </div>
+        <div class="tip"></div>
         <!-- end of 筛选器内容 -->
         <!-- 筛选器底部 -->
         <div class="institutional-filter-footer">
@@ -90,6 +106,12 @@ export default {
     },
     // 是否将选中值显示在header
     showNameToHeader: {
+      type: Boolean,
+      required: false,
+      default: true
+    },
+    // 是否显示搜索框
+    showSearch: {
       type: Boolean,
       required: false,
       default: true
@@ -177,8 +199,10 @@ export default {
     },
     // 点击头部选中参数
     changeHeader (item, index) {
-      this.contentList = item.children
-      this.selectedIndex = index
+      if (item.children.length) {
+        this.contentList = item.children
+        this.selectedIndex = index
+      }
     },
     // 确认按钮
     onConfirm () {

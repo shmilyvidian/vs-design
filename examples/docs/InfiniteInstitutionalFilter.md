@@ -24,6 +24,7 @@
 | columns       | 树形结构，参考[columns] | _Object_  | []     |
 | showModle     | 控制弹窗显示            | _Boolean_ | false  |
 | headerMap     | 表头内容自定义          | _Array_   | []     |
+| showSearch     | 是否显示搜索框          | _Boolean_   | true     |
 | showNameToHeader     | 是否将选中值显示在header          | _Boolean_   | true     |
 | wrappperStyle | 自定义整体样式          | _Object_  | {}     |
 
