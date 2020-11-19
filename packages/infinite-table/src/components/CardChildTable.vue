@@ -1,8 +1,8 @@
 <template>
-  <div class="card-table">
+  <div class="infinite-table">
     <div class="c-table-conform">
       <div class="c-table-container" ref="cTableContainer">
-        <div class="table-box">
+        <div class="infinite-table-box">
           <div 
             class="scroll-icon right"
             v-show="isScroll && scrollIcon"

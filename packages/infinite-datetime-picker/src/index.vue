@@ -41,7 +41,7 @@
       </Picker>
       <!-- end of picker类型时间选择区 -->
       <!-- DatetimePicker类型时间选择区 -->
-      <DatetimePicker
+      <InfiniteDatetimePicker
         ref="datetimePicker"
         v-else
         :type="pickerType"
@@ -56,7 +56,7 @@
         @cancel="pickerCancel"
         @confirm="pickerConfirm"
         @change="pickerChange"
-      ></DatetimePicker>
+      ></InfiniteDatetimePicker>
       <!-- end of DatetimePicker类型时间选择区 -->
       <!-- 时间选中行 -->
       <p class="infinite-datetime-picker-center-highlight"></p>
@@ -69,16 +69,16 @@
 
 import Popup from 'vant/lib/popup'
 import Picker from 'vant/lib/picker'
-import DatetimePicker from 'vant/lib/datetime-picker'
-import VanIcon from 'vant/lib/icon'
+import InfiniteDatetimePicker from 'vant/lib/datetime-picker'
+// import VanIcon from 'vant/lib/icon'
 
 export default {
   name: 'InfiniteDatetimePicker',
   components: {
     Popup, 
     Picker, 
-    DatetimePicker,
-    VanIcon
+    InfiniteDatetimePicker
+    // VanIcon
   },
   filters: {
     // 获取及输出的时间都为yyyyMMdd格式,如：20200101，无有'-'或'/'，就算有也要在接收时处理掉，所有显示时间这里加上-

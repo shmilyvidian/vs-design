@@ -82,7 +82,7 @@ html.is-right-mobile {
   display: inline-flex;
   word-break: break-all;
 }
-.card-table {
+.infinite-table {
   padding-top: 4.267vw;
 
   table,
@@ -103,7 +103,7 @@ html.is-right-mobile {
   * {
     box-sizing: initial;
   }
-  .table-box {
+  .infinite-table-box {
     color: #fff;
     font-size: 3.733vw;
     position: relative;
@@ -611,7 +611,7 @@ html.is-right-mobile {
 }
 
 // 弹窗子表格
-.card-table {
+.infinite-table {
   .c-table-conform {
     // width: calc(100vw - 5.334vw);
     // border-radius: 2.667vw;
