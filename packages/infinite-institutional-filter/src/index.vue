@@ -106,7 +106,9 @@ export default {
     wrappperStyle: {
       type: Object,
       required: false,
-      default: {}
+      default: () =>{
+        return {}
+      }
     },
     // 是否将选中值显示在header
     showNameToHeader: {
@@ -142,7 +144,7 @@ export default {
     // 列表完整数据
     columns: {
       handler (val, oldVal) {
-        console.log(val)
+        // console.log(val)
         // 默认放入参数中
         this.showContentList = val.children
         this.originContentList = val.children
@@ -166,7 +168,7 @@ export default {
 
           // 将第一个获取的子集存在到相应位置
           this.privateHeaderMap[this.selectedIndex].children = this.columns.children
-          console.log(this.privateHeaderMap)
+          // console.log(this.privateHeaderMap)
         }
       },
       immediate: true // true 深度监听
@@ -185,7 +187,7 @@ export default {
   methods: {
     // 点击内容选中参数
     onSelectItem (item) {
-      console.log(item)
+      // console.log(item)
       // 将点击参数放入对应位置
       this.$set(this.selectedList, this.selectedIndex, item)
 
@@ -218,7 +220,7 @@ export default {
     // 监听输入事件
     onInput (event) {
       const inputStr = event.target.value
-      console.log(this.showContentList)
+      // console.log(this.showContentList)
       // 存在值暴露事件，正则匹配
       if (inputStr.length) {
         const testExp = new RegExp(inputStr, 'g')
