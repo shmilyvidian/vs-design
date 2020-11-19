@@ -9,7 +9,9 @@ import demoBlock from './components/demo-block'
 import hljs from 'highlight.js'
 import 'packages/theme-chalk/src/index.scss'
 import Vant from 'vant'
-// import 'vant/lib/datetime-picker/style'
+import 'vant/lib/icon/index.css';
+
+// import 'vant/lib/index.css'
 import 'packages/infinite-touch-emulator'
 
 // 导入组件库

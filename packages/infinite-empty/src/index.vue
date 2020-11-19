@@ -9,12 +9,13 @@
   </div>
 </template>
 <script>
- import noUpdate from 'packages/theme-chalk/src/imgs/noUpdate.png'
- import noData from 'packages/theme-chalk/src/imgs/noData.png'
- import noMessage from 'packages/theme-chalk/src/imgs/noMessage.png'
- import noFinish from 'packages/theme-chalk/src/imgs/noFinish.png'
- import noTask from 'packages/theme-chalk/src/imgs/noTask.png'
- import noNetwork from 'packages/theme-chalk/src/imgs/noNetwork.png'
+ import noUpdate from '../../theme-chalk/src/imgs/noUpdate.png'
+ import noData from '../../theme-chalk/src/imgs/noData.png'
+ import noMessage from '../../theme-chalk/src/imgs/noMessage.png'
+ import noFinish from '../../theme-chalk/src/imgs/noFinish.png'
+ import noTask from '../../theme-chalk/src/imgs/noTask.png'
+ import noNetwork from '../../theme-chalk/src/imgs/noNetwork.png'
+
 
 export default {
   name: 'InfiniteEmpty',

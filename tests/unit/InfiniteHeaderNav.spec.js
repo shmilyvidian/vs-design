@@ -1,10 +1,13 @@
-import { shallowMount, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import InfiniteHeaderNav from '@/packages/infinite-header-nav/src/index.vue'
-import InfiniteEmpty from '@/packages/infinite-empty/src/index.vue'
-
 const wrapper = mount(InfiniteHeaderNav)
 
 describe('Infinite header nav.vue', () => {
+  test('render InfiniteHeaderNav', () => {
+    const wrapper = mount(InfiniteHeaderNav)
+    expect(wrapper).toMatchSnapshot()
+  })
+
   it('shonld render header-container class', () => {
     expect(wrapper.attributes().class).toMatch('header-wrapper')
     wrapper.destroy()
@@ -16,13 +19,5 @@ describe('Infinite header nav.vue', () => {
     wrapper.vm.$emit('goBack', { name: 'xiaoming' })
     await wrapper.vm.$nextTick()
     expect(wrapper.emitted().goBack.length).toBe(2)
-  })
-
-  it("displays 'Emitted!' when custom event is emitted", async () => {
-    const wrapper = shallowMount(InfiniteEmpty)
-    wrapper.findComponent(InfiniteHeaderNav).vm.$emit('goBack')
-    console.log('final wrapper.html()', wrapper.html())
-    await wrapper.vm.$nextTick()
-    expect(wrapper.html()).toContain('Emitted!')
   })
 })
