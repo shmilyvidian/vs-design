@@ -71,9 +71,9 @@ import Popup from 'vant/lib/popup'
 import Picker from 'vant/lib/picker'
 import DatetimePicker from 'vant/lib/datetime-picker'
 // import VanIcon from 'vant/lib/icon'
-import 'vant/lib/popup/style'
-import 'vant/lib/picker/style'
-import 'vant/lib/datetime-picker/style'
+// import 'vant/lib/popup/style'
+// import 'vant/lib/picker/style'
+// import 'vant/lib/datetime-picker/style'
 
 export default {
   name: 'InfiniteDatetimePicker',

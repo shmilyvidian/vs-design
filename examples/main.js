@@ -14,6 +14,10 @@ import 'vant/lib/icon/index.css';
 // import 'vant/lib/index.css'
 import 'packages/infinite-touch-emulator'
 
+import 'vant/lib/popup/style'
+import 'vant/lib/picker/style'
+import 'vant/lib/datetime-picker/style'
+
 // 导入组件库
 import packages from '../packages'
 

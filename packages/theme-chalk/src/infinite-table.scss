@@ -322,10 +322,14 @@ html.is-right-mobile {
                 }
                 .infinite-label-c-table-c-tr {
                   &:first-child {
-                    padding-top: 3.466vw !important;
+                    .infinite-label-c-table-c-td {
+                      padding-top: 3.466vw !important;
+                    }
                   }
                   &:last-child {
-                    padding-bottom: 3.466vw !important;
+                    .infinite-label-c-table-c-td {
+                      padding-bottom: 3.466vw !important;
+                    }
                   }
                 }
 
