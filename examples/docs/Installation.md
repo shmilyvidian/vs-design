@@ -50,10 +50,10 @@ new Vue({
 
 ```js
 import Vue from "vue"
-import { InfiniteButton } from "vs-ui"
+import { InfiniteEmpty } from "vs-ui"
 import App from "./App.vue"
 
-Vue.use(InfiniteButton)
+Vue.use(InfiniteEmpty)
 
 new Vue({
   el: "#app",

@@ -44,6 +44,12 @@ const webpackConfig = {
       }, {
         test: /\.vue$/,
         loader: 'vue-loader'
+      }, {
+        test: /\.(png|jpe?g|gif|webp)(\?.*)$/,
+        loader: 'url-loader',
+        options: {
+          esModule: false,
+        }
       }]
   },
   plugins: [

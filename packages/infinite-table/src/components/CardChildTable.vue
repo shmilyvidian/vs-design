@@ -8,6 +8,7 @@
             v-show="isScroll && scrollIcon"
             :style="{top:'calc('+(arrowsTop/2)+'px)'}"
           >
+          <img src="../../imgs/swipe-arrow-right.png" alt="" class="icon-png">
             <!-- <img :src="require('../svg/arrow-right.svg')" alt="" class="icon-png"> -->
           </div>
           <div 
@@ -94,7 +95,7 @@
                             (item2.fixed?'row-align-center-textalign':'row-align-right-textalign')
                           ]"
                           :style="localStyles[item2.key]"
-                          @click="ontableUnitClick(false, item, index, item2)"
+                          @click="ontableUnitClick( item, index,item2, index2)"
                         >
                           <div class="p-td-container"
                             :class="{opacity:item2.fixed,'c-td-padding':index2 === 1
@@ -184,7 +185,7 @@
                           'unit-clicked':recordUnitClicks[`${item.key}*${item2.key}`]
                         }"
                         :style="localStyles[item2.key]"
-                        @click="ontableUnitClick(false,cItemR, index,cItemC)"
+                        @click="ontableUnitClick(item, index,item2,index2)"
                       >
                         <div class="p-td-container"
                           :class="{opacity:!item2.fixed,'c-td-padding': index2===1
@@ -262,6 +263,8 @@ export default {
           index += 1
         }
       })
+      console.log('index', index)
+
       return index
     }
   },
@@ -288,10 +291,10 @@ export default {
       this.isDefaultNumber = data.isDefaultNumber
       this.numberUUID = data.numberUUID
       this.maxUnitLengthWidth = data.maxUnitLengthWidth
-      this.$$nextTick(() => {
+      this.$nextTick(() => {
         // 表格是否结束滑动标识
         let isTableMove = false
-        this.$refs.scrollDiv.onScroll = (e) => {
+        this.$refs.scrollDiv.addEventListener('scroll', (e) => {
           const { scrollLeft } = e.target
           isTableMove = true
           this.moveLength = scrollLeft
@@ -299,7 +302,8 @@ export default {
           requestAnimationFrame(() => {
             this.scrollIcon = e.target.scrollLeft === 0
           })
-        }
+        })
+        // this.$refs.scrollDiv.onScroll = 
         this.$refs.scrollDiv.addEventListener('touchend', e => {
           if (isTableMove) {
             this.$emit('onTableTouchEnd')
@@ -344,7 +348,7 @@ export default {
       return numberArr.concat(specialArr)
     },
     // 点击单元格，这里做了展开/收起子表格操作
-    ontableUnitClick (hashChildren, row, rowIndex, col) {
+    ontableUnitClick (row, rowIndex, col, colIndex) {
       this.$set(this.recordUnitClicks, `${row.key}*${col.key}`, true)
     },
     // 排序···-1（正序）0（无序）1（倒序），三种排序状态

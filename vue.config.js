@@ -58,6 +58,21 @@ module.exports = {
       .end()
       .use('./build/md-loader/index.js')
       .loader('./build/md-loader/index.js')
+
+    config.module
+      .rule('images')
+      .test(/\.(png|jpe?g|gif|webp)(\?.*)?$/)
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options => Object.assign(options, { limit: 500000, esModule: false }))
+
+    config.module.rule('svg')
+      .test(/\.(svg)(\?.*)?$/)
+      .use('file-loader')
+      .loader('file-loader')
+      .options({
+        name: '[name].[hash:8].[ext]'
+      })
   },
   devServer: {
     overlay: {

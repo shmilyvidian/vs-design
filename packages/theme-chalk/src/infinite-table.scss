@@ -250,7 +250,7 @@ html.is-right-mobile {
               }
 
               .unit {
-                font-size: 2.4vw;
+                // font-size: 2.4vw;
               }
             }
 
@@ -312,6 +312,7 @@ html.is-right-mobile {
                 }
                 .c-td {
                   @extend .td-p-b;
+                  display: flex;
                   z-index: 1;
                   transform: translateZ(800px);
                   @extend .text-wb-ws-bs;
@@ -319,11 +320,20 @@ html.is-right-mobile {
                     @extend .line-clamp-2;
                   }
                 }
+                .c-tr {
+                  &:first-child {
+                    padding-top: 3.466vw !important;
+                  }
+                  &:last-child {
+                    padding-bottom: 3.466vw !important;
+                  }
+                }
 
                 // 子节点点击后查看当前单元格全部文案
                 .unit-clicked {
                   .c-td-text {
-                    display: block;
+                    line-clamp: initial !important;
+                    -webkit-line-clamp:initial !important;
                   }
                 }
 
@@ -370,7 +380,9 @@ html.is-right-mobile {
           // 点击后查看当前单元格全部文案
           .unit-clicked {
             .p-td-text {
-              display: block;
+              line-clamp: initial !important;
+              -webkit-line-clamp:initial !important;
+              // display: block;
             }
           }
 
@@ -469,6 +481,10 @@ html.is-right-mobile {
         background: transparent;
       }
     }
+  }
+
+  .infinite-table-picker-popuper {
+    background: rgb(46, 48, 54);
   }
 }
 
@@ -594,12 +610,14 @@ html.is-right-mobile {
   text-align: center;
 }
 
+// 弹窗子表格
 .card-table {
   .c-table-conform {
     // width: calc(100vw - 5.334vw);
     // border-radius: 2.667vw;
     // margin: 0 2.667vw;
-    padding: 2.667vw 0 1.333vw;
+    // padding: 2.667vw 0 1.333vw;
+    padding: 0 0 1.333vw;
     background: #2e3036;
   }
 

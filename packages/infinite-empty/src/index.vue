@@ -9,17 +9,32 @@
   </div>
 </template>
 <script>
+ import logo from './../imgs/noUpdate.png'
+ import noUpdate from 'packages/infinite-empty/imgs/noUpdate.png'
+ import noData from 'packages/infinite-empty/imgs/noData.png'
+ import noMessage from 'packages/infinite-empty/imgs/noMessage.png'
+ import noFinish from 'packages/infinite-empty/imgs/noFinish.png'
+ import noTask from 'packages/infinite-empty/imgs/noTask.png'
+ import noNetwork from 'packages/infinite-empty/imgs/noNetwork.png'
 
 export default {
   name: 'InfiniteEmpty',
   data() {
     return {
       defaultImageTypes: ['noUpdate', 'noData', 'noMessage', 'noFinish', 'noTask', 'noNetwork'],
+      imgUrlMap: {
+        noUpdate,
+        noData,
+        noMessage,
+        noFinish,
+        noTask,
+        noNetwork
+      }
     }
   },
   computed: {
     defaultUrl() {
-      return require(`../imgs/${this.imageType}.png`)
+      return this.imgUrlMap[this.imageType]
     }
   },
   props: {
@@ -61,6 +76,7 @@ export default {
     }
   },
   mounted () {
+
   }
 }
 </script>

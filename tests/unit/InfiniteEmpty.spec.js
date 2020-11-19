@@ -1,6 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils'
 import InfiniteEmpty from '@/packages/infinite-empty/src/index.vue'
-import InfiniteLoading from '@/packages/infinite-loading/src/index.vue'
 
 const wrapper = mount(InfiniteEmpty)
 
