@@ -1,8 +1,12 @@
 @import "./mixins/mixins.scss";
+@import "./common/var.scss";
+@import '~vant/lib/popup/index.css';
+@import '~vant/lib/style/base.css';
+@import '~vant/lib/overlay/index.css';
+@import '~vant/lib/info/index.css';
+@import '~vant/lib/icon/index.css';
 
-$ftColor: #8799be;
-$mainColor: #6195ff;
-$bgColor: #27292f;
+
 
 html.is-mobile {
   ::-webkit-scrollbar {

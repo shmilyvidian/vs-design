@@ -107,7 +107,6 @@ import CardChildTable from './components/CardChildTable'
 import { cardTableWatch, cardTableComputed } from './js/index'
 
 import Popup from 'vant/lib/popup'
-// import 'vant/lib/popup/style'
 
 export default {
   name: 'InfiniteTable',

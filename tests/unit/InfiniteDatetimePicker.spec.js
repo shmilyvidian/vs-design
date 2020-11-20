@@ -182,7 +182,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     await wrapper.find('.van-picker__confirm').trigger('click')
     // wrapper.vm.$nextTick(() => {
     expect(wrapper.vm.$data.myCurrentDate).toEqual((new Date(endTime)))
-    expect(wrapper).toMatchSnapshot()
+    // expect(wrapper).toMatchSnapshot()
     // })
     
     wrapper.destroy()
