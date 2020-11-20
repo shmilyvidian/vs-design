@@ -1,19 +1,19 @@
 <template>
   <transition name="fade">
     <div
-      class="infinite-institutional-filter"
+      class="vs-institutional-filter"
       :style="wrappperStyle"
       v-show="showModle"
     >
       <!-- 遮罩层 -->
       <div
-        class="infinite-institutional-filter-overlay"
+        class="vs-institutional-filter-overlay"
         @click="onClickOverlay"
       >
       </div>
       <!-- end of 遮罩层 -->
       <!-- 筛选器主体 -->
-      <div class="infinite-institutional-filter-main">
+      <div class="vs-institutional-filter-main">
         <div class="institutional-filter-header">
           <!-- 筛选器头部 -->
           <div
