@@ -33,6 +33,7 @@
         >{{tr.unit.showValue}}</span>
       </div>
     </div>
+  </div>
 </template>
 <script>
 
@@ -55,7 +56,7 @@ export default {
     }
   },
   computed: {
-    
+
   },
   mounted () {
     document.addEventListener('click', () => {
@@ -63,7 +64,7 @@ export default {
     })
   },
   destroyed () {
-    
+
   },
   methods: {
     clickIcon (event) {
