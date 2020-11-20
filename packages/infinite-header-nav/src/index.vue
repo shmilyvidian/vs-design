@@ -1,17 +1,16 @@
 <template>
-  <header class="header-wrapper" :style="insertStyle">
-    <div class="header-left" @click="goBack" :class="{'no-visibility': !showBackIcon}">
-      <van-icon v-if="useVant" name="arrow-left" :color="color" :size="size">
+  <header class="vs-header-wrapper" :style="insertStyle">
+    <div class="vs-header-left" @click="goBack" :class="{'no-visibility': !showBackIcon}">
+      <van-icon v-if="useVantIcon" name="arrow-left" :color="color" :size="size">
       </van-icon>
-      <img v-else class="arrow-icon" :style="{width: size}" :src="require('../../theme-chalk/src/imgs/arrow.png')" alt="">
       <slot name="leftItem"/>
     </div>
-    <div class="header-title" :class="{'right-padding': !hasRightSlot}">
+    <div class="vs-header-title" :class="{'vs-right-padding': !hasRightSlot}">
       <div class="title-content">
         <slot name="centerItem"/>
       </div> 
     </div>
-    <div class="header-right">
+    <div class="vs-header-right">
       <slot name="rightItem"/>
     </div>
   </header>
@@ -30,7 +29,7 @@ export default {
       default: true
     },
     // 是否使用vant icon，默认true
-    useVant: {
+    useVantIcon: {
       type: Boolean,
       default: true
     },
