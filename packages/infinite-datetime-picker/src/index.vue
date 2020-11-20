@@ -10,7 +10,7 @@
       </div>
       <div class="infinite-datetime-picker-title-right">
         <span :class="span">{{ currentDate | filterCurrentDate(that) }}</span>
-        <i :class="iconClass" v-if="!hasIconSlot"></i>
+        <i :class="iconClass" v-if="showCalendar && !hasIconSlot"></i>
         <!-- <i :class="iconClass" v-if="useDefaultIcon && !hasIconSlot"></i> -->
         <!-- <van-icon :class="span" :name="icon" v-bind="iconStyle" v-if="!useDefaultIcon && !hasIconSlot" /> -->
         <slot name="icon" ></slot>
@@ -78,8 +78,8 @@ import DatetimePicker from 'vant/lib/datetime-picker'
 export default {
   name: 'InfiniteDatetimePicker',
   components: {
-    Popup, 
-    Picker, 
+    Popup,
+    Picker,
     DatetimePicker
     // VanIcon
   },
@@ -90,6 +90,7 @@ export default {
       if (!value) {
         return value
       }
+      const { diviedTag = '.' } = that
       const filterStrLength = filterStr.length
       const startZeroLengthFour = filterStr.substr(0, 4)
       const startFourLengthTwo = filterStr.substr(4, 2)
@@ -101,13 +102,13 @@ export default {
       const endTwoLengthTwo = filterStr.substr(-2, 2)
       switch (that.type) {
         case 'just-show': // 只展示
-          return `${startZeroLengthFour}.${startFourLengthTwo}.${startSixLengthTwo}`
+          return `${startZeroLengthFour}${diviedTag}${startFourLengthTwo}${diviedTag}${startSixLengthTwo}`
         case 'date': // 年月日
-          return `${startZeroLengthFour}.${startFourLengthTwo}.${startSixLengthTwo}`
+          return `${startZeroLengthFour}${diviedTag}${startFourLengthTwo}${diviedTag}${startSixLengthTwo}`
         case 'year-month': // 年月
-          return `${startZeroLengthFour}.${startFourLengthTwo}`
+          return `${startZeroLengthFour}${diviedTag}${startFourLengthTwo}`
         case 'month-day': // 月日
-          return `${endFourLengthTwo}.${endTwoLengthTwo}`
+          return `${endFourLengthTwo}${diviedTag}${endTwoLengthTwo}`
         case 'year': // 年
           return `${startZeroLengthFour}`
         case 'month': // 月
@@ -115,12 +116,12 @@ export default {
             ? `${startFourLengthTwo}月`
             : (filterStrLength === 4 ? `${startTwoLengthTwo}月` : `${startZeroLengthTwo}月`)
         case 'quarterly': // 季度
-          return `${startZeroLengthFour}年Q${Math.ceil(Number(startFourLengthTwo) / 3)}` 
+          return `${startZeroLengthFour}年Q${Math.ceil(Number(startFourLengthTwo) / 3)}`
         case 'week-end': // 周期weekEnd: 截至
           if (filterStrLength === 8) {
-            return `截止至${startZeroLengthFour}.${startFourLengthTwo}.${startSixLengthTwo}`
+            return `截止至${startZeroLengthFour}${diviedTag}${startFourLengthTwo}${diviedTag}${startSixLengthTwo}`
           }
-          return `截止至${startZeroLengthTwo}.${startTwoLengthFour}`
+          return `截止至${startZeroLengthTwo}${diviedTag}${startTwoLengthFour}`
         case 'week-segment': // 周期weekSegment:
           if (filterStrLength === 8) {
             let valueStr = filterStr
@@ -216,6 +217,16 @@ export default {
     confirmButtonText: {
       type: String,
       default: '确认'
+    },
+    // 日期显示分割符
+    diviedTag: {
+      type: String,
+      default: '.'
+    },
+    // 右侧小icon是否显示
+    showCalendar: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -256,6 +267,10 @@ export default {
       if (arr.includes(this.type)) {
         return `${iconStr}`
       }
+      if (!this.showCalendar) {
+        return `no-icon`
+      }
+
       if (this.useDefaultIcon) {
         return `${iconStr} default`
       }
@@ -389,7 +404,7 @@ export default {
         })
         : (Array.isArray(this.validDate) && this.validDate.length
           ? this.validDate : [])
-      
+
       const yearArr = ['year']
       const monthArr = ['month']
       const unit = yearArr.includes(this.type) ? '年' : (monthArr.includes(this.type) ? '月' : '')
@@ -455,9 +470,9 @@ export default {
       switch (this.type) {
         case 'just-show':
           return `日期`
-        case 'date': 
+        case 'date':
           return `日期`
-        case 'year-month': 
+        case 'year-month':
           return `日期`
         case 'month-day':
           return `日期`
@@ -465,7 +480,7 @@ export default {
           return `日期`
         case 'month':
           return `日期`
-        case 'quarterly': 
+        case 'quarterly':
           return `日期`
         case 'week-end':
           return `日期`
@@ -601,7 +616,7 @@ export default {
       }
       if (picker) { // 除确定外关闭弹窗时重置选中项(picker-model)
         if (!value) {
-          return 
+          return
         }
         currentDate = this.setMyCurrentDate(value)
       } else { // 除确定外关闭弹窗时重置选中项(detaPicker的v-model)
@@ -662,7 +677,7 @@ export default {
     pickerChange (ref, value, index) {
       const { picker } = this.$refs // datePicker时为undefined
       if (picker) { // picker组件选项发生改变
-        
+
       } else { // datetimePicker组件选项发生改变
         // 有可选区间的情况下需要进行v-model的重置，目前只支持date年月日yyyyMMdd格式
         if (Array.isArray(this.validDate) && this.validDate.length) {
@@ -722,7 +737,7 @@ export default {
         const myCurrentDateStr = this.format(this.myCurrentDate.getTime(), this.formatStr)
         switch (type) {
           case 'year':
-            
+
             break
           case 'month':
             arr = options.filter((opItem, opIndex) => this.timeSelectableInterval.some((someItme, someIndex) => `${myCurrentDateStr.substr(0, 4)}${opItem}` === `${someItme.substr(0, 6)}`))
@@ -741,7 +756,7 @@ export default {
     }
   },
   mounted () {
-    
+
   }
 }
 </script>
