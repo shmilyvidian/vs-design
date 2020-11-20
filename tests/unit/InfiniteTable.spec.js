@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import InfiniteTable from '@/packages/vs-table/src/index.vue'
+import InfiniteTable from '@/packages/infinite-table/src/index.vue'
 
 describe('InfiniteTable.vue', () => {
   it('shonld render vs-table class', () => {
@@ -286,9 +286,23 @@ describe('InfiniteTable.vue', () => {
       .find('.vs-table-fixed-c-more-btn')
     expect(f.exists()).toBe(true)
     await f.trigger('click')
+
     // 校验弹窗弹出
     const CardChildTable = wrapper.findComponent({ name: 'CardChildTable' })
     expect(CardChildTable.exists()).toBe(true)
+    const childFixedDiv = await wrapper.find('.vs-table-fixed-div')
+    const childScrollDiv = await wrapper.find('.vs-scroll-div')
+    // 默认（当年收入）正序排序
+    const i = await childScrollDiv
+      .find('.vs-p-head-tr')
+      .findAll('.vs-p-head-th').at(2)
+      .find('.vs-table-sort-div-ab')
+    expect(i.attributes().class).toMatch('vs-table-sort-div-ab-bottom')
+    await i.trigger('click')
+    // 点击之后（当年收入）倒序排序
+    expect(i.attributes().class).toMatch('vs-table-sort-div-ab-top')
+    // 恢复
+    await i.trigger('click')
   })
   
   it('shonld setData after vs-table in BasicUsage', async () => {
