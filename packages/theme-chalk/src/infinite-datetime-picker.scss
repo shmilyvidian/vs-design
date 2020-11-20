@@ -44,6 +44,12 @@
           padding-right: 27.5px;
           // margin-right: 10px;
         }
+        &.no-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-right: 12px;
+        }
       }
   
       i {
