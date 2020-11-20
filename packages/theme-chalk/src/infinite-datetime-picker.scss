@@ -16,10 +16,10 @@
 //   white-space: nowrap;
 //   cursor: pointer;
 // }
-.infinite-datetime-picker-template {
+.vs-datetime-picker-template {
   flex: none;
 
-  .infinite-datetime-picker-title {
+  .vs-datetime-picker-title {
     position: relative;
     height: 35px;
     display: flex;
@@ -28,14 +28,14 @@
     font-size: 13px;
     color: rgba(255, 255, 255, 0.8);
     
-    .infinite-datetime-picker-title-left {
+    .vs-datetime-picker-title-left {
       font-size: 14px;
       font-weight: 400;
       margin-left: 12px;
       color: rgba(255, 255, 255, 0.8);
     }
 
-    .infinite-datetime-picker-title-right {
+    .vs-datetime-picker-title-right {
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -78,7 +78,7 @@
             transform: translateY(calc(-50% - 1px));
           }
           
-          &.infinite-table-icon-up {
+          &.vs-table-icon-up {
             display: inline-block;
             width: 7.5px; // 9.6
             height: 4px; // 7.2
@@ -92,7 +92,7 @@
             // transform: translateY(calc(-50% - 1px));
           }
   
-          &.infinite-table-icon-down {
+          &.vs-table-icon-down {
             display: inline-block;
             width: 7.5px; // 9.6
             height: 4px; // 7.2
@@ -153,8 +153,8 @@
     
   }
 
-  .infinite-datetime-picker-popuper {
-    .infinite-datetime-picker-center-highlight {
+  .vs-datetime-picker-popuper {
+    .vs-datetime-picker-center-highlight {
       box-sizing: border-box;
       position: absolute;
       left: 0;

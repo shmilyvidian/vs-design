@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
-import InfiniteTable from '@/packages/infinite-table/src/index.vue'
+import InfiniteTable from '@/packages/vs-table/src/index.vue'
 
 describe('InfiniteTable.vue', () => {
-  it('shonld render infinite-table class', () => {
+  it('shonld render vs-table class', () => {
     const wrapper = mount(InfiniteTable)
-    expect(wrapper.attributes().class).toMatch('infinite-table')
+    expect(wrapper.attributes().class).toMatch('vs-table')
   })
   
-  it('shonld setData after infinite-table in BasicUsage', async () => {
+  it('shonld setData after vs-table in BasicUsage', async () => {
     const wrapper = mount(InfiniteTable)
     const tableData = {
       data: [
@@ -251,8 +251,9 @@ describe('InfiniteTable.vue', () => {
         }
       ]
     }
-    
+   
     await wrapper.setProps({ tableData })
+ 
     // 父级表格是否出现
     const CardContainerTable = wrapper.findComponent({ name: 'CardContainerTable' })
     expect(CardContainerTable.exists()).toBe(true)
@@ -261,28 +262,28 @@ describe('InfiniteTable.vue', () => {
     const CardHeaderTable = wrapper.findComponent({ name: 'CardHeaderTable' })
     expect(CardHeaderTable.exists()).toBe(true)
 
-    const fixedDiv = await wrapper.find('.infinite-table-fixed-div')
-    const scrollDiv = await wrapper.find('.infinite-scroll-div')
+    const fixedDiv = await wrapper.find('.vs-table-fixed-div')
+    const scrollDiv = await wrapper.find('.vs-scroll-div')
     // 默认（当年收入）正序排序
     const h = await scrollDiv
-      .find('.infinite-p-head-tr')
-      .findAll('.infinite-p-head-th').at(2)
-      .find('.infinite-table-sort-div-ab')
-    expect(h.attributes().class).toMatch('infinite-table-sort-div-ab-bottom')
+      .find('.vs-p-head-tr')
+      .findAll('.vs-p-head-th').at(2)
+      .find('.vs-table-sort-div-ab')
+    expect(h.attributes().class).toMatch('vs-table-sort-div-ab-bottom')
     await h.trigger('click')
     // 点击之后（当年收入）倒序排序
-    expect(h.attributes().class).toMatch('infinite-table-sort-div-ab-top')
+    expect(h.attributes().class).toMatch('vs-table-sort-div-ab-top')
     // 恢复
     await h.trigger('click')
     // 点击展开一级（可乐）
-    const e = await fixedDiv.findAll('.infinite-p-tr').at(2).findAll('.infinite-p-td').at(1)
+    const e = await fixedDiv.findAll('.vs-p-tr').at(2).findAll('.vs-p-td').at(1)
     expect(e.exists()).toBe(true)
     await e.trigger('click')
-    expect(e.attributes().class).toMatch('infinite-unit-clicked')
+    expect(e.attributes().class).toMatch('vs-unit-clicked')
     // 点击查看更多
     const f = await fixedDiv
-      .findAll('.infinite-tr-children').at(1)
-      .find('.infinite-table-fixed-c-more-btn')
+      .findAll('.vs-tr-children').at(1)
+      .find('.vs-table-fixed-c-more-btn')
     expect(f.exists()).toBe(true)
     await f.trigger('click')
     // 校验弹窗弹出
@@ -290,7 +291,7 @@ describe('InfiniteTable.vue', () => {
     expect(CardChildTable.exists()).toBe(true)
   })
   
-  it('shonld setData after infinite-table in BasicUsage', async () => {
+  it('shonld setData after vs-table in BasicUsage', async () => {
     const wrapper = mount(InfiniteTable)
     const tableData = {
       data: [
@@ -621,7 +622,7 @@ describe('InfiniteTable.vue', () => {
       ]
     }
     await wrapper.setProps({ tableData })
-    const a = await wrapper.find('.infinite-table-more-btn')
+    const a = await wrapper.find('.vs-table-more-btn')
     expect(a.html()).toContain('展开更多')
     await a.trigger('click')
     expect(a.html()).toContain('收起')

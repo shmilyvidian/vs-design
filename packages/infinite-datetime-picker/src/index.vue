@@ -1,14 +1,14 @@
 <template>
-  <div class="infinite-datetime-picker-template">
+  <div class="vs-datetime-picker-template">
     <!-- 时间选择器显示title及icon -->
-    <div class="infinite-datetime-picker-title"
+    <div class="vs-datetime-picker-title"
       @click="openDatePopup"
       :style="{background: pickerColor, borderRadius: pickerRadius}">
-      <div class="infinite-datetime-picker-title-left">
+      <div class="vs-datetime-picker-title-left">
         <span v-if="!hasDateTitleSlot">{{dateTitleLeft}}</span>
         <slot name="dateTitle" ></slot>
       </div>
-      <div class="infinite-datetime-picker-title-right">
+      <div class="vs-datetime-picker-title-right">
         <span :class="span">{{ currentDate | filterCurrentDate(that) }}</span>
         <i :class="iconClass" v-if="showCalendar && !hasIconSlot"></i>
         <!-- <i :class="iconClass" v-if="useDefaultIcon && !hasIconSlot"></i> -->
@@ -19,7 +19,7 @@
     <!-- end of 时间选择器显示title及icon -->
     <!-- popup弹窗 -->
     <Popup
-      class="infinite-datetime-picker-popuper"
+      class="vs-datetime-picker-popuper"
       position="bottom"
       ref="popup"
       v-model="popupShow"
@@ -59,7 +59,7 @@
       ></DatetimePicker>
       <!-- end of DatetimePicker类型时间选择区 -->
       <!-- 时间选中行 -->
-      <p class="infinite-datetime-picker-center-highlight"></p>
+      <p class="vs-datetime-picker-center-highlight"></p>
       <!-- end of 时间选中行 -->
     </Popup>
     <!-- end of popup弹窗 -->
@@ -305,7 +305,7 @@ export default {
       if (this.useDefaultIcon) {
         return `${iconStr} default`
       }
-      return this.popupShow ? `${iconStr} infinite-table-icon-down` : `${iconStr} infinite-table-icon-up`
+      return this.popupShow ? `${iconStr} vs-table-icon-down` : `${iconStr} vs-table-icon-up`
       // return `${iconStr} icon`
     },
     // 右边的图标-类名

@@ -1,47 +1,47 @@
 <template>
-  <div class="infinite-table-div infinite-table-containe-div">
+  <div class="vs-table-div vs-table-containe-div">
     <table
-      class="infinite-label-table"
+      class="vs-label-table"
       ref="bodyTable"
     >
       <tBody
-        class="infinite-label-tbody"
+        class="vs-label-tbody"
       >
         <tr
-          class="infinite-p-tr"
+          class="vs-p-tr"
           v-for="(item, index) in viewTableData"
           :key="index"
           :ref="item.isChildrens?`trMove${item.key}`:''"
           :class="{
-            'infinite-tr-children': item.isChildrens,
-            'infinite-c-children-hide': (item.isChildrens && !childrenKeys[item.key])
+            'vs-tr-children': item.isChildrens,
+            'vs-c-children-hide': (item.isChildrens && !childrenKeys[item.key])
           }"
         >
           <template v-if="item.isChildrens">
-            <td class="infinite-p-td" :colspan="viewTableColumns.length">
-              <div class="infinite-nest-table" :ref="`rightMove${item.key}`">
-                <table class="infinite-label-c-table">
+            <td class="vs-p-td" :colspan="viewTableColumns.length">
+              <div class="vs-nest-table" :ref="`rightMove${item.key}`">
+                <table class="vs-label-c-table">
                   <template v-for="(cItemR, cIndexR) in item.children">
-                    <tr class="infinite-label-c-table-c-tr"
+                    <tr class="vs-label-c-table-c-tr"
                       v-if="cIndexR < defaultChildrenNum"
                       :key="`cItemR${cIndexR}`"
                     >
-                      <td class="infinite-label-c-table-c-td"
+                      <td class="vs-label-c-table-c-td"
                         v-for="(cItemC,cIndex) in viewTableColumns"
                         :key="`cItemC${cIndex}`"
                         :class="[
-                          cItemC.fixed?'infinite-table-opacity':'',
-                          recordUnitClicks[`${cItemR.key}*${cItemC.key}`]?'infinite-unit-clicked':'',
-                          cItemC.align?'infinite-row-align-'+cItemC.align+'-textalign':
-                          (cItemC.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
+                          cItemC.fixed?'vs-table-opacity':'',
+                          recordUnitClicks[`${cItemR.key}*${cItemC.key}`]?'vs-unit-clicked':'',
+                          cItemC.align?'vs-row-align-'+cItemC.align+'-textalign':
+                          (cItemC.fixed?'vs-row-align-center-textalign':'vs-row-align-right-textalign')
                         ]"
                         :style="localStyles[cItemC.key]"
                         @click="ontableUnitClick(false,cItemR, index,cItemC,cIndex)"
                       >
-                        <div class="infinite-c-td-container"
+                        <div class="vs-c-td-container"
                           :style="[cItemC.style]"
                         >
-                          <span class="infinite-c-td-text" 
+                          <span class="vs-c-td-text" 
                             :class="maxUnitLengthWidth<8?'line-clamp-3':''"
                           >{{cItemR[cItemC.key]}}</span>
                         </div>
@@ -49,7 +49,7 @@
                     </tr>
                   </template>
                 </table>
-                <div class="infinite-container-c-more-btn"
+                <div class="vs-container-c-more-btn"
                   v-if="item.children.length > defaultChildrenNum"
                   :style="{height:cMoreHeight+'px'}"
                 >
@@ -59,28 +59,28 @@
             </td>
           </template>
           <template v-else>
-            <td class="infinite-p-td"
+            <td class="vs-p-td"
               v-for="(item2, index2) in viewTableColumns"
               :key="index2"
               :class="[
-                index2 === 1 && Object.keys(childrenKeys.length?'infinite-col-2-ischildrens':''),
-                recordUnitClicks[`${item.key}*${item2.key}`]?'infinite-unit-clicked':'',
-                item2.align?'infinite-row-align-'+item2.align+'textalign':
-                (item2.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
+                index2 === 1 && Object.keys(childrenKeys.length?'vs-col-2-ischildrens':''),
+                recordUnitClicks[`${item.key}*${item2.key}`]?'vs-unit-clicked':'',
+                item2.align?'vs-row-align-'+item2.align+'textalign':
+                (item2.fixed?'vs-row-align-center-textalign':'vs-row-align-right-textalign')
               ]"
               :style="localStyles[item2.key]"
               @click="ontableUnitClick(item.children && 
                 item.children.length && 
               index===1, item, index, item2, index2)"
             >
-              <div class="infinite-p-td-container"
-                :class="{'infinite-table-opacity':item2.fixed}"
+              <div class="vs-p-td-container"
+                :class="{'vs-table-opacity':item2.fixed}"
                 :style="[item2.style]"
               >
-                <span class="infinite-p-td-text"
+                <span class="vs-p-td-text"
                   :class="maxUnitLengthWidth<8?'line-clamp-3':''"
                 >{{item[item2.key]}}</span>
-                <div class="infinite-table-icon-up"
+                <div class="vs-table-icon-up"
                   v-if="item.children &&
                   item.children.length &&
                   item2.fixed && index2===leftFixedIndex &&
@@ -89,7 +89,7 @@
                     right: defaultColPaddingWidth + 'px'
                   }"
                 ></div>
-                <div class="infinite-table-icon-down"
+                <div class="vs-table-icon-down"
                   v-if="item.children &&
                   item.children.length &&
                   index2 === 1 &&
@@ -163,14 +163,6 @@ export default {
       type: Number,
       default: -1
     }
-  },
-  data () {
-    return {
-      
-    }
-  },
-  mounted () {
-    
   },
   methods: {
     // 单元格点击

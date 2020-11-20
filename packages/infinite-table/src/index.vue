@@ -1,21 +1,21 @@
 <template>
-  <div class="infinite-table"
+  <div class="vs-table"
     :style="{background: tableBgColor}"
   >
-    <div class="infinite-table-box">
+    <div class="vs-table-box">
       <div 
-        class="infinite-table-scroll-icon"
+        class="vs-table-scroll-icon"
         v-show="isScroll && scrollIcon"
         :style="{top:'calc('+(arrowsTop/2)+'px)'}"
       >
-        <!-- <img :src="require('images/swipe-arrow-right.png')" alt="" class="infinite-table-icon-png"> -->
-        <img src="../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="infinite-table-icon-png">
+        <!-- <img :src="require('images/swipe-arrow-right.png')" alt="" class="vs-table-icon-png"> -->
+        <img src="../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="vs-table-icon-png">
       </div>
       <div 
-        class="infinite-table-content"
+        class="vs-table-content"
         ref="tableContent"
       >
-        <div class="infinite-scroll-div" ref="scrollDiv">
+        <div class="vs-scroll-div" ref="scrollDiv">
           <CardHeaderTable
             ref="headerTableRef"
             :view-table-columns="viewTableColumns"
@@ -27,7 +27,7 @@
             @sortBy="sortBy"
           >
             <!-- <div 
-              class="infinite-table-ty-tip"
+              class="vs-table-ty-tip"
               v-show="isScroll && scrollIconTip"
               slot="tytip"
             ><img src="~@/assets/img/bank/Slide01.png" alt=""></div> -->
@@ -69,25 +69,25 @@
       </div>
     </div>
 
-    <div class="infinite-table-more-box"
+    <div class="vs-table-more-box"
       v-if="tableData.data.length > everyAddNum"
     >
-      <div class="infinite-table-more-btn"
+      <div class="vs-table-more-btn"
         v-if="hashMore"
         @click="expandClick(true)"
       >
-        展开更多<span class="infinite-risk-table-more infinite-risk-outer-more" ></span>
+        展开更多<span class="vs-risk-table-more vs-risk-outer-more" ></span>
       </div>
-      <div class="infinite-table-more-btn"
+      <div class="vs-table-more-btn"
         v-if="!hashMore"
         @click="expandClick(false)"
       >
-        收起<span class="infinite-risk-table-more infinite-risk-outer-more infinite-rotate-45"></span>
+        收起<span class="vs-risk-table-more vs-risk-outer-more vs-rotate-45"></span>
       </div>
     </div>
-    <div class="infinite-table-bottom-padding" v-else></div>
+    <div class="vs-table-bottom-padding" v-else></div>
     <Popup
-      class="infinite-table-picker-popuper"
+      class="vs-table-picker-popuper"
       position="bottom"
       ref="popup"
       v-model="popupShow"

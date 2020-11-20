@@ -1,60 +1,60 @@
 <template>
-  <div class="infinite-table">
-    <div class="infinite-c-table-conform">
-      <div class="infinite-c-table-container" ref="cTableContainer">
-        <div class="infinite-table-box">
+  <div class="vs-table">
+    <div class="vs-c-table-conform">
+      <div class="vs-c-table-container" ref="cTableContainer">
+        <div class="vs-table-box">
           <div 
-            class="infinite-table-scroll-icon right"
+            class="vs-table-scroll-icon right"
             v-show="isScroll && scrollIcon"
             :style="{top:'calc('+(arrowsTop/2)+'px)'}"
           >
-          <img src="../../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="infinite-table-icon-png">
-            <!-- <img :src="require('../svg/arrow-right.svg')" alt="" class="infinite-table-icon-png"> -->
+          <img src="../../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="vs-table-icon-png">
+            <!-- <img :src="require('../svg/arrow-right.svg')" alt="" class="vs-table-icon-png"> -->
           </div>
           <div 
-            class="infinite-table-content"
+            class="vs-table-content"
             ref="tableContent"
           >
-            <div class="infinite-scroll-div" ref="scrollDiv">
-              <div class="infinite-table-div head-div">
+            <div class="vs-scroll-div" ref="scrollDiv">
+              <div class="vs-table-div vs-head-div">
                 <table
-                  class="infinite-label-table"
+                  class="vs-label-table"
                   ref="headerTable"
                 >
-                  <thead class="infinite-label-thead">
-                    <tr class="infinite-p-head-tr" ref="scrollTheadTr">
-                      <th class="infinite-p-head-th"
+                  <thead class="vs-label-thead">
+                    <tr class="vs-p-head-tr" ref="scrollTheadTr">
+                      <th class="vs-p-head-th"
                         v-for="(item,index) in columns"
                         :key="index"
                         :style="[{minHeight:headerMinHeight+'px'},localStyles[item.key]]"
                         :class="[
-                          item.isSort === sortKey?'infinite-table-active':'',
-                          item.fixed?'infinite-table-opacity':'',
-                          item.align?'infinite-row-align-'+item.align+'-textalign':
-                          (item.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
+                          item.isSort === sortKey?'vs-table-active':'',
+                          item.fixed?'vs-table-opacity':'',
+                          item.align?'vs-row-align-'+item.align+'-textalign':
+                          (item.fixed?'vs-row-align-center-textalign':'vs-row-align-right-textalign')
                         ]"
                         @click="_sortBy(item)"
                       >
-                        <div class="infinite-p-head-th-box">
-                          <div class="infinite-thead-content">
-                            <div class="infinite-thead-care-icon-box" :class="{'infinite-header-sort-box':item.isSort}">
+                        <div class="vs-p-head-th-box">
+                          <div class="vs-thead-content">
+                            <div class="vs-thead-care-icon-box" :class="{'vs-header-sort-box':item.isSort}">
                               {{item.name}}
-                              <div class="infinite-unit" v-show="item.unit">
+                              <div class="vs-unit" v-show="item.unit">
                                 <div v-show="item.unit">{{item.unit}}</div>
                               </div>
-                              <div class="infinite-table-sort-div-ab"
+                              <div class="vs-table-sort-div-ab"
                                 :class="{
-                                  'infinite-table-sort-div-ab-top': sortOrders[item.key] === -1,
-                                  'infinite-table-sort-div-ab-bottom': sortOrders[item.key] === 1
+                                  'vs-table-sort-div-ab-top': sortOrders[item.key] === -1,
+                                  'vs-table-sort-div-ab-bottom': sortOrders[item.key] === 1
                                 }"
                                 v-show="item.isSort"
                               >
-                                <div class="infinite-table-sort-div-re">
-                                  <div class="infinite-table-sort-icon infinite-table-sort-top"
-                                    :class="{'infinite-table-active':sortOrders[item.key] === -1}"
+                                <div class="vs-table-sort-div-re">
+                                  <div class="vs-table-sort-icon vs-table-sort-top"
+                                    :class="{'vs-table-active':sortOrders[item.key] === -1}"
                                   ></div>
-                                  <div class="infinite-table-sort-icon infinite-table-sort-bottom"
-                                    :class="{'infinite-table-active':sortOrders[item.key] === 1}"
+                                  <div class="vs-table-sort-icon vs-table-sort-bottom"
+                                    :class="{'vs-table-active':sortOrders[item.key] === 1}"
                                   ></div>
                                 </div>
                               </div>
@@ -67,42 +67,42 @@
                 </table>
               </div>
 
-              <div class="infinite-table-div infinite-table-containe-div">
+              <div class="vs-table-div vs-table-containe-div">
                 <table
-                  class="infinite-label-table"
+                  class="vs-label-table"
                   ref="bodyTable"
                 >
                   <tBody
-                    class="infinite-label-tbody"
+                    class="vs-label-tbody"
                   >
                     <tr
-                      class="infinite-p-tr"
+                      class="vs-p-tr"
                       v-for="(item, index) in viewTableData"
                       :key="index"
                       :ref="item.isChildrens?`trMove${item.key}`:''"
                       :class="{
-                        'infinite-tr-children': item.isChildrens,
-                        'infinite-c-children-hide': (item.isChildrens && !childrenKeys[item.key])
+                        'vs-tr-children': item.isChildrens,
+                        'vs-c-children-hide': (item.isChildrens && !childrenKeys[item.key])
                       }"
                     >
                       <template>
-                        <td class="infinite-p-td"
+                        <td class="vs-p-td"
                           v-for="(item2, index2) in columns"
                           :key="index2"
                           :class="[
-                            recordUnitClicks[`${item.key}*${item2.key}`]?'infinite-unit-clicked':'',
-                            item2.align?'infinite-row-align-'+item2.align+'textalign':
-                            (item2.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
+                            recordUnitClicks[`${item.key}*${item2.key}`]?'vs-unit-clicked':'',
+                            item2.align?'vs-row-align-'+item2.align+'textalign':
+                            (item2.fixed?'vs-row-align-center-textalign':'vs-row-align-right-textalign')
                           ]"
                           :style="localStyles[item2.key]"
                           @click="ontableUnitClick( item, index,item2, index2)"
                         >
-                          <div class="infinite-p-td-container"
-                            :class="{'infinite-table-opacity':item2.fixed,'infinite-table-c-td-padding':index2 === 1
+                          <div class="vs-p-td-container"
+                            :class="{'vs-table-opacity':item2.fixed,'vs-table-c-td-padding':index2 === 1
                             && item.children && item.children.length}"
                             :style="[item2.style]"
                           >
-                            <span class="infinite-p-td-text"
+                            <span class="vs-p-td-text"
                               :class="maxUnitLengthWidth<8?'line-clamp-3':''"
                             >{{item[item2.key]}}</span>
                           </div>
@@ -114,48 +114,48 @@
               </div>
             </div>
 
-            <div class="infinite-table-div infinite-table-fixed-div">
+            <div class="vs-table-div vs-table-fixed-div">
               <table
-                class="infinite-label-table infinite-fixed-table"
+                class="vs-label-table vs-fixed-table"
               >
-                <thead class="infinite-label-thead">
-                  <tr class="infinite-p-head-tr">
-                    <th class="infinite-p-head-th"
+                <thead class="vs-label-thead">
+                  <tr class="vs-p-head-tr">
+                    <th class="vs-p-head-th"
                       v-for="(item,index) in columns"
                       :key="'item'+index"
                       :style="[{minHeight:headerMinHeight+'px'},localStyles[item.key]]"
                       :class="{
-                        'infinite-table-active': item.isSort === sortKey, 'infinite-th-shelter': item.fixed,
-                        'infinite-risk-hasShadow': index===leftFixedIndex && !scrollIcon && isScroll
+                        'vs-table-active': item.isSort === sortKey, 'vs-th-shelter': item.fixed,
+                        'vs-risk-hasShadow': index===leftFixedIndex && !scrollIcon && isScroll
                       }"
                     >
-                      <div class="infinite-p-head-th-box"
-                        :class="{'infinite-table-opacity':!item.fixed}"
+                      <div class="vs-p-head-th-box"
+                        :class="{'vs-table-opacity':!item.fixed}"
                       >
-                        <div class="infinite-thead-content"
+                        <div class="vs-thead-content"
                           :class="[
-                            item.align?'infinite-row-align-'+item.align+'textalign':
-                            (item.fixed?'infinite-row-align-center-textalign':'infinite-row-align-right-textalign')
+                            item.align?'vs-row-align-'+item.align+'textalign':
+                            (item.fixed?'vs-row-align-center-textalign':'vs-row-align-right-textalign')
                           ]"
                         >
-                          <div class="infinite-thead-care-icon-box" :class="{'infinite-header-sort-box':item.isSort}">
+                          <div class="vs-thead-care-icon-box" :class="{'vs-header-sort-box':item.isSort}">
                             {{item.name}}
-                            <div class="infinite-unit" v-show="item.unit">
+                            <div class="vs-unit" v-show="item.unit">
                               <div v-show="item.unit">{{item.unit}}</div>
                             </div>
-                            <div class="infinite-table-sort-div-ab"
+                            <div class="vs-table-sort-div-ab"
                               :class="{
-                                'infinite-table-sort-div-ab-top': sortOrders[item.key] === -1,
-                                'infinite-table-sort-div-ab-bottom': sortOrders[item.key] === 1
+                                'vs-table-sort-div-ab-top': sortOrders[item.key] === -1,
+                                'vs-table-sort-div-ab-bottom': sortOrders[item.key] === 1
                               }"
                               v-show="item.isSort"
                             >
-                              <div class="infinite-table-sort-div-re">
-                                <div class="infinite-table-sort-icon infinite-table-sort-top"
-                                  :class="{'infinite-table-active':sortOrders[item.key] === -1}"
+                              <div class="vs-table-sort-div-re">
+                                <div class="vs-table-sort-icon vs-table-sort-top"
+                                  :class="{'vs-table-active':sortOrders[item.key] === -1}"
                                 ></div>
-                                <div class="infinite-table-sort-icon infinite-table-sort-bottom"
-                                  :class="{'infinite-table-active':sortOrders[item.key] === 1}"
+                                <div class="vs-table-sort-icon vs-table-sort-bottom"
+                                  :class="{'vs-table-active':sortOrders[item.key] === 1}"
                                 ></div>
                               </div>
                             </div>
@@ -165,34 +165,34 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody class="infinite-label-tbody infinite-fixed-tbody">
-                  <tr class="infinite-p-tr"
+                <tbody class="vs-label-tbody vs-fixed-tbody">
+                  <tr class="vs-p-tr"
                     v-for="(item, index) in viewTableData"
                     :key="index"
                     :class="{
-                      'infinite-tr-children': item.isChildrens,
-                      'infinite-c-children-hide': (item.isChildrens && !childrenKeys[item.key])
+                      'vs-tr-children': item.isChildrens,
+                      'vs-c-children-hide': (item.isChildrens && !childrenKeys[item.key])
                     }"
                   >
                     <template>
-                      <td class="infinite-p-td"
+                      <td class="vs-p-td"
                         v-for="(item2,index2) in columns"
                         :key="index2"
                         :class="{
-                          'infinite-p-td-move': !item2.fixed,
-                          'infinite-c-shelter': item2.fixed,
-                          'infinite-risk-hasShadow': index2===leftFixedIndex && !scrollIcon && isScroll,
-                          'infinite-unit-clicked':recordUnitClicks[`${item.key}*${item2.key}`]
+                          'vs-p-td-move': !item2.fixed,
+                          'vs-c-shelter': item2.fixed,
+                          'vs-risk-hasShadow': index2===leftFixedIndex && !scrollIcon && isScroll,
+                          'vs-unit-clicked':recordUnitClicks[`${item.key}*${item2.key}`]
                         }"
                         :style="localStyles[item2.key]"
                         @click="ontableUnitClick(item, index,item2,index2)"
                       >
-                        <div class="infinite-p-td-container"
-                          :class="{'infinite-table-opacity':!item2.fixed,'infinite-table-c-td-padding': index2===1
+                        <div class="vs-p-td-container"
+                          :class="{'vs-table-opacity':!item2.fixed,'vs-table-c-td-padding': index2===1
                             && item.children && item.children.length}"
                           :style="[item2.style]"
                         >
-                          <span class="infinite-p-td-text">{{item[item2.key]}}</span>
+                          <span class="vs-p-td-text">{{item[item2.key]}}</span>
                         </div>
                       </td>
                     </template>
@@ -317,7 +317,7 @@ export default {
         // 提示右滑箭头定位
         let aTop = 0
         setTimeout(() => {
-          this.$refs.headerTable.querySelectorAll('.infinite-thead-content').forEach((item) => {
+          this.$refs.headerTable.querySelectorAll('.vs-thead-content').forEach((item) => {
             aTop = item.clientHeight > aTop ? item.clientHeight : aTop
           }) 
           this.arrowsTop = aTop
