@@ -1,7 +1,7 @@
 @import "./mixins/mixins.scss";
 
 
-.header-wrapper {
+.vs-header-wrapper {
   display: flex;
   justify-content: space-between;
   background-color: #212228;
@@ -11,13 +11,13 @@
   box-sizing: border-box;
 }
 
-.header-left {
+.vs-header-left {
   display: flex;
   min-width: 35px;
   padding-left: 5px;
 }
 
-.header-title {
+.vs-header-title {
   width: 100vw;
   position: absolute;
   display: flex;
@@ -27,10 +27,10 @@
   }
 };
 
-.header-right {
+.vs-header-right {
   padding-right: 5px;
 }
-.right-padding {
+.vs-right-padding {
   margin-right: 35px;
 };
 

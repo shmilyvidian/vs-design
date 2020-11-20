@@ -68,6 +68,45 @@
 :::
 
 
+
+### useVantIcon
+
+
+:::demo 通过useVantIcon选择是否使用vant默认图标，设为false则可通过slot="leftItem"传入自定义图标
+
+```html
+<el-row class="infinite-doc-demo-block-row">
+  <infinite-header-nav :useVantIcon="false">
+    <div slot="leftItem">
+      <img class="arrow-icon" :src="require('../../packages/theme-chalk/src/imgs/arrow.png')" alt="arrow-icon">
+      <span>返回</span>
+    </div>
+    <div slot="centerItem">
+      标题
+    </div>
+    <div slot="rightItem">
+      提交
+    </div>
+  </infinite-header-nav>
+</el-row>
+<script>
+  export default {
+    data() {
+      return {
+      }
+    },
+    methods: {
+      goBackClick(val) {
+        console.log("clicked parent loading", val);
+      }
+    }
+  }
+</script>
+```
+
+:::
+
+
 ### showBackIcon
 
 
@@ -157,5 +196,6 @@
 | --- | --- | --- | --- |
 | size | icon大小，默认单位为 px | _string/number_ | 18px |
 | color | 定制icon颜色 | _string_ | orange |
-| insertStyle | 动态传入容器样式 | _object_ | - |
+| useVantIcon | 是否使用vant默认图标 | _Boolean_ | true |
 | showBackIcon | 是否展示返回ICON | _Boolean_ | true |
+| insertStyle | 动态传入容器样式 | _object_ | - |
