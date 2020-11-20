@@ -59,7 +59,7 @@ test('filter confirm & cancel event', () => {
   wrapper.find('.institutional-filter-footer-cancel').trigger('click')
   wrapper.find('.institutional-filter-content-item').trigger('click')
   wrapper.find('.institutional-filter-header-item').trigger('click')
-  wrapper.find('.infinite-institutional-filter-overlay').trigger('click')
+  wrapper.find('.vs-institutional-filter-overlay').trigger('click')
 
   // 检测方法是否触发
   expect(wrapper.emitted('onConfirm')[0]).toBeTruthy()
@@ -95,5 +95,5 @@ test('set wrappperStyle', async () => {
     }
   });
 
-  expect(wrapper.find('.infinite-institutional-filter').attributes().style).toBe('color: rgb(255, 255, 255); display: none;')
+  expect(wrapper.find('.vs-institutional-filter').attributes().style).toBe('color: rgb(255, 255, 255); display: none;')
 });
