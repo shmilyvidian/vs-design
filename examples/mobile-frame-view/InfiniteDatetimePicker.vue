@@ -36,7 +36,9 @@ export default {
           itemProp: {
             pickerRadius: '5px',
             startTime: '20190123',
-            endTime: '20201103'
+            endTime: '20201103',
+            diviedTag: '-',
+            showCalendar: false
           }
         },
         {
