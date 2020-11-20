@@ -2,9 +2,10 @@
 
 exports[`InfiniteDatetimePicker.vue change currentDate to is endTime after confirm value 1`] = `
 <div class="infinite-datetime-picker-template">
-  <div class="infinite-datetime-picker-title" style="background: rgb(46, 48, 54); border-radius: 0;"><span class=" default">2020.11.06</span> <i class="van-icon van-icon-tosend  default" style="font-size: 16px;">
-      <!---->
-    </i></div>
+  <div class="infinite-datetime-picker-title" style="background: rgb(46, 48, 54); border-radius: 0;">
+    <div class="infinite-datetime-picker-title-left"><span>日期</span> </div>
+    <div class="infinite-datetime-picker-title-right"><span class=" default">2020.11.06</span> <i class="icon-calendar default"></i> </div>
+  </div>
   <div class="van-overlay" style="display: none; z-index: 2003;"></div>
   <transition-stub name="van-popup-slide-bottom" class="infinite-datetime-picker-popuper" style="z-index: 2004;">
     <div class="van-popup van-popup--bottom" style="display: none;">

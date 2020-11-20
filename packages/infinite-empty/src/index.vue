@@ -1,10 +1,10 @@
 <template>
-  <div class="empty-container" :style="insertStyle.container">
+  <div class="vs-empty-container" :style="insertStyle.container">
     <img
       :src="defaultImageTypes.includes(imageType) ? defaultUrl : imageType"
       :style="{width: imageSize}"
     >
-    <div class="description" :style="insertStyle.description">{{ description }}</div>
+    <div class="vs-description" :style="insertStyle.description">{{ description }}</div>
     <slot></slot>
   </div>
 </template>
@@ -66,17 +66,5 @@ export default {
       }
     }
   },
-  methods: {
-    handleClick() {
-      console.log('child loading click');
-      this.$emit('handleClick');
-    },
-    clickGoBack() {
-      
-    }
-  },
-  mounted () {
-
-  }
 }
 </script>

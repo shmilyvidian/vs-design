@@ -8,16 +8,42 @@ describe('Infinite header nav.vue', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('shonld render header-container class', () => {
-    expect(wrapper.attributes().class).toMatch('header-wrapper')
+  it('should render vs-header-wrapper class', () => {
+    expect(wrapper.attributes().class).toBe('vs-header-wrapper')
     wrapper.destroy()
   })
 
+  it('should not render backIcon when showBackIcon is false', () => {
+    const wrapper = mount(InfiniteHeaderNav, {
+      propsData: {
+        showBackIcon: false,
+      }
+    })
+    expect(wrapper.find('.vs-header-left').attributes().class).toMatch('no-visibility')
+    wrapper.destroy()
+  })
+
+  it('should not render backIcon when showBackIcon is false', () => {
+    const wrapper = mount(InfiniteHeaderNav, {
+      propsData: {
+        showBackIcon: false,
+      }
+    })
+
+    expect(wrapper.findAll('img').exists()).toBeFalsy()
+    expect(wrapper.find('.vs-header-left').attributes().class).toMatch('no-visibility')
+    wrapper.destroy()
+  })
+  
+
+
+
   it('test click event', async () => {
     const wrapper = mount(InfiniteHeaderNav)
+    wrapper.find('.vs-header-left').trigger('click')
     wrapper.vm.$emit('goBack')
     wrapper.vm.$emit('goBack', { name: 'xiaoming' })
     await wrapper.vm.$nextTick()
-    expect(wrapper.emitted().goBack.length).toBe(2)
+    expect(wrapper.emitted().goBack.length).toBe(3)
   })
 })

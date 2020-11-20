@@ -1,44 +1,47 @@
 /* eslint-disable */
-const packageJson = require('../package.json')
-const version = process.env.VERSION || packageJson.version
-const files = require.context('./', true, /^(\.\/infinite(\-[a-z]+)+)\/index.js$/)
-function getImportComponents () {
-  const result = []
-  files.keys().map(key => {
-    if (!key.includes('infinite')) return
-    const element = files(key).default
-    result.push(element)
-  });
-  return result
-};
+// This file is auto gererated by build/build-entry.js
+    import InfiniteDatetimePicker from './infinite-datetime-picker'
+import InfiniteEmpty from './infinite-empty'
+import InfiniteHeaderNav from './infinite-header-nav'
+import InfiniteInstitutionalFilter from './infinite-institutional-filter'
+import InfiniteSectionCard from './infinite-section-card'
+import InfiniteTable from './infinite-table'
+import InfiniteTouchEmulator from './infinite-touch-emulator'
+    const version = '0.0.22'
+    const components = [
+      InfiniteDatetimePicker,
+  InfiniteEmpty,
+  InfiniteHeaderNav,
+  InfiniteInstitutionalFilter,
+  InfiniteSectionCard,
+  InfiniteTable,
+  InfiniteTouchEmulator
+    ]
+    import Vue from 'vue'
+window.Vue = Vue
+    const install = Vue => {
+      components.forEach(Component => {
+        Vue.use(Component)
+      })
 
-const components = getImportComponents()
-const install = Vue => {
-  components.forEach(item => {
-    if (item.install) {
-      Vue.use(item);
-    } else if (item.name) {
-      Vue.component(item.name, item);
+    };
+    /* istanbul ignore if */
+    if (typeof window !== 'undefined' && window.Vue) {
+      install(window.Vue)
     }
-  })
-};
-
-/* istanbul ignore if */
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue)
-}
-
-const exportObj = {
-  install,
-  version,
-}
-
-components.map(component => {
-  if (component) {
-    const { name } = component
-    if (!name) return
-    exportObj[name] = component
-  };
-});
-
-export default exportObj
+    export {
+      install,
+      version,
+      InfiniteDatetimePicker,
+  InfiniteEmpty,
+  InfiniteHeaderNav,
+  InfiniteInstitutionalFilter,
+  InfiniteSectionCard,
+  InfiniteTable,
+  InfiniteTouchEmulator
+    }
+    export default {
+      install,
+      version
+    }
+  

@@ -1,6 +1,6 @@
 {
-  "name": "vs-ui",
-  "version": "0.0.22",
+  "name": "test-vs-ui",
+  "version": "0.0.24",
   "description": "An Vue UI Toolkit For Mobile",
   "scripts": {
     "serve": "vue-cli-service serve",

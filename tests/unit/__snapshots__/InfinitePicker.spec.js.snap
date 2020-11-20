@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`render popup 1`] = `
-<div class="infinite-picker">
-  <picker-stub title="标题" showtoolbar="true" allowhtml="true" visibleitemcount="6" swipeduration="1000" defaultindex="0" columns="杭州,宁波,温州,绍兴,湖州,嘉兴,金华,衢州" toolbarposition="top" valuekey="text"></picker-stub>
-</div>
-`;
