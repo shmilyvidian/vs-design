@@ -251,10 +251,6 @@ export default {
       })
       return data2
     },
-    // 单位集合
-    hashUnit () {
-      return this.columns.some((item) => item.unit)
-    },
     // 固定列索引，用于考虑做阴影，目前不考虑右侧固定列
     leftFixedIndex () {
       let index = -1
@@ -263,8 +259,7 @@ export default {
           index += 1
         }
       })
-      console.log('index', index)
-
+      // console.log('index', index)
       return index
     }
   },
@@ -317,6 +312,7 @@ export default {
         // 提示右滑箭头定位
         let aTop = 0
         setTimeout(() => {
+          console.log('this.$refs.headerTable.querySelectorAll == ', this.$refs.headerTable.querySelectorAll('.vs-thead-content'))
           this.$refs.headerTable.querySelectorAll('.vs-thead-content').forEach((item) => {
             aTop = item.clientHeight > aTop ? item.clientHeight : aTop
           }) 
