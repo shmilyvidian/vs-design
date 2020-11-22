@@ -119,6 +119,14 @@ test('setValue to input', async () => {
   
   expect(wrapper.find('.institutional-filter-content-item').text()).toBe('东部战区')
   expect(wrapper.find('input[type="text"]').element.value).toBe('东')
+
+  // 设置空值 
+  textInput.trigger('input')
+  await textInput.setValue('')
+  expect(wrapper.find('input[type="text"]').element.value).toBe('')
+  expect(wrapper.find('.institutional-filter-content-item').text()).toBe('北部战区')
+
+  expect(wrapper.emitted('onInput')[0]).toBeTruthy()
 })
 
 // 设置样式
