@@ -235,6 +235,9 @@ export default {
     },
     // 确认按钮
     onConfirm () {
+      if(!this.selectedList.length){
+        return
+      }
       this.$emit('onConfirm', this.selectedList)
       this.$emit('changeShowModle', false)
     },
