@@ -3,7 +3,7 @@ import MobileDatetimePicker from '../mobile-frame-view/InfiniteDatetimePicker.vu
 import MobileHeaderNav from '../mobile-frame-view/InfiniteHeaderNav.vue'
 import MobileEmpty from '../mobile-frame-view/InfiniteEmpty.vue'
 import MobileTable from '../mobile-frame-view/InfiniteTable.vue'
-import InfiniteInstitutionalFilter from '../mobile-frame-view/InfiniteInstitutionalFilter.vue'
+import InfiniteInstitutionalFilter from '../mobile-frame-view/infiniteInstitutionalFilter'
 
 const routes = [{
   path: '/mobile/InfiniteDatetimePicker',

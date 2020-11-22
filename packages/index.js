@@ -7,7 +7,7 @@ import InfiniteInstitutionalFilter from './infinite-institutional-filter'
 import InfiniteSectionCard from './infinite-section-card'
 import InfiniteTable from './infinite-table'
 import InfiniteTouchEmulator from './infinite-touch-emulator'
-    const version = '0.0.22'
+    const version = '0.0.24'
     const components = [
       InfiniteDatetimePicker,
   InfiniteEmpty,
@@ -17,8 +17,6 @@ import InfiniteTouchEmulator from './infinite-touch-emulator'
   InfiniteTable,
   InfiniteTouchEmulator
     ]
-    import Vue from 'vue'
-window.Vue = Vue
     const install = Vue => {
       components.forEach(Component => {
         Vue.use(Component)
