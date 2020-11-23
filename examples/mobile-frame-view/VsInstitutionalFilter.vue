@@ -5,12 +5,12 @@
         @click="show"
         class="row-btn"
       >机构筛选器</div>
-      <infinite-institutional-filter
+      <vs-institutional-filter
         :columns="columns"
         v-model="showModle"
         :wrappperStyle="{color: '#fff'}"
         @onConfirm="onConfirm"
-      ></infinite-institutional-filter>
+      ></vs-institutional-filter>
     </el-row>
   </div>
 </template>

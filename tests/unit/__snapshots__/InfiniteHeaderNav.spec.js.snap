@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Infinite header nav.vue render InfiniteHeaderNav 1`] = `
+<header class="vs-header-wrapper" style="color: rgb(255, 255, 255);">
+  <div class="vs-header-left"><i class="van-icon van-icon-arrow-left" style="color: orange; font-size: 22px;">
+      <!---->
+    </i> </div>
+  <div class="vs-header-title vs-right-padding">
+    <div class="title-content"></div>
+  </div>
+  <div class="vs-header-right"></div>
+</header>
+`;

@@ -26,6 +26,8 @@ for (const key in packages) {
     const element = packages[key]
     if (key.toLocaleLowerCase().includes('infinite')) {
       Vue.use(element)
+    } else if (key.toLocaleLowerCase().includes('vs')){
+      Vue.use(element)
     };
   }
 }
