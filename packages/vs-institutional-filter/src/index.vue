@@ -44,21 +44,26 @@
         </div>
         <!-- end of 搜索框 -->
         <!-- 筛选器内容 -->
-        <div
-          class="institutional-filter-content"
-          :class="{'pt0':showSearch}"
-        >
+        <div class="institutional-filter-content-wrapper">
           <div
-            class="institutional-filter-content-item"
-            v-for="(item,index) in showContentList"
-            :key="index"
-            @click="onSelectItem(item)"
-            :class="{'active':(selectedList[selectedIndex] && selectedList[selectedIndex].code) === item.code}"
+            class="institutional-filter-content"
+            :class="{'pt0':showSearch}"
           >
-            {{item.name}}
+            <div
+              class="institutional-filter-content-item"
+              v-for="(item,index) in showContentList"
+              :key="index"
+              @click="onSelectItem(item)"
+              :class="{'active':(selectedList[selectedIndex] && selectedList[selectedIndex].code) === item.code}"
+            >
+              {{item.name}}
+            </div>
           </div>
         </div>
-        <div class="tip"></div>
+        <div
+          class="tip"
+          v-if="showTip"
+        ></div>
         <!-- end of 筛选器内容 -->
         <!-- 筛选器底部 -->
         <div class="institutional-filter-footer">
@@ -106,7 +111,7 @@ export default {
     wrappperStyle: {
       type: Object,
       required: false,
-      default: () =>{
+      default: () => {
         return {}
       }
     },
@@ -181,10 +186,25 @@ export default {
       selectedIndex: 0, // 当前选中层级
       privateHeaderMap: [], // 重组头部
       inputValue: '', // 搜索框参数
-      originContentList: [] // 搜索之前数据 
+      originContentList: [], // 搜索之前数据 
+      showTip: false // 提示滚动条
     }
   },
+  mounted () {
+    this.isScroll()
+  },
   methods: {
+    // 是否提示滚动icon
+    isScroll () {
+      const contentHeight = document.querySelector('.institutional-filter-content').offsetHeight
+      const wrapperHeight = document.querySelector('.institutional-filter-content-wrapper').offsetHeight
+      console.log(contentHeight, wrapperHeight)
+      if (contentHeight > wrapperHeight) {
+        this.showTip = true
+      } else {
+        this.showTip = false
+      }
+    },
     // 点击内容选中参数
     onSelectItem (item) {
       // console.log(item)
@@ -207,6 +227,12 @@ export default {
         this.showContentList = item.children
         this.originContentList = item.children
       }
+
+
+      // 切换数据后显示滚动提示
+      this.$nextTick(() => {
+        this.isScroll()
+      })
     },
     // 点击头部选中参数
     changeHeader (item, index) {
@@ -215,6 +241,10 @@ export default {
         this.showContentList = item.children
         this.originContentList = item.children
         this.selectedIndex = index
+        // 切换数据后显示滚动提示
+        this.$nextTick(() => {
+          this.isScroll()
+        })
       }
     },
     // 监听输入事件
@@ -231,6 +261,10 @@ export default {
       } else {
         this.showContentList = this.privateHeaderMap[this.selectedIndex].children
       }
+      // 切换数据后显示滚动提示
+      this.$nextTick(() => {
+        this.isScroll()
+      })
       this.$emit('onInput', event.target)
     },
     // 确认按钮

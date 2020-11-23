@@ -104,12 +104,16 @@ $baseColor: #6195ff;
   }
 
   // 内容
-  &-content {
-    height: 200px;
+  &-content-wrapper{
+    height: 147px;
     padding: 12px 16px 0 16px;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
+
+  }
+  &-content {
+    height: auto;
 
     &-item {
       color: #fff;
