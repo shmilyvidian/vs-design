@@ -38,7 +38,8 @@ export default {
             startTime: '20190123',
             endTime: '20201103',
             diviedTag: '-',
-            showCalendar: false
+            showCalendar: false,
+            type: 'just-show'
           }
         },
         {
