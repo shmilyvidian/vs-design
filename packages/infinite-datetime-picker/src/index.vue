@@ -261,15 +261,16 @@ export default {
     span () {
       let iconStr = ''
       const arr = ['just-show']
-      if (this.hasIconSlot) {
-        return ``
-      }
-      if (arr.includes(this.type)) {
-        return `${iconStr}`
-      }
+
+      // 应该返回空
+      if (this.showCalendar && (this.hasIconSlot || arr.includes(this.type))) {
+        return ''
+      };
+
+      // 返回 不展示icon
       if (!this.showCalendar) {
         return `no-icon`
-      }
+      };
 
       if (this.useDefaultIcon) {
         return `${iconStr} default`
