@@ -1,14 +1,12 @@
 @import "./mixins/mixins.scss";
 
-@import '~vant/lib/popup/index.css';
-@import '~vant/lib/style/base.css';
-@import '~vant/lib/overlay/index.css';
-@import '~vant/lib/info/index.css';
-@import '~vant/lib/icon/index.css';
-@import '~vant/lib/loading/index.css';
-@import '~vant/lib/picker/index.css';
-@import '~vant/lib/picker/index.css';
-// @import "../../../node_modules/element-ui/packages/theme-chalk/src/button.scss";
+@import '../../../node_modules/vant/es/popup/index.css';
+@import '../../../node_modules/vant/es/style/base.css';
+@import '../../../node_modules/vant/es/overlay/index.css';
+@import '../../../node_modules/vant/es/info/index.css';
+@import '../../../node_modules/vant/es/icon/index.css';
+@import '../../../node_modules/vant/es/loading/index.css';
+@import '../../../node_modules/vant/es/picker/index.css';
 
 // @include b(test) {
 //   display: inline-block;
