@@ -1,12 +1,12 @@
 @import "./mixins/mixins.scss";
 
-.empty-container {
+.vs-empty-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  .description {
+  .vs-description {
     font-size: 16px;
     color: #b1b3ba;
     margin-top: 22px;

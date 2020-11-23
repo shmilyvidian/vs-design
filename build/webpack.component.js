@@ -29,7 +29,10 @@ const webpackConfig = {
     // }
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json']
+    extensions: ['.js', '.vue', '.json'],
+    // alias: {
+    //   'vue$': 'vue/dist/vue.esm.js',
+    // }
   },
   performance: {
     hints: false
@@ -38,24 +41,29 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      }, {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      }, {
-        test: /\.(png|jpe?g|gif|webp)(\?.*)$/,
-        loader: 'url-loader',
-        options: {
-          esModule: false,
-        }
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,
         loader: ["style-loader", "css-loader"]
       },
-    
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
     ]
   },
   plugins: [

@@ -3,7 +3,7 @@
 
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">基础用法</h2>
-      <infinite-header-nav></infinite-header-nav>
+      <infinite-header-nav @goBack="parentCallBack"></infinite-header-nav>
     </el-row>
 
     <el-row class="infinite-doc-demo-block-row">
@@ -61,7 +61,11 @@
 </template>
 <script>
 export default {
-  methods: {},
+  methods: {
+    parentCallBack () {
+      console.log('parent get click');
+    }
+  },
   data () {
     return {
       headerTitle: '标题',

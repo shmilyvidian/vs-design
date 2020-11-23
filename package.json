@@ -1,6 +1,6 @@
 {
-  "name": "vs-ui",
-  "version": "0.0.22",
+  "name": "test-vs-ui",
+  "version": "0.0.24",
   "description": "An Vue UI Toolkit For Mobile",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -61,6 +61,7 @@
     "uppercamelcase": "^3.0.0",
     "url-loader": "^4.1.1",
     "vue": "^2.6.11",
+    "vue-loader": "^15.9.5",
     "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.4.9",
     "vue-template-compiler": "^2.6.11",

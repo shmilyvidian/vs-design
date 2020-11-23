@@ -241,7 +241,7 @@ export const cardTableWatch = {
         let aTop = 0
         setTimeout(() => {
           if (this.$refs.headerTableRef) {
-            this.$refs.headerTableRef.$el.querySelectorAll('.infinite-thead-content').forEach((item) => {
+            this.$refs.headerTableRef.$el.querySelectorAll('.vs-thead-content').forEach((item) => {
               aTop = item.clientHeight > aTop ? item.clientHeight : aTop
             })
           }

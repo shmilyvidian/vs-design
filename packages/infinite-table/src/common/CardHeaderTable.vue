@@ -1,44 +1,44 @@
 <template>
-  <div class="infinite-table-div head-div">
+  <div class="vs-table-div vs-head-div">
     <table
-      class="infinite-label-table"
+      class="vs-label-table"
       ref="headerTable"
     >
-      <thead class="infinite-label-thead">
-        <tr class="infinite-p-head-tr" ref="scrollTheadTr">
-          <th class="infinite-p-head-th"
+      <thead class="vs-label-thead">
+        <tr class="vs-p-head-tr" ref="scrollTheadTr">
+          <th class="vs-p-head-th"
             v-for="(item,index) in viewTableColumns"
             :key="index"
             :style="[{minHeight:headerMinHeight+'px'},localStyles[item.key]]"
             :class="{
-              'infinite-table-active': item.isSort === sortKey,'infinite-table-opacity':item.fixed,
-              'infinite-row-align-right-flex':!item.fixed
+              'vs-table-active': item.isSort === sortKey,'vs-table-opacity':item.fixed,
+              'vs-row-align-right-flex':!item.fixed
             }"
             @click="sortBy(item)"
           >
-            <div class="infinite-p-head-th-box">
-              <div class="infinite-thead-content" :name="item.name">
-                <div class="infinite-thead-care-icon-box">
+            <div class="vs-p-head-th-box">
+              <div class="vs-thead-content" :name="item.name">
+                <div class="vs-thead-care-icon-box">
                   {{item.name}}
-                  <div class="infinite-unit" v-show="item.unit">
+                  <div class="vs-unit" v-show="item.unit">
                     <div v-show="item.unit">({{item.unit}})</div>
                   </div>
-                  <div class="infinite-table-sort-div-ab"
+                  <div class="vs-table-sort-div-ab"
                     :class="{
-                      'infinite-table-sort-div-ab-top': sortOrders[item.key] === -1,
-                      'infinite-table-sort-div-ab-bottom': sortOrders[item.key] === 1
+                      'vs-table-sort-div-ab-top': sortOrders[item.key] === -1,
+                      'vs-table-sort-div-ab-bottom': sortOrders[item.key] === 1
                     }"
                     v-show="item.isSort"
                     :style="{
                       right:defaultColPaddingWidth + 'px'
                     }"
                   >
-                    <div class="infinite-table-sort-div-re">
-                      <div class="infinite-table-sort-icon infinite-table-sort-top"
-                        :class="{'infinite-table-active':sortOrders[item.key] === -1}"
+                    <div class="vs-table-sort-div-re">
+                      <div class="vs-table-sort-icon vs-table-sort-top"
+                        :class="{'vs-table-active':sortOrders[item.key] === -1}"
                       ></div>
-                      <div class="infinite-table-sort-icon infinite-table-sort-bottom"
-                        :class="{'infinite-table-active':sortOrders[item.key] === 1}"
+                      <div class="vs-table-sort-icon vs-table-sort-bottom"
+                        :class="{'vs-table-active':sortOrders[item.key] === 1}"
                       ></div>
                     </div>
                   </div>

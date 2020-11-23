@@ -15,11 +15,14 @@
   display: flex;
   min-width: 35px;
   padding-left: 5px;
+  position: relative;
+  z-index: 1;
 }
 
 .vs-header-title {
   width: 100vw;
   position: absolute;
+  z-index: 0;
   display: flex;
 
   .title-content {

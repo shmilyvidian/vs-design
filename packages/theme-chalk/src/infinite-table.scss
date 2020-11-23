@@ -1,8 +1,12 @@
 @import "./mixins/mixins.scss";
+@import "./common/var.scss";
+@import '~vant/lib/popup/index.css';
+@import '~vant/lib/style/base.css';
+@import '~vant/lib/overlay/index.css';
+@import '~vant/lib/info/index.css';
+@import '~vant/lib/icon/index.css';
 
-$ftColor: #8799be;
-$mainColor: #6195ff;
-$bgColor: #27292f;
+
 
 html.is-mobile {
   ::-webkit-scrollbar {
@@ -82,7 +86,7 @@ html.is-right-mobile {
   display: inline-flex;
   word-break: break-all;
 }
-.infinite-table {
+.vs-table {
   padding-top: 4.267vw;
 
   table,
@@ -103,7 +107,7 @@ html.is-right-mobile {
   * {
     box-sizing: initial;
   }
-  .infinite-table-box {
+  .vs-table-box {
     color: #fff;
     font-size: 3.733vw;
     position: relative;
@@ -115,25 +119,25 @@ html.is-right-mobile {
 
 
     // 右滑可滑动的提示箭头
-    .infinite-table-scroll-icon {
+    .vs-table-scroll-icon {
       display: flex;
       position: absolute;
       right: .8vw;
       transform: translate3d(0,-50%,1000px);
 
-      .infinite-table-icon-png {
+      .vs-table-icon-png {
         width: 2.133vw;
         height: 2.4vw;
       }
     }
   }
 
-  .infinite-table-content {
+  .vs-table-content {
     position: relative;
     transform: translateZ(1000px);
 
     // 隐藏滚动条
-    .infinite-scroll-div {
+    .vs-scroll-div {
       width: 100%;
       overflow-x: auto;
       overflow-y: hidden;
@@ -148,37 +152,37 @@ html.is-right-mobile {
     }
 
     // 表格样式
-    .infinite-table-div {
-      .infinite-label-table {
-        .infinite-p-tr {
+    .vs-table-div {
+      .vs-label-table {
+        .vs-p-tr {
           @extend .gather-p-tr;
-          .infinite-table-opacity {
+          .vs-table-opacity {
             opacity: 0;
           }
         }
-        .infinite-label-thead {
+        .vs-label-thead {
           color: $ftColor;
 
           // 表头表格对齐方式
-          .infinite-row-align-right-textalign {
+          .vs-row-align-right-textalign {
             justify-content: flex-end;
           }
 
-          .infinite-row-align-center-textalign {
+          .vs-row-align-center-textalign {
             justify-content: center;
           }
 
-          .infinite-row-align-left-textalign {
+          .vs-row-align-left-textalign {
             justify-content: start;
           }
 
-          .infinite-th-shelter {
+          .vs-th-shelter {
             background: rgba(46, 48, 54, 1) !important;
           }
 
-          .infinite-p-head-tr {
+          .vs-p-head-tr {
             @extend .gather-header-tr;
-            .infinite-p-head-th {
+            .vs-p-head-th {
               display: flex;
               align-items: center;
               justify-content: center;
@@ -186,12 +190,12 @@ html.is-right-mobile {
               box-sizing: initial;
               padding-bottom: 1.733vw!important;
 
-              .infinite-thead-content {
+              .vs-thead-content {
                 display: flex;
                 justify-content: center;
 
                 // 设置配需按钮样式
-                .infinite-thead-care-icon-box {
+                .vs-thead-care-icon-box {
                   width: min-content;
                   position: relative;
                   font-weight: 600;
@@ -200,7 +204,7 @@ html.is-right-mobile {
                   letter-spacing: 0;
                   line-height: 4.8vw;
 
-                  .infinite-table-sort-div-ab {
+                  .vs-table-sort-div-ab {
                     width: 2.133vw;
                     position: absolute;
                     top: 50%;
@@ -210,38 +214,38 @@ html.is-right-mobile {
                     background: url('./imgs/table-sort-default.png') no-repeat center center;
                     background-size: 100% 100%;
 
-                    .infinite-table-sort-div-re {
+                    .vs-table-sort-div-re {
                       position: relative;
                       height: 2.667vw;
                       width: 2.133vw;
 
-                      .infinite-table-sort-top {
+                      .vs-table-sort-top {
                         // @extend .sort-icon-style;
                         bottom: 1.5vw;
                         border-top-color: transparent;
                       }
 
-                      .infinite-table-sort-bottom {
+                      .vs-table-sort-bottom {
                         // @extend .sort-icon-style;
                         bottom: -1vw;
                         border-bottom-color: transparent;
                       }
 
-                      .infinite-table-sort-top.infinite-table-active {
+                      .vs-table-sort-top.vs-table-active {
                         // border-bottom-color: $mainColor;
                       }
 
-                      .infinite-table-sort-bottom.infinite-table-active {
+                      .vs-table-sort-bottom.vs-table-active {
                         // border-top-color: $mainColor;
                       }
                     }
 
-                    &.infinite-table-sort-div-ab-top {
+                    &.vs-table-sort-div-ab-top {
                       background: url('./imgs/table-sort-top.png') no-repeat center center;
                       background-size: 100% 100%;
                     }
 
-                    &.infinite-table-sort-div-ab-bottom {
+                    &.vs-table-sort-div-ab-bottom {
                       background: url('./imgs/table-sort-bottom.png') no-repeat center center;
                       background-size: 100% 100%;
                     }
@@ -249,43 +253,43 @@ html.is-right-mobile {
                 }
               }
 
-              .infinite-unit {
+              .vs-unit {
                 // font-size: 2.4vw;
               }
             }
 
-            .infinite-table-opacity {
+            .vs-table-opacity {
               opacity: 0;
             }
           }
         }
 
-        .infinite-label-tbody {
-          .infinite-p-td {
+        .vs-label-tbody {
+          .vs-p-td {
             z-index: 2;
             transform: translateZ(900px);
             @extend .td-p-b;
             @extend .text-wb-ws-bs;
 
-            .infinite-p-td-container {
+            .vs-p-td-container {
               @extend .td-container;
             }
 
-            .infinite-p-td-text {
+            .vs-p-td-text {
               @extend .line-clamp-2;
             }
 
             // 子表格样式
-            .infinite-nest-table {
+            .vs-nest-table {
               overflow: hidden;
               position: relative;
               white-space: initial;
               
-              .infinite-container-c-more-btn {
+              .vs-container-c-more-btn {
                 opacity: 0;
               }
 
-              .infinite-table-fixed-c-more-btn {
+              .vs-table-fixed-c-more-btn {
                 @extend .flex-c-c;
 
                 color: $mainColor;
@@ -303,69 +307,69 @@ html.is-right-mobile {
                 }
               }
 
-              .infinite-label-c-table {
-                .infinite-label-c-table-c-tr {
+              .vs-label-c-table {
+                .vs-label-c-table-c-tr {
                   display: flex;
                 }
-                .infinite-c-td-container{
+                .vs-c-td-container{
                   @extend .td-container;
                 }
-                .infinite-label-c-table-c-td {
+                .vs-label-c-table-c-td {
                   @extend .td-p-b;
                   display: flex;
                   z-index: 1;
                   transform: translateZ(800px);
                   @extend .text-wb-ws-bs;
-                  .infinite-c-td-text {
+                  .vs-c-td-text {
                     @extend .line-clamp-2;
                   }
                 }
-                .infinite-label-c-table-c-tr {
+                .vs-label-c-table-c-tr {
                   &:first-child {
-                    .infinite-label-c-table-c-td {
+                    .vs-label-c-table-c-td {
                       padding-top: 3.466vw !important;
                     }
                   }
                   &:last-child {
-                    .infinite-label-c-table-c-td {
+                    .vs-label-c-table-c-td {
                       padding-bottom: 3.466vw !important;
                     }
                   }
                 }
 
                 // 子节点点击后查看当前单元格全部文案
-                .infinite-unit-clicked {
-                  .infinite-c-td-text {
+                .vs-unit-clicked {
+                  .vs-c-td-text {
                     line-clamp: initial !important;
                     -webkit-line-clamp:initial !important;
                   }
                 }
 
                 // 子节点表身设置对齐方式start
-                .infinite-row-align-right-textalign {
+                .vs-row-align-right-textalign {
                   display: flex;
                   align-items: center;
                   justify-content: flex-end;
 
-                  .infinite-c-td-text {
+                  .vs-c-td-text {
                     text-align: right;
                   }
                 }
-                .infinite-row-align-center-textalign {
+                .vs-row-align-center-textalign {
                   display: flex;
                   align-items: center;
                   justify-content: center;
 
-                  .infinite-c-td-text {
+                  .vs-c-td-text {
                     text-align:center;
                   }
                 }
-                .infinite-row-align-left-textalign {
+                .vs-row-align-left-textalign {
                   display: flex;
                   align-items: center;
                   justify-content: left;
 
-                  .infinite-c-td-text {
+                  .vs-c-td-text {
                     text-align: left;
                   }
                 }
@@ -375,15 +379,15 @@ html.is-right-mobile {
           }
           
           // 存在展开查看子节点时，默认展示全部
-          .infinite-col-2-ischildrens {
-            .infinite-p-td-text {
+          .vs-col-2-ischildrens {
+            .vs-p-td-text {
               display: block;
             }
           }
 
           // 点击后查看当前单元格全部文案
-          .infinite-unit-clicked {
-            .infinite-p-td-text {
+          .vs-unit-clicked {
+            .vs-p-td-text {
               line-clamp: initial !important;
               -webkit-line-clamp:initial !important;
               // display: block;
@@ -391,49 +395,49 @@ html.is-right-mobile {
           }
 
           // 父节点表身表格列对齐
-          .infinite-row-align-right-textalign {
+          .vs-row-align-right-textalign {
             text-align: right;
-            .infinite-p-td-text {
+            .vs-p-td-text {
               text-align: right;
             }
           }
-          .infinite-row-align-center-textalign {
+          .vs-row-align-center-textalign {
             text-align: center;
-            .infinite-p-td-text {
+            .vs-p-td-text {
               text-align: center;
             }
           }
-          .infinite-row-align-left-textalign {
+          .vs-row-align-left-textalign {
             text-align: left;
-            .infinite-p-td-text {
+            .vs-p-td-text {
               text-align: left;
             }
           }
           // 表格列对齐 end
 
-          .infinite-tr-children {
-            .infinite-p-td {
+          .vs-tr-children {
+            .vs-p-td {
               background: transparent;
               overflow: hidden;
               padding: 0 !important;
             }
 
-            > .infinite-p-td {
+            > .vs-p-td {
               padding: 0;
             }
           }
         }
 
         // 子节点显隐
-        .infinite-c-children-hide {
+        .vs-c-children-hide {
           position: fixed;
           left: -99999px;
         }
       }
 
       // 设置存在子节点的展开箭头提示
-      .infinite-p-td {
-        .infinite-table-icon-down {
+      .vs-p-td {
+        .vs-table-icon-down {
           // @extend .icon-position-border;
           margin-top: .534vw;
           // border-bottom-color: transparent;
@@ -448,7 +452,7 @@ html.is-right-mobile {
           background-size: 100% 50%;
         }
 
-        .infinite-table-icon-up {
+        .vs-table-icon-up {
           // @extend .icon-position-border;
           margin-top: -0.534vw;
           // border-top-color: transparent;
@@ -466,34 +470,34 @@ html.is-right-mobile {
     }
 
     // 设置被点击穿透
-    .head-div {
+    .vs-head-div {
       position: relative;
 
-      .infinite-p-head-tr {
+      .vs-p-head-tr {
         pointer-events: auto;
       }
     }
 
     // 设置子节点背景色
-    .infinite-table-containe-div {
+    .vs-table-containe-div {
       position: relative;
 
-      .infinite-nest-table {
+      .vs-nest-table {
         background: $bgColor;
       }
-      .infinite-label-c-table-c-td {
+      .vs-label-c-table-c-td {
         background: transparent;
       }
     }
   }
 
-  .infinite-table-picker-popuper {
+  .vs-table-picker-popuper {
     background: rgb(46, 48, 54);
   }
 }
 
 // 设置固定列
-.infinite-table-fixed-div {
+.vs-table-fixed-div {
   width: 100%;
   position: absolute;
   left: 0;
@@ -503,7 +507,7 @@ html.is-right-mobile {
   overflow: hidden;
   pointer-events: none;
   // 设置点击穿透
-  .infinite-label-thead {
+  .vs-label-thead {
     pointer-events:  none;
 
     * {
@@ -511,7 +515,7 @@ html.is-right-mobile {
     }
   }
 
-  .infinite-label-tbody {
+  .vs-label-tbody {
     pointer-events: none;
     
     * {
@@ -520,7 +524,7 @@ html.is-right-mobile {
   }
 
   // 设置背景颜色进行覆盖，设置translateZ做IOS兼容
-  .infinite-c-shelter {
+  .vs-c-shelter {
     background-color: #2e3036;
     z-index: 3;
     transform: translateZ(1000px);
@@ -528,22 +532,22 @@ html.is-right-mobile {
   }
 
   // 设置子表格背景
-  .infinite-tr-children {
+  .vs-tr-children {
     background: transparent;
 
-    .infinite-c-shelter {
+    .vs-c-shelter {
       background: $bgColor;
       opacity: 1;
     }
   }
 
-  .infinite-label-c-table-c-td {
+  .vs-label-c-table-c-td {
     opacity: 0;
   }
 }
 
 // 查看更多
-.infinite-risk-table-more {
+.vs-risk-table-more {
   display: inline-block;
   // width: 2.133vw;
   // height: 2.133vw;
@@ -559,14 +563,14 @@ html.is-right-mobile {
   background-size: 100% 100%;
 }
 
-.infinite-risk-table-more.rotate45 {
+.vs-risk-table-more.vs-rotate45 {
   // transform: rotate(45deg);
   // margin: 0 0 0 1.333vw;
 
   margin-left: 1.333vw;
 }
 
-.infinite-table-more-box {
+.vs-table-more-box {
   padding: 5.333vw 0 5.333vw 0;
   color: $mainColor;
   margin-top: 2.4vw;
@@ -574,10 +578,10 @@ html.is-right-mobile {
   font-size: 3.733vw;
   line-height: 5.333vw;
 
-  .infinite-table-more-btn {
+  .vs-table-more-btn {
     @extend .flex-c-c;
 
-    .infinite-rotate-45 {
+    .vs-rotate-45 {
       // transform: rotate(-45deg);
       margin-left: 2.133vw;
       margin-top: 1.067vw;
@@ -589,12 +593,12 @@ html.is-right-mobile {
 
 // 查看更多
 // 没有查看更多时的底部高度
-.infinite-table-bottom-padding {
+.vs-table-bottom-padding {
   padding-bottom: 3.6vw;
 }
 
 // 滑动阴影
-.infinite-risk-hasShadow {
+.vs-risk-hasShadow {
   position: relative;
   &::before{
     content: '';
@@ -609,14 +613,14 @@ html.is-right-mobile {
   }
 }
 
-.infinite-p-td-text,.infinite-c-td-text {
+.vs-p-td-text,.vs-c-td-text {
   display: inline-block;
   text-align: center;
 }
 
 // 弹窗子表格
-.infinite-table {
-  .infinite-c-table-conform {
+.vs-table {
+  .vs-c-table-conform {
     // width: calc(100vw - 5.334vw);
     // border-radius: 2.667vw;
     // margin: 0 2.667vw;

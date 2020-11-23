@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`render popup 1`] = `
-<div class="infinite-popup">
-  <popup-stub overlay="true" closeonclickoverlay="true" zindex="100" lockscroll="true" lazyrender="true" duration="300" closeicon="cross" closeiconposition="top-right" position="center">内容</popup-stub>
-</div>
-`;
