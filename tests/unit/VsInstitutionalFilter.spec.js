@@ -2,7 +2,7 @@ import {
   shallowMount,
   mount
 } from '@vue/test-utils'
-import infiniteInstitutionalFilter from '../../packages/infinite-institutional-filter/src/index.vue'
+import infiniteInstitutionalFilter from '../../packages/vs-institutional-filter/src/index.vue'
 
 const later = (delay = 0) => {
   return new Promise((resolve) => {

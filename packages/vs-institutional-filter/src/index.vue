@@ -82,7 +82,7 @@
 
 <script>
 export default {
-  name: 'InfiniteInstitutionalFilter',
+  name: 'VsInstitutionalFilter',
   props: {
     // 机构树形结构
     columns: {

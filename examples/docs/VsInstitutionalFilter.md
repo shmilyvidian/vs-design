@@ -8,10 +8,10 @@
 
 ``` html
 
-  <infinite-institutional-filter
+  <vs-institutional-filter
     :columns="columns"
     v-model="showModle"
-  ></infinite-institutional-filter>
+  ></vs-institutional-filter>
 
 ```
 

@@ -4,7 +4,7 @@ import InfiniteEmpty from '../docs/InfiniteEmpty.md'
 import InfiniteHeaderNav from '../docs/InfiniteHeaderNav.md'
 import InfiniteDatetimePicker from '../docs/InfiniteDatetimePicker.md'
 import InfiniteTable from '../docs/InfiniteTable.md'
-import InfiniteInstitutionalFilter from '../docs/InfiniteInstitutionalFilter.md'
+import VsInstitutionalFilter from '../docs/VsInstitutionalFilter.md'
 
 import route from './mobileFrameRoute'
 
@@ -53,9 +53,9 @@ let routes = [
     }
   },
   {
-    path: '/guide/InfiniteInstitutionalFilter',
-    name: 'InfiniteInstitutionalFilter',
-    component: InfiniteInstitutionalFilter,
+    path: '/guide/VsInstitutionalFilter',
+    name: 'VsInstitutionalFilter',
+    component: VsInstitutionalFilter,
     meta: {
       type: 'component'
     }
