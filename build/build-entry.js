@@ -45,7 +45,8 @@ function buildPackagesEntry () {
     }
     export default {
       install,
-      version
+      version,
+      ${exportList.join(',\n  ')}
     }
   `
   fs.writeFileSync(path.join(__dirname, '../packages/index.js'), content)

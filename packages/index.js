@@ -31,15 +31,22 @@ import InfiniteTouchEmulator from './infinite-touch-emulator'
       install,
       version,
       InfiniteDatetimePicker,
-  InfiniteEmpty,
-  InfiniteHeaderNav,
-  InfiniteInstitutionalFilter,
-  InfiniteSectionCard,
-  InfiniteTable,
-  InfiniteTouchEmulator
+      InfiniteEmpty,
+      InfiniteHeaderNav,
+      InfiniteInstitutionalFilter,
+      InfiniteSectionCard,
+      InfiniteTable,
+      InfiniteTouchEmulator
     }
     export default {
       install,
-      version
+      version,
+      InfiniteDatetimePicker,
+      InfiniteEmpty,
+      InfiniteHeaderNav,
+      InfiniteInstitutionalFilter,
+      InfiniteSectionCard,
+      InfiniteTable,
+      InfiniteTouchEmulator
     }
   
