@@ -298,7 +298,7 @@ export default {
     },
     // 右边的图标-图片类名
     iconClass () {
-      const iconStr = 'icon-calendar'
+      const iconStr = 'vs-icon-calendar'
       const arr = ['just-show']
       if (arr.includes(this.type)) {
         return `${iconStr}`
@@ -311,7 +311,7 @@ export default {
     },
     // 右边的图标-类名
     // vanIconClass () {
-    //   const iconStr = 'icon-calendar'
+    //   const iconStr = 'vs-icon-calendar'
     //   const arr = ['just-show']
     //   if (arr.includes(this.type)) {
     //     return ''
