@@ -271,7 +271,7 @@
 :::demo  表格存在中文类型并居中
 ```html
   <el-row>  
-    <infinite-table 
+    <vs-table 
       :table-data="tableDataText"
     />
   </el-row>
@@ -394,7 +394,7 @@
 :::demo  表格title使用columns
 ```html
   <el-row>  
-    <infinite-table
+    <vs-table
       :table-data="tableDataObj"
       :is-default-number="isDefaultNumber"
       :max-unit-length-width="maxUnitLengthWidth"
