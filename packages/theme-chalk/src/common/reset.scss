@@ -117,10 +117,6 @@ a:hover {
 	text-decoration: none;
 }
 
-body {
-	background: #fff;
-}
-
 label {
 	cursor: pointer;
 }
@@ -133,17 +129,11 @@ select,
 keygen,
 legend {
 	font: Helvetica, Tahoma, Arial, "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
-	color: #313949;
 	outline: 0;
 }
 
 a {
-	color: #5494db;
 	text-decoration: none;
-}
-
-a:hover {
-	color: #67aaf5;
 }
 
 button {
