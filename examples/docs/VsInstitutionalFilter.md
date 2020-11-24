@@ -10,7 +10,7 @@
 
   <vs-institutional-filter
     :columns="columns"
-    v-model="showModle"
+    v-model="showModel"
   ></vs-institutional-filter>
 
 ```
@@ -22,7 +22,7 @@
 | 参数          | 说明                    | 类型      | 默认值 |
 | ------------- | ----------------------- | --------- | ------ |
 | columns       | 树形结构，参考[columns] | _Object_  | []     |
-| showModle     | 控制弹窗显示            | _Boolean_ | false  |
+| showModel     | 控制弹窗显示            | _Boolean_ | false  |
 | headerMap     | 表头内容自定义          | _Array_   | []     |
 | showSearch     | 是否显示搜索框          | _Boolean_   | true     |
 | showNameToHeader     | 是否将选中值显示在header          | _Boolean_   | true     |

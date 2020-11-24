@@ -7,7 +7,7 @@
       >机构筛选器</div>
       <vs-institutional-filter
         :columns="columns"
-        v-model="showModle"
+        v-model="showModel"
         :wrappperStyle="{color: '#fff'}"
         @onConfirm="onConfirm"
       ></vs-institutional-filter>
@@ -20,7 +20,7 @@ export default {
 
   data () {
     return {
-      showModle: true,
+      showModel: true,
       columns: {
         children: [
           {
@@ -122,7 +122,7 @@ export default {
   },
   methods: {
     show () {
-      this.showModle = true
+      this.showModel = true
     },
     onConfirm (val) {
       console.log(val)

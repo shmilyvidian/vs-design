@@ -46,16 +46,17 @@ const columns = {
   code: 'ALL'
 }
 
-test('filter confirm & cancel event', () => {
+test('filter confirm & cancel event', async () => {
   const wrapper = mount(infiniteInstitutionalFilter, {
     propsData: {
       columns: columns,
-      showModle: true,
+      showModel: true,
       headerMap: ['测试', '战区', '城市', '公司'],
       showNameToHeader: true,
       showSearch: true
     }
   })
+  await later(2000)
 
   // 触发点击事件
 
@@ -73,6 +74,7 @@ test('content item click',async () => {
   const wrapper = mount(infiniteInstitutionalFilter, {
     propsData: {
       columns: columns,
+      showNameToHeader: true
     }
   })
   
@@ -143,15 +145,29 @@ test('set wrappperStyle', async () => {
   expect(wrapper.find('.vs-institutional-filter').attributes().style).toBe('color: rgb(255, 255, 255); display: none;')
 });
 
+// 设置样式
+test('setProps showNameToHeader showSearch', async () => {
+  const wrapper = mount(infiniteInstitutionalFilter)
+  wrapper.setProps({
+    columns: columns,
+    showNameToHeader: true,
+    showSearch: true
+  })
+    expect(wrapper.vm.showNameToHeader).toBe(true)
+    expect(wrapper.vm.showSearch).toBe(true)
+});
+
 // 点击蒙层 隐藏弹窗
 test('set wrappperStyle', async () => {
   const wrapper = mount(infiniteInstitutionalFilter, {
     propsData: {
       columns: columns,
-      showModle: true
+      showModel: true
     }
   })
-  
+
+  await later(2000)
+  // console.log(wrapper.html())
   wrapper.find('.vs-institutional-filter-overlay').trigger('click')
   
   await later()

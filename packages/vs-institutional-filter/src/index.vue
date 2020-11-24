@@ -3,7 +3,7 @@
     <div
       class="vs-institutional-filter"
       :style="wrappperStyle"
-      v-show="showModle"
+      v-show="showModel"
     >
       <!-- 遮罩层 -->
       <div
@@ -49,12 +49,13 @@
             class="institutional-filter-content"
             :class="{'pt0':showSearch}"
           >
+            <!-- 目前缺少唯一标识符 在后台返回数据中 中文是唯一标识符 不可用 -->
             <div
               class="institutional-filter-content-item"
               v-for="(item,index) in showContentList"
               :key="index"
               @click="onSelectItem(item)"
-              :class="{'active':(selectedList[selectedIndex] && selectedList[selectedIndex].code) === item.code}"
+              :class="{'active':(selectedList[selectedIndex] && selectedList[selectedIndex].name) === item.name}"
             >
               {{item.name}}
             </div>
@@ -93,10 +94,12 @@ export default {
     columns: {
       type: Object,
       require: true,
-      default: () => []
+      default: () => {
+        return {}
+      }
     },
     // 控制弹窗显示
-    showModle: {
+    showModel: {
       type: Boolean,
       require: true,
       default: false
@@ -135,15 +138,8 @@ export default {
     // }
   },
   model: {
-    prop: 'showModle',
+    prop: 'showModel',
     event: 'changeShowModle'
-  },
-  computed: {
-    privateWrappperStyle () {
-      return {
-        ...this.wrappperStyle
-      }
-    }
   },
   watch: {
     // 列表完整数据
@@ -196,9 +192,8 @@ export default {
   methods: {
     // 是否提示滚动icon
     isScroll () {
-      const contentHeight = document.querySelector('.institutional-filter-content').offsetHeight
-      const wrapperHeight = document.querySelector('.institutional-filter-content-wrapper').offsetHeight
-      console.log(contentHeight, wrapperHeight)
+      const contentHeight = document.querySelector('.institutional-filter-content') && document.querySelector('.institutional-filter-content').offsetHeight
+      const wrapperHeight = document.querySelector('.institutional-filter-content-wrapper') && document.querySelector('.institutional-filter-content-wrapper').offsetHeight
       if (contentHeight > wrapperHeight) {
         this.showTip = true
       } else {
