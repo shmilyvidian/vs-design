@@ -17,11 +17,6 @@
       return {
       }
     },
-    methods: {
-      handleClick(val) {
-        console.log("clicked parent loading", val);
-      }
-    }
   }
 </script>
 ```
@@ -49,11 +44,6 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
       return {
       }
     },
-    methods: {
-      handleClick(val) {
-        console.log("clicked parent loading", val);
-      }
-    }
   }
 </script>
 ```
@@ -84,11 +74,6 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
       return {
       }
     },
-    methods: {
-      handleClick(val) {
-        console.log("clicked parent loading", val);
-      }
-    }
   }
 </script>
 ```
@@ -109,6 +94,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
     imageType="noUpdate"
     imageSize="100px"
     description="通过description自定义文案"
+    :insertStyle="insertStyle"
   >
    <p>自定义内容</p>
   </vs-empty>
@@ -117,13 +103,19 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
   export default {
     data() {
       return {
+        insertStyle: {
+          container:{
+            background: '#212227',
+            paddingTop: '16px'
+          },
+          description: {
+            fontSize: '18px',
+            color: '#19eff1',
+            paddingTop: '10px'
+          }
+        }
       }
     },
-    methods: {
-      handleClick(val) {
-        console.log("clicked parent loading", val);
-      }
-    }
   }
 </script>
 ```
