@@ -310,6 +310,7 @@ export default {
   },
 
   mounted () {
+    this.isExpanded = true
     this.$nextTick(() => {
       let highlight = this.$el.getElementsByClassName('highlight')[0]
       if (this.$el.getElementsByClassName('description').length === 0) {
