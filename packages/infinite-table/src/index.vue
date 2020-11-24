@@ -9,7 +9,7 @@
         :style="{top:'calc('+(arrowsTop/2)+'px)'}"
       >
         <!-- <img :src="require('images/swipe-arrow-right.png')" alt="" class="vs-table-icon-png"> -->
-        <img src="../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="vs-table-icon-png">
+        <img :src="swipeArrowRight" alt="" class="vs-table-icon-png">
       </div>
       <div 
         class="vs-table-content"
@@ -99,7 +99,7 @@
   </div>
 </template>
 <script>
-
+import swipeArrowRight from '../../theme-chalk/src/imgs/swipe-arrow-right.png'
 import CardHeaderTable from './common/CardHeaderTable'
 import CardContainerTable from './common/CardContainerTable'
 import CardFixedTable from './common/CardFixedTable'
@@ -164,6 +164,7 @@ export default {
   },
   data () {
     return {
+      swipeArrowRight,
       popupShow: false, // 表格弹窗开关
       nearViewTableData: [], // 处理中的视图数据
       viewTableData: [], // 真实视图数据
