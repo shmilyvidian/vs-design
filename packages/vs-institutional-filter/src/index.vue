@@ -44,11 +44,11 @@
         </div>
         <!-- end of 搜索框 -->
         <!-- 筛选器内容 -->
-        <div class="institutional-filter-content-wrapper">
-          <div
-            class="institutional-filter-content"
-            :class="{'pt0':showSearch}"
-          >
+        <div
+          class="institutional-filter-content-wrapper"
+          :class="{'pt0':showSearch}"
+        >
+          <div class="institutional-filter-content">
             <!-- 目前缺少唯一标识符 在后台返回数据中 中文是唯一标识符 不可用 -->
             <div
               class="institutional-filter-content-item"
@@ -147,9 +147,12 @@ export default {
       handler (val, oldVal) {
         // console.log(val)
         // 默认放入参数中
-        this.showContentList = val.children
-        this.originContentList = val.children
-
+        if (val.children && val.children.length) {
+          this.showContentList = val.children
+          this.originContentList = val.children
+          // 设置到默认头部
+          this.privateHeaderMap[this.selectedIndex].children = val.children
+        }
       },
       immediate: true // true 深度监听
     },
@@ -180,7 +183,11 @@ export default {
       showContentList: [], // 当前显示内容
       selectedList: [], // 已选内容
       selectedIndex: 0, // 当前选中层级
-      privateHeaderMap: [], // 重组头部
+      privateHeaderMap: [{
+        children: [],
+        selectedName: '',
+        name: ''
+      }], // 重组头部
       inputValue: '', // 搜索框参数
       originContentList: [], // 搜索之前数据 
       showTip: false // 提示滚动条
@@ -202,10 +209,10 @@ export default {
     },
     // 点击内容选中参数
     onSelectItem (item) {
-      // console.log(item)
+      // 清除下标之后的选中参数 避免返回过多
+      this.selectedList.splice(this.selectedIndex, this.selectedList.length)
       // 将点击参数放入对应位置
       this.$set(this.selectedList, this.selectedIndex, item)
-
       // 设置选中值到header
       if (this.showNameToHeader) {
         this.privateHeaderMap[this.selectedIndex].selectedName = item.name
@@ -267,6 +274,7 @@ export default {
       // if(!this.selectedList.length){
       //   return
       // }
+
       this.$emit('onConfirm', this.selectedList)
       this.$emit('changeShowModle', false)
     },
