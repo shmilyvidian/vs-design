@@ -30,7 +30,7 @@
       <infinite-header-nav :useVantIcon="false">
         <div slot="leftItem">
           <img class="arrow-icon" :src="require('../../packages/theme-chalk/src/imgs/arrow.png')" alt="arrow-icon">
-          <span>返回</span>
+          <span class="left-text">返回</span>
         </div>
         <div slot="centerItem">
           {{headerTitle}}
@@ -81,5 +81,9 @@ export default {
     width: 20px;
     height: 20px;
     vertical-align: bottom;
+  }
+  .left-text { 
+    position: relative;
+    top: -2px;
   }
 </style>

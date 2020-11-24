@@ -8,7 +8,7 @@
             v-show="isScroll && scrollIcon"
             :style="{top:'calc('+(arrowsTop/2)+'px)'}"
           >
-          <img src="../../../theme-chalk/src/imgs/swipe-arrow-right.png" alt="" class="vs-table-icon-png">
+          <img :src="arrowRight" alt="" class="vs-table-icon-png">
             <!-- <img :src="require('../svg/arrow-right.svg')" alt="" class="vs-table-icon-png"> -->
           </div>
           <div 
@@ -207,11 +207,12 @@
   </div>
 </template>
 <script>
-
+import arrowRight from '../../../theme-chalk/src/imgs/swipe-arrow-right.png'
 export default {
   name: 'CardChildTable',
   data () {
     return {
+      arrowRight,
       sortKey: '', // 当前排序的列key
       sortOrders: {}, // 值为{name: 1/-1, power: 1/-1}, 控制正反排序
       widths: {}, // 所有列宽度

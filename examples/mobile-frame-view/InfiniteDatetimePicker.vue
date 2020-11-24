@@ -36,10 +36,7 @@ export default {
           itemProp: {
             pickerRadius: '5px',
             startTime: '20190123',
-            endTime: '20201103',
-            diviedTag: '-',
-            showCalendar: false,
-            type: 'just-show'
+            endTime: '20201103'
           }
         },
         {
@@ -149,6 +146,16 @@ export default {
           }
         },
         {
+          title: '不规则日期类型',
+          currentDate: '20200605',
+          confirmMethod: 'confirm',
+          itemProp: {
+            pickerRadius: '5px',
+            showCalendar: false,
+            validDate: ['2020/06/05', '2020/06/06', '2020/07/06', '2020/08/09', '2020/08/11', '2020/08/12']
+          }
+        },
+        {
           title: '仅展示类型',
           currentDate: '20200605',
           itemProp: {
@@ -156,6 +163,17 @@ export default {
             type: 'just-show',
             startTime: '20190123',
             endTime: '20201103'
+          }
+        },
+        {
+          title: '间隔符为-',
+          currentDate: '20200605',
+          itemProp: {
+            pickerRadius: '5px',
+            type: 'just-show',
+            startTime: '20190123',
+            endTime: '20201103',
+            diviedTag: '-'
           }
         }
       ]

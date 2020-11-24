@@ -265,6 +265,84 @@
 ```
 :::
 
+### 不规则日期类型
+:::demo 默认为date类型，获得日期格式为yyyyMMdd。
+```html
+    <el-row>
+        <infinite-datetime-picker
+            v-model="currentDate"
+            :type="dateType"
+            :valid-date="validDate"
+            :picker-radius="pickerRadius"
+            @confirm="confirm"
+        />
+    </el-row>
+    <script>
+    export default {
+        methods: {
+          confirm(currentDate) {
+            console.log('currentDate == ', currentDate);
+          }
+        },
+        data() {
+            return {
+                currentDate: '20200607',
+                validDate: ['2020/06/05', '2020/06/06', '2020/07/06', '2020/08/09', '2020/08/11', '2020/08/12'],
+                pickerRadius: '5px',
+            };
+        },
+    };
+    </script>
+```
+:::
+
+### 仅展示类型
+:::demo  默认为date类型。
+```html
+    <infinite-datetime-picker
+        v-model="currentDate"
+        :start-time="dataStartTime"
+        :end-time="dataEndTime"
+    />
+    <script>
+        export default {
+            data() {
+                return {
+                    currentDate: '20200605',
+                    type: 'just-show',
+                    dataStartTime: '20190123',
+                    dataEndTime: '20201103',
+                };
+            },
+        };
+    </script>
+```
+:::
+
+### 间隔符为-
+:::demo  默认为date类型。
+```html
+    <infinite-datetime-picker
+        v-model="currentDate"
+        :start-time="dataStartTime"
+        :end-time="dataEndTime"
+    />
+    <script>
+        export default {
+            data() {
+                return {
+                    currentDate: '20200605',
+                    type: 'just-show',
+                    dataStartTime: '20190123',
+                    dataEndTime: '20201103',
+                    diviedTag: '-',
+                };
+            },
+        };
+    </script>
+```
+:::
+
 ## API
 | 参数            | 说明                           | 类型        | 默认值 |
 | --------------- | ------------------------------ | ---------- | ------ |
@@ -284,6 +362,7 @@
 | validDate          |  周期-连续类型week-segment可选时间区间   | _array_     | []         |
 | cancelButtonText   |  取消按钮文字                           | _string_    | 取消       |
 | confirmButtonText  |  确认按钮文字                           | _string_    | 确认       |
+| diviedTag          |  显示时间间隔符                         | _string_    | .          |
 
 ###
 当时间选择器类型为 `date`、`year-month`、`month-day`、`year`、`month`、`quarterly` 时，支持以下 props:

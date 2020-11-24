@@ -1,2 +1,11 @@
 @import './demo.scss';
 @import './view.scss';
+body,
+textarea,
+input,
+button,
+select,
+keygen,
+legend {
+    font: 14px/1.42858 Helvetica, Tahoma, Arial, "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+};

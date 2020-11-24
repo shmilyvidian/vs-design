@@ -282,7 +282,6 @@ export default {
     icon () {
       // const iconStr = 'icon micofont'
       // const iconStr = ''
-      console.log('icon == ', this.type, this.useDefaultIcon)
       const arr = ['just-show']
       if (arr.includes(this.type)) {
         return ''
@@ -298,7 +297,7 @@ export default {
     },
     // 右边的图标-图片类名
     iconClass () {
-      const iconStr = 'icon-calendar'
+      const iconStr = 'vs-icon-calendar'
       const arr = ['just-show']
       if (arr.includes(this.type)) {
         return `${iconStr}`
@@ -311,7 +310,7 @@ export default {
     },
     // 右边的图标-类名
     // vanIconClass () {
-    //   const iconStr = 'icon-calendar'
+    //   const iconStr = 'vs-icon-calendar'
     //   const arr = ['just-show']
     //   if (arr.includes(this.type)) {
     //     return ''
@@ -344,7 +343,8 @@ export default {
         return []
       }
       const arr = this.validDate
-      return arr.sort((a, b) => a - b)
+      const brr = arr.sort((a, b) => a.replace(/[^0-9]/ig, '') - b.replace(/[^0-9]/ig, ''))
+      return brr
     },
     // 外部传入的时间选择器的起始时间minDate
     minDate () {
@@ -676,6 +676,7 @@ export default {
     },
     // 选项发生改变事件
     pickerChange (ref, value, index) {
+      // console.log('value, index == ', ref, value, index)
       const { picker } = this.$refs // datePicker时为undefined
       if (picker) { // picker组件选项发生改变
 
@@ -689,24 +690,50 @@ export default {
           const arr = this.timeSelectableInterval
           arr.reverse() // 方便选中最后一个
           arr.forEach((item, index) => {
-            if (Number(item.substr(0, 4)) === Number(myCurrentDateStr.substr(0, 4))) {
-              a = Number(item.substr(0, 4))
+            const itemTrim = item.replace(/[^0-9]/ig, '')
+            // console.log('itemTrim, myCurrentDateStr == ', itemTrim, myCurrentDateStr)
+            if (Number(itemTrim.substr(0, 4)) === Number(myCurrentDateStr.substr(0, 4))) {
+              a = Number(itemTrim.substr(0, 4))
               // 没选(选中最后一个)，当匹配上时二次修改，如匹配不上，则选中的是最后一个
-              if (!b || Number(item.substr(0, 6)) === Number(myCurrentDateStr.substr(0, 6))) {
-                b = Number(item.substr(4, 2))
-                if (!c || Number(item.substr(0, 8)) === Number(myCurrentDateStr.substr(0, 8))) {
-                  c = Number(item.substr(6, 2))
+              if (!b || Number(itemTrim.substr(0, 6)) === Number(myCurrentDateStr.substr(0, 6))) {
+                b = Number(itemTrim.substr(4, 2))
+
+                // if (!c) {
+                // console.log('b == ', b, arr)
+                arr.some((yItem, yIndex) => {
+                  // console.log('!c = ', yItem.replace(/[^0-9]/ig, '').substr(6, 2), itemTrim.substr(6, 2))
+                  const x = yItem.replace(/[^0-9]/ig, '').substr(0, 6)
+                  const y = itemTrim.substr(0, 6)
+                  // console.log('x, y == ', x, y)
+                  if (x === y) {
+                    c = Number(yItem.replace(/[^0-9]/ig, '').substr(6, 2))
+                    return true
+                  }
+                  return false
+                })
+                // }
+                //  else {
+                //   if (Number(itemTrim.substr(0, 6)) === Number(myCurrentDateStr.substr(0, 6))) {
+                //     c = Number(itemTrim.substr(6, 2))
+                //   }
+                // }
+                
+                if (Number(itemTrim.substr(0, 8)) === Number(myCurrentDateStr.substr(0, 8))) {
+                  c = Number(itemTrim.substr(6, 2))
                 }
+                // console.log('c == ', c)
               }
             }
           })
+          // console.log('a, b, c == ', a, b, c)
+          arr.reverse() // 转换回来
           // 可选时间区间不连续情况下因为change事件只改变一个列的选项，所有需要重置v-model的值以免选中缺失值
           this.$nextTick(() => {
             // 理论上年月日齐全，这时a,b,c要么跟myCurrentDate保持一致，要么前面一致的情况下后面不存在，则必须修改后面的时间值以保持一致
             if (a && b && c) {
               this.myCurrentDate = new Date(`${a}/${b}/${c}`)
             } else {
-              const str = this.timeSelectableInterval[this.timeSelectableInterval.length - 1]
+              const str = this.timeSelectableInterval[this.timeSelectableInterval.length - 1].replace(/[^0-9]/ig, '')
               this.myCurrentDate = new Date(`${str.substr(0, 4)}/${str.substr(4, 2)}/${str.substr(6, 2)}`)
             }
           })
@@ -737,14 +764,19 @@ export default {
       if (Array.isArray(this.validDate) && this.validDate.length) {
         const myCurrentDateStr = this.format(this.myCurrentDate.getTime(), this.formatStr)
         switch (type) {
-          case 'year':
-
-            break
           case 'month':
-            arr = options.filter((opItem, opIndex) => this.timeSelectableInterval.some((someItme, someIndex) => `${myCurrentDateStr.substr(0, 4)}${opItem}` === `${someItme.substr(0, 6)}`))
+            arr = options.filter((opItem, opIndex) => {
+              return this.timeSelectableInterval.some((someItme, someIndex) => {
+                return `${myCurrentDateStr.substr(0, 4)}${opItem}` === `${someItme.replace(/[^0-9]/ig, '').substr(0, 6)}`
+              })
+            })
             break
           case 'day':
-            arr = options.filter((opItem, opIndex) => this.timeSelectableInterval.some((someItme, someIndex) => `${myCurrentDateStr.substr(0, 6)}${opItem}` === `${someItme.substr(0, 8)}`))
+            arr = options.filter((opItem, opIndex) => {
+              return this.timeSelectableInterval.some((someItme, someIndex) => {
+                return `${myCurrentDateStr.substr(0, 6)}${opItem}` === `${someItme.replace(/[^0-9]/ig, '').substr(0, 8)}`
+              })
+            })
             break
           default:
             break
@@ -755,9 +787,6 @@ export default {
       }
       return arr
     }
-  },
-  mounted () {
-
   }
 }
 </script>

@@ -187,6 +187,40 @@ describe('InfiniteDatetimePicker.vue', () => {
     
     wrapper.destroy()
   })
+  
+  it('change currentDate to is quarterly after confirm value', async () => {
+    const wrapperQuarterly = mount(InfiniteDatetimePicker)
+    const currentDate = '2020/05'
+    const startTime = '2020/01'
+    const endTime = '2020/11'
+    const type = 'quarterly'
+    await wrapperQuarterly.setProps({ currentDate, startTime, endTime, type })
+    await wrapperQuarterly.find('.vs-datetime-picker-title').trigger('click')
+    const columnLen = wrapperQuarterly.findAll('.van-picker-column').length
+    for (let colI = 0; colI < columnLen; colI += 1) {
+      const colItem = wrapperQuarterly.findAll('.van-picker-column').at(colI).findAll('.van-picker-column__item')
+      const colItemLen = colItem.length - 1
+      colItem.at(colItemLen).trigger('click')
+    }
+    await wrapperQuarterly.find('.van-picker__confirm').trigger('click')
+    expect(wrapperQuarterly.vm.$data.myCurrentDate).toEqual((new Date('2020/11/31')))
+    wrapperQuarterly.destroy()
+  })
+
+  it('change currentDate to is validDate after confirm value', async () => {
+    const wrapperValidDate = mount(InfiniteDatetimePicker)
+    const currentDate = '2020/06/05'
+    const validDate = ['2020/06/05', '2020/06/06', '2020/07/06', '2020/08/09', '2020/08/11', '2020/08/12']
+    await wrapperValidDate.setProps({ currentDate, validDate })
+    await wrapperValidDate.find('.vs-datetime-picker-title').trigger('click')
+    const colItem0 = wrapperValidDate.findAll('.van-picker-column').at(0).findAll('.van-picker-column__item')
+    await colItem0.at(colItem0.length - 1).trigger('click')
+    const colItem1 = wrapperValidDate.findAll('.van-picker-column').at(1).findAll('.van-picker-column__item')
+    await colItem1.at(colItem1.length - 1).trigger('click')
+    await wrapperValidDate.find('.van-picker__confirm').trigger('click')
+    expect(wrapperValidDate.vm.$data.myCurrentDate).toEqual((new Date('2020/08/12')))
+    // wrapperValidDate.destroy()
+  })
 
   it('cancel or click-overlay event', async () => {
     const startTime0 = '2020/01/06'

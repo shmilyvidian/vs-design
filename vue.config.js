@@ -58,6 +58,13 @@ module.exports = {
       .end()
       .use('./build/md-loader/index.js')
       .loader('./build/md-loader/index.js')
+
+    config.module
+      .rule('images')
+      .test(/\.(png|jpe?g|gif|webp)(\?.*)?$/)
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options => Object.assign(options, { limit: 500000, esModule: false }))
   },
   devServer: {
     overlay: {
