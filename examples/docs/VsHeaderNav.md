@@ -36,15 +36,15 @@
 
 ```html
 <el-row>  
-  <vs-header-nav class="header-nav" @goBack="goBackClick">
+  <vs-header-nav class="header-nav">
     <div slot="leftItem">
       返回
     </div>
     <div slot="centerItem">
-      {{headerTitle}}
+      标题
     </div>
     <div slot="rightItem">
-      提交
+      下载
     </div>
   </vs-header-nav>
 </el-row>
@@ -52,15 +52,8 @@
   export default {
     data() {
       return {
-        headerTitle: '中间文字'
       }
     },
-    methods: {
-      goBackClick(val) {
-        console.log("clicked parent loading", val);
-        this.headerTitle = val ? val.name : '中间文字'
-      }
-    }
   }
 </script>
 ```
@@ -119,7 +112,7 @@
       返回
     </div>
     <div slot="centerItem">
-      {{headerTitle}}
+      标题
     </div>
     <div slot="rightItem">
       提交
@@ -130,14 +123,12 @@
   export default {
     data() {
       return {
-        headerTitle: '中间文字',
         showBackIcon: false
       }
     },
     methods: {
       goBackClick(val) {
         console.log("clicked parent loading", val);
-        this.headerTitle = val ? val.name : '中间文字'
       }
     }
   }
@@ -159,13 +150,13 @@
     :insertStyle="insertStyle"
     @goBack="goBackClick">
     <div slot="leftItem">
-      左文字
+      返回
     </div>
     <div slot="centerItem">
-      中间文字
+      标题
     </div>
     <div slot="rightItem">
-      右文字
+      提交
     </div>
   </vs-header-nav>
 </el-row>

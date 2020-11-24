@@ -16,7 +16,7 @@
   </header>
 </template>
 <script>
-import VanIcon from 'vant/lib/icon'
+import VanIcon from 'vant/es/icon'
 
 export default {
   name: 'VsHeaderNav',
@@ -69,7 +69,7 @@ export default {
     goBack () {
       console.log('child goBack')
       this.showBackIcon && this.$emit('goBack')
-    }
+    },
   },
   mounted () {
   }

@@ -53,9 +53,6 @@ export default {
       }
     }
   },
-  methods: {
-    
-  },
   computed: {
     isInstallation () {
       const currRoutePath = this.$route.path
