@@ -25,12 +25,14 @@
     justify-content: space-between;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.8);
+    transform: translateZ(1100px);
     
     .vs-datetime-picker-title-left {
       font-size: 14px;
       font-weight: 400;
       margin-left: 12px;
       color: rgba(255, 255, 255, 0.8);
+      transform: translateZ(1100px);
     }
 
     .vs-datetime-picker-title-right {
@@ -168,28 +170,33 @@
 
     /deep/ .van-picker {
       background: #212228;
+      transform: translateZ(1100px);
       
       .van-picker__toolbar {
         height: 50px;
         line-height: 50px;
         background: #212228;
+        transform: translateZ(1100px);
   
         .van-picker__cancel {
           padding: 0 14px;
           font-size: 16px;
           color: #fff;
+          transform: translateZ(1100px);
         }
   
         .van-picker__confirm {
           padding: 0 14px;
           font-size: 16px;
           color: #69a4ff;
+          transform: translateZ(1100px);
         }
       }
     }
 
     /deep/ .van-picker__columns {
       background: #2e3036;
+      transform: translateZ(1100px);
 
       .van-picker-column {
         .van-picker-column__wrapper {
@@ -201,6 +208,7 @@
             &.van-picker-column__item--selected {
               font-size: 17px;
               color: #fff;
+              transform: translateZ(1100px);
             }
           }
         }
