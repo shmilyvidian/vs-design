@@ -1,7 +1,7 @@
-import infiniteTable from './src/index'
+import VsTable from './src/index'
 
 // 为组件提供 install 安装方法，供按需引入
-infiniteTable.install = function (Vue) {
-  Vue.component(infiniteTable.name, infiniteTable)
+VsTable.install = function (Vue) {
+  Vue.component(VsTable.name, VsTable)
 }
-export default infiniteTable
+export default VsTable

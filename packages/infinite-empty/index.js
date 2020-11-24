@@ -1,7 +1,7 @@
-import InfiniteEmpty from './src/index'
+import VsEmpty from './src/index'
 
 // 为组件提供 install 安装方法，供按需引入
-InfiniteEmpty.install = function (Vue) {
-  Vue.component(InfiniteEmpty.name, InfiniteEmpty)
+VsEmpty.install = function (Vue) {
+  Vue.component(VsEmpty.name, VsEmpty)
 }
-export default InfiniteEmpty
+export default VsEmpty

@@ -9,8 +9,7 @@
 
 ```html
 <el-row>  
-  <infinite-empty>
-  </infinite-empty>
+  <vs-empty/>
 </el-row>
 <script>
   export default {
@@ -38,12 +37,11 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 
 ```html
 <el-row>  
-  <infinite-empty
+  <vs-empty
     imageType="noData"
     imageSize="100px"
     description="noData图片类型"
-  >
-  </infinite-empty>
+  />
 </el-row>
 <script>
   export default {
@@ -72,13 +70,13 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 
 ```html
 <el-row>  
-  <infinite-empty
+  <vs-empty
     imageType="noUpdate"
     imageSize="100px"
     description="通过description自定义文案"
   >
    <p>自定义内容</p>
-  </infinite-empty>
+  </vs-empty>
 </el-row>
 <script>
   export default {
@@ -107,13 +105,13 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 
 ```html
 <el-row>  
-  <infinite-empty
+  <vs-empty
     imageType="noUpdate"
     imageSize="100px"
     description="通过description自定义文案"
   >
    <p>自定义内容</p>
-  </infinite-empty>
+  </vs-empty>
 </el-row>
 <script>
   export default {
@@ -138,7 +136,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| imageType | 图片类型，可选值为 error network search，支持传入图片 URL | _string_ | default |
-| imageSize | 图片大小，默认单位为 px | _string/number_ | - |
+| imageType | 图片类型，可选值为 noData, noMessage, noFinish, noTask, noNetwork, noUpdate，支持传入图片 URL | _string_ | noData |
+| imageSize | 图片大小，默认单位为 px | _string/number_ | 138px |
 | description | 图片下方的描述文字 | _string_ | - |
 | insertStyle | 动态传入容器样式 | _object_ | - |

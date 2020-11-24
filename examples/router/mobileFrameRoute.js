@@ -1,12 +1,14 @@
 // 手机模拟器内 组件路由
-import MobileDatetimePicker from '../mobile-frame-view/InfiniteDatetimePicker.vue'
-import MobileHeaderNav from '../mobile-frame-view/InfiniteHeaderNav.vue'
-import MobileEmpty from '../mobile-frame-view/InfiniteEmpty.vue'
-import MobileTable from '../mobile-frame-view/InfiniteTable.vue'
-import VsInstitutionalFilter from '../mobile-frame-view/VsInstitutionalFilter.vue'
+import { componentName } from "examples/constants";
+import MobileDatetimePicker from '../mobile-frame-view/VsDatetimePicker.vue'
+import MobileHeaderNav from '../mobile-frame-view/VsHeaderNav.vue'
+import MobileEmpty from '../mobile-frame-view/VsEmpty.vue'
+import MobileTable from '../mobile-frame-view/VsTable.vue'
+import MobileInstitutionalFilter from '../mobile-frame-view/VsInstitutionalFilter.vue'
 
+console.log('componentName', componentName);
 const routes = [{
-  path: '/mobile/InfiniteDatetimePicker',
+  path: `/mobile/${componentName}DatetimePicker`,
   name: 'MobileDatetimePicker',
   meta: {
     mobile: true
@@ -14,7 +16,7 @@ const routes = [{
   component: MobileDatetimePicker
 },
 {
-  path: '/mobile/InfiniteHeaderNav',
+  path: `/mobile/${componentName}HeaderNav`,
   name: 'MobileHeaderNav',
   meta: {
     mobile: true
@@ -22,7 +24,7 @@ const routes = [{
   component: MobileHeaderNav
 },
 {
-  path: '/mobile/InfiniteEmpty',
+  path: `/mobile/${componentName}Empty`,
   name: 'MobileEmpty',
   meta: {
     mobile: true
@@ -30,7 +32,7 @@ const routes = [{
   component: MobileEmpty
 },
 {
-  path: '/mobile/InfiniteTable',
+  path: `/mobile/${componentName}Table`,
   name: 'MobileTable',
   meta: {
     mobile: true
@@ -38,12 +40,12 @@ const routes = [{
   component: MobileTable
 },
 {
-  path: '/mobile/VsInstitutionalFilter',
-  name: 'MobileTable',
+  path: `/mobile/${componentName}InstitutionalFilter`,
+  name: 'MobileInstitutionalFilter',
   meta: {
     mobile: true
   },
-  component: VsInstitutionalFilter
+  component: MobileInstitutionalFilter
 }
 ]
 export default routes

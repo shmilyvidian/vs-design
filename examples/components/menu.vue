@@ -12,7 +12,7 @@
           <span>开发指南</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/guide/InfiniteInstallation">安装 Install</el-menu-item>
+          <el-menu-item :index="`/guide/${componentName}Installation`">安装 Install</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="2">
@@ -20,11 +20,11 @@
           <span>通用模块</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/guide/InfiniteEmpty">空数据 Empty</el-menu-item>
-          <el-menu-item index="/guide/InfiniteHeaderNav">头部导航 HeaderNav</el-menu-item>
-          <el-menu-item index="/guide/InfiniteDatetimePicker">时间选择器 DatetimePicker</el-menu-item>
-          <el-menu-item index="/guide/InfiniteTable">表格 Table</el-menu-item>
-          <el-menu-item index="/guide/VsInstitutionalFilter">机构筛选器 Institutional</el-menu-item>
+          <el-menu-item :index="`/guide/${componentName}Empty`">空数据 Empty</el-menu-item>
+          <el-menu-item :index="`/guide/${componentName}HeaderNav`">头部导航 HeaderNav</el-menu-item>
+          <el-menu-item :index="`/guide/${componentName}DatetimePicker`">时间选择器 DatetimePicker</el-menu-item>
+          <el-menu-item :index="`/guide/${componentName}Table`">表格 Table</el-menu-item>
+          <el-menu-item :index="`/guide/${componentName}InstitutionalFilter`">机构筛选器 Institutional</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
@@ -32,10 +32,12 @@
 </template>
 
 <script>
-const installationPath = '/guide/InfiniteInstallation'
+import { componentName } from "examples/constants";
+const installationPath = `/guide/${componentName}Installation`
 export default {
   data () {
     return {
+      componentName,
       defaultActive: installationPath,
       mainMenuData: [
         {

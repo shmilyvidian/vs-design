@@ -109,7 +109,7 @@ import { cardTableWatch, cardTableComputed } from './js/index'
 import Popup from 'vant/lib/popup'
 
 export default {
-  name: 'InfiniteTable',
+  name: 'VsTable',
   components: {
     CardHeaderTable,
     CardContainerTable,

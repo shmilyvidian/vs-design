@@ -1,7 +1,7 @@
-import InfiniteDatetimePicker from './src/index'
+import VsDatetimePicker from './src/index'
 
 // 为组件提供 install 安装方法，供按需引入
-InfiniteDatetimePicker.install = function (Vue) {
-  Vue.component(InfiniteDatetimePicker.name, InfiniteDatetimePicker)
+VsDatetimePicker.install = function (Vue) {
+  Vue.component(VsDatetimePicker.name, VsDatetimePicker)
 }
-export default InfiniteDatetimePicker
+export default VsDatetimePicker

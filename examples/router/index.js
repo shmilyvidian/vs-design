@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import InfiniteInstallation from '../docs/InfiniteInstallation.md'
-import InfiniteEmpty from '../docs/InfiniteEmpty.md'
-import InfiniteHeaderNav from '../docs/InfiniteHeaderNav.md'
-import InfiniteDatetimePicker from '../docs/InfiniteDatetimePicker.md'
-import InfiniteTable from '../docs/InfiniteTable.md'
+import { componentName } from "examples/constants";
+import VsInstallation from '../docs/VsInstallation.md'
+import VsEmpty from '../docs/VsEmpty.md'
+import VsHeaderNav from '../docs/VsHeaderNav.md'
+import VsDatetimePicker from '../docs/VsDatetimePicker.md'
+import VsTable from '../docs/VsTable.md'
 import VsInstitutionalFilter from '../docs/VsInstitutionalFilter.md'
 
 import route from './mobileFrameRoute'
@@ -12,49 +13,49 @@ import VueRouter from 'vue-router'
 let routes = [
   {
     path: '/',
-    component: InfiniteInstallation,
+    component: VsInstallation,
     name: 'default'
   },
   {
-    path: '/guide/InfiniteInstallation',
+    path: `/guide/${componentName}Installation`,
     name: 'Installation',
-    component: InfiniteInstallation
+    component: VsInstallation
   },
   {
-    path: '/guide/InfiniteEmpty',
-    name: 'InfiniteEmpty',
-    component: InfiniteEmpty,
+    path: `/guide/${componentName}Empty`,
+    name: `${componentName}Empty`,
+    component: VsEmpty,
     meta: {
       type: 'component'
     }
   },
   {
-    path: '/guide/InfiniteHeaderNav',
-    name: 'InfiniteHeaderNav',
-    component: InfiniteHeaderNav,
+    path: `/guide/${componentName}HeaderNav`,
+    name: `${componentName}HeaderNav`,
+    component: VsHeaderNav,
     meta: {
       type: 'component'
     }
   },
   {
-    path: '/guide/InfiniteDatetimePicker',
-    name: 'InfiniteDatetimePicker',
-    component: InfiniteDatetimePicker,
+    path: `/guide/${componentName}DatetimePicker`,
+    name: `${componentName}DatetimePicker`,
+    component: VsDatetimePicker,
     meta: {
       type: 'component'
     }
   },
   {
-    path: '/guide/InfiniteTable',
-    name: 'InfiniteTable',
-    component: InfiniteTable,
+    path: `/guide/${componentName}Table`,
+    name: `${componentName}Table`,
+    component: VsTable,
     meta: {
       type: 'component'
     }
   },
   {
-    path: '/guide/VsInstitutionalFilter',
-    name: 'VsInstitutionalFilter',
+    path: `/guide/${componentName}InstitutionalFilter`,
+    name: `${componentName}InstitutionalFilter`,
     component: VsInstitutionalFilter,
     meta: {
       type: 'component'

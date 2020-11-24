@@ -5,7 +5,7 @@
 ### 基础用法
 :::demo  默认为date类型，获得日期格式为yyyyMMdd。
 ```html
-    <infinite-datetime-picker
+    <vs-datetime-picker
         v-model="currentDate"
         :start-time="dataStartTime"
         :end-time="dataEndTime"
@@ -27,7 +27,7 @@
 ### 取消时保留选中值
 :::demo  默认为date类型，获得日期格式为yyyyMMdd。
 ```html
-    <infinite-datetime-picker
+    <vs-datetime-picker
         v-model="currentDate"
         :start-time="dataStartTime"
         :end-time="dataEndTime"
@@ -51,7 +51,7 @@
 ### 图标类型
 :::demo  默认为date类型，获得日期格式为yyyyMMdd，图标为三角箭头。
 ```html
-    <infinite-datetime-picker
+    <vs-datetime-picker
         v-model="currentDate"
         :start-time="dataStartTime"
         :end-time="dataEndTime"
@@ -76,7 +76,7 @@
 :::demo  获得日期格式为yyyyMM。
 ```html
     <el-row>
-        <infinite-datetime-picker
+        <vs-datetime-picker
             v-model="currentDate"
             :type="dateType"
             :start-time="dataStartTime"
@@ -102,7 +102,7 @@
 :::demo 获得日期格式为MMdd。
 ```html
     <el-row>
-        <infinite-datetime-picker
+        <vs-datetime-picker
             v-model="currentDate"
             :type="dateType"
             :start-time="dataStartTime"
@@ -128,7 +128,7 @@
 :::demo 获得日期格式为yyyy。
 ```html
     <el-row>
-        <infinite-datetime-picker
+        <vs-datetime-picker
             v-model="currentDate"
             :type="dateType"
             :start-time="dataStartTime"
@@ -154,7 +154,7 @@
 :::demo 获得日期格式为MM。
 ```html
     <el-row>
-        <infinite-datetime-picker
+        <vs-datetime-picker
             v-model="currentDate"
             :type="dateType"
             :start-time="dataStartTime"
@@ -180,7 +180,7 @@
 :::demo 获得日期格式为yyyyMM。传入的日期会处理成所在季度，如02月会默认为1季度
 ```html
     <el-row>
-        <infinite-datetime-picker
+        <vs-datetime-picker
             v-model="currentDate"
             :type="dateType"
             :picker-radius="pickerRadius"
@@ -207,7 +207,7 @@
 :::demo 获得日期格式为MMdd。
 ```html
     <el-row>
-        <infinite-datetime-picker
+        <vs-datetime-picker
             v-model="currentDate"
             :type="dateType"
             :sunday-array="sundayArray"
@@ -237,7 +237,7 @@
 :::demo 获得日期格式为yyyyMMdd。
 ```html
     <el-row>
-        <infinite-datetime-picker
+        <vs-datetime-picker
             v-model="currentDate"
             :type="dateType"
             :valid-date="validDate"
@@ -269,7 +269,7 @@
 :::demo 默认为date类型，获得日期格式为yyyyMMdd。
 ```html
     <el-row>
-        <infinite-datetime-picker
+        <vs-datetime-picker
             v-model="currentDate"
             :type="dateType"
             :valid-date="validDate"
@@ -299,7 +299,7 @@
 ### 仅展示类型
 :::demo  默认为date类型。
 ```html
-    <infinite-datetime-picker
+    <vs-datetime-picker
         v-model="currentDate"
         :start-time="dataStartTime"
         :end-time="dataEndTime"
@@ -322,7 +322,7 @@
 ### 间隔符为-
 :::demo  默认为date类型。
 ```html
-    <infinite-datetime-picker
+    <vs-datetime-picker
         v-model="currentDate"
         :start-time="dataStartTime"
         :end-time="dataEndTime"

@@ -46,7 +46,7 @@
 import ListItem from './components/ListItem'
 
 export default {
-  name: 'InfiniteSectionCard',
+  name: 'VsSectionCard',
   components: {
     ListItem
   },

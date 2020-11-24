@@ -3,31 +3,31 @@
 
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">基础用法</h2>
-      <infinite-header-nav @goBack="parentCallBack"></infinite-header-nav>
+      <vs-header-nav @goBack="parentCallBack"></vs-header-nav>
     </el-row>
 
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">showBackIcon 显示左侧ICON</h2>
-      <infinite-header-nav :showBackIcon="showBackIcon" color="#fff">
+      <vs-header-nav :showBackIcon="showBackIcon" color="#fff">
         <div slot="centerItem">
           标题
         </div>
-      </infinite-header-nav>
+      </vs-header-nav>
     </el-row>
 
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">size自定义icon大小</h2>
-      <infinite-header-nav size="30px"></infinite-header-nav>
+      <vs-header-nav size="30px"></vs-header-nav>
     </el-row>
 
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">color自定义icon颜色</h2>
-      <infinite-header-nav color="lightblue"></infinite-header-nav>
+      <vs-header-nav color="lightblue"></vs-header-nav>
     </el-row>
 
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">slot自定义内容，可使用自定义图标</h2>
-      <infinite-header-nav :useVantIcon="false">
+      <vs-header-nav :useVantIcon="false">
         <div slot="leftItem">
           <img class="arrow-icon" :src="require('../../packages/theme-chalk/src/imgs/arrow.png')" alt="arrow-icon">
           <span class="left-text">返回</span>
@@ -38,12 +38,12 @@
         <div slot="rightItem">
           提交
         </div>
-      </infinite-header-nav>
+      </vs-header-nav>
     </el-row>
 
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">insertStyle自定义样式</h2>
-      <infinite-header-nav
+      <vs-header-nav
         :insertStyle="insertStyle">
         <div slot="leftItem">
           返回
@@ -54,7 +54,7 @@
         <div slot="rightItem">
           下载
         </div>
-      </infinite-header-nav>
+      </vs-header-nav>
     </el-row>
 
   </div>
@@ -81,9 +81,5 @@ export default {
     width: 20px;
     height: 20px;
     vertical-align: bottom;
-  }
-  .left-text { 
-    position: relative;
-    top: -2px;
   }
 </style>

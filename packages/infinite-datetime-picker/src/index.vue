@@ -76,7 +76,7 @@ import DatetimePicker from 'vant/lib/datetime-picker'
 // import 'vant/lib/datetime-picker/style'
 
 export default {
-  name: 'InfiniteDatetimePicker',
+  name: 'VsDatetimePicker',
   components: {
     Popup,
     Picker,

@@ -9,16 +9,19 @@
           <menu-model></menu-model>
         </el-aside>
         <el-main :class="isChildIframe ? 'el-main-left' : 'el-main-right'">
-          <infinite-header-nav v-if="!isChildIframe" class="header-nav" :insertStyle="insertStyle">
+          <vs-header-nav v-if="!isChildIframe" class="header-nav" :insertStyle="insertStyle">
             <div slot="centerItem">
               {{ iframeTitle}}
             </div>
-          </infinite-header-nav>
+          </vs-header-nav>
           <router-view></router-view>
         </el-main>
-        <div v-if="isChildIframe" :class="{'fixed-right': true, 'is-mobile': !isPC}">
-          <iframe :style="simulatorStyle" :src="iframeSrc" name="mobileFrame" id="frame_1"></iframe>
+        <div v-if="isInstallation" class="iframe-container">
+          <div v-if="isChildIframe" :class="{'fixed-right': true, 'is-mobile': !isPC}">
+            <iframe :style="simulatorStyle" :src="iframeSrc" name="mobileFrame" id="frame_1"></iframe>
+          </div>
         </div>
+      
       </el-container>
     </el-container>
   </div>
@@ -35,6 +38,7 @@ export default {
   data () {
     return {
       isChildIframe: true,
+      // isInstallation: false,
       iframeSrc: '',
       routeArr: this.$route.path.split('/'),
       insertStyle: {
@@ -53,6 +57,17 @@ export default {
     
   },
   computed: {
+    isInstallation () {
+      const currRoutePath = this.$route.path
+      let isInstallation = false
+      // 在安装指南文档中，不显示移动端模拟器
+      if (currRoutePath !== '/mobile/Installation' && currRoutePath !== '/guide/VsInstallation') {
+        isInstallation = true
+      } else {
+        isInstallation = false
+      }
+      return isInstallation
+    },
     iframeTitle () {
       const routeArr = this.$route.path.split('/')
       return routeArr[routeArr.length - 1]

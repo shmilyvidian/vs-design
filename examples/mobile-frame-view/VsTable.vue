@@ -3,24 +3,24 @@
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">基础用法</h2>
       <div class="infinite-doc-demo-block-table ">
-        <infinite-table 
+        <vs-table 
           :table-data="tableData"
           :child-prop="childProp"
-        > </infinite-table>
+        > </vs-table>
       </div>
     </el-row>
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">存在中文类型</h2>
       <div class="infinite-doc-demo-block-table ">
-        <infinite-table 
+        <vs-table 
           :table-data="tableDataText"
-        > </infinite-table>
+        > </vs-table>
       </div>
     </el-row>
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">个性化配置列</h2>
       <div class="infinite-doc-demo-block-table ">
-        <infinite-table 
+        <vs-table 
           :table-data="tableDataObj"
           :is-default-number="isDefaultNumber"
           :maxUnitLengthWidth="maxUnitLengthWidth"
@@ -29,7 +29,7 @@
           @onTableFold="onTableFold"
           @onTableColSort="onTableColSort"
           @onTableOpenChildMore="onTableOpenChildMore"
-        > </infinite-table>
+        > </vs-table>
       </div>
     </el-row>
   </div>

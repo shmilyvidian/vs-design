@@ -3,7 +3,7 @@
     <el-row class="infinite-doc-demo-block-row" v-for="(item, index) of pickerArr" :key="index">
       <h2 class="infinite-doc-demo-block-title">{{ item.title }}</h2>
       <div class="infinite-doc-demo-block-picker">
-        <infinite-datetime-picker
+        <vs-datetime-picker
           v-model="item.currentDate"
           v-bind="item.itemProp"
           @confirm="fnClassification(arguments, item.confirmMethod)"

@@ -18,7 +18,7 @@
 
 
 export default {
-  name: 'InfiniteEmpty',
+  name: 'VsEmpty',
   data() {
     return {
       defaultImageTypes: ['noUpdate', 'noData', 'noMessage', 'noFinish', 'noTask', 'noNetwork'],

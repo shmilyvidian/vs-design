@@ -9,8 +9,8 @@
 
 ```html
 <el-row>  
-  <infinite-header-nav>
-  </infinite-header-nav>
+  <vs-header-nav>
+  </vs-header-nav>
 </el-row>
 <script>
   export default {
@@ -36,7 +36,7 @@
 
 ```html
 <el-row>  
-  <infinite-header-nav class="header-nav" @goBack="goBackClick">
+  <vs-header-nav class="header-nav" @goBack="goBackClick">
     <div slot="leftItem">
       返回
     </div>
@@ -46,7 +46,7 @@
     <div slot="rightItem">
       提交
     </div>
-  </infinite-header-nav>
+  </vs-header-nav>
 </el-row>
 <script>
   export default {
@@ -76,7 +76,7 @@
 
 ```html
 <el-row class="infinite-doc-demo-block-row">
-  <infinite-header-nav :useVantIcon="false">
+  <vs-header-nav :useVantIcon="false">
     <div slot="leftItem">
       <img class="arrow-icon" :src="require('../../packages/theme-chalk/src/imgs/arrow.png')" alt="arrow-icon">
       <span>返回</span>
@@ -87,7 +87,7 @@
     <div slot="rightItem">
       提交
     </div>
-  </infinite-header-nav>
+  </vs-header-nav>
 </el-row>
 <script>
   export default {
@@ -114,7 +114,7 @@
 
 ```html
 <el-row>  
-  <infinite-header-nav class="header-nav" @goBack="goBackClick" :showBackIcon="showBackIcon">
+  <vs-header-nav class="header-nav" @goBack="goBackClick" :showBackIcon="showBackIcon">
     <div slot="leftItem">
       返回
     </div>
@@ -124,7 +124,7 @@
     <div slot="rightItem">
       提交
     </div>
-  </infinite-header-nav>
+  </vs-header-nav>
 </el-row>
 <script>
   export default {
@@ -155,7 +155,7 @@
 
 ```html
 <el-row>  
-  <infinite-header-nav 
+  <vs-header-nav 
     :insertStyle="insertStyle"
     @goBack="goBackClick">
     <div slot="leftItem">
@@ -167,7 +167,7 @@
     <div slot="rightItem">
       右文字
     </div>
-  </infinite-header-nav>
+  </vs-header-nav>
 </el-row>
 <script>
   export default {

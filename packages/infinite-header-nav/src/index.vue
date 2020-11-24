@@ -19,7 +19,7 @@
 import VanIcon from 'vant/lib/icon'
 
 export default {
-  name: 'InfiniteHeaderNav',
+  name: 'VsHeaderNav',
   components: {
     VanIcon
   },

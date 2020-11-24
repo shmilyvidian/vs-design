@@ -6,7 +6,7 @@
 :::demo  表格title使用headers
 ```html
   <el-row>  
-    <infinite-table 
+    <vs-table 
       :table-data="tableData"
       :child-prop="childProp"
     />
