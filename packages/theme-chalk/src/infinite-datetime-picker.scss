@@ -8,12 +8,6 @@
 @import '../../../node_modules/vant/es/loading/index.css';
 @import '../../../node_modules/vant/es/picker/index.css';
 
-// @include b(test) {
-//   display: inline-block;
-//   line-height: 1;
-//   white-space: nowrap;
-//   cursor: pointer;
-// }
 .vs-datetime-picker-template {
   flex: none;
 
@@ -25,12 +19,14 @@
     justify-content: space-between;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.8);
+    transform: translateZ(1100px);
     
     .vs-datetime-picker-title-left {
       font-size: 14px;
       font-weight: 400;
       margin-left: 12px;
       color: rgba(255, 255, 255, 0.8);
+      transform: translateZ(1100px);
     }
 
     .vs-datetime-picker-title-right {
@@ -44,12 +40,10 @@
           align-items: center;
           justify-content: center;
           padding-right: 36px;
-          // margin-right: 10px;
         }
   
         &.iconDefault {
           padding-right: 27.5px;
-          // margin-right: 10px;
         }
         &.no-icon {
           display: flex;
@@ -80,51 +74,36 @@
             display: inline-block;
             width: 7.5px; // 9.6
             height: 4px; // 7.2
-            // margin-left: 5px;
             background: url('./imgs/table-down-expand.png') no-repeat center center;
             background-size: 100% 100%;
             position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            // transform: translateY(calc(-50% - 1px));
           }
   
           &.vs-table-icon-down {
             display: inline-block;
             width: 7.5px; // 9.6
             height: 4px; // 7.2
-            // margin-right: 5px;
             background: url('./imgs/table-down-expand.png') no-repeat center center;
             background-size: 100% 100%;
             position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%) rotate(180deg);
-            // transform: translateY(calc(-50% - 1px));
           }
         }
-  
-        // &.iconDefault {
-        //   transform: rotate(90deg);
-        // }
       }
   
-      // /deep/ .icon {
-      /deep/ .van-icon {
+      // .icon {
+      .van-icon {
         &.iconDefault {
-        // &.default {
-        // &.van-icon-tosend {
           position: absolute;
           top: 50%;
           right: 8px;
           display: inline-block;
-          // width: 16px;
-          // height: 16px;
-          // margin-left: 5px;
           transform: translateY(calc(-50% - 1px)) scale(.8, .6);
-          // transform: scale(0.8);
-          // background: url(calendar.png) no-repeat center center;
           background-size: 100% 100%;
         }
   
@@ -133,8 +112,6 @@
             transform-origin:center center;
             transform: translateY(1px) rotate(-90deg);
           }
-          // margin-top: 5px;
-          
         }
   
         &.icon-caret-down {
@@ -142,8 +119,6 @@
             transform-origin:center center;
             transform: translateY(-1px) rotate(90deg);
           }
-          // margin-bottom: 5px;
-          // transform: rotate(90deg);
         }
       }
     }
@@ -160,47 +135,53 @@
       width: 100%;
       height: 36px;
       transform: translateY(calc(7px));
+          // transform: rotate(90deg);
       // transform: translateY(calc(50%));
       background-color: #e1e1e1;
       opacity: 0.1;
       pointer-events: none;
     }
 
-    /deep/ .van-picker {
+    .van-picker {
       background: #212228;
+      transform: translateZ(1100px);
       
       .van-picker__toolbar {
         height: 50px;
         line-height: 50px;
         background: #212228;
+        transform: translateZ(1100px);
   
         .van-picker__cancel {
           padding: 0 14px;
           font-size: 16px;
           color: #fff;
+          transform: translateZ(1100px);
         }
   
         .van-picker__confirm {
           padding: 0 14px;
           font-size: 16px;
           color: #69a4ff;
+          transform: translateZ(1100px);
         }
       }
     }
 
-    /deep/ .van-picker__columns {
+    .van-picker__columns {
       background: #2e3036;
+      transform: translateZ(1100px);
 
       .van-picker-column {
         .van-picker-column__wrapper {
           .van-picker-column__item {
             color: #6a7088;
             font-size: 15px;
-            // transition: font-size .1s;
 
             &.van-picker-column__item--selected {
               font-size: 17px;
               color: #fff;
+              transform: translateZ(1100px);
             }
           }
         }
