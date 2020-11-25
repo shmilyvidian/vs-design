@@ -146,6 +146,10 @@ export default {
     columns: {
       handler (val, oldVal) {
         // console.log(val)
+        // 缓存数据
+        if (this.showContentList.length) {
+          return
+        }
         // 默认放入参数中
         if (val.children && val.children.length) {
           this.showContentList = val.children
@@ -190,7 +194,9 @@ export default {
       }], // 重组头部
       inputValue: '', // 搜索框参数
       originContentList: [], // 搜索之前数据 
-      showTip: false // 提示滚动条
+      showTip: false, // 提示滚动条
+      resetList: [], // 当前回写选中列表
+      confirmHeaderList: [] // 当前回写头部信息
     }
   },
   mounted () {
@@ -216,6 +222,7 @@ export default {
       // 设置选中值到header
       if (this.showNameToHeader) {
         this.privateHeaderMap[this.selectedIndex].selectedName = item.name
+        // this.confirmHeaderList[this.selectedIndex].selectedName = item.name
       }
 
       // 存在子集移动下标
@@ -223,6 +230,7 @@ export default {
         this.inputValue = ''
         // 将子集存入到header中 方便点击回写
         this.privateHeaderMap[this.selectedIndex].children = this.originContentList
+        // this.confirmHeaderList[this.selectedIndex].children = this.originContentList
         // 将下标+1
         this.selectedIndex += 1
         // 设置子集到内容区域中
@@ -238,11 +246,17 @@ export default {
     },
     // 点击头部选中参数
     changeHeader (item, index) {
+      console.log(item)
       if (item.children.length) {
         this.inputValue = ''
         this.showContentList = item.children
         this.originContentList = item.children
         this.selectedIndex = index
+        this.privateHeaderMap.forEach((item, current) => {
+          if (current > index) {
+            item.selectedName = ''
+          }
+        })
         // 切换数据后显示滚动提示
         this.$nextTick(() => {
           this.isScroll()
@@ -256,7 +270,8 @@ export default {
       // 存在值暴露事件，正则匹配
       if (inputStr.length) {
         const testExp = new RegExp(inputStr, 'g')
-        const searchResult = this.privateHeaderMap[this.selectedIndex].children.filter(item => {
+        // 搜索当前原始数据
+        const searchResult = this.originContentList.filter(item => {
           return testExp.test(item.name)
         })
         this.showContentList = searchResult
@@ -274,19 +289,50 @@ export default {
       // if(!this.selectedList.length){
       //   return
       // }
+      // 回写的时候使用点击确定的数组
+      this.resetList = JSON.parse(JSON.stringify(this.selectedList))
 
+      this.resetItem()
       this.$emit('onConfirm', this.selectedList)
       this.$emit('changeShowModle', false)
     },
     // 取消按钮
     onCancel () {
+      this.resetItem()
       this.$emit('onCancel')
       this.$emit('changeShowModle', false)
     },
     // 点击蒙层隐藏
     onClickOverlay () {
+      this.resetItem()
       this.$emit('onClickOverlay')
       this.$emit('changeShowModle', false)
+    },
+    // 回写已选中参数
+    resetItem () {
+      // 设置取值下标
+      console.log(this.resetList.length)
+      if (this.resetList.length) {
+
+        let current = this.resetList.length
+
+        let listIndex = current
+        if (current > 1) {
+          listIndex -= 2
+        }
+        // 取出上级children当展示列表
+        this.showContentList = this.resetList[listIndex] && this.resetList[listIndex].children
+
+        // 设置头部信息
+        this.resetList.forEach((element, index) => {
+          if (element.name !== '') {
+            this.privateHeaderMap[index].selectedName = this.resetList[index].name
+          }
+        });
+
+        // // 设置下标
+        this.selectedIndex = current && current - 1
+      }
     }
   }
 }
