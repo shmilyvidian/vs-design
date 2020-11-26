@@ -41,7 +41,7 @@
               type="text"
               class="institutional-filter-search-input"
               @input="onInput"
-              v-model="inputValue"
+              v-model.trim="inputValue"
             >
           </div>
         </div>
@@ -234,10 +234,10 @@ export default {
       this.selectedList.splice(this.selectedIndex, this.selectedList.length)
       // 将点击参数放入对应位置
       this.$set(this.selectedList, this.selectedIndex, item)
+      console.log(this.selectedList)
       // 设置选中值到header
       if (this.showNameToHeader) {
         this.privateHeaderMap[this.selectedIndex].selectedName = item.name
-        // this.confirmHeaderList[this.selectedIndex].selectedName = item.name
       }
 
       // 存在子集移动下标
@@ -262,6 +262,9 @@ export default {
     // 点击头部选中参数
     changeHeader (item, index) {
       if (item.children.length) {
+        console.log(this.selectedList)
+        // 点击头部清除下标之后的选中参数 默认选中当前已选值
+        // this.selectedList.splice((index + 1), this.selectedList.length)
         // 重置输入值
         this.inputValue = ''
         // 显示相应数组
@@ -284,7 +287,9 @@ export default {
     },
     // 监听输入事件
     onInput (event) {
-      const inputStr = event.target.value
+      console.log(11);
+
+      const inputStr = event.target.value.trim()
       // 存在值暴露事件，正则匹配
       if (inputStr.length) {
         const testExp = new RegExp(inputStr, 'g')
@@ -294,7 +299,7 @@ export default {
         })
         this.showContentList = searchResult
       } else {
-        this.showContentList = this.privateHeaderMap[this.selectedIndex].children
+        this.showContentList = this.originContentList[this.selectedIndex].children
       }
       // 切换数据后显示滚动提示
       this.$nextTick(() => {
@@ -325,6 +330,7 @@ export default {
       // 清空输入框
       this.inputValue = ''
       // 设置取值下标
+      console.log(this.resetList)
       if (this.resetList.length) {
 
         let current = this.resetList.length
@@ -346,8 +352,14 @@ export default {
           }
         });
 
+        console.log(this.privateHeaderMap)
+
         // 设置下标
         this.selectedIndex = current && current - 1
+      } else {
+        // 不存在回写值 将下标复位
+        this.selectedIndex = 0
+        this.showContentList = this.privateHeaderMap[0].children
       }
     }
   }
