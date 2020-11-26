@@ -1,6 +1,6 @@
 {
-  "name": "test-vs-ui",
-  "version": "0.0.33",
+  "name": "vs-design",
+  "version": "0.0.2",
   "description": "An Vue UI Toolkit For Mobile",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,9 +15,9 @@
     "build:style": "gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && cp-cli packages/theme-chalk/src/imgs lib/theme-chalk/imgs",
     "clean": "rimraf lib && rimraf packages/*/lib",
     "init": "npm install commitizen -g && commitizen init cz-conventional-changelog --save-dev --save-exact && npm run bootstrap",
-    "lib": "vue-cli-service build --target lib --name vs-ui --dest lib packages/index.js && webpack --config ./build/webpack.component.js"
+    "lib": "vue-cli-service build --target lib --name vs-design --dest lib packages/index.js && webpack --config ./build/webpack.component.js"
   },
-  "main": "lib/vs-ui.umd.js",
+  "main": "lib/vs-design.umd.js",
   "files": [
     "lib",
     "packages"
@@ -81,7 +81,7 @@
   },
   "keywords": [
     "vue",
-    "vs-ui"
+    "vs-design"
   ],
   "repository": {
     "type": "git",

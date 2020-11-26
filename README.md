@@ -1,20 +1,20 @@
-## vs-ui
+## vs-design
 
 ### npm 安装
 ```
-npm i vs-ui
+npm i vs-design
 ```
 
 ### 使用说明
 
-你可以引入整个vs-ui，也可进行按需加载组件
+你可以引入整个vs-design，也可进行按需加载组件
 1. 完整引入
 在 main.js 中写入以下内容：
 
 ```js
 import Vue from 'vue';
-import VSUI from 'vs-ui ';
-import 'vs-ui/lib/theme-chalk/index.css';
+import VSUI from 'vs-design ';
+import 'vs-design/lib/theme-chalk/index.css';
 import App from './App.vue';
 
 Vue.use(VSUI);
@@ -35,7 +35,7 @@ new Vue({
     [
       "component",
       {
-        "libraryName": "vs-ui",
+        "libraryName": "vs-design",
         "styleLibraryName": "theme-chalk"
       }
     ]
@@ -46,7 +46,7 @@ new Vue({
 
 ```js
 import Vue from 'vue';
-import { VsEmpty } from 'vs-ui';
+import { VsEmpty } from 'vs-design';
 import App from './App.vue';
 
 Vue.use(VsEmpty);
@@ -60,7 +60,7 @@ new Vue({
 组件样式按需引入
 ```js
 
-import "vs-ui/lib/theme-chalk/vs-empty.css";
+import "vs-design/lib/theme-chalk/vs-empty.css";
 
 ```
 

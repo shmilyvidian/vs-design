@@ -28,7 +28,7 @@
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">slot自定义内容，可使用自定义图标</h2>
       <vs-header-nav :useVantIcon="false">
-        <div slot="leftItem">
+        <div slot="leftItem" class="left-wrapper">
           <img class="arrow-icon" :src="require('../../packages/theme-chalk/src/imgs/arrow.png')" alt="arrow-icon">
           <span class="left-text">返回</span>
         </div>
@@ -70,7 +70,7 @@ export default {
     return {
       headerTitle: '标题',
       showBackIcon: false,
-      insertStyle: { background: '#fff', color: '#35b6e0', fontSize: '18px', paddingTop: '6px' }
+      insertStyle: { background: '#674b19', height: '44px', color: '#8acee4', fontSize: '18px', paddingTop: '0px' }
     }
   }
 }

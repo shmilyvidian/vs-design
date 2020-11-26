@@ -7,7 +7,7 @@ import VsInstitutionalFilter from './vs-institutional-filter'
 import VsSectionCard from './vs-section-card'
 import VsTable from './vs-table'
 import VsTouchEmulator from './vs-touch-emulator'
-const version = '0.0.33'
+const version = '0.0.1'
 const components = [
   VsDatetimePicker,
   VsEmpty,
