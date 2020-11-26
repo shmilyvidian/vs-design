@@ -70,13 +70,18 @@ export default {
     return {
       headerTitle: '标题',
       showBackIcon: false,
-      insertStyle: { background: '#674b19', height: '44px', color: '#8acee4', fontSize: '18px', paddingTop: '0px' }
+      insertStyle: { background: '#333963', height: '44px', color: '#8acee4', fontSize: '18px', paddingTop: '0px' }
     }
   }
 }
 </script>
 
 <style>
+  .left-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .arrow-icon {
     width: 20px;
     height: 20px;
