@@ -270,6 +270,9 @@ export default {
         spanEl.style.width = `${vw}vw`
         return Math.ceil(parseFloat(window.getComputedStyle(spanEl).width))
       }
+      setTimeout(() => {
+        spanEl && spanEl.remove()
+      })
       return 0
     },
     // 表格排序方法

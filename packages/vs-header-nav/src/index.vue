@@ -69,7 +69,7 @@ export default {
     goBack () {
       console.log('child goBack')
       this.showBackIcon && this.$emit('goBack')
-    },
+    }
   },
   mounted () {
   }
