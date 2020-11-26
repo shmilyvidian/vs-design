@@ -1,12 +1,11 @@
+@import "./common/reset.scss";
 @import "./mixins/mixins.scss";
-
-@import '../../../node_modules/vant/es/popup/index.css';
-@import '../../../node_modules/vant/es/style/base.css';
-@import '../../../node_modules/vant/es/overlay/index.css';
-@import '../../../node_modules/vant/es/info/index.css';
-@import '../../../node_modules/vant/es/icon/index.css';
-@import '../../../node_modules/vant/es/loading/index.css';
-@import '../../../node_modules/vant/es/picker/index.css';
+@import '../../../node_modules/vant/lib/popup/index.css';
+@import '../../../node_modules/vant/lib/style/base.css';
+@import '../../../node_modules/vant/lib/overlay/index.css';
+@import '../../../node_modules/vant/lib/info/index.css';
+@import '../../../node_modules/vant/lib/icon/index.css';
+@import '../../../node_modules/vant/lib/picker/index.css';
 
 .vs-datetime-picker-template {
   flex: none;
@@ -96,7 +95,6 @@
         }
       }
   
-      // .icon {
       .van-icon {
         &.iconDefault {
           position: absolute;
@@ -135,6 +133,8 @@
       width: 100%;
       height: 36px;
       transform: translateY(calc(7px));
+      margin: 0;
+      padding: 0;
           // transform: rotate(90deg);
       // transform: translateY(calc(50%));
       background-color: #e1e1e1;
@@ -199,6 +199,3 @@
     }
   }
 }
-// .infinite-button [class*="infinite-icon-"] + span {
-//   margin-left: 5px;
-// }

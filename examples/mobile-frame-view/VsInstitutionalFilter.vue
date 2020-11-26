@@ -97,22 +97,6 @@ export default {
             order: 1,
             code: '099'
           },
-          {
-            children: [
-
-            ],
-            name: '南部战区',
-            order: 1,
-            code: '099'
-          },
-          {
-            children: [
-
-            ],
-            name: '南部战区',
-            order: 1,
-            code: '099'
-          }
         ],
         name: '全行',
         order: 1,

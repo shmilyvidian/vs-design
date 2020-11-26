@@ -16,7 +16,7 @@ npm i vs-ui
 ```js
 import Vue from "vue"
 import VSUI from "vs-ui"
-import "infinite-ui/lib/theme-chalk/index.css"
+import "vs-ui/lib/theme-chalk/index.css"
 import App from "./App.vue"
 
 Vue.use(VSUI)
@@ -50,13 +50,20 @@ new Vue({
 
 ```js
 import Vue from "vue"
-import { InfiniteEmpty } from "vs-ui"
+import { VsEmpty } from "vs-ui"
 import App from "./App.vue"
 
-Vue.use(InfiniteEmpty)
+Vue.use(VsEmpty)
 
 new Vue({
   el: "#app",
   render: h => h(App)
 })
+```
+
+组件样式按需引入
+```js
+
+import "vs-ui/lib/theme-chalk/vs-empty.css";
+
 ```

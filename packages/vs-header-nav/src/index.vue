@@ -16,7 +16,7 @@
   </header>
 </template>
 <script>
-import VanIcon from 'vant/es/icon'
+import VanIcon from 'vant/lib/icon'
 
 export default {
   name: 'VsHeaderNav',

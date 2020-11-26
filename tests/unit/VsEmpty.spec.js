@@ -1,12 +1,12 @@
 import { shallowMount, mount } from '@vue/test-utils'
-import InfiniteEmpty from '@/packages/infinite-empty/src/index.vue'
+import VsEmpty from '@/packages/vs-empty/src/index.vue'
 
-const wrapper = mount(InfiniteEmpty)
+const wrapper = mount(VsEmpty)
 
-describe('InfiniteEmpty.vue', () => {
+describe('VsEmpty.vue', () => {
   // 通过快照校验组件内容变动
-  test('render InfiniteEmpty', () => {
-    const wrapper = shallowMount(InfiniteEmpty)
+  test('render VsEmpty', () => {
+    const wrapper = shallowMount(VsEmpty)
     expect(wrapper).toMatchSnapshot()
   })
   // 测试组件class名是否正确渲染
@@ -18,7 +18,7 @@ describe('InfiniteEmpty.vue', () => {
   it('renders imageType to match class', () => {
     const typeArr = ['noUpdate', 'noData', 'noMessage', 'noFinish', 'noTask', 'noNetwork']
     typeArr.forEach(itemType => {
-      const wrapper = shallowMount(InfiniteEmpty, {
+      const wrapper = shallowMount(VsEmpty, {
         propsData: { 
           imageType: itemType
         }
@@ -29,7 +29,7 @@ describe('InfiniteEmpty.vue', () => {
   })
   // 测试props imageSize是否正确渲染
   it('test props imageSize', () => {
-    const wrapper = mount(InfiniteEmpty, {
+    const wrapper = mount(VsEmpty, {
       propsData: {
         imageSize: '60px'
       }
@@ -39,7 +39,7 @@ describe('InfiniteEmpty.vue', () => {
   })
   // 测试props description是否正确渲染
   it('test empty.vue description', () => {
-    const wrapper = mount(InfiniteEmpty, {
+    const wrapper = mount(VsEmpty, {
       propsData: {
         description: 'description text'
       }
@@ -49,7 +49,7 @@ describe('InfiniteEmpty.vue', () => {
   })
   // 测试props insertStyle样式是否生效
   it('test empty.vue insertStyle', () => {
-    const wrapper = mount(InfiniteEmpty, {
+    const wrapper = mount(VsEmpty, {
       propsData: {
         insertStyle: {
           description: {
@@ -66,7 +66,7 @@ describe('InfiniteEmpty.vue', () => {
   })
   // 测试slots插槽传入内容是否生效
   it('test empty.vue slots', () => {
-    const wrapper = mount(InfiniteEmpty, {
+    const wrapper = mount(VsEmpty, {
       slots: {
         default: 'slot text'
       }

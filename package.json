@@ -1,10 +1,10 @@
 {
   "name": "test-vs-ui",
-  "version": "0.0.26",
+  "version": "0.0.33",
   "description": "An Vue UI Toolkit For Mobile",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "test:unit": "vue-cli-service test:unit --watch",
+    "test:unit": "vue-cli-service test:unit --watchAll",
     "lint": "vue-cli-service lint",
     "deploy": "sh build/deploy.sh",
     "bootstrap": "npm install && cd ./packages/theme-chalk && npm install",

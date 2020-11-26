@@ -1,7 +1,7 @@
 {
-  "name": "infinite-theme-chalk",
+  "name": "vs-theme-chalk",
   "version": "1.0.0",
-  "description": "infinite component chalk theme.",
+  "description": "vs component chalk theme.",
   "main": "lib/index.css",
   "style": "lib/index.css",
   "files": [

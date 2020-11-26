@@ -1,8 +1,7 @@
 import {
-  shallowMount,
   mount
 } from '@vue/test-utils'
-import infiniteInstitutionalFilter from '../../packages/vs-institutional-filter/src/index.vue'
+import VsInstitutionalFilter from '../../packages/vs-institutional-filter/src/index.vue'
 
 const later = (delay = 0) => {
   return new Promise((resolve) => {
@@ -12,34 +11,34 @@ const later = (delay = 0) => {
 
 const columns = {
   children: [{
-      children: [{
-        children: [],
-        name: '深圳',
-        order: 3,
-        code: '333'
-      }],
-      name: '北部战区',
-      order: 2,
-      code: '001'
-    },
-    {
+    children: [{
       children: [],
-      name: '东部战区',
-      order: 1,
-      code: '002'
-    },
-    {
-      children: [],
-      name: '西部战区',
-      order: 1,
-      code: '888'
-    },
-    {
-      children: [],
-      name: '南部战区',
-      order: 1,
-      code: '099'
-    }
+      name: '深圳',
+      order: 3,
+      code: '333'
+    }],
+    name: '北部战区',
+    order: 2,
+    code: '001'
+  },
+  {
+    children: [],
+    name: '东部战区',
+    order: 1,
+    code: '002'
+  },
+  {
+    children: [],
+    name: '西部战区',
+    order: 1,
+    code: '888'
+  },
+  {
+    children: [],
+    name: '南部战区',
+    order: 1,
+    code: '099'
+  }
   ],
   name: '全行',
   order: 1,
@@ -47,7 +46,7 @@ const columns = {
 }
 
 test('filter confirm & cancel event', async () => {
-  const wrapper = mount(infiniteInstitutionalFilter, {
+  const wrapper = mount(VsInstitutionalFilter, {
     propsData: {
       columns: columns,
       showModel: true,
@@ -59,7 +58,6 @@ test('filter confirm & cancel event', async () => {
   await later(2000)
 
   // 触发点击事件
-
   
   wrapper.find('.institutional-filter-footer-cancel').trigger('click')
   wrapper.find('.institutional-filter-footer-confirm').trigger('click')
@@ -70,8 +68,8 @@ test('filter confirm & cancel event', async () => {
 })
 
 // 测试内容点击后是否切换到子集
-test('content item click',async () => {
-  const wrapper = mount(infiniteInstitutionalFilter, {
+test('content item click', async () => {
+  const wrapper = mount(VsInstitutionalFilter, {
     propsData: {
       columns: columns,
       showNameToHeader: true
@@ -86,10 +84,10 @@ test('content item click',async () => {
 })
 
 // 测试头部内容点击后是否切换到头部子集
-test('content item click',async () => {
-  const wrapper = mount(infiniteInstitutionalFilter, {
+test('content item click', async () => {
+  const wrapper = mount(VsInstitutionalFilter, {
     propsData: {
-      columns: columns,
+      columns: columns
     }
   })
   
@@ -105,7 +103,7 @@ test('content item click',async () => {
 
 // 给input设置参数 并判断是否找到东部战区
 test('setValue to input', async () => {
-  const wrapper = mount(infiniteInstitutionalFilter, {
+  const wrapper = mount(VsInstitutionalFilter, {
     propsData: {
       columns: columns
     }
@@ -117,7 +115,6 @@ test('setValue to input', async () => {
   await later()
   await textInput.setValue('东')
   await later()
-  
   
   expect(wrapper.find('.institutional-filter-content-item').text()).toBe('东部战区')
   expect(wrapper.find('input[type="text"]').element.value).toBe('东')
@@ -133,7 +130,7 @@ test('setValue to input', async () => {
 
 // 设置样式
 test('set wrappperStyle', async () => {
-  const wrapper = mount(infiniteInstitutionalFilter, {
+  const wrapper = mount(VsInstitutionalFilter, {
     propsData: {
       columns: columns,
       wrappperStyle: {
@@ -143,23 +140,23 @@ test('set wrappperStyle', async () => {
   })
   
   expect(wrapper.find('.vs-institutional-filter').attributes().style).toBe('color: rgb(255, 255, 255); display: none;')
-});
+})
 
 // 设置样式
 test('setProps showNameToHeader showSearch', async () => {
-  const wrapper = mount(infiniteInstitutionalFilter)
+  const wrapper = mount(VsInstitutionalFilter)
   wrapper.setProps({
     columns: columns,
     showNameToHeader: true,
     showSearch: true
   })
-    expect(wrapper.vm.showNameToHeader).toBe(true)
-    expect(wrapper.vm.showSearch).toBe(true)
-});
+  expect(wrapper.vm.showNameToHeader).toBe(true)
+  expect(wrapper.vm.showSearch).toBe(true)
+})
 
 // 点击蒙层 隐藏弹窗
 test('set wrappperStyle', async () => {
-  const wrapper = mount(infiniteInstitutionalFilter, {
+  const wrapper = mount(VsInstitutionalFilter, {
     propsData: {
       columns: columns,
       showModel: true
@@ -174,4 +171,4 @@ test('set wrappperStyle', async () => {
   
   expect(wrapper.emitted('onClickOverlay')[0]).toBeTruthy()
   // expect(wrapper.find('.vs-institutional-filter').attributes().style).toBe('display: none;')
-});
+})

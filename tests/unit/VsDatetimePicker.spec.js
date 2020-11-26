@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import InfiniteDatetimePicker from '@/packages/infinite-datetime-picker/src/index.vue'
+import VsDatetimePicker from '@/packages/vs-datetime-picker/src/index.vue'
 
 const later = (delay = 0) => {
   return new Promise((resolve) => {
@@ -7,8 +7,8 @@ const later = (delay = 0) => {
   })
 }
 
-describe('InfiniteDatetimePicker.vue', () => {
-  const wrapper = mount(InfiniteDatetimePicker)
+describe('VsDatetimePicker.vue', () => {
+  const wrapper = mount(VsDatetimePicker)
   const dateType = ['date', 'year-month', 'month-day', 'year', 'month', 'quarterly', 'week-end', 'week-segment', 'just-show']
 
   it('shonld render vs-datetime-picker-template class', () => {
@@ -19,7 +19,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     const startTime0 = '2020/01/06'
     const endTime0 = '2020/12/26'
     const currentDate0 = '2020/11/06'
-    const wrapperMap0 = mount(InfiniteDatetimePicker, {
+    const wrapperMap0 = mount(VsDatetimePicker, {
       propsData: {
         currentDate: currentDate0, 
         startTime: startTime0,
@@ -33,7 +33,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     const startTime1 = '2020/01'
     const endTime1 = '2020/12'
     const currentDate1 = '2020/11'
-    const wrapperMap1 = mount(InfiniteDatetimePicker, {
+    const wrapperMap1 = mount(VsDatetimePicker, {
       propsData: {
         type: dateType[1], 
         currentDate: currentDate1, 
@@ -48,7 +48,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     const startTime2 = '01/06'
     const endTime2 = '12/26'
     const currentDate2 = '11/06'
-    const wrapperMap2 = mount(InfiniteDatetimePicker, {
+    const wrapperMap2 = mount(VsDatetimePicker, {
       propsData: {
         type: dateType[2], 
         currentDate: currentDate2, 
@@ -63,7 +63,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     const startTime3 = '2010'
     const endTime3 = '2020'
     const currentDate3 = '2015'
-    const wrapperMap3 = mount(InfiniteDatetimePicker, {
+    const wrapperMap3 = mount(VsDatetimePicker, {
       propsData: {
         type: dateType[3], 
         currentDate: currentDate3, 
@@ -78,7 +78,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     const startTime4 = '02'
     const endTime4 = '11'
     const currentDate4 = '06'
-    const wrapperMap4 = mount(InfiniteDatetimePicker, {
+    const wrapperMap4 = mount(VsDatetimePicker, {
       propsData: {
         type: dateType[4], 
         currentDate: currentDate4, 
@@ -93,7 +93,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     const startTime5 = '202001'
     const endTime5 = '202011'
     const currentDate5 = '202005'
-    const wrapperMap5 = mount(InfiniteDatetimePicker, {
+    const wrapperMap5 = mount(VsDatetimePicker, {
       propsData: {
         type: dateType[5], 
         currentDate: currentDate5, 
@@ -107,7 +107,7 @@ describe('InfiniteDatetimePicker.vue', () => {
 
     const sundayArray6 = ['0823', '0607', '0531', '0517', '0510']
     const currentDate6 = '0607'
-    const wrapperMap6 = mount(InfiniteDatetimePicker, {
+    const wrapperMap6 = mount(VsDatetimePicker, {
       propsData: {
         type: dateType[6], 
         currentDate: currentDate6, 
@@ -120,7 +120,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     
     const currentDate7 = '20200607'
     const validDate7 = ['2020.08.17-2020.08.23', '2020.06.01-2020.06.07', '2020.05.25-2020.05.31', '2020.05.18-2020.05.24', '2020.05.11-2020.05.17']
-    const wrapperMap7 = mount(InfiniteDatetimePicker, {
+    const wrapperMap7 = mount(VsDatetimePicker, {
       propsData: {
         type: dateType[7], 
         currentDate: currentDate7, 
@@ -134,7 +134,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     const startTime8 = '2020/01/06'
     const endTime8 = '2020/12/26'
     const currentDate8 = '2020/11/06'
-    const wrapperMap8 = mount(InfiniteDatetimePicker, {
+    const wrapperMap8 = mount(VsDatetimePicker, {
       propsData: {
         currentDate: currentDate8, 
         startTime: startTime8,
@@ -147,7 +147,7 @@ describe('InfiniteDatetimePicker.vue', () => {
   })
   
   it('change currentDate to is startTime after confirm value', async () => {
-    // const wrapper = mount(InfiniteDatetimePicker)
+    // const wrapper = mount(VsDatetimePicker)
     const currentDate = '2020/11/06'
     const startTime = '2020/01/06'
     const endTime = '2020/12/26'
@@ -167,7 +167,7 @@ describe('InfiniteDatetimePicker.vue', () => {
   })
 
   it('change currentDate to is endTime after confirm value', async () => {
-    // const wrapper = mount(InfiniteDatetimePicker)
+    // const wrapper = mount(VsDatetimePicker)
     const currentDate = '2020/11/06'
     const startTime = '2020/01/06'
     const endTime = '2020/12/26'
@@ -189,7 +189,7 @@ describe('InfiniteDatetimePicker.vue', () => {
   })
   
   it('change currentDate to is quarterly after confirm value', async () => {
-    const wrapperQuarterly = mount(InfiniteDatetimePicker)
+    const wrapperQuarterly = mount(VsDatetimePicker)
     const currentDate = '2020/05'
     const startTime = '2020/01'
     const endTime = '2020/11'
@@ -208,7 +208,7 @@ describe('InfiniteDatetimePicker.vue', () => {
   })
 
   it('change currentDate to is validDate after confirm value', async () => {
-    const wrapperValidDate = mount(InfiniteDatetimePicker)
+    const wrapperValidDate = mount(VsDatetimePicker)
     const currentDate = '2020/06/05'
     const validDate = ['2020/06/05', '2020/06/06', '2020/07/06', '2020/08/09', '2020/08/11', '2020/08/12']
     await wrapperValidDate.setProps({ currentDate, validDate })
@@ -226,7 +226,7 @@ describe('InfiniteDatetimePicker.vue', () => {
     const startTime0 = '2020/01/06'
     const endTime0 = '2020/12/26'
     const currentDate0 = '2020/11/06'
-    const wrapperMap9 = mount(InfiniteDatetimePicker, {
+    const wrapperMap9 = mount(VsDatetimePicker, {
       propsData: {
         currentDate: currentDate0, 
         startTime: startTime0,

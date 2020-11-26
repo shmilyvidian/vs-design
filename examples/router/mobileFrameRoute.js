@@ -6,7 +6,6 @@ import MobileEmpty from '../mobile-frame-view/VsEmpty.vue'
 import MobileTable from '../mobile-frame-view/VsTable.vue'
 import MobileInstitutionalFilter from '../mobile-frame-view/VsInstitutionalFilter.vue'
 
-console.log('componentName', componentName);
 const routes = [{
   path: `/mobile/${componentName}DatetimePicker`,
   name: 'MobileDatetimePicker',

@@ -1,9 +1,9 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import InfiniteTable from '@/packages/infinite-table/src/index.vue'
-import CardContainerTable from '@/packages/infinite-table/src/common/CardContainerTable.vue'
-import CardHeaderTable from '@/packages/infinite-table/src/common/CardHeaderTable.vue'
-import CardFixedTable from '@/packages/infinite-table/src/common/CardFixedTable.vue'
-// import CardChildTable from '@/packages/infinite-table/src/components/CardChildTable.vue'
+import VsTable from '@/packages/vs-table/src/index.vue'
+import CardContainerTable from '@/packages/vs-table/src/common/CardContainerTable.vue'
+import CardHeaderTable from '@/packages/vs-table/src/common/CardHeaderTable.vue'
+import CardFixedTable from '@/packages/vs-table/src/common/CardFixedTable.vue'
+// import CardChildTable from '@/packages/vs-table/src/components/CardChildTable.vue'
 
 const later = (delay = 0) => {
   return new Promise((resolve) => {
@@ -11,15 +11,15 @@ const later = (delay = 0) => {
   })
 }
 
-describe('InfiniteTable.vue', () => {
+describe('test VsTable.vue', () => {
   it('shonld render vs-table class', () => {
-    const wrapper = mount(InfiniteTable)
+    const wrapper = mount(VsTable)
     expect(wrapper.attributes().class).toMatch('vs-table')
     // wrapper.destroy()  
   })
   
   it('shonld setData after vs-table in BasicUsage', async () => {
-    const wrapper = mount(InfiniteTable)
+    const wrapper = mount(VsTable)
     const tableData = {
       data: [
         {
@@ -400,7 +400,7 @@ describe('InfiniteTable.vue', () => {
   })
   
   it('shonld setData after vs-table in customize', async () => {
-    const wrapper = mount(InfiniteTable)
+    const wrapper = mount(VsTable)
     const tableData = {
       data: [
         {
@@ -964,7 +964,7 @@ describe('InfiniteTable.vue', () => {
   })
 
   it('shonld setData after vs-table in special', async () => {
-    const wrapper = mount(InfiniteTable)
+    const wrapper = mount(VsTable)
     const tableData = {
       data: [
         {

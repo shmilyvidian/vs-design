@@ -10,7 +10,7 @@ import hljs from 'highlight.js'
 import 'packages/theme-chalk/src/index.scss'
 import Vant from 'vant'
 import 'vant/lib/icon/index.css'
-import 'packages/infinite-touch-emulator'
+import 'packages/vs-touch-emulator'
 
 // 导入组件库
 import packages from '../packages'

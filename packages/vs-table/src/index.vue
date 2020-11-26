@@ -106,7 +106,7 @@ import CardFixedTable from './common/CardFixedTable'
 import CardChildTable from './components/CardChildTable'
 import { cardTableWatch, cardTableComputed } from './js/index'
 
-import Popup from 'vant/es/popup'
+import Popup from 'vant/lib/popup'
 
 export default {
   name: 'VsTable',

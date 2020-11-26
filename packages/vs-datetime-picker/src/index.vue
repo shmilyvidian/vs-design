@@ -67,9 +67,9 @@
 </template>
 <script>
 
-import Popup from 'vant/es/popup'
-import Picker from 'vant/es/picker'
-import DatetimePicker from 'vant/es/datetime-picker'
+import Popup from 'vant/lib/popup'
+import Picker from 'vant/lib/picker'
+import DatetimePicker from 'vant/lib/datetime-picker'
 
 export default {
   name: 'VsDatetimePicker',

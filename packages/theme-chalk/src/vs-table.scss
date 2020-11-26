@@ -1,10 +1,11 @@
+@import "./common/reset.scss";
 @import "./mixins/mixins.scss";
 @import "./common/var.scss";
-@import '../../../node_modules/vant/es/popup/index.css';
-@import '../../../node_modules/vant/es/style/base.css';
-@import '../../../node_modules/vant/es/overlay/index.css';
-@import '../../../node_modules/vant/es/info/index.css';
-@import '../../../node_modules/vant/es/icon/index.css';
+@import '../../../node_modules/vant/lib/popup/index.css';
+@import '../../../node_modules/vant/lib/style/base.css';
+@import '../../../node_modules/vant/lib/overlay/index.css';
+@import '../../../node_modules/vant/lib/info/index.css';
+@import '../../../node_modules/vant/lib/icon/index.css';
 
 
 

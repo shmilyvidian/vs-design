@@ -28,7 +28,10 @@
 
 :::
 
+### Events
+
 事件包括 `onConfirm` `onCancel` `onClickOverlay`
+
 
 :::demo
 
@@ -62,7 +65,9 @@
 
 :::
 
-事件包括 `showSearch` 是否显示输入框
+### Props
+
+包括 `showSearch` 是否显示输入框
 
 :::demo
 
