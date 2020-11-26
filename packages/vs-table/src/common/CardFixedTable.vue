@@ -72,12 +72,14 @@
                       <td class="vs-label-c-table-c-td"
                         v-for="(cItemC,cIndex) in viewTableColumns"
                         :key="`cItemC${cIndex}`"
-                        :class="{
-                          'vs-c-td-move': !cItemC.fixed,
-                          'vs-c-shelter': cItemC.fixed,
-                          'vs-risk-hasShadow':cIndex===leftFixedIndex && !scrollIcon && isScroll,
-                          'vs-unit-clicked':recordUnitClicks[`${cItemR.key}*${cItemC.key}`]
-                        }"
+                        :class="[
+                          !cItemC.fixed?'vs-c-td-move':'',
+                          cItemC.fixed?'vs-c-shelter':'',
+                          cIndex===leftFixedIndex && !scrollIcon && isScroll?'vs-risk-hasShadow':'',
+                          recordUnitClicks[`${cItemR.key}*${cItemC.key}`]?'vs-unit-clicked':'',
+                          cItemC.align?'vs-row-align-'+cItemC.align+'-textalign':
+                          (cItemC.fixed?'vs-row-align-center-textalign':'vs-row-align-right-textalign')
+                        ]"
                         :style="localStyles[cItemC.key]"
                         @click="ontableUnitClick(false,cItemR, index,cItemC,cIndex)"
                       >
