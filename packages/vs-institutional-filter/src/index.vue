@@ -43,6 +43,11 @@
               @input="onInput"
               v-model.trim="inputValue"
             >
+            <div
+              class="institutional-filter-search-clear"
+              v-if="inputValue"
+              @click="onClear"
+            ></div>
           </div>
         </div>
         <!-- end of 搜索框 -->
@@ -298,10 +303,17 @@ export default {
         })
       }
     },
+    // 清空按钮
+    onClear () {
+      this.inputValue = ''
+      this.showContentList = this.originContentList[this.selectedIndex].children
+      this.$nextTick(() => {
+        this.isScroll()
+      })
+      this.$emit('onClear')
+    },
     // 监听输入事件
     onInput (event) {
-      console.log(11);
-
       const inputStr = event.target.value.trim()
       // 存在值暴露事件，正则匹配
       if (inputStr.length) {
