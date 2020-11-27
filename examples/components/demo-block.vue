@@ -263,10 +263,10 @@ export default {
         return (
           this.$el.getElementsByClassName('description')[0].clientHeight +
           this.$el.getElementsByClassName('highlight')[0].clientHeight +
-          20
+          40
         )
       }
-      return this.$el.getElementsByClassName('highlight')[0].clientHeight
+      return this.$el.getElementsByClassName('highlight')[0].clientHeight + 10
     }
   },
 

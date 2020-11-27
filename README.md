@@ -13,11 +13,11 @@ npm i vs-design
 
 ```js
 import Vue from 'vue';
-import VSUI from 'vs-design ';
+import VsDesign from 'vs-design ';
 import 'vs-design/lib/theme-chalk/index.css';
 import App from './App.vue';
 
-Vue.use(VSUI);
+Vue.use(VsDesign);
 
 new Vue({
   el: '#app',
