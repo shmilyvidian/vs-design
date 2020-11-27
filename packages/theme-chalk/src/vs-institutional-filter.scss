@@ -47,8 +47,8 @@ $baseColor: #6195ff;
     box-sizing: border-box;
 
     &-item {
-      max-width: 20%;
-      margin-right: 40px;
+      flex: 1;
+      font-size: 14px;
       color: #fff;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -106,7 +106,7 @@ $baseColor: #6195ff;
 
   // 内容
   &-content-wrapper{
-    height: 347px;
+    height: 68.5vw;
     padding: 12px 16px 0 16px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -114,6 +114,7 @@ $baseColor: #6195ff;
   }
   &-content {
     height: auto;
+    padding-bottom: 16px;
 
     &-item {
       color: #fff;
@@ -123,6 +124,7 @@ $baseColor: #6195ff;
       text-overflow: ellipsis;
       white-space: nowrap;
       line-height: 45px;
+      font-size: 14px;
     }
 
     .active {

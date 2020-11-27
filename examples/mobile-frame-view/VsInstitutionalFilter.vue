@@ -67,6 +67,54 @@ export default {
                 name: '广州',
                 order: 3,
                 code: '004'
+              },
+              {
+                children: [
+
+                ],
+                name: '广西',
+                order: 3,
+                code: '92383'
+              },
+              {
+                children: [
+
+                ],
+                name: '佛山',
+                order: 3,
+                code: '123123'
+              },
+              {
+                children: [
+
+                ],
+                name: '汕头',
+                order: 3,
+                code: 'dsdsd'
+              },
+              {
+                children: [
+
+                ],
+                name: '中山',
+                order: 3,
+                code: '123123133fd'
+              },
+              {
+                children: [
+
+                ],
+                name: '东莞',
+                order: 3,
+                code: '3sisjd'
+              },
+              {
+                children: [
+
+                ],
+                name: '惠州',
+                order: 3,
+                code: '惠州'
               }
             ],
             name: '北部战区',
@@ -96,7 +144,7 @@ export default {
             name: '南部战区',
             order: 1,
             code: '099'
-          },
+          }
         ],
         name: '全行',
         order: 1,

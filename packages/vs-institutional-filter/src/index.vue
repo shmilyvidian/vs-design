@@ -50,6 +50,7 @@
         <div
           class="institutional-filter-content-wrapper"
           :class="{'pt0':showSearch}"
+          @scroll="onScroll"
         >
           <div class="institutional-filter-content">
             <!-- 目前缺少唯一标识符 在后台返回数据中 中文是唯一标识符 不可用 -->
@@ -214,9 +215,6 @@ export default {
   mounted () {
     this.isScroll()
   },
-  destroyed () {
-    console.log('123')
-  },
   methods: {
     // 是否提示滚动icon
     isScroll () {
@@ -226,6 +224,17 @@ export default {
         this.showTip = true
       } else {
         this.showTip = false
+      }
+
+    },
+    // 监听滚动
+    onScroll (event) {
+      // 监听滚动到底部 取消显示
+      const target = event.target || {}
+      if (target.scrollHeight - target.clientHeight - target.scrollTop < 20) {
+        this.showTip = false
+      } else {
+        this.showTip = true
       }
     },
     // 点击内容选中参数
@@ -252,19 +261,21 @@ export default {
         this.showContentList = item.children
 
         this.originContentList[this.selectedIndex].children = JSON.parse(JSON.stringify(item.children))
-      }
 
-      // 切换数据后显示滚动提示
-      this.$nextTick(() => {
-        this.isScroll()
-      })
+        // 切换数据后显示滚动提示
+        this.$nextTick(() => {
+          this.isScroll()
+
+          document.querySelector('.institutional-filter-content') && (document.querySelector('.institutional-filter-content').scrollTop = 0)
+        })
+      }
     },
     // 点击头部选中参数
     changeHeader (item, index) {
       if (item.children.length) {
         console.log(this.selectedList)
         // 点击头部清除下标之后的选中参数 默认选中当前已选值
-        // this.selectedList.splice((index + 1), this.selectedList.length)
+        this.selectedList.splice((index + 1), this.selectedList.length)
         // 重置输入值
         this.inputValue = ''
         // 显示相应数组
@@ -282,6 +293,8 @@ export default {
         // 切换数据后显示滚动提示
         this.$nextTick(() => {
           this.isScroll()
+
+          document.querySelector('.institutional-filter-content') && (document.querySelector('.institutional-filter-content').scrollTop = 0)
         })
       }
     },
@@ -334,6 +347,9 @@ export default {
       if (this.resetList.length) {
 
         let current = this.resetList.length
+
+        // 将之前选中的参数还原到当前选中列表中
+        this.selectedList = JSON.parse(JSON.stringify(this.resetList))
 
         let listIndex = current
         if (current > 1) {
