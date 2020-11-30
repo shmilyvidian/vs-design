@@ -264,6 +264,13 @@ export default {
       return index
     }
   },
+  props: {
+    // 表格数据
+    canBack: {
+      type: Boolean,
+      default: true
+    }
+  },
   mounted () {
     const data = JSON.parse(localStorage.getItem('cTable'))
     if (data) {
@@ -313,13 +320,23 @@ export default {
         // 提示右滑箭头定位
         let aTop = 0
         setTimeout(() => {
-          console.log('this.$refs.headerTable.querySelectorAll == ', this.$refs.headerTable.querySelectorAll('.vs-thead-content'))
+          // console.log('this.$refs.headerTable.querySelectorAll == ', this.$refs.headerTable.querySelectorAll('.vs-thead-content'))
           this.$refs.headerTable.querySelectorAll('.vs-thead-content').forEach((item) => {
             aTop = item.clientHeight > aTop ? item.clientHeight : aTop
           }) 
           this.arrowsTop = aTop
         })
       })
+    }
+    console.log('mounted - canBack == ', this.canBack)
+    
+    // 必须用window.onpopstate 而不是 window.addEventListener，不然面不好清除   
+    window.onpopstate = event => {
+      if (!this.canBack) {
+        console.log('go - 1 == ')
+        // history.go(1) // 重点，这是阻止回退事件，要配合 store里的 history.pushState使用
+        this.$emit('quite') // 提交退出事件，讓外部處理
+      }
     }
   },
   destroyed () {

@@ -568,7 +568,9 @@ html.is-right-mobile {
   // transform: rotate(45deg);
   // margin: 0 0 0 1.333vw;
 
-  margin-left: 1.333vw;
+  // margin-left: 1.333vw;
+  transform: rotate(-90deg);
+  margin: 0;
 }
 
 .vs-table-more-box {

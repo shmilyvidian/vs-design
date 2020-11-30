@@ -355,7 +355,7 @@
 | ------------------ | ------------------------------- | ---------- | ------ |
 | type               |      date、year-month、month-day、<br>year、month、quarterly、<br>week-end、week-segment、just-show         | _string_   | date |
 | pickerRadius       |  日期选择器四周圆角                      | _string_   | 0           |
-| pickerColor        |  日期选择器四周圆角                      | _string_   | 0           |
+| pickerColor        |  日期选择器背景色                        | _string_   | 0           |
 | isItSaveSelected   |  是否在取消或点击蒙层时保留选中值         | _boolean_   | false      |
 | useDefaultIcon     |  是否使用默认日期图标                    | _boolean_   | true       |
 | sundayArray        |  周期-不连续类型week-end类型可选时间区间  | _array_     | []         |

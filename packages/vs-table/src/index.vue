@@ -88,12 +88,25 @@
     <div class="vs-table-bottom-padding" v-else></div>
     <Popup
       class="vs-table-picker-popuper"
-      position="bottom"
+      position="right"
       ref="popup"
       v-model="popupShow"
       v-bind="childComputed"
     >
-      <CardChildTable v-if="popupShow" />
+      <vs-header-nav
+        :color="`#fff`"
+        :size="`16px`"
+        :insertStyle="insertStyle"
+        @goBack="quite"
+      >
+        <div slot="centerItem">
+          查看更多详情
+        </div>
+      </vs-header-nav>
+      <CardChildTable 
+        v-if="popupShow"
+        :can-back="canBack"
+        @quite="quite" />
     </Popup>
 
   </div>
@@ -189,7 +202,18 @@ export default {
       colTextMaxWidth: 0, // 每一列的最长纯文案宽度
       defaultColPaddingWidth: 0, // 默认列之间的padding间距
       recordUnitClicks: {}, // 记录哪些单元格被点击过，达到点击带小数点的单元格后全显
-      numberUUID: this.uuid() // 排名列ID
+      numberUUID: this.uuid(), // 排名列ID
+      canBack: true,
+      insertStyle: { 
+        color: '#fff', 
+        fontSize: '17px', 
+        height: '44px',
+        lineHeight: '44px',
+        position: 'sticky',
+        top: '0',
+        left: '0',
+        zIndex: 2
+      }
     }
   },
   computed: {
@@ -198,7 +222,9 @@ export default {
       return {
         round: false,
         style: { 
-          maxHeight: '90%',
+          width: '100%',
+          height: '100%',
+          // maxHeight: '90%',
           ...this.childStyleProp
         },
         ...this.childProp
@@ -244,6 +270,22 @@ export default {
     clearTimeout(this.viewTableTime)
   },
   methods: {
+    notAllowBack () {
+      console.log('展开 === ')
+      this.canBack = false
+      history.pushState(null, null, location.href)
+    },
+    allowBack () {
+      console.log('allowBack === ')
+      this.canBack = true
+    },
+    quite () {
+      console.log('quite回调 === ')
+      this.allowBack()
+      window.onpopstate = event => {}
+      console.log('popupShow关闭 === ', this.popupShow)
+      this.popupShow = false
+    },
     // px 转 vw
     pxToVw (px) {
       return px * 100 / 375
@@ -358,7 +400,12 @@ export default {
       data.maxUnitLengthWidth = this.maxUnitLengthWidth
       localStorage.setItem('cTable', JSON.stringify(data))
 
-      this.popupShow = true
+      this.notAllowBack()
+      console.log('canBack par == ', this.canBack)
+      this.$nextTick(() => {
+        this.popupShow = true
+      })
+      
       // this.$router.push({
       //   name: 'ChildrenCardTable',
       //   query: {
