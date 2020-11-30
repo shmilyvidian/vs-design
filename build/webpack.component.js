@@ -29,10 +29,15 @@ const webpackConfig = {
     // }
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    // alias: {
-    //   'vue$': 'vue/dist/vue.esm.js',
-    // }
+    extensions: ['.js', '.vue', '.json']
+  },
+  externals: {
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
   },
   performance: {
     hints: false
@@ -46,14 +51,14 @@ const webpackConfig = {
           {
             loader: 'url-loader',
             options: {
-              limit: 500000,
-            },
-          },
-        ],
+              limit: 500000
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
-        loader: ["style-loader", "css-loader"]
+        loader: ['style-loader', 'css-loader']
       },
       {
         test: /\.js$/,
