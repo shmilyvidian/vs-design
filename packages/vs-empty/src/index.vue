@@ -1,9 +1,11 @@
 <template>
   <div class="vs-empty-container" :style="insertStyle.container">
+    <!-- 占位图片 -->
     <img
       :src="defaultImageTypes.includes(imageType) ? defaultUrl : imageType"
       :style="{width: imageSize}"
     >
+    <!-- 占位描述信息 -->
     <div class="vs-description" :style="insertStyle.description">{{ description }}</div>
     <slot></slot>
   </div>

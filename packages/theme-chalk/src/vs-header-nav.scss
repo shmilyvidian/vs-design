@@ -1,5 +1,6 @@
 @import "./common/reset.scss";
 @import "./mixins/mixins.scss";
+@import "./vs-vant-icon.scss";
 
 .vs-header-wrapper {
   display: flex;
@@ -20,9 +21,7 @@
   padding-left: 5px;
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center-children;
 }
 
 .vs-header-title {

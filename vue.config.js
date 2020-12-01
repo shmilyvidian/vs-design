@@ -1,4 +1,5 @@
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const resolve = (dir) => {
   return path.join(__dirname, dir)
 }
@@ -31,14 +32,23 @@ module.exports = {
         // 'packages': resolve('packages'),
         // 'utils': resolve('utils')
       }
-    }
+    },
+
+    plugins: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            drop_console: true
+          }
+        }
+      })
+    ]
   },
 
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('examples'))
       .set('packages', resolve('packages'))
-      .set('examples', resolve('examples'))
       .set('images', resolve('packages/images'))
       .set('utils', path.resolve(__dirname, './utils'))
 

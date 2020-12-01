@@ -1,8 +1,7 @@
 <template>
-  <header class="vs-header-wrapper" :style="insertStyle">
+  <header class="vs-header-wrapper test" :style="insertStyle">
     <div class="vs-header-left" @click="goBack" :class="{'no-visibility': !showBackIcon}">
-      <van-icon v-if="useVantIcon" name="arrow-left" :color="color" :size="size">
-      </van-icon>
+      <i  v-if="useVantIcon" class="van-icon van-icon-arrow-left" :style="{color: color, fontSize: size}"></i>
       <slot name="leftItem"/>
     </div>
     <div class="vs-header-title" :class="{'vs-right-padding': !hasRightSlot}">
@@ -16,13 +15,9 @@
   </header>
 </template>
 <script>
-import VanIcon from 'vant/lib/icon'
 
 export default {
   name: 'VsHeaderNav',
-  components: {
-    VanIcon
-  },
   props: {
     showBackIcon: {
       type: Boolean,
@@ -71,7 +66,5 @@ export default {
       this.showBackIcon && this.$emit('goBack')
     }
   },
-  mounted () {
-  }
 }
 </script>

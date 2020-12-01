@@ -17,7 +17,7 @@
     "init": "npm install commitizen -g && commitizen init cz-conventional-changelog --save-dev --save-exact && npm run bootstrap",
     "lib": "vue-cli-service build --target lib --name vs-design --dest lib packages/index.js && webpack --config ./build/webpack.component.js"
   },
-  "main": "lib/vs-design.umd.js",
+  "main": "lib/vs-design.umd.min.js",
   "files": [
     "lib",
     "packages"
@@ -59,6 +59,7 @@
     "sinon": "^9.2.1",
     "style-loader": "^2.0.0",
     "transliteration": "^2.2.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "uppercamelcase": "^3.0.0",
     "url-loader": "^4.1.1",
     "vue": "^2.6.11",

@@ -2,10 +2,7 @@
 @import "./mixins/mixins.scss";
 @import "./common/var.scss";
 @import '../../../node_modules/vant/lib/popup/index.css';
-@import '../../../node_modules/vant/lib/style/base.css';
 @import '../../../node_modules/vant/lib/overlay/index.css';
-@import '../../../node_modules/vant/lib/info/index.css';
-@import '../../../node_modules/vant/lib/icon/index.css';
 
 
 
@@ -22,9 +19,7 @@ html.is-right-mobile {
 }
 
 .flex-c-c {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center-children;
 }
 
 .text-wb-ws-bs {
@@ -357,9 +352,7 @@ html.is-right-mobile {
                   }
                 }
                 .vs-row-align-center-textalign {
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
+                  @include center-children;
 
                   .vs-c-td-text {
                     text-align:center;

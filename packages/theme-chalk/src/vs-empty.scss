@@ -2,9 +2,7 @@
 @import "./mixins/mixins.scss";
 
 .vs-empty-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center-children;
   flex-direction: column;
 
   .vs-description {

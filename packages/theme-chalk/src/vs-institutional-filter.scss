@@ -20,12 +20,12 @@ $baseColor: #6195ff;
     left: 0;
     width: 100%;
     height: 400px;
-    background-color: rgba($color: #000000, $alpha: 0.5);
+    background-color: rgba($color: #000, $alpha: 0.5);
     z-index: 999;
   }
 
   &-institutional-filter-overlay {
-    background-color: rgba($color: #000000, $alpha: 0.7);
+    background-color: rgba($color: #000, $alpha: 0.7);
     position: fixed;
     width: 100%;
     left: 0;
@@ -145,17 +145,13 @@ $baseColor: #6195ff;
     bottom: 0;
     width: 100%;
     height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center-children;
     background-color: #000;
 
     &-btn {
       width: 50%;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include center-children;
       color: #fff;
       font-size: 16px;
     }

@@ -3,8 +3,6 @@
 @import '../../../node_modules/vant/lib/popup/index.css';
 @import '../../../node_modules/vant/lib/style/base.css';
 @import '../../../node_modules/vant/lib/overlay/index.css';
-@import '../../../node_modules/vant/lib/info/index.css';
-@import '../../../node_modules/vant/lib/icon/index.css';
 @import '../../../node_modules/vant/lib/picker/index.css';
 
 .vs-datetime-picker-template {
@@ -35,9 +33,7 @@
       
       span {
         &.default {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include center-children;
           padding-right: 36px;
         }
   
@@ -45,9 +41,7 @@
           padding-right: 27.5px;
         }
         &.no-icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include center-children;
           padding-right: 12px;
         }
       }

@@ -14,17 +14,23 @@
   $E: $element !global;
   $selector: &;
     @at-root { // @at-root 指规则跳出嵌套，写在最外层
-        .#{$B+ $element-separator + $element} {
-          @content;
-        }
-      }
-}
-
-@mixin m($modifier) {
-    $selector: &;
-    @at-root {
-      .#{$selector + $modifier-separator + $modifier} {
+      .#{$B+ $element-separator + $element} {
         @content;
       }
     }
+}
+
+@mixin m($modifier) {
+  $selector: &;
+  @at-root {
+    .#{$selector + $modifier-separator + $modifier} {
+      @content;
+    }
   }
+}
+
+@mixin center-children { // 垂直水平居中子元素
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
