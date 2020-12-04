@@ -1,5 +1,6 @@
 const path = require('path')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const resolve = (dir) => {
   return path.join(__dirname, dir)
 }
@@ -42,6 +43,7 @@ module.exports = {
           }
         }
       })
+      // new BundleAnalyzerPlugin({ analyzerPort: 8920 })
     ]
   },
 
@@ -49,6 +51,7 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('examples'))
       .set('packages', resolve('packages'))
+      .set('examples', resolve('examples'))
       .set('images', resolve('packages/images'))
       .set('utils', path.resolve(__dirname, './utils'))
 

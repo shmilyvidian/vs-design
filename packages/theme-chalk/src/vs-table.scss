@@ -37,8 +37,7 @@ html.is-right-mobile {
 
 // 排序按钮
 .sort-icon-style {
-  width: 0;
-  height: 0;
+  @include wh(0, 0);
   position: absolute;
   left: calc(100% - 2.133vw);
   border: 1.067vw solid $ftColor;
@@ -48,8 +47,7 @@ html.is-right-mobile {
 
 // 存在子节点的父节点开展箭头标识
 .icon-position-border {
-  width: 0;
-  height: 0;
+  @include wh(0, 0);
   transform: translateY(-50%);
   position: absolute;
   top: 50%;
@@ -109,10 +107,8 @@ html.is-right-mobile {
     position: relative;
     z-index: 1;
     transform: translateZ(1100px);
-    // margin-top: 4.267vw;
     overflow: hidden;
     box-sizing: border-box;
-
 
     // 右滑可滑动的提示箭头
     .vs-table-scroll-icon {
@@ -179,9 +175,7 @@ html.is-right-mobile {
           .vs-p-head-tr {
             @extend .gather-header-tr;
             .vs-p-head-th {
-              display: flex;
-              align-items: center;
-              justify-content: center;
+              @include center-children;
               position: relative;
               box-sizing: initial;
               padding-bottom: 1.733vw!important;
@@ -212,28 +206,18 @@ html.is-right-mobile {
 
                     .vs-table-sort-div-re {
                       position: relative;
-                      height: 2.667vw;
-                      width: 2.133vw;
+                      @include wh(2.133vw, 2.667vw);
 
                       .vs-table-sort-top {
-                        // @extend .sort-icon-style;
                         bottom: 1.5vw;
                         border-top-color: transparent;
                       }
 
                       .vs-table-sort-bottom {
-                        // @extend .sort-icon-style;
                         bottom: -1vw;
                         border-bottom-color: transparent;
                       }
 
-                      .vs-table-sort-top.vs-table-active {
-                        // border-bottom-color: $mainColor;
-                      }
-
-                      .vs-table-sort-bottom.vs-table-active {
-                        // border-top-color: $mainColor;
-                      }
                     }
 
                     &.vs-table-sort-div-ab-top {
@@ -250,7 +234,6 @@ html.is-right-mobile {
               }
 
               .vs-unit {
-                // font-size: 2.4vw;
               }
             }
 
@@ -384,7 +367,6 @@ html.is-right-mobile {
             .vs-p-td-text {
               line-clamp: initial !important;
               -webkit-line-clamp:initial !important;
-              // display: block;
             }
           }
 
@@ -432,30 +414,24 @@ html.is-right-mobile {
       // 设置存在子节点的展开箭头提示
       .vs-p-td {
         .vs-table-icon-down {
-          // @extend .icon-position-border;
           margin-top: .534vw;
-          // border-bottom-color: transparent;
           
           position: absolute;
           top: 50%;
           right: 1.333vw;
-          width: 2.134vw;
-          height: 2.134vw;
+          @include wh(2.134vw, 2.134vw);
           transform: translateY(-50%);
           background: url('./imgs/table-down-expand.png') no-repeat center top;
           background-size: 100% 50%;
         }
 
         .vs-table-icon-up {
-          // @extend .icon-position-border;
           margin-top: -0.534vw;
-          // border-top-color: transparent;
 
           position: absolute;
           top: 50%;
           right: 1.333vw;
-          width: 2.134vw;
-          height: 2.134vw;
+          @include wh(2.134vw, 2.134vw);
           transform: translateY(-50%) rotate(180deg);
           background: url('./imgs/table-down-expand.png') no-repeat center top;
           background-size: 100% 50%;
@@ -543,25 +519,15 @@ html.is-right-mobile {
 // 查看更多
 .vs-risk-table-more {
   display: inline-block;
-  // width: 2.133vw;
-  // height: 2.133vw;
-  // border-top: 1px solid $mainColor;
-  // border-right: 1px solid $mainColor;
   margin: -1.067vw 0 0 2.133vw;
-  // transform: rotate(135deg);
 
-  width: 4.792vw;
-  height: 4.792vw;
+  @include wh(4.792vw, 4.792vw);
   transform: translateY(10%);
   background: url('./imgs/table-expand-more.png') no-repeat center center;
   background-size: 100% 100%;
 }
 
 .vs-risk-table-more.vs-rotate45 {
-  // transform: rotate(45deg);
-  // margin: 0 0 0 1.333vw;
-
-  // margin-left: 1.333vw;
   transform: rotate(-90deg);
   margin: 0;
 }
@@ -578,7 +544,6 @@ html.is-right-mobile {
     @extend .flex-c-c;
 
     .vs-rotate-45 {
-      // transform: rotate(-45deg);
       margin-left: 2.133vw;
       margin-top: 1.067vw;
       
@@ -599,8 +564,7 @@ html.is-right-mobile {
   &::before{
     content: '';
     display: inline-block;
-    width: 1.333vw;
-    height: 100%;
+    @include wh(1.333vw, 100%);
     position: absolute;
     top: 0;
     right: -1.333vw;
@@ -617,10 +581,6 @@ html.is-right-mobile {
 // 弹窗子表格
 .vs-table {
   .vs-c-table-conform {
-    // width: calc(100vw - 5.334vw);
-    // border-radius: 2.667vw;
-    // margin: 0 2.667vw;
-    // padding: 2.667vw 0 1.333vw;
     padding: 0 0 1.333vw;
     background: #2e3036;
   }

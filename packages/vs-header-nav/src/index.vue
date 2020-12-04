@@ -1,6 +1,6 @@
 <template>
-  <header class="vs-header-wrapper test" :style="insertStyle">
-    <div class="vs-header-left" @click="goBack" :class="{'no-visibility': !showBackIcon}">
+  <header class="vs-header-wrapper" :style="insertStyle">
+    <div class="vs-header-left" @click="goBack" :class="{'vs-no-visibility': !showBackIcon}">
       <i  v-if="useVantIcon" class="van-icon van-icon-arrow-left" :style="{color: color, fontSize: size}"></i>
       <slot name="leftItem"/>
     </div>

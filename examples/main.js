@@ -9,7 +9,7 @@ import demoBlock from './components/demo-block'
 import hljs from 'highlight.js'
 import 'packages/theme-chalk/src/index.scss'
 import Vant from 'vant'
-import 'packages/vs-touch-emulator'
+import 'examples/mobile-frame-view/vs-touch-emulator'
 
 // 导入组件库
 import packages from '../packages'

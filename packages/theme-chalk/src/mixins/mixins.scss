@@ -34,3 +34,15 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin text-ell() { // 当超过宽度时，显示省略号
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin wh($width, $height){ // 设置宽高
+	width: $width;
+	height: $height;
+}

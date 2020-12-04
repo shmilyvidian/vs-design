@@ -27,7 +27,7 @@
 
 Empty 组件内置了多种占位图片类型，可以在不同业务场景下使用。
 
-:::demo 使用`imageType`传图片类型，可选值为noUpdate, noData, noMessage, noFinish, noTask, noNetwork，支持传入图片 URL； 使用`imageSize`传图片大小，默认单位为 px； 使用`description`传图片下方的描述文字
+:::demo 使用`imageType`传图片类型，默认为noData，支持传入图片 URL； 使用`imageSize`传图片大小，默认单位为 px； 使用`description`传图片下方的描述文字
 
 
 ```html
@@ -61,7 +61,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 ```html
 <el-row>  
   <vs-empty
-    imageType="noUpdate"
+    imageType="noData"
     imageSize="100px"
     description="通过description自定义文案"
   >
@@ -83,7 +83,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 
 ### 自定义样式
 
-通过insertStyle添加自定义样式, container对象可修改容器样式, description对象可修改描述信息样式
+通过insertStyle添加自定义样式，container对象可修改容器样式，description对象可修改描述信息样式
 
 :::demo 
 
@@ -91,7 +91,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 ```html
 <el-row>  
   <vs-empty
-    imageType="noUpdate"
+    imageType="noData"
     imageSize="100px"
     description="通过description自定义文案"
     :insertStyle="insertStyle"
@@ -128,7 +128,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| imageType | 图片类型，可选值为 noData, noMessage, noFinish, noTask, noNetwork, noUpdate，支持传入图片 URL | _string_ | noData |
+| imageType | 图片类型，默认为 noData，支持传入图片 URL | _string_ | noData |
 | imageSize | 图片大小，默认单位为 px | _string/number_ | 138px |
 | description | 图片下方的描述文字 | _string_ | - |
 | insertStyle | 动态传入容器样式 | _object_ | - |

@@ -52,8 +52,7 @@
   
           &.default {
             display: inline-block;
-            width: 16px;
-            height: 16px;
+            @include wh(16px, 16px);
             margin-left: 5px;
             background: url('./imgs/calendar.png') no-repeat center center;
             background-size: 100% 100%;
@@ -65,8 +64,8 @@
           
           &.vs-table-icon-up {
             display: inline-block;
-            width: 7.5px; // 9.6
-            height: 4px; // 7.2
+            @include wh(7.5px, 4px);
+
             background: url('./imgs/table-down-expand.png') no-repeat center center;
             background-size: 100% 100%;
             position: absolute;
@@ -77,8 +76,7 @@
   
           &.vs-table-icon-down {
             display: inline-block;
-            width: 7.5px; // 9.6
-            height: 4px; // 7.2
+            @include wh(7.5px, 4px);
             background: url('./imgs/table-down-expand.png') no-repeat center center;
             background-size: 100% 100%;
             position: absolute;
@@ -124,13 +122,11 @@
       position: absolute;
       left: 0;
       top: 50%;
-      width: 100%;
-      height: 36px;
+      @include wh(100%, 36px);
+
       transform: translateY(calc(7px));
       margin: 0;
       padding: 0;
-          // transform: rotate(90deg);
-      // transform: translateY(calc(50%));
       background-color: #e1e1e1;
       opacity: 0.1;
       pointer-events: none;

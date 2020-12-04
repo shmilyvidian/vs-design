@@ -2,7 +2,7 @@
   <div class="vs-empty-container" :style="insertStyle.container">
     <!-- 占位图片 -->
     <img
-      :src="defaultImageTypes.includes(imageType) ? defaultUrl : imageType"
+      :src="imageType === 'noData' ? defaultUrl : imageType"
       :style="{width: imageSize}"
     >
     <!-- 占位描述信息 -->
@@ -11,36 +11,18 @@
   </div>
 </template>
 <script>
- import noUpdate from '../../theme-chalk/src/imgs/noUpdate.png'
  import noData from '../../theme-chalk/src/imgs/noData.png'
- import noMessage from '../../theme-chalk/src/imgs/noMessage.png'
- import noFinish from '../../theme-chalk/src/imgs/noFinish.png'
- import noTask from '../../theme-chalk/src/imgs/noTask.png'
- import noNetwork from '../../theme-chalk/src/imgs/noNetwork.png'
-
 
 export default {
   name: 'VsEmpty',
   data() {
     return {
-      defaultImageTypes: ['noUpdate', 'noData', 'noMessage', 'noFinish', 'noTask', 'noNetwork'],
-      imgUrlMap: {
-        noUpdate,
-        noData,
-        noMessage,
-        noFinish,
-        noTask,
-        noNetwork
-      }
+      defaultUrl: noData
     }
   },
-  computed: {
-    defaultUrl() {
-      return this.imgUrlMap[this.imageType]
-    }
-  },
+
   props: {
-    // 图片类型，可选值为 noData, noMessage, noFinish, noTask, noNetwork, noUpdate, 支持传入图片 URL
+    // 图片类型，默认为 noData, 支持传入图片 URL
     imageType: {
       type: String,
       default: 'noData'

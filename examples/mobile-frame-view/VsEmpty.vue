@@ -4,42 +4,6 @@
       <h2 class="infinite-doc-demo-block-title">基础用法</h2>
       <vs-empty/>
     </el-row>
-    <el-row class="infinite-doc-demo-block-row">
-      <h2 class="infinite-doc-demo-block-title">图片类型</h2>
-      <vs-empty
-        imageType="noNetwork"
-        imageSize="120px"
-        description="network类型"
-      >
-      </vs-empty>
-    </el-row>
-    <el-row>
-      <vs-empty
-        imageType="noMessage"
-        description="noMessage类型">
-      </vs-empty>
-    </el-row>
-     <el-row>
-      <vs-empty
-        imageType="noFinish"
-        description="noFinish类型"
-      >
-      </vs-empty>
-    </el-row>
-     <el-row>
-      <vs-empty
-        imageType="noTask"
-        description="noTask类型"
-      >
-      </vs-empty>
-    </el-row>
-     <el-row>
-      <vs-empty
-        imageType="noUpdate"
-        description="noUpdate类型"
-      >
-      </vs-empty>
-    </el-row>
     <el-row>
       <vs-empty
         imageType="https://img.yzcdn.cn/vant/custom-empty-image.png"
@@ -50,7 +14,7 @@
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">自定义图片大小</h2>
       <vs-empty
-        imageType="noNetwork"
+        imageType="noData"
         imageSize="60px"
         description="小图片"
       >
@@ -59,7 +23,7 @@
     <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">自定义底部文案</h2>
       <vs-empty
-        imageType="noNetwork"
+        imageType="noData"
         description="自定义内容"
       >
       <h3>this is Title</h3>
@@ -68,7 +32,7 @@
      <el-row class="infinite-doc-demo-block-row">
       <h2 class="infinite-doc-demo-block-title">自定义样式</h2>
       <vs-empty
-        imageType="noNetwork"
+        imageType="noData"
         imageSize="120px"
         description="network类型"
         :insertStyle="insertStyle"

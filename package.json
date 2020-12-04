@@ -15,7 +15,8 @@
     "build:style": "gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk && cp-cli packages/theme-chalk/src/imgs lib/theme-chalk/imgs",
     "clean": "rimraf lib && rimraf packages/*/lib",
     "init": "npm install commitizen -g && commitizen init cz-conventional-changelog --save-dev --save-exact && npm run bootstrap",
-    "lib": "vue-cli-service build --target lib --name vs-design --dest lib packages/index.js && webpack --config ./build/webpack.component.js"
+    "lib": "vue-cli-service build --target lib --name vs-design --dest lib packages/index.js && webpack --config ./build/webpack.component.js",
+    "analyzer": "use_analyzer=true npm run lib"
   },
   "main": "lib/vs-design.umd.min.js",
   "files": [
@@ -45,6 +46,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^6.2.2",
     "file-loader": "^6.2.0",
+    "happypack": "^5.0.1",
     "highlight.js": "^9.3.0",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^5.2.7",
@@ -67,6 +69,7 @@
     "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.4.9",
     "vue-template-compiler": "^2.6.11",
+    "webpack-bundle-analyzer": "^4.2.0",
     "webpack-cli": "^3.3.11"
   },
   "peerDependencies": {
