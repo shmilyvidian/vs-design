@@ -744,7 +744,7 @@ export default {
       isDefaultNumber: false,
       maxUnitLengthWidth: 8,
       childProp: {
-        round: true
+        // round: false
       }
     }
   },

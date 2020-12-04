@@ -201,34 +201,42 @@ html.is-right-mobile {
                     left: calc(100% + .533vw);
                     transform: translateY(calc(-50%));
 
-                    background: url('./imgs/table-sort-default.png') no-repeat center center;
-                    background-size: 100% 100%;
+                    // background: url('./imgs/table-sort-default.png') no-repeat center center;
+                    // background-size: 100% 100%;
 
                     .vs-table-sort-div-re {
                       position: relative;
                       @include wh(2.133vw, 2.667vw);
 
                       .vs-table-sort-top {
+                        @extend .sort-icon-style;
                         bottom: 1.5vw;
                         border-top-color: transparent;
                       }
 
                       .vs-table-sort-bottom {
+                        @extend .sort-icon-style;
                         bottom: -1vw;
                         border-bottom-color: transparent;
                       }
+                      .vs-table-sort-top.vs-table-active {
+                        border-bottom-color: $mainColor;
+                      }
 
+                      .vs-table-sort-bottom.vs-table-active {
+                        border-top-color: $mainColor;
+                      }
                     }
 
-                    &.vs-table-sort-div-ab-top {
-                      background: url('./imgs/table-sort-top.png') no-repeat center center;
-                      background-size: 100% 100%;
-                    }
+                    // &.vs-table-sort-div-ab-top {
+                    //   background: url('./imgs/table-sort-top.png') no-repeat center center;
+                    //   background-size: 100% 100%;
+                    // }
 
-                    &.vs-table-sort-div-ab-bottom {
-                      background: url('./imgs/table-sort-bottom.png') no-repeat center center;
-                      background-size: 100% 100%;
-                    }
+                    // &.vs-table-sort-div-ab-bottom {
+                    //   background: url('./imgs/table-sort-bottom.png') no-repeat center center;
+                    //   background-size: 100% 100%;
+                    // }
                   }
                 }
               }

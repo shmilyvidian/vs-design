@@ -219,7 +219,7 @@ export default {
   computed: {
     ...cardTableComputed,
     childComputed () {
-      return {
+      const obj = {
         round: false,
         style: { 
           width: '100%',
@@ -229,6 +229,7 @@ export default {
         },
         ...this.childProp
       }
+      return obj
     }
   },
   watch: {
