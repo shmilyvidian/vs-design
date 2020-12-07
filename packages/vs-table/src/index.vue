@@ -118,6 +118,7 @@ import CardContainerTable from './common/CardContainerTable'
 import CardFixedTable from './common/CardFixedTable'
 import CardChildTable from './components/CardChildTable'
 import { cardTableWatch, cardTableComputed } from './js/index'
+import VsHeaderNav from './../../vs-header-nav'
 
 import Popup from 'vant/lib/popup'
 
@@ -128,7 +129,8 @@ export default {
     CardContainerTable,
     CardFixedTable,
     CardChildTable,
-    Popup
+    Popup,
+    VsHeaderNav
   },
   props: {
     // 表格数据
